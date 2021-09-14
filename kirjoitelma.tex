@@ -1,0 +1,62 @@
+\documentclass[finnish,twoside,censored,essay,sw-line]{HYthesisML}
+
+\PassOptionsToClass{openright,twoside,a4paper}{report}
+
+\usepackage{csquotes}
+
+\usepackage[style=numeric,bibstyle=numeric,backend=biber,natbib=true,maxbibnames=99,giveninits=true,uniquename=init]{biblatex}
+\addbibresource{bibliography.bib}
+
+\DeclareNameAlias{sortname}{family-given}
+
+\usepackage{lmodern}         % Font package, again in some systems.
+\usepackage{textcomp}        % Package for special symbols
+\usepackage[pdftex]{color, graphicx} % For pdf output and jpg/png graphics
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage[pdftex, plainpages=false]{hyperref} % For hyperlinks and pdf metadata
+\usepackage{fancyhdr}        % For nicer page headers
+\usepackage{tikz}            % For making vector graphics (hard to learn but powerful)
+%\usepackage{wrapfig}        % For nice text-wrapping figures (use at own discretion)
+\usepackage{amsmath, amssymb} % For better math
+
+\singlespacing               %line spacing options; normally use single
+
+\fussy
+
+\title{Koneoppimisen menetelmät ja käyttökohteet lääketutkimuksessa -ja kehityksessä}
+
+% TM: Contributors to template editors now listed in the beginning of the file in comments
+\author{Heikki Pulli}
+
+\date{\today}
+
+\supervisors{}
+\examiners{}
+
+% \keywords{ulkoasu, tiivistelmä, lähdeluettelo}
+% \additionalinformation{\translate{\track}}
+
+% \classification{\protect{\ \\
+% \  General and reference $\rightarrow$ Document types  $\rightarrow$ Surveys and overviews\  \\
+% \  Applied computing  $\rightarrow$ Document management and text processing  $\rightarrow$ Document management $\rightarrow$ Text editing
+% }}
+
+\begin{document}
+\maketitle
+
+\mytableofcontents
+\mainmatter
+
+\chapter{Kirjoitelma pohja}
+
+jotain tekstiä koskien artikkelia~\cite{vamathevan}.
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\bibname}
+\printbibliography
+
+\backmatter
+
+\end{document}
