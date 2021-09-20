@@ -1,0 +1,30 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": "."
+    },
+    {
+      "name": "kirjoitelma",
+      "path": "./kirjoitelma"
+    },
+    {
+      "name": "aine",
+      "path": "./aine"
+    },
+    {
+      "name": "tutkielma",
+      "path": "./tutkielma"
+    },
+    {
+      "name": "misc",
+      "path": "./misc"
+    }
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "files.eol": "\n",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  }
+}
