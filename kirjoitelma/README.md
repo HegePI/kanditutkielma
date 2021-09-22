@@ -5,7 +5,7 @@
   - [koneoppimisesta](#koneoppimisesta)
   - [Neuroverkoista](#neuroverkoista)
     - [Eri neurtoverkkoja ja niiden toiminnalliset erot](#eri-neurtoverkkoja-ja-niiden-toiminnalliset-erot)
-  - [Datasta ja datan laadusta ja määrästä](#datasta-ja-datan-laadusta-ja-määrästä)
+  - [Datan laadusta ja määrästä](#datan-laadusta-ja-määrästä)
   - [Käytännön kohteet lääkkeiden löytmisessä/kehityksessä](#käytännön-kohteet-lääkkeiden-löytmisessäkehityksessä)
   - [Yleiskatsaus](#yleiskatsaus)
 
@@ -41,7 +41,7 @@ logaritminen ero...
 *  feedforward network
 *  Deep autoencoder network (DAEN)
 
-## Datasta ja datan laadusta ja määrästä
+## Datan laadusta ja määrästä
 *  Tulee olla tarkistettua, tarkkaa ja tarpeeksi kuvaavaa
 *  Mallia suunniteltaessa mietittävä, mikä on tarpeeksi dataa
 *  Useat käytännön koneet eivät suoriudukkaan tehtävästään hyvin, koska
