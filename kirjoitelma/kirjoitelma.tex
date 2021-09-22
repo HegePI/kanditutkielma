@@ -50,55 +50,7 @@
 
 \chapter{Johdanto}
 
-käyttökohteet
-1.  kohteen varmentaminen
-2.  Biomerkin tunnistaminen
-3.  kliinisistä testeistä kerätyn patologisen datan analyysia
 
-hidasteet/puutteet
-1.  tulosten tulkitsemisen vajaavuus
-2.  tulosten toistettavuus
-
-tärkeitä nosteita
-1.  Korkea laatuisen datan tarve
-2.  Koneoppimismallien validointi
-
-koenoppimisesta
-1.  Käytetään supervised ja unsuprvised malleja
-supervised, kun halutaan luokitella näytteitä ja ennustaa tulevia näytteitä
-unsupervised, kun etsitään ryppäitä datasta
-2.  Käyttettävä malli tulee valittava käyttökohteen mukaan
-Eri malleja vertaillaan usean eri metriikan perusteella, esim. ryhmittely tarkkuus, kappa -arvo,
-logaritminen ero...
-3. CPU -> GPU -> TPU
-
-Neuroverkoista
-Eri neurtoverkkoja ja niiden toiminnalliset erot
-1.  Convolutional neural networks (CNN)
-2.  Recurrent neural network (RNN)
-3.  feedforward network
-4.  Deep autoencoder network (DAEN)
-
-Datasta ja datan laadusta ja määrästä
-1.  Tulee olla tarkistettua, tarkkaa ja tarpeeksi kuvaavaa
-2.  Mallia suunniteltaessa mietittävä, mikä on tarpeeksi dataa
-3.  Useat käytännön koneet eivät suoriudukkaan tehtävästään hyvin, koska
-niiden koulutukseen tai niiden käsittelemä data vaihtelee laadultaan
-
-Käytännön kohteet lääkkeiden löytmisessä/kehityksessä
-1.  Koneoppimista on jo käytetty useassa tutkimuksessa tunnistamaan ja luokittelemaan
-dataa näytteistä
-2.  NLP -mementelmiä hyödynnetään aineiston etsinnässä. Aineistoa voidaan etsitä
-lääke-sairaus, geeni-sairaus ja kohde-lääke konteksteissa
-3.  Voidaan käyttää syöpäkohtaisten lääkkeiden etsinnässä. Koulutetaan malli hyödyntäen
-kerättyä dataa ja ennustetaan eri lääkkeiden vaikutusta
-4.  Yksi suurimmista tavoitteista koneoppimisen hyödyntämisessä on ennustaa, mitkä lääkkeet tulevat
-menestymään kliinisissä kokeissa
-5.  Koneoppimista on myös hyödynnetty pienten kemiallisten yhdisteiden suunnittelussa.
-- Multitask -mallit ovat osoittautuneet tehokkaammiksi kuin singletask -mallit, mutta ne ovat hyvin datan laadusta riippuvaisia
-- Neuroverkkoja ja nykyisiä hakupuualgoritmeja voidaan käyttää kemiallisen aineen syntesoinnin välivaiheiden suunnittelussa
-- De novo yhdisteiden suunnittelussa
-- Suuri kysymys on, kuinka pieniä molekyylejä/yhdisteitä kuvataan, esim. circular fingerprint, symmetry functions
 
 
 
