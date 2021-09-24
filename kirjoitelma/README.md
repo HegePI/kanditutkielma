@@ -26,12 +26,11 @@
 
 ## koneoppimisesta
 
-* Käytetään supervised ja unsuprvised malleja
-   *  supervised, kun halutaan luokitella näytteitä ja ennustaa tulevia näytteitä
-   *  unsupervised, kun etsitään ryppäitä datasta
-* Käyttettävä malli tulee valittava käyttökohteen mukaan
-Eri malleja vertaillaan usean eri metriikan perusteella, esim. ryhmittely tarkkuus, kappa -arvo,
-logaritminen ero...
+* Käytetään ohjattuja ja ohjaamattomia malleja
+   *  ohjattuja, kun halutaan luokitella näytteitä ja ennustaa tulevia näytteitä
+   *  ohjaamattomia, kun etsitään ryppäitä datasta
+* Käyttettävä malli on valittava käyttökohteen mukaan
+Eri malleja vertaillaan usean eri metriikan perusteella, esim. ryhmittely tarkkuus, kappa -arvo, logaritminen ero...
 * CPU -> GPU -> TPU
 
 ## Neuroverkoista
@@ -68,7 +67,7 @@ menestymään kliinisissä kokeissa
 
 ## Yleiskatsaus
 * Voi johtaa kehitykseen henkilökohtaisten räätälöityjen lääkkeiden osalta
-  * Käytetty elektronisissa potilasasiakirjoissa, joka on mahdollistanut kliinisten kokeiden kokeiden parantamisen ja kliinisen kokeen kelpaavuuden todentamisen
+  * Käytetty elektronisissa potilasasiakirjoissa, joka on mahdollistanut kliinisten kokeiden parantamisen ja kliinisen kokeen kelpaavuuden todentamisen
   * Terveydellistä dataa keräävien laitteiden yleistyminen (Wearables)
 * Tärkeitä tunnettuja ongelmia
   * Mallien tulosten tulkittavuus
