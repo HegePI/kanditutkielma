@@ -67,14 +67,77 @@ jolloin tutkija -tai kehittäjäryhmän tulee valita käytettävä malli ongelma
 eri paradigmaa noudattavat mallit sopeutuvat tiettyihin tehtäviin paremmin. On huomattu, että ohjatulla oppimisella
 ja vahvitusoppimisella koulutetut mallit soveltuvat paremmin tehtäviin, joissa on tarkoituksena luokitella
 dataa tutkittavien ominaisuuksien perusteella. Näitä ovat esimerkiksi kuviin perustuva diagnoosi tai syöpään
-vaikuttavien geenien RNAi seulonnassa.
+vaikuttavien geenien RNAi seulonnassa. Ohjaamatonta koneoppimisen malleja käyetetään puolestaan, kun tutkittavasta datasta halutaan löytää ryppäitä.
+Käytettyjä ohjattuja koneoppimismalleja ovat esimerkiksi lineaari regressio ja syvät neuroverkot, jotka soveltuvat
+kohteiden luokitteluun. Ohjaamattomia koneoppimismalleja ovat puolestaan k-lähin klusterointi ja itseohjautuva kartta
+tai Kohosen kartta.
 
-Ohjaamatonta koneoppimisen malleja käyetetään puolestaan, kun tutkittavasta datasta halutaan löytää ryppäitä.
-
+Kaikki käytettävät mallit ovat kuitenkin vain niin hyviä kuin saatavilla oleva data. Saatavilla olevan datan
+tulee olla tarkkaa, tarpeeksi kuvaavaa ja vertaisarvioitua. Kuitenkin tarvittavan datan määrä riippuu käytettävästä
+mallista ja tutkittavasta asiasta. Tutkittavasta asiasta riippuen tutkimukseen saattaa liittyä myös käytettävän datan
+tuottaminen. Paras data on systemaattisesti tuotettua jossa on ollut mukana mahdollisimman vähän muuttujia
+ja joka on kuvaavasti nimetty ja luokiteltu.
 
 \chapter{Koneoppimismallien käyttökohteet}
 
+Lääketutkimuksen tavoitteena on kehittää lääkkeitä, jotka vaikuttavat tautiin muokkaamalla molekyylitason kohdetta.
+Koska saatavilla olevaa dataa on enenemissä määrin, joka kuvaa tauteja ja mihin ne vaikuttavat ja mikä niihin
+vaikuttaa, niin koneoppimisen menetelmiä voidaan hyödyntää mahdollisten uusien tautien ja niihin tehoavien lääkkeiden
+tutkimuksessa.
+
+Yksi koeneoppimisen käyttökohteita on ollutkin taudin aiheuttajan tunnistaminen. Tätä voidaan tutkia
+analysoimalla asioita, joihin tauti vaikuttaa. Kun on olemasssa dataa siitä, mitkä mahdolliset asiat vaikuttavat
+niihin asioihin joihin tauti vaikuttaa, niin pystytään rajaamaan taudinaiheuttajia.
+
+Koneoppimisen menetelmiä käytetään myös saatavilla olevan lääketieteellisen kirjallisuuden analysointiin.
+NLP -menetelmien avulla voidaan seuloa suuresta määrästä tieteellisiä artikkeleita vain ne, jotka ovat
+tarpeellisia tilanteeseen. Tämä kuitenkin on riippuvaista siitä, kuinka hyvin julkaisut on annotoitu aiheidensa
+mukaan.
+
+Keskeisimmistä koenoppimisen käyttökohteita on ennustaa, kuinka suurella todennäköisyydellä kehitettävä lääke
+pääsee kliinisiin testeihin ja niistä läpi. Tutkimuksissa on käytetty dataa, joka kertoo, onko lääke päässyt
+testeistä läpi vai ei ja mikä on ollut lääkkeen vaikuttava tekijä. Roullardin tutkimusryhmä päätyi lopputulokseen,
+että geeniekspressiivinen data pystyi parhaiten ennustamaan lääkkeen onnistumisen.
+
+Koneoppimista voidaan hyödyntää myös pienten molekyylien vaikutusten ennustamisessa. On huomattu, että
+multi-task DNN ovat tähän tarkoitukseen tehokkaampia, kuin aikaisemmin käytetyt menetelmät. Käytetty
+One-shot tekniikka tarvitsee vähämmen dataa ja aikaa ennustaakseen tietyn yhdisteen reaktion tietyissä
+olosuhteisssa. Multi-task mallit ovat kuitenkin Single-task malleihin verrataen paljon enemmän riippuvaisempia
+datasta.
+
+Neuroverkkoja ja nykyisiä puuhaku algoritmeja voidaan myös hyödyntää lääkkeen syntetisoinnin välivaiheiden
+suunnittelussa.Tämä voidaan toteuttaa käyttämällä dataa synteettisestä kemiasta. Tämä on kuitenkin vaikea
+prosessi, koska tiedon määrä eri reaktioista kasvaa eksponentiaaliesti ja ei aina ole tietoa kaikista
+tilanteeseen liittyvisä reaktiosta. Seglerin tutkimusryhmä käytti Monte carlo -puuhakua ja neuroverkkoa apuna
+ohjatakseen haku algoritmia oikeaan suuntaan. Tutkimusryhmä käytti dataa Reaxys tietokannasta, joka sisältää
+tietoa eri yhdisteistä ja niiden välisistä reaktioista. Tämä menetelmä oli kolmekymmentä kertaa nopeampi kuin
+aikaisemmat menetelmät ja tulokset olivat keskivertaisesti yhtä hyvät kuin tutkijan itse tekemä menetelmä
+luoda yhdiste synteettisesti.
+
+Uusia biomarkkereita voidaan myös tutkia koenoppimismenetelmillä.
+
+Konenoppimista käytetään myös kuva-analyysissa. Tätät käytetään varsinkin patologisessa kontekstissa, kun
+halutaan tutkia esimerkiksi miten jokin tauti ilmenee näytteessä tai miten jokin lääke on vaikuttanut näytteeseen.
+
 \chapter{Koneoppimismallien heikkoudet ja puutteet}
+
+Vaikka koneoppiminen vaikuttaa suoraviivaistavan ja nopeuttavan lääkkeiden tutkimusta ja -kehitystä, niin
+malleissa on kuitenkin myös heikkouksia ja puutteita. Yksi näistä on mallien tulosten tulkittavuus ja varmennettavuus.
+Koneista nähdään vain, mitä dataa mallille annetaan ja minkä tulksen se antaa käyttäjälle. Miten kone päätyi
+lopputulkseensa on liki mahdoton saada selville. Tämä on yksi hidastava aspekti suuremmassa koneoppimisen mallien
+käyttöönotossa.
+
+Toinen ongelma on koneiden tulosten toistettavuus. Koneiden antamat tulokset ovat hyvin riippuvaisia koneen
+alkuasetuksista ja osittain jopa siitä, missä järjestykssä data koneelle annetaan, vaikka kone saisi täysin
+samaa dataa joka tilanteessa.
+
+Hyvän datan puute on myös ongelma. Vaikka dataa olisikin paljon johonkin tilanteeseen, niin datan heikko laatu
+saattaa kuitenkin aiheuttaa ongelmia. Koska laadukas data on systemaatiisesti tuotettua, hyvin annotoitua ja
+vertaisarvioitua, niin datan luomisessa saattaa kestää hyvinkin kauan aikaa ja datan tuotantokustannus saattaa
+nousta hyvinkin suureksi.
+
+Ongelmana on myös tietävän ja osaavan henkilöstön puute. Koska tutkimuksissa käsitellään sekä tietojenkäsittelytieteiden
+aiheita että biologian ja lääketutkimuksen aiheita, niin osaavaa henkilöstöä on hankalampi löytää.
 
 \cleardoublepage
 \phantomsection

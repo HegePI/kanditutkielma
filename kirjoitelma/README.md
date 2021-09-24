@@ -88,3 +88,4 @@ menestymään kliinisissä kokeissa
 * machine learning evaluation methods
 * kappa metric
 * de novo molecular design
+* ex vivo and in vivo models
