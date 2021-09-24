@@ -8,6 +8,7 @@
   - [Datan laadusta ja määrästä](#datan-laadusta-ja-määrästä)
   - [Käytännön kohteet lääkkeiden löytmisessä/kehityksessä](#käytännön-kohteet-lääkkeiden-löytmisessäkehityksessä)
   - [Yleiskatsaus](#yleiskatsaus)
+  - [Selvitettäviä asioita](#selvitettäviä-asioita)
 
 # Applications of machine learning in drug discovery and development yleiskatsaus ja nosteita
 
@@ -81,3 +82,9 @@ menestymään kliinisissä kokeissa
     * Koneet ovat riippuvaisia datasta
     * Tarvittava datan määrä riippuu käyttökohteesta/tutkittavasta asiasta -> Voi olla kallista tuottaa tarvittava määrä dataa
   * Osaavan henkilöstön puute
+
+## Selvitettäviä asioita 
+* Biomarkers
+* machine learning evaluation methods
+* kappa metric
+* de novo molecular design
