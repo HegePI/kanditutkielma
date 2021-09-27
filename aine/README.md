@@ -6,20 +6,19 @@
 ## Aineen rakenne
 
 * Johdanto
-* Mitä tarkoittaa
-* Miten ennen tehty
-* Nyky tilanne
+  * Mitä tarkoittaa
+  * Miten ennen tehty
+  * Nyky tilanne
 * Multi-task DNN
-* Mitä tarkoittaa
-* Miten käytetään
-* Käytettävissä oleva data
+  * Mitä tarkoittaa
+  * Miten käytetään
+  * Käytettävissä oleva data
 * Kemiallisten reaktioiden kuvaaminen koneen ymmärtämänä datan
-* Kemialliset datapankit
-* Reaxys 
+  * Kemialliset datapankit
+  * Reaxys 
 * Tutkimuksissa käytetyt menetelmät (Segler)
-* Tarkempi katsaus käytettyihin algoritmeihin ja mentelmiin
-* MCTS -explained
-* Muut käytetyt menetelmät explained
-* Eri mentelmien vertailu
+  * Tarkempi katsaus käytettyihin algoritmeihin ja mentelmiin
+  * MCTS -explained
+  * Muut käytetyt menetelmät explained
+  * Eri mentelmien vertailu
 * yhteenveto
-
