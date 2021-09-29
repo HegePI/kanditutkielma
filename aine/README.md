@@ -1,7 +1,17 @@
 - [Uusien lääkkeiden mallentaminen ja syntetisointi koneoppimismallien avulla](#uusien-lääkkeiden-mallentaminen-ja-syntetisointi-koneoppimismallien-avulla)
+  - [Selvitettävää](#selvitettävää)
   - [Aineen rakenne](#aineen-rakenne)
 
 # Uusien lääkkeiden mallentaminen ja syntetisointi koneoppimismallien avulla
+
+## Selvitettävää
+* Monte Carlo tree search
+* Chemical correlation analysis
+* molecular docking
+* transcriptomics
+* reaction mechanism elucidation
+* molecular energy prediction
+
 
 ## Aineen rakenne
 
