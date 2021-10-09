@@ -1,8 +1,8 @@
-- [Uusien lääkkeiden mallentaminen ja syntetisointi koneoppimismallien avulla](#uusien-lääkkeiden-mallentaminen-ja-syntetisointi-koneoppimismallien-avulla)
+- [Uusien lääkkeiden syntetisointi koneoppimismallien avulla](#uusien-lääkkeiden-syntetisointi-koneoppimismallien-avulla)
   - [Selvitettävää](#selvitettävää)
   - [Aineen rakenne](#aineen-rakenne)
 
-# Uusien lääkkeiden mallentaminen ja syntetisointi koneoppimismallien avulla
+# Uusien lääkkeiden syntetisointi koneoppimismallien avulla
 
 ## Selvitettävää
 * Monte Carlo tree search
@@ -17,18 +17,26 @@
 
 * Johdanto
   * Mitä tarkoittaa
-  * Miten ennen tehty
-  * Nyky tilanne
+    * syntetisointi
+    * retrosynteesi
+    * forward synthesis (predicting reactions)
+
+* retrosynteesi
+  * mitä tarkoittaa
+
 * Multi-task DNN
   * Mitä tarkoittaa
   * Miten käytetään
   * Käytettävissä oleva data
+  
 * Kemiallisten reaktioiden kuvaaminen koneen ymmärtämänä datan
   * Kemialliset datapankit
-  * Reaxys 
+  * Reaxys
+  
 * Tutkimuksissa käytetyt menetelmät (Segler)
   * Tarkempi katsaus käytettyihin algoritmeihin ja mentelmiin
   * MCTS -explained
   * Muut käytetyt menetelmät explained
   * Eri mentelmien vertailu
+  
 * yhteenveto
