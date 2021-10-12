@@ -28,6 +28,8 @@
   * Mitä tarkoittaa
   * Miten käytetään
   * Käytettävissä oleva data
+
+* Ensemble learning/Multiple-model learning
   
 * Kemiallisten reaktioiden kuvaaminen koneen ymmärtämänä datan
   * Kemialliset datapankit
