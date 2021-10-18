@@ -56,7 +56,18 @@ Lyhyt johdanto mitä aineessa käsitellään (de novo lääketutkimus ja retrosy
 
 \chapter{Uusien lääkkeiden löytäminen}
 
-Miksi uusien lääkkeiden löytäminen on vaikeaa?~\cite{EkinsSean2019Emlf}
+% Miksi uusien lääkkeiden löytäminen on vaikeaa?~\cite{EkinsSean2019Emlf}
+
+Uusien lääkkeiden tuottaminen on pitkä ja kallis prosessi. Tavallisesti aika, jossa
+lääke ensin löudetään, testataan ja hyväksytään useiden eri testien läpi, vaihtelee
+10-12 vuoden välillä ja hinta on 1-2 miljardin dollarin välillä.~\cite{EkinsSean2019Emlf}.
+
+Lääkefirmat ovatkin alkaneet selvittää, kuinka eri koneoppimisen malleja voidaan
+hyödyntää lääketutkimuksessa nopeuttamaan suurimpia pullonkauloja.~\cite{EkinsSean2019Emlf}.
+Eri mallit voivat esimerkiksi karsia kaikista harkinnasta olevista lääkkeistä vain
+lupaavimmat kandidaatit, joilla on mahdollisuus päästä testeistä läpi tuotantoon.
+Tai koneoppimismalleja voidaan hyödyntää täysin uusien lääkeaineiden etsinnässä, joilla
+on halutut lääkkeelliset että fysikaaliset ominaisuudet.~\cite{!lähde!}
 
 Ongelman kuvaaminen koneoppimisongelmana~\cite{10.1145/3219819.3219882,KadurinArtur2017dAAG}
 
@@ -80,6 +91,15 @@ Miten koneoppiminen voi auttaa uusien lääkkeiden retrosyntetisoinnissa?~\cite{
 \chapter{Kehitettyjä apuvälineitä}
 
 - 3N-MCTS~\cite{SeglerMarwinHS2018Pcsw}
+
+3N-MCTS on kehitetty koneoppimismalli, joka etsii retrosynteesi polkuja, kuinka
+syötteenä saatu molekyyli voidaan syntetisoida laboratoriossa. 3N-MCTS koostuu
+kolmesta eri koneoppimismallista ja Monte Carlo -puuhaku algoritmista. Neuroverkot
+on koulutettu avustamaan puuhaku algoritmia etenemään fiksuimpaan suuntaan, kun
+haku algoritmi etsii syntetisointi polkuja.
+
+Neuroverkot ovat hakupuun laajentumista ohjaava verkko, Rollout -verkko ja
+verkko, joka kertoo, onko syntetisointi polku toteutettavissa.
 
 - expert knowledge aided neural networks~\cite{10.1145/3450439.3451879}
 
