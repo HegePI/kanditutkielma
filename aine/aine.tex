@@ -90,33 +90,32 @@ Miten koneoppiminen voi auttaa uusien lääkkeiden retrosyntetisoinnissa?~\cite{
 
 \chapter{Kehitettyjä apuvälineitä}
 
+\section{3N-MCTS}
+
 3N-MCTS on kehitetty koneoppimismalli, joka etsii retrosynteesi polkuja yksinkertaisempiin
 ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}. Kun retrosynteesi polku on varmennettu ja
 todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
-3N-MCTS koostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhaku algoritmista (\textbf{Monte carlo tree search, MCTS}).
-Neuroverkot on koulutettu avustamaan puuhaku algoritmia etenemään fiksuimpaan suuntaan, kun
-haku algoritmi etsii syntetisointi polkuja ja tarkistamaan, onko ehdotettu reaktio mahdollinen
-kyseisellä molekyylille.
+3N-MCTS koostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhaku algoritmista
+(\textbf{Monte carlo tree search, MCTS}). Neuroverkot on koulutettu avustamaan puuhaku algoritmia etenemään
+fiksuimpaan suuntaan, kun haku algoritmi etsii syntetisointi polkuja ja tarkistamaan, onko ehdotettu reaktio
+mahdollinen kyseisellä molekyylille.
 
 Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (\textbf{Expansion policy network, EPN}),
 MCTS:än rollout toimintoa tukeva Rollout -verkko (\textbf{Rollout policy network, RPN})
 ja verkko, joka tarkistaa, onko syntetisointi polku toteutettavissa (\textbf{In-scope filter network, IFN}).
 
-Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta. Reaxys -tietokanta
-sisältää tietoa kemiallisista reaktioista, joita käyettiin mallien kouluttamiseen. Reaxys
-sisältää tietoa yli 12.4 miljoonasta kemiallisesta reaktioista ja reaktiot on
-kuvattu yksivaiheisina reaktioina. Eri mallien kouluttamiseen käytetiin eri kriteerein
-suodatettua dataa tietokannasta.
+Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta. Reaxys -tietokannan sisältämä data koostuu
+säännöistä, jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion
+tuote. Näitä sääntöjä käytetään mallien kouluttamiseen. Reaxys sisältää yli 12.4 miljoonaa sääntöä. Mallien
+kouluttamiseen käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain
+yhdestä kolmeen lähtötuotetta. Eri mallien kouluttamiseen käytetiin eri kriteerein suodatettua dataa tietokannasta.
 
 RPN:än kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (reaktiokeskus)
 ja lähimmät vierekkäiset atomit. Datasta suodatettiin pois sellaiset reaktiot, jotka ilmaantuivat
 alle 50 kertaa ennen vuotta 2015. EPN:än kouluttamiseen valittiin datasta vain reaktiokeskus.
-Datasta suodatettiin pois sellaiset reaktiot, jotka ilmenivät datassa alle kolme kertaa ennen vuotta
-2015. Lopulliset reaktio määrät, joilla RPN ja EPN koulutettiin, olivat 17134 ja 301671.
-
-Käytettäviä reaktioita kuvataan sääntöinä. Datasta saadut säännöt liittävät jokaisen reaktion ja
-tällöin jokaisen reaktion lopputuotteen reaktiosääntöön. Näillä säännöillä EPn ja RPN koulutetaan
-toimimaan hakua ohjaavina neuroverkkoina.
+EPN:än datasta suodatettiin pois sellaiset reaktiot, jotka ilmenivät datassa alle kolme kertaa ennen vuotta
+2015. Lopulliset reaktio määrät, joilla RPN ja EPN koulutettiin, olivat 17134 ja 301671. Näillä säännöillä
+EPN ja RPN koulutetaan toimimaan hakualgoritmia ohjaavina neuroverkkoina.
 
 EPN on toteutettu Highway -neuroverkkona (Highway network, HN). HN on hyvin syvä neuroverkko
 tyyppi, joka saattaa jopa sisältää yli sata kerrosta~\cite{VeryDeepNetworks}.
@@ -126,15 +125,38 @@ RPN on neuroverkko, jossa on yksi piilotettu taso. RPN koulutettiin samalla tava
 IFN on neuroverkko, joka tarkistaa, onko EPN:än ja RPN:än valitsemat reaktio säännöt toteutettavissa.
 IFN koulutetaan sekä onnistuneiden että epäonnistuiden reaktioiden avulla. Koska epäonnistuneita
 reaktioita ei talleneta tietokantaan, niin kyseinen data generoidaan. Data generoidaan siten, että jos reaktiossa
-\(A  + B \rightarrow C\) lähtöaineet A ja B reaktiossa muodostavat lopputuotteen C, niin lopputuotteita
+\[A  + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita
 D, E, F, jne. ei muodostu (voisi selittää syvemmin). IFN kouluttamista varten luotiin 100 miljoonaa
 epäonnistunutta reaktiota ja 10 miljoonaa testaamista varten.
 
-3N-MCTS:ässä IFN ja EPN on yhdistetty prosessiksi. Analyysin vaiheesssa $S_i$ (selitä Si vaihe)jokainen molekyyli syötetään
-EPN:älle ja se tulostaa, mitkä reaktiot voivat muodostaa annetun yhdisteen ja näin ollen myös mitkä lähtöaineet
-voivat muodostaa annetun yhdisteen. Nämä reaktiot syötetään IFN:älle, joka suodattaa valituista reaktioista
-toteutettavissa olevat. Tämän jälkeen iteroidaan neljää vaihetta, jotak muodostavat lopullisen puun.
+3N-MCTS:ässä IFN ja EPN on yhdistetty toimimaan yhdessä. Tutkittaessa puun tilaa $S_i$ (selitä Si vaihe) jokainen
+molekyyli syötetään EPN:älle ja se tulostaa, mitkä reaktiot voivat muodostaa annetun yhdisteen ja näin ollen
+myös mitkä lähtöaineet voivat muodostaa annetun yhdisteen. Nämä reaktiot syötetään IFN:älle, joka suodattaa
+valituista reaktioista toteutettavissa olevat. Tämän jälkeen algoritmissa iteroidaan neljää vaihetta, jotka
+muodostavat lopullisen puun.
 
+(1) Ensimmäisessä vaiheessa algoritmi valitsee seuraavan lupaavimman tilan puusta kunnes puun lehti on saavutettu.
+Jos lehdessä käydään ensimmäisen kerran valinta vaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia
+$d$ askelta eteenpäin samalla muodostaen synteesi polkua (rollout). Jos lehdessä käydään useamman kuin yhden
+kerran valinta vaiheen aikana, niin mahdolliset reaktiot, jotka muodostavat lehden, tutkitaan ja lisätään lehden
+lapsiksi (expansion)
+
+(2) Toisessa vaiheessa lupaavien tilojen lapset tutkitaan. Tällöin etsitään lupaavimmat reaktiot, jotka muodostavat
+kyseisessä tilassa olevan yhdisteen.
+
+(3) Kolmannessa vaiheessa tarkistetaan lehden tila. Jos lehti on `todistetusti toimiva', niin algoritmi palauttaa
+luvun suuremman kuin yksi, jolloin lehteä suositellaan käytettävän synteesipolussa. Muussa tapauksessa lehdelle
+suoritetaan rollout, jolloin RPN antaa rekursiivisesti uusia reaktioita niin kauan, kunnes lehti on pilkottu
+lähtöaineisiin tai kunnes suurin sallittu syvyys $d$ on saavutettu.
+
+(4) Viimeisessä vaiheessa lehtien arvot päivitetään. Jos lähtöaineet löydetään rolloutin aikana, niin lehti saa
+palkonnoksi arvon 1. Jos Kaikkia lähtöaineita ei löydetty, niin lehdelle annetaan osittainen palkinto. Jos yhtään
+lähtöainetta ei löytynyt, niin lehti saa arvon -1.
+
+Saatta kuietnkin olla, että synteesi polkua ei voida luoda. Joko synteesin polun tutkimiseen menee liian kauan
+aikaa tai synteesi polku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
+
+\section{Expert knowledge aided neural networks}
 - expert knowledge aided neural networks~\cite{10.1145/3450439.3451879}
 
 Miten koneoppimista hyödynnetään tällä hetkellä lääkkeiden syntetisoinnissa?~\cite{SeglerMarwinHS2018Pcsw,10.1145/3219819.3219882,10.1145/3450439.3451879}
