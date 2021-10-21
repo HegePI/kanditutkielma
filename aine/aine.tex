@@ -80,6 +80,17 @@ Ongelman kuvaaminen koneoppimisongelmana~\cite{10.1145/3219819.3219882,KadurinAr
 
 Mitä tarkoittaa lääkkeen syntetisointi?~\cite{deAlmeidaA.Filipa2019Socd}
 
+Yhdisteen syntetisoinnin suunnittelulla tarkoitetaan prosessia, jossa määritellään, kuinka haluttu yhdiste voidaan
+tuottaa synteettisesti saatavilla olevista lähtöaineista.~\cite{ColeyConnorW2018MLiC} Retrosynteesi analyysillä
+tarkoitetaan puolestaan menetelmää, jonka avulla löydetään halutun yhdisteen tuottamiseen tarvittavat lähtöaineet.
+Retrosynteesi toimii siis toiseen suuntaan kuin syntetisointi. Retrosynteesissä yhdiste pilkotaan rekursiivisesti
+pienempiin lähtöaineisiin kunnes jäljellä on vain saatavilla olevia lähtöaineita.
+
+Tavallisesti yhdisteen retrosyntetisointi on vaatinut suorittavalta kemistiltä usean vuoden kokemusta ja tietoa
+saatavilla olevista lähtöaineista ja eri reaktioista. Tätä on pyritty automatisoimaan eri CASP -menetelmien avulla (Computer-Aided Synthesis Planning).
+Ensimmäiset CASP -menetelmät perustuivat heuristisiin algoritmeihin, joissa kemistit käsin koodasivat, miten eri lähtöaineet reagoivat keskenään ja
+mikä on reaktion lopputuote. Tämä on kuitenkin osoittautunut toivottomaksi yritykseksi massiivisen datan määrän takia.
+
 \chapter{Lääkkeen retrosyntetisoinnin ongelma}
 
 Miksi lääkkeiden retrosyntetisointi on hankalaa?~\cite{ButlerKeithT2018Mlfm,deAlmeidaA.Filipa2019Socd}
@@ -92,8 +103,10 @@ Miten koneoppiminen voi auttaa uusien lääkkeiden retrosyntetisoinnissa?~\cite{
 
 \section{3N-MCTS}
 
+- Reaxys kanta, kenen ylläpitämä
+
 3N-MCTS on kehitetty koneoppimismalli, joka etsii retrosynteesi polkuja yksinkertaisempiin
-ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}. Kun retrosynteesi polku on varmennettu ja
+ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}. 3N-MCTS:än kehitti Marwin Seglerin, Mike Preussin ja Mark Wallerin tutkijaryhmä. Kun retrosynteesi polku on varmennettu ja
 todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
 3N-MCTS koostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhaku algoritmista
 (\textbf{Monte carlo tree search, MCTS}). Neuroverkot on koulutettu avustamaan puuhaku algoritmia etenemään
@@ -104,7 +117,7 @@ Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (\textbf{Expansio
 MCTS:än rollout toimintoa tukeva Rollout -verkko (\textbf{Rollout policy network, RPN})
 ja verkko, joka tarkistaa, onko syntetisointi polku toteutettavissa (\textbf{In-scope filter network, IFN}).
 
-Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta. Reaxys -tietokannan sisältämä data koostuu
+Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta. Reaxyksen omistaa Elsevier kustantamo. Reaxys -tietokannan sisältämä data koostuu
 säännöistä, jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion
 tuote. Näitä sääntöjä käytetään mallien kouluttamiseen. Reaxys sisältää yli 12.4 miljoonaa sääntöä. Mallien
 kouluttamiseen käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain
@@ -125,7 +138,7 @@ RPN on neuroverkko, jossa on yksi piilotettu taso. RPN koulutettiin samalla tava
 IFN on neuroverkko, joka tarkistaa, onko EPN:än ja RPN:än valitsemat reaktio säännöt toteutettavissa.
 IFN koulutetaan sekä onnistuneiden että epäonnistuiden reaktioiden avulla. Koska epäonnistuneita
 reaktioita ei talleneta tietokantaan, niin kyseinen data generoidaan. Data generoidaan siten, että jos reaktiossa
-\[A  + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita
+\[A + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita
 D, E, F, jne. ei muodostu (voisi selittää syvemmin). IFN kouluttamista varten luotiin 100 miljoonaa
 epäonnistunutta reaktiota ja 10 miljoonaa testaamista varten.
 
