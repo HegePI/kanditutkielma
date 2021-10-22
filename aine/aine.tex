@@ -52,12 +52,6 @@
 
 \chapter{Johdanto}
 
-Lyhyt johdanto mitä aineessa käsitellään (de novo lääketutkimus ja retrosynteesi)
-
-\chapter{Uusien lääkkeiden löytäminen}
-
-% Miksi uusien lääkkeiden löytäminen on vaikeaa?~\cite{EkinsSean2019Emlf}
-
 Uusien lääkkeiden tuottaminen on pitkä ja kallis prosessi. Tavallisesti aika, jossa
 lääke ensin löudetään, testataan ja hyväksytään useiden eri testien läpi, vaihtelee
 10-12 vuoden välillä ja hinta on 1-2 miljardin dollarin välillä.~\cite{EkinsSean2019Emlf}.
@@ -69,16 +63,57 @@ lupaavimmat kandidaatit, joilla on mahdollisuus päästä testeistä läpi tuota
 Tai koneoppimismalleja voidaan hyödyntää täysin uusien lääkeaineiden etsinnässä, joilla
 on halutut lääkkeelliset että fysikaaliset ominaisuudet.~\cite{!lähde!}
 
-Ongelman kuvaaminen koneoppimisongelmana~\cite{10.1145/3219819.3219882,KadurinArtur2017dAAG}
+Uuden lääkkeen löytäminen sairauteen on pitkä ja kallis prosessi.
+Tähän kuuluu useita eri vaiheita ja eri vaiheet vievät eri määrän rahaa ja aikaa.
+Nämä ovat sairauden aiheuttajan tunnistaminen, tähän vaikuttavan lääkkeen tunnistaminen, lääkkeen optimointi, lääkkeen ominaisuuksien analysointi ja kliiniset testit.
+Näiden jälkeen lääke joko hyväksytään myyntiin tai ei.
+Nämä eri vaiheet vievät tavallisesti 10 - 12 vuotta ja hintaa tälle tulee noin 2.8 miljardia dollaria.
+Vaiheiden pitkän keston ja suuren hinnan takia tutkijat ja lääkefirmat ovatkin alkaneet tutkia mahdollisia keinoja, jotka nopeuttaisivat tai halventaisivat tätä lääkkeen kehityksen prosessia.
 
-\chapter{Kehitettyjä koneoppimismalleja}
-- Prototype based drug design~\cite{10.1145/3219819.3219882}
+Koneoppimisenmallit ovat nousseet houkuttelevaksi vaihtoehdoksi, joka voisi nopeuttaa tätä prosessia.
+viimeisen kymmenen vuoden aikana saatavilla olevan laadukkaan datan määrä on kasvanut merkittävästi ja uusia tehokkaampia koneoppimismalleja on kehitetty, joita voidaan hyödyntää lääketutkimuksessa.
+Kehitetyt mallit ovatkin näyttäneet, että koneoppimismallit ovat tehokkaita työkaluja, joita voidaan hyödyntää kaikissa lääketutkimuksen prosessin vaiheissa.
 
+Tässä tektissä paneudutaan syvemmin koneoppimismalleihin, joita käytetään uusien lääkkeiden tunnistaminseen ja näiden tunnistettujen lääkkeiden syntetisoinnin suunnitteluun.
+
+\chapter{Uusien lääkkeiden löytäminen}
+
+% Miksi uusien lääkkeiden löytäminen on vaikeaa?~\cite{EkinsSean2019Emlf}
+
+Yksi ensimmäisistä lääketutkimuksen prosessin osa-aluiesta on uusien lääekyhdisteiden löytäminen joko uusiin tai jo tunnettuihin tauteihin.~\cite{EkinsSean2019Emlf}
+Tämä on kuitenkin ollut tavallisesti hidas prosessi ja uuden toimivan yhdisteen löytäminen on kestänyt kahdesta kolmeen vuotta.
+Lisääntynyt datan määrä on kuitenkin mahdollistanut tämän osa-alueen nopeuttamisen koneoppimismallien avulla.
+Tähän ongelmaan on kehitetty useita eri koneoppimismalleja.
+Mariya Popovan, Olexandr Isayev ja Alexander Tropsha tutkimusryhmä on kehittänyt mallin, joka ehdottaa uutta yhdistettä perustuen mallin syötteenä saamaan ominaisuus vektoriin.~\cite{PopovaMariya2018Drlf}
+Shahar Harelin ja Kira Radinskyn tutkijaryhmä puolestaan ovat kehittäneet mallin, joka luo uusia yhdisteitä, jotka perustuvat syötteenä annettuun prototyyppi yhdisteeseen.~\cite{ShaharHarelAndKiraRadinsky}
+
+Jotta koneoppimismalleja voidaan hyödyntää lääketutkimuksessa täytyy olla saatavilla tarpeeksi dataa tutkittavasta aiheesta.~\cite{EkinsSean2019Emlf}
+Viimeisimmän kymmenen vuoden aikana saatavilla olevan datan määrä on kasvannut merkittävästi kehitettyjen tietopankkien takia.
+Näitä ovat esimerkiksi PubChem ja ChEMBL.
+
+\section{virtual screening}
+
+Erillaisten kemiallisten yhdisteiden avaruus on suuri.
+On arvioitu, että erillaisia kemiallisia yhdisteitä, jotka voivat esiitnyä huoneen lämmössä ja nesteessä, voi olla välillä $10^{18} - 10^{180}$.~\cite{SotrifferChristoph2011VSPC}
+Lääkkeeksi käyvien yhdisteiden määrä on taas puolestaan arvioitu olevan koko luokkaa $10^{60}$.~\cite{SotrifferChristoph2011VSPC}
+Tämä itsessään esittää tarpeen tehokkaille algoritmeille ja menetelmille, jotka auttavat karsimaan tästä suuresta määrästä kemiallisia yhdisteitä vain lupaavimmat.
+
+Virtual screening (VS) on joukko menetelmiä uusien lääkkeiden löytämiseksi.
+VS menetelmillä tarkoitetaan yleisesti prosesseja, joissa käydään läpi suuria tietokantoja dataa, jotta löydetään haluttu yhdiste.~\cite{SotrifferChristoph2011VSPC}
+
+\subsection{Koneoppimisen käyttökohteet VS:ässä}
+
+Ongelman kuvaaminen koneoppimisongelmana~\cite{ShaharHarelAndKiraRadinsky,KadurinArtur2017dAAG}
+
+\section{Kehitettyjä koneoppimismalleja}
+
+\subsection{Prototyyppiin perustuva lääkkeen suunnittelu}
+- Prototype based drug design~\cite{ShaharHarelAndKiraRadinsky}
+
+\subsection{Deep generative autoencoder}
 - Deep generative autoencoder~\cite{KadurinArtur2017dAAG}
 
-\chapter{Lääkkeiden syntetisointi ja retrosyntetisointi}
-
-Mitä tarkoittaa lääkkeen syntetisointi?~\cite{deAlmeidaA.Filipa2019Socd}
+\chapter{Uusien lääkkeiden syntetisointi}
 
 Yhdisteen syntetisoinnin suunnittelulla tarkoitetaan prosessia, jossa määritellään, kuinka haluttu yhdiste voidaan
 tuottaa synteettisesti saatavilla olevista lähtöaineista.~\cite{ColeyConnorW2018MLiC} Retrosynteesi analyysillä
@@ -91,19 +126,27 @@ saatavilla olevista lähtöaineista ja eri reaktioista. Tätä on pyritty automa
 Ensimmäiset CASP -menetelmät perustuivat heuristisiin algoritmeihin, joissa kemistit käsin koodasivat, miten eri lähtöaineet reagoivat keskenään ja
 mikä on reaktion lopputuote. Tämä on kuitenkin osoittautunut toivottomaksi yritykseksi massiivisen datan määrän takia.
 
-\chapter{Lääkkeen retrosyntetisoinnin ongelma}
+Kehitys koneoppimismenetelmissä on kuitenkin tarjonnut uuden lähestymis tavan CASP -menetelmien keshitykseen. Sen sijaan, että
+kemistit loisivat heuristisia malleja, niin uudet koneoppimismallit koulutetaan saatavilla olevan datan avulla.
+Tämä on todettu merkittävästi enemmän toteutettavaksi lähestymistavaksi.
 
+Koneoppismallien käyttö ja koulutus ei ole kuitenkaan täysin ongelmaton lähestymistapa myöskään.
+Ongelmaan liittyen dataa ei välttämättä ole saatavilla ja datan hankkiminen voi olla kallis operaatio.
+Tätä varten on kehitetty tietopankkeja, jotka sisältävät massiivisia määriä dataa tietystä aiheesta, esim. Reaxys kemiallisesista raektioista.
+
+
+\section{Lääkkeen retrosyntetisoinnin haastavuus}
+
+Retorsyntetisoinnin tekee hankalaksi fakta, että yhdiste voidaan muodostaa sadoilla tai tuhansilla eri tavoilla.
+Tämä ongelma toistuu rekursiivisesti, kun yhdiste pilkotaan yhdisteisiin, jotka keskenään reagoidessa muodostavat alkuperäisen yhdisteen.
+Pienille ja yksinkertaisille yhdisteille tämä vaihtoehto avaruus on pienempi, mutta yhdisteen koon kasvaessa eri tapojen määrä muodostaa haluttu yhdiste kasvaa eksponentiaalisesti.
+
+Tämän takia tarve tätä prosessia yleistäville koneoppimismalleille on suuri.
 Miksi lääkkeiden retrosyntetisointi on hankalaa?~\cite{ButlerKeithT2018Mlfm,deAlmeidaA.Filipa2019Socd}
 
-\chapter{Koneoppimisen käytön hyödyt}
+\section{Kehitettyjä apuvälineitä}
 
-Miten koneoppiminen voi auttaa uusien lääkkeiden retrosyntetisoinnissa?~\cite{VamathevanJessica2019Aoml}
-
-\chapter{Kehitettyjä apuvälineitä}
-
-\section{3N-MCTS}
-
-- Reaxys kanta, kenen ylläpitämä
+\subsection{3N-MCTS}
 
 3N-MCTS on kehitetty koneoppimismalli, joka etsii retrosynteesi polkuja yksinkertaisempiin
 ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}. 3N-MCTS:än kehitti Marwin Seglerin, Mike Preussin ja Mark Wallerin tutkijaryhmä. Kun retrosynteesi polku on varmennettu ja
@@ -169,7 +212,7 @@ lähtöainetta ei löytynyt, niin lehti saa arvon -1.
 Saatta kuietnkin olla, että synteesi polkua ei voida luoda. Joko synteesin polun tutkimiseen menee liian kauan
 aikaa tai synteesi polku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
 
-\section{Expert knowledge aided neural networks}
+\subsection{Expert knowledge aided neural networks}
 - expert knowledge aided neural networks~\cite{10.1145/3450439.3451879}
 
 Miten koneoppimista hyödynnetään tällä hetkellä lääkkeiden syntetisoinnissa?~\cite{SeglerMarwinHS2018Pcsw,10.1145/3219819.3219882,10.1145/3450439.3451879}
