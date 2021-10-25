@@ -91,6 +91,9 @@ Jotta koneoppimismalleja voidaan hyödyntää lääketutkimuksessa täytyy olla 
 Viimeisimmän kymmenen vuoden aikana saatavilla olevan datan määrä on kasvannut merkittävästi kehitettyjen tietopankkien takia.
 Näitä ovat esimerkiksi PubChem ja ChEMBL.
 
+Lääkkeitä myös kehitetään muokkaamalla jo tunnettua lääkeyhdistettä jolla on jo osittain halutut ominaisuudet.~\cite{ShaharHarelAndKiraRadinsky}
+
+
 \section{virtual screening}
 
 Erillaisten kemiallisten yhdisteiden avaruus on suuri.
@@ -110,8 +113,23 @@ Ongelman kuvaaminen koneoppimisongelmana~\cite{ShaharHarelAndKiraRadinsky,Kaduri
 \subsection{Prototyyppiin perustuva lääkkeen suunnittelu}
 - Prototype based drug design~\cite{ShaharHarelAndKiraRadinsky}
 
-\subsection{Deep generative autoencoder}
-- Deep generative autoencoder~\cite{KadurinArtur2017dAAG}
+\subsection{Controlled molecule generator, CMG}
+- Controlled molecule generator~\cite{ShinBonggun}
+
+CMG (Controlled molecule generator) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet.~\cite{ShinBonggun}
+Se eroaa muista kehitetyistä malleista siten, että se pystyy optimoimaan annetun molekyylin useampaa ominaisuutta.
+Edelliset kehitetyt mallit ovat psytyneet optimoimaan vain yhtä molekyylin ominaisuutta.
+
+CMG:n kehittäjät lähestyvät molekyylin ominaisuuksien optimointi ongelmaa merkiijonojen käännös/luonti ongelmana.
+CMG opetetaan, kuinka syötteenä annettu molekyyli merkkijono käännetään molekyyli merkkijonoksi, jolla on lähimpänä haluttuja ominaisuuksia olevat omaisuudet.
+CMG tulkitsee ensin annetut merkkijonot hyödyntäen DN:ää (deep network) jonka jälkeen se luo uusia molekyyli yhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
+Koska ominaisuudet annetaan vektorina, niin CMG pystyy optimoimaan useampaa ominaisuutta.
+CMG lisäksi hyödyntää ennalta koulutettuja rajoite verkkoja (constraint network), jolloin vältytään luomasta mahdottomia yhdisteitä.
+CMG käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam Search -algoritmia.
+
+
+
+
 
 \chapter{Uusien lääkkeiden syntetisointi}
 
