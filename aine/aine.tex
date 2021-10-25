@@ -124,12 +124,44 @@ CMG:n kehittäjät lähestyvät molekyylin ominaisuuksien optimointi ongelmaa me
 CMG opetetaan, kuinka syötteenä annettu molekyyli merkkijono käännetään molekyyli merkkijonoksi, jolla on lähimpänä haluttuja ominaisuuksia olevat omaisuudet.
 CMG tulkitsee ensin annetut merkkijonot hyödyntäen DN:ää (deep network) jonka jälkeen se luo uusia molekyyli yhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
 Koska ominaisuudet annetaan vektorina, niin CMG pystyy optimoimaan useampaa ominaisuutta.
-CMG lisäksi hyödyntää ennalta koulutettuja rajoite verkkoja (constraint network), jolloin vältytään luomasta mahdottomia yhdisteitä.
+CMG lisäksi hyödyntää ennalta koulutettuja rajoite verkkoja (constraint network, CN), jolloin vältytään luomasta mahdottomia yhdisteitä.
 CMG käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam Search -algoritmia.
 
+Taustatietoa muista aiheista/malleista, joita on hyödynnetty CMG:ssä\dots
 
+CMG perusmalli on samanlainen verrattaen aikaisemmin kehitettyyn The Transformer -malliin (Molecule Translation Network, MTN).\cite{TheTransformer}
+CMG:tä on laajennettu tästä lisäämällä siihen tietoa molekyylien ominaisuuksista ja kaksi CN:ää.
+Nämä CN:ät ovat ominaisuuksien ennustamiseen tarkoitettu verkko (property prediction network, PPN) ja samanlaisuuksien ennustamiseen tarkoitettu verkko (similarity prediction network, SPN).
 
+MTN eroaa Transformer -mallista kahdella tavalla.
+MTN käyttää word embeddinging sijaan character embeddingiä, koska molekyylit kuvataan merkkijonoina.
+Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallissista ominaisuuksista.
+MTN:än loss function on muotoa \[\mathcal{L} (\theta_T;X,p_x,p_y) = -\frac{1}{N}\frac{1}{M}\sum_{n \in N}\sum_{i \in M}\sum_{v \in V}y_v,j,n \cdot log(\hat{y}_v,j,n).\]
 
+PPN ottaa syötteenä ennustetun molekyylin merkkijonon ($y_i$).
+Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi (Parempi termi?) hyödyntäen Long short-term memory (LSTM) -tasoa.
+LSTM muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnassa, ja näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
+Nämä vektorit yhdistetään ja yhdistevektori syötetään täsyin yhdistetylle neuroverkolle.
+Tämä verkko sisältää kaksi piilotettua tasoa.
+
+SMP ottaa syötteenä ennustetun molekyylin merkkijono ($y_i$) ja alkuperäisen molekyylin merkkijonon ($x_i$).
+Nämä merkkijonot syötetään kahdelle eri LSTM -tasolle, toinen käsittelee alkuperäisen molekyylin merkkijonot ja toinen ennustetun molekyylin merkkijonot.
+Nämä LSTM -tasot tomivat samalla periaatteella kuin PPN:ässä ja palauttavat näin ollen neljä eri vektoria.
+Nämä vektorit yhdistetään ja tämä yhdiste vektori annetaan täysin yhdistetylle verkolle, joka sisältää kaksi piilotettua tasoa.
+
+Data, jolla, mallit koulutetaan, on peräisin ZINC ja DRD2 dataseteistä. (Kuka hallinnoi?)
+Data sisältää kaiken kaikkiaan 257565 molekyyliä, joista luodaan pareja.
+Parit muodostetaan siten, että kahden molekyylin välinen samanlaisuus luku on yli 0.4.
+Näitä pareja $(X,Y)$ muodostetaan kaiken kaikkiaan 10827615 kappaletta.
+Lisäksi kaikille molekyyleille lasketaan niiden eri kemiallisten ominaisuuksien arvot, jotka ovat PlogP, QED ja DRD2.
+Nämä kuvaavat eri haluttuja ominaisuuksia, joita lääkkeiltä halutaan.
+
+PPN koulutetaan käyttäen 257565 eri molekyyliä.
+nämä molekyylit jaetaan satunnanavaraisella valinnalla koulutus -ja testiryhmiin suhteella 8:2.
+
+SPN kouluttamiseen käytetään osajoukkoa 10827615 eri parista.
+Tästä määrästä valitaan kymmenen prosentin osajoukko, joka on kaiken kaikkiaan 997773 molekyylin suuruinen.
+Tämä joukko jaettiin samalla tavalla koulutus ja testi ryhmiin kuin PPN:ässä.
 
 \chapter{Uusien lääkkeiden syntetisointi}
 
