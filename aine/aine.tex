@@ -263,9 +263,40 @@ Saatta kuietnkin olla, että synteesi polkua ei voida luoda. Joko synteesin polu
 aikaa tai synteesi polku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
 
 \subsection{Expert knowledge aided neural networks}
-- expert knowledge aided neural networks~\cite{10.1145/3450439.3451879}
+- expert knowledge aided neural networks~\cite{ExpertKnowledgeRetorsynthesis}
 
-Miten koneoppimista hyödynnetään tällä hetkellä lääkkeiden syntetisoinnissa?~\cite{SeglerMarwinHS2018Pcsw,10.1145/3219819.3219882,10.1145/3450439.3451879}
+On myös yleistä, että retrosynteesi polkuja  suunnitelevat mallit hyödyntävät myös heurustiikka.~\cite{ExpertKnowledgeRetorsynthesis}
+Badowski et al ryhmä on kehittänyt mallin, joka suunnittelee retrosynteesi polkuja hyödyntämällä neuroverkkoja ja ammattikemistien muodostamia heuristisia malleja suunnitellessaan retrosynteesi polkua.
+
+ICHO:n (Instytut Chemii Organicznej) kouluttamiseen käyettiin dataa 1.4 miljoonasta reaktiota ja niiden lopputuotteista.
+Data saadaan julkaisuista artikkeleista ja patenteista.
+Reaktiolta kuitenkin vaaditaan, että ainakin yksi reaktio per lopputuote löytyy myös Chematican (taustatietoa) expert-coded säännöstöstä.
+Lisäksi datasta suodatettiin pois suojaryhmien reaktiot.
+
+ICHO:sta kehitettiin myös malli, jonka kouluttamisessa käytettiin lisäksi vektoreita, jotka sisäslsivät dataa kemiallisesti intuitiivisistä reaktio piirteistä, joita on käytetty aikaisemmissa tutkimuksissa.
+Tätä mallia kutsutaan ICHO+ malliksi, ja sitä käytetään vertailemaan ICHO mallin suoriutumista.
+
+Kehitetyssä ICHO mallissa on kaksi tärkeää seikkaa.
+(1) Se laskee reaktioiden ilmaantumistodennäköisyyttä uudelleen perustaen kuinka usein ne ne ilmaantuvat ammattilaisten käyttämissä reaktiossa.
+Tämä laskenta tapahtuu mallin koulutusvaiheessa.
+Käytännössä tämä tarkoittaa, että koulutusvaiheessa mallilla on tieto, kuinka monta kertaa tietty reaktio sääntö ilmeni datassa ja kuinka monta kertaa kysesitä reaktiota käytettiin luomaan jokin lopputuote.
+Malli laskee näiden välisen suhteen, jolloin malli pystyy määrittämään, kuinka usein kyseistä reaktioita kannattaa käyttää.
+Jos esimerkiksi jokin reaktio on mainittu datassa kymmenen kertaa ja samassa datassa kyseistä reaktiota käytetään kymmenen kertaa luomaan jokin lopputuote, niin malli käyttää tätä reaktiota, koska se luokitellaan `Helpoksi ja varmaksi toteuttaa'.
+Jos suhde taas on pieni, niin reaktio luokitellaan `vaikeaksi toteuttaa'.
+(2) Se kykenee antamaan suuremman kuin nolla todennäköisyyden reaktiolle, joka ei ilmaantunut koulutusvaiheessa.
+Tämä sen takia, että mallille koulutetaan jatkuva funktio, joka antaa todennäköisyyden jokaiselle reaktio tyypille perustuen, kuinka reaktio muuttaa lopputuotteen lähtötuotteiksi.
+Eli jos jokin reaktion sormenjälki (Lisää tietoa, koska useassa mallissa käytetään) tai heuristinen kuvaus on samankaltainen toisen reaktion kanssa, joka ilmenee koulutusdatassa, niin reaktiolle voidaan antaa todennäköisyys sen käytölle.
+
+ICHO mallia vertailtiin aikasiemmin mainitun 3N-MCTS mallin kanssa, jota kustsutaan artikkelissa SW mallina.
+Kyseisestä SW mallista kehitettiin myös heuristista dataa hyödyntävä malli SW+.
+Lisäksi luotiin SW malli, joka ei käy läpi kaikkia mahdollisia reaktioita, vaan valitsee reaktiot vain niistä reaktioista, jotka eivät aiheuta konfliktia (selitys) ja jotka johtavat vain tiettyyn lopputuotteeseen.
+Tätä mallia kutsutaan SW2 malliksi ja täsät luodusta heuristisesta mallista käytetään nimeä SW2+
+Lisäksi vertailumalliksi luodaan myös täysin heuristinen malli, joka arvioi reaktioita sen mukaan, kuinka paljon ne yksinkertaistavat lopputuotetta rakenteellisesti.
+Tämä malli suosii reaktioita, jotka pilkkovat molekyylin keskeltä, eli puolittavat sen.
+Tämä on haluttu lähestymistapa retrosuynteesiin, koska se minimoi syntetisointi vaiheiden määrän.
+
+
+Miten koneoppimista hyödynnetään tällä hetkellä lääkkeiden syntetisoinnissa?~\cite{SeglerMarwinHS2018Pcsw,ShaharHarelAndKiraRadinsky,ShinBonggun}
 
 \chapter{Tulevaisuuden koneoppimisen mallit ja kehitys}
 
