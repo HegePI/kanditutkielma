@@ -21,6 +21,7 @@
 \usepackage{fancyhdr}        % For nicer page headers
 \usepackage{tikz}            % For making vector graphics (hard to learn but powerful)
 \usepackage{amsmath, amssymb} % For better math
+\graphicspath{{../kuvat/}}
 
 \singlespacing               %line spacing options; normally use single
 
@@ -52,26 +53,19 @@
 
 \chapter{Johdanto}
 
-Uusien lääkkeiden tuottaminen on pitkä ja kallis prosessi. Tavallisesti aika, jossa
-lääke ensin löudetään, testataan ja hyväksytään useiden eri testien läpi, vaihtelee
-10-12 vuoden välillä ja hinta on 1-2 miljardin dollarin välillä.~\cite{EkinsSean2019Emlf}.
-
-Lääkefirmat ovatkin alkaneet selvittää, kuinka eri koneoppimisen malleja voidaan
-hyödyntää lääketutkimuksessa nopeuttamaan suurimpia pullonkauloja.~\cite{EkinsSean2019Emlf}.
-Eri mallit voivat esimerkiksi karsia kaikista harkinnasta olevista lääkkeistä vain
-lupaavimmat kandidaatit, joilla on mahdollisuus päästä testeistä läpi tuotantoon.
-Tai koneoppimismalleja voidaan hyödyntää täysin uusien lääkeaineiden etsinnässä, joilla
-on halutut lääkkeelliset että fysikaaliset ominaisuudet.~\cite{!lähde!}
-
-Uuden lääkkeen löytäminen sairauteen on pitkä ja kallis prosessi.
+Uusien lääkkeiden tuottaminen on pitkä ja kallis prosessi.
 Tähän kuuluu useita eri vaiheita ja eri vaiheet vievät eri määrän rahaa ja aikaa.
 Nämä ovat sairauden aiheuttajan tunnistaminen, tähän vaikuttavan lääkkeen tunnistaminen, lääkkeen optimointi, lääkkeen ominaisuuksien analysointi ja kliiniset testit.
 Näiden jälkeen lääke joko hyväksytään myyntiin tai ei.
-Nämä eri vaiheet vievät tavallisesti 10 - 12 vuotta ja hintaa tälle tulee noin 2.8 miljardia dollaria.
-Vaiheiden pitkän keston ja suuren hinnan takia tutkijat ja lääkefirmat ovatkin alkaneet tutkia mahdollisia keinoja, jotka nopeuttaisivat tai halventaisivat tätä lääkkeen kehityksen prosessia.
+Nämä eri vaiheet ovat tavallisesti vieneet 10 - 12 vuotta ja kaikkien eri vaiheiden jälkeen hintaa on muodostunut noin 1 - 3 miljardia dollaria.~\cite{EkinsSean2019Emlf}
 
+Vaiheiden pitkän keston ja suuren hinnan takia tutkijat ja lääkefirmat ovatkin alkaneet tutkia mahdollisia keinoja, jotka nopeuttaisivat tai halventaisivat tätä lääkkeen kehityksen prosessia.
 Koneoppimisenmallit ovat nousseet houkuttelevaksi vaihtoehdoksi, joka voisi nopeuttaa tätä prosessia.
-viimeisen kymmenen vuoden aikana saatavilla olevan laadukkaan datan määrä on kasvanut merkittävästi ja uusia tehokkaampia koneoppimismalleja on kehitetty, joita voidaan hyödyntää lääketutkimuksessa.
+Lääkefirmat ovatkin alkaneet selvittää, kuinka eri koneoppimisen malleja voidaan hyödyntää lääketutkimuksessa nopeuttamaan suurimpia pullonkauloja.~\cite{EkinsSean2019Emlf}.
+Viimeisen kymmenen vuoden aikana saatavilla olevan laadukkaan datan määrä on kasvanut merkittävästi ja on kehitetty uusia tehokkaampia koneoppimismalleja, joita voidaan hyödyntää lääketutkimuksessa.
+Eri mallit voivat esimerkiksi karsia kaikista harkinnasta olevista lääkkeistä vain lupaavimmat kandidaatit, joilla on mahdollisuus päästä testeistä läpi tuotantoon.
+Koneoppimismalleja voidaan myös hyödyntää aivan uusien lääkeaineiden etsinnässä.
+Tähän tarkoitukseen kehitetyt koneoppimismallit kykenevät etsimään lääkkeitä, joilla on halutut lääkkeelliset että fysikaaliset ominaisuudet.~\cite{VamathevanJessica2019Aoml}
 Kehitetyt mallit ovatkin näyttäneet, että koneoppimismallit ovat tehokkaita työkaluja, joita voidaan hyödyntää kaikissa lääketutkimuksen prosessin vaiheissa.
 
 Tässä tektissä paneudutaan syvemmin koneoppimismalleihin, joita käytetään uusien lääkkeiden tunnistaminseen ja näiden tunnistettujen lääkkeiden syntetisoinnin suunnitteluun.
@@ -80,12 +74,12 @@ Tässä tektissä paneudutaan syvemmin koneoppimismalleihin, joita käytetään 
 
 % Miksi uusien lääkkeiden löytäminen on vaikeaa?~\cite{EkinsSean2019Emlf}
 
-Yksi ensimmäisistä lääketutkimuksen prosessin osa-aluiesta on uusien lääekyhdisteiden löytäminen joko uusiin tai jo tunnettuihin tauteihin.~\cite{EkinsSean2019Emlf}
+Yksi ensimmäisistä lääketutkimuksen prosessin osa-alueista on uusien lääkeyhdisteiden löytäminen joko uusiin tai jo tunnettuihin tauteihin.~\cite{EkinsSean2019Emlf}
 Tämä on kuitenkin ollut tavallisesti hidas prosessi ja uuden toimivan yhdisteen löytäminen on kestänyt kahdesta kolmeen vuotta.
 Lisääntynyt datan määrä on kuitenkin mahdollistanut tämän osa-alueen nopeuttamisen koneoppimismallien avulla.
 Tähän ongelmaan on kehitetty useita eri koneoppimismalleja.
-Mariya Popovan, Olexandr Isayev ja Alexander Tropsha tutkimusryhmä on kehittänyt mallin, joka ehdottaa uutta yhdistettä perustuen mallin syötteenä saamaan ominaisuus vektoriin.~\cite{PopovaMariya2018Drlf}
-Shahar Harelin ja Kira Radinskyn tutkijaryhmä puolestaan ovat kehittäneet mallin, joka luo uusia yhdisteitä, jotka perustuvat syötteenä annettuun prototyyppi yhdisteeseen.~\cite{ShaharHarelAndKiraRadinsky}
+Popovan et al. tutkimusryhmä on kehittänyt mallin, joka ehdottaa uutta yhdistettä perustuen mallin syötteenä saamaan ominaisuusvektoriin.~\cite{PopovaMariya2018Drlf}
+Shahar Harelin ja Kira Radinskyn tutkijaryhmä puolestaan ovat kehittäneet mallin, joka luo uusia yhdisteitä, jotka perustuvat syötteenä annettuun prototyyppiyhdisteeseen.~\cite{ShaharHarelAndKiraRadinsky}
 
 Jotta koneoppimismalleja voidaan hyödyntää lääketutkimuksessa täytyy olla saatavilla tarpeeksi dataa tutkittavasta aiheesta.~\cite{EkinsSean2019Emlf}
 Viimeisimmän kymmenen vuoden aikana saatavilla olevan datan määrä on kasvannut merkittävästi kehitettyjen tietopankkien takia.
@@ -94,54 +88,56 @@ Näitä ovat esimerkiksi PubChem ja ChEMBL.
 Lääkkeitä myös kehitetään muokkaamalla jo tunnettua lääkeyhdistettä jolla on jo osittain halutut ominaisuudet.~\cite{ShaharHarelAndKiraRadinsky}
 
 
-\section{virtual screening}
+\section{Virtuaalinen seulonta}
 
-Erillaisten kemiallisten yhdisteiden avaruus on suuri.
-On arvioitu, että erillaisia kemiallisia yhdisteitä, jotka voivat esiitnyä huoneen lämmössä ja nesteessä, voi olla välillä $10^{18} - 10^{180}$.~\cite{SotrifferChristoph2011VSPC}
-Lääkkeeksi käyvien yhdisteiden määrä on taas puolestaan arvioitu olevan koko luokkaa $10^{60}$.~\cite{SotrifferChristoph2011VSPC}
+Kemiallisten yhdisteiden avaruudella tarkoitetaan kaikkien uniikkien yhdisteiden lukumäärää.
+Erilaisten kemiallisten yhdisteiden avaruus on suuri.
+On arvioitu, että erillaisia kemiallisia yhdisteitä, jotka voivat esiintyä huoneenlämmössä ja nesteessä, voi olla välillä $10^{18} - 10^{180}$.~\cite{SotrifferChristoph2011VSPC}
+Yhidsteet, jotka täyttävät lääkkeeltä vaaditut kriteerit, on puolestaan arvioitu olevan noin $10^{60}$.~\cite{SotrifferChristoph2011VSPC}
 Tämä itsessään esittää tarpeen tehokkaille algoritmeille ja menetelmille, jotka auttavat karsimaan tästä suuresta määrästä kemiallisia yhdisteitä vain lupaavimmat.
 
-Virtual screening (VS) on joukko menetelmiä uusien lääkkeiden löytämiseksi.
+Virtuaalinen seulonta (Virtual Screning, VS) on suosittu lähestymistapa uusien lääkkeiden löytämiseksi.
+VS käsittää joukon menetelmiä, joissa tietokoneita hyväksi käyttäen karsitaan kaikesta yhdisteiden avaruudesta vain tietyt kriteerit täyttävät yhdisteet, joita voidaan jatkotutkia ja kehittää lääkkeiksi.
 VS menetelmillä tarkoitetaan yleisesti prosesseja, joissa käydään läpi suuria tietokantoja dataa, jotta löydetään haluttu yhdiste.~\cite{SotrifferChristoph2011VSPC}
 
-\subsection{Koneoppimisen käyttökohteet VS:ässä}
+% \subsection{Koneoppimisen käyttökohteet VS:ässä}
 
-Ongelman kuvaaminen koneoppimisongelmana~\cite{ShaharHarelAndKiraRadinsky,KadurinArtur2017dAAG}
+% Ongelman kuvaaminen koneoppimisongelmana~\cite{ShaharHarelAndKiraRadinsky,KadurinArtur2017dAAG}
 
 \section{Kehitettyjä koneoppimismalleja}
 
-\subsection{Prototyyppiin perustuva lääkkeen suunnittelu}
-- Prototype based drug design~\cite{ShaharHarelAndKiraRadinsky}
+% \subsection{Prototyyppiin perustuva lääkkeen suunnittelu}
+% - Prototype based drug design~\cite{ShaharHarelAndKiraRadinsky}
 
 \subsection{Controlled molecule generator, CMG}
-- Controlled molecule generator~\cite{ShinBonggun}
+% - Controlled molecule generator~\cite{ShinBonggun}
 
 CMG (Controlled molecule generator) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet.~\cite{ShinBonggun}
 Se eroaa muista kehitetyistä malleista siten, että se pystyy optimoimaan annetun molekyylin useampaa ominaisuutta.
-Edelliset kehitetyt mallit ovat psytyneet optimoimaan vain yhtä molekyylin ominaisuutta.
+Edelliset kehitetyt mallit ovat pystyneet optimoimaan vain yhtä molekyylin ominaisuutta.
 
-CMG:n kehittäjät lähestyvät molekyylin ominaisuuksien optimointi ongelmaa merkiijonojen käännös/luonti ongelmana.
-CMG opetetaan, kuinka syötteenä annettu molekyyli merkkijono käännetään molekyyli merkkijonoksi, jolla on lähimpänä haluttuja ominaisuuksia olevat omaisuudet.
-CMG tulkitsee ensin annetut merkkijonot hyödyntäen DN:ää (deep network) jonka jälkeen se luo uusia molekyyli yhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
+CMG:n kehittäjät lähestyvät molekyylin ominaisuuksien optimointiongelmaa merkijonojen käännös/luontiongelmana.
+CMG:lle opetetaan, kuinka syötteenä annettu molekyylimerkkijono käännetään molekyylimerkkijonoksi, jolla on lähimpänä haluttuja ominaisuuksia olevat omaisuudet.
+CMG tulkitsee ensin annetut merkkijonot hyödyntäen DN:ää (deep network) jonka jälkeen se luo uusia molekyyliyhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
 Koska ominaisuudet annetaan vektorina, niin CMG pystyy optimoimaan useampaa ominaisuutta.
-CMG lisäksi hyödyntää ennalta koulutettuja rajoite verkkoja (constraint network, CN), jolloin vältytään luomasta mahdottomia yhdisteitä.
+CMG lisäksi hyödyntää ennalta koulutettuja rajoiteverkkoja (constraint network, CN), jolloin vältytään luomasta mahdottomia yhdisteitä.
 CMG käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam Search -algoritmia.
 
-Taustatietoa muista aiheista/malleista, joita on hyödynnetty CMG:ssä\dots
+(Taustatietoa muista aiheista/malleista, joita on hyödynnetty CMG:ssä\dots)
 
 CMG perusmalli on samanlainen verrattaen aikaisemmin kehitettyyn The Transformer -malliin (Molecule Translation Network, MTN).\cite{TheTransformer}
 CMG:tä on laajennettu tästä lisäämällä siihen tietoa molekyylien ominaisuuksista ja kaksi CN:ää.
 Nämä CN:ät ovat ominaisuuksien ennustamiseen tarkoitettu verkko (property prediction network, PPN) ja samanlaisuuksien ennustamiseen tarkoitettu verkko (similarity prediction network, SPN).
 
 MTN eroaa Transformer -mallista kahdella tavalla.
-MTN käyttää word embeddinging sijaan character embeddingiä, koska molekyylit kuvataan merkkijonoina.
+Toisin kuin Transformer, joka käsittelee sanoja ja niistä muodostettuja lauseita, MTN käsittelee yksittäisiä merkkejä ja niistä muodostettuja molekyylejä.
 Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallissista ominaisuuksista.
-MTN:än loss function on muotoa \[\mathcal{L} (\theta_T;X,p_x,p_y) = -\frac{1}{N}\frac{1}{M}\sum_{n \in N}\sum_{i \in M}\sum_{v \in V}y_v,j,n \cdot log(\hat{y}_v,j,n).\]
+MTN:än kustannus funktio on muotoa \[\mathcal{L} (\theta_T;X,p_x,p_y) = -\frac{1}{N}\frac{1}{M}\sum_{n \in N}\sum_{i \in M}\sum_{v \in V}y_v,j,n \cdot log(\hat{y}_v,j,n).\]
 
 PPN ottaa syötteenä ennustetun molekyylin merkkijonon ($y_i$).
-Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi (Parempi termi?) hyödyntäen Long short-term memory (LSTM) -tasoa.
+Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi (Parempi termi?) hyödyntäen Long short-term memory (LSTM) -kerrosta.
 LSTM muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnassa, ja näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
-Nämä vektorit yhdistetään ja yhdistevektori syötetään täsyin yhdistetylle neuroverkolle.
+Nämä vektorit yhdistetään ja yhdistevektori syötetään täysin yhdistetylle neuroverkolle.
 Tämä verkko sisältää kaksi piilotettua tasoa.
 
 SMP ottaa syötteenä ennustetun molekyylin merkkijono ($y_i$) ja alkuperäisen molekyylin merkkijonon ($x_i$).
@@ -150,34 +146,33 @@ Nämä LSTM -tasot tomivat samalla periaatteella kuin PPN:ässä ja palauttavat 
 Nämä vektorit yhdistetään ja tämä yhdiste vektori annetaan täysin yhdistetylle verkolle, joka sisältää kaksi piilotettua tasoa.
 
 Data, jolla, mallit koulutetaan, on peräisin ZINC ja DRD2 dataseteistä. (Kuka hallinnoi?)
-Data sisältää kaiken kaikkiaan 257565 molekyyliä, joista luodaan pareja.
-Parit muodostetaan siten, että kahden molekyylin välinen samanlaisuus luku on yli 0.4.
-Näitä pareja $(X,Y)$ muodostetaan kaiken kaikkiaan 10827615 kappaletta.
+Data sisältää kaiken kaikkiaan 257 565 molekyyliä, joista luodaan pareja.
+Parit muodostetaan siten, että kahden molekyylin välinen samanlaisuus luku on yli 0.4. (Miten lasketaan?)
+Näitä pareja $(X,Y)$ muodostetaan kaiken kaikkiaan 10 827 615 kappaletta.
 Lisäksi kaikille molekyyleille lasketaan niiden eri kemiallisten ominaisuuksien arvot, jotka ovat PlogP, QED ja DRD2.
 Nämä kuvaavat eri haluttuja ominaisuuksia, joita lääkkeiltä halutaan.
 
-PPN koulutetaan käyttäen 257565 eri molekyyliä.
+PPN koulutetaan käyttäen 257 565 eri molekyyliä.
 nämä molekyylit jaetaan satunnanavaraisella valinnalla koulutus -ja testiryhmiin suhteella 8:2.
 
-SPN kouluttamiseen käytetään osajoukkoa 10827615 eri parista.
-Tästä määrästä valitaan kymmenen prosentin osajoukko, joka on kaiken kaikkiaan 997773 molekyylin suuruinen.
+SPN kouluttamiseen käytetään osajoukkoa 10 827 615 eri parista.
+Tästä määrästä valitaan kymmenen prosentin osajoukko, joka on kaiken kaikkiaan 997 773 molekyylin suuruinen.
 Tämä joukko jaettiin samalla tavalla koulutus ja testi ryhmiin kuin PPN:ässä.
 
 \chapter{Uusien lääkkeiden syntetisointi}
 
-Yhdisteen syntetisoinnin suunnittelulla tarkoitetaan prosessia, jossa määritellään, kuinka haluttu yhdiste voidaan
-tuottaa synteettisesti saatavilla olevista lähtöaineista.~\cite{ColeyConnorW2018MLiC} Retrosynteesi analyysillä
-tarkoitetaan puolestaan menetelmää, jonka avulla löydetään halutun yhdisteen tuottamiseen tarvittavat lähtöaineet.
-Retrosynteesi toimii siis toiseen suuntaan kuin syntetisointi. Retrosynteesissä yhdiste pilkotaan rekursiivisesti
-pienempiin lähtöaineisiin kunnes jäljellä on vain saatavilla olevia lähtöaineita.
+Yhdisteen syntetisoinnin suunnittelulla tarkoitetaan prosessia, jossa määritellään, kuinka haluttu yhdiste voidaan tuottaa synteettisesti saatavilla olevista lähtöaineista.~\cite{ColeyConnorW2018MLiC}
+Retrosynteesianalyysillä tarkoitetaan puolestaan menetelmää, jonka avulla löydetään halutun yhdisteen tuottamiseen tarvittavat lähtöaineet.
+Retrosynteesi toimii siis toiseen suuntaan kuin syntetisointi.
+Retrosynteesissä yhdiste pilkotaan rekursiivisesti pienempiin lähtöaineisiin kunnes jäljellä on vain saatavilla olevia lähtöaineita.
 
-Tavallisesti yhdisteen retrosyntetisointi on vaatinut suorittavalta kemistiltä usean vuoden kokemusta ja tietoa
-saatavilla olevista lähtöaineista ja eri reaktioista. Tätä on pyritty automatisoimaan eri CASP -menetelmien avulla (Computer-Aided Synthesis Planning).
-Ensimmäiset CASP -menetelmät perustuivat heuristisiin algoritmeihin, joissa kemistit käsin koodasivat, miten eri lähtöaineet reagoivat keskenään ja
-mikä on reaktion lopputuote. Tämä on kuitenkin osoittautunut toivottomaksi yritykseksi massiivisen datan määrän takia.
+Tavallisesti yhdisteen retrosyntetisointi on vaatinut suorittavalta kemistiltä usean vuoden kokemusta ja tietoa saatavilla olevista lähtöaineista ja eri reaktioista.
+Tätä on pyritty automatisoimaan eri CASP -menetelmien avulla (Computer-Aided Synthesis Planning).
+Ensimmäiset CASP -menetelmät perustuivat heuristisiin algoritmeihin, joissa kemistit käsin koodasivat, miten eri lähtöaineet reagoivat keskenään ja mikä on reaktion lopputuote.
+Tämä on kuitenkin osoittautunut toivottomaksi yritykseksi massiivisen datan määrän takia.
 
-Kehitys koneoppimismenetelmissä on kuitenkin tarjonnut uuden lähestymis tavan CASP -menetelmien keshitykseen. Sen sijaan, että
-kemistit loisivat heuristisia malleja, niin uudet koneoppimismallit koulutetaan saatavilla olevan datan avulla.
+Kehitys koneoppimismenetelmissä on kuitenkin tarjonnut uuden lähestymistavan CASP -menetelmien keshitykseen.
+Sen sijaan, että kemistit loisivat heuristisia malleja, niin uudet koneoppimismallit koulutetaan saatavilla olevan datan avulla.
 Tämä on todettu merkittävästi enemmän toteutettavaksi lähestymistavaksi.
 
 Koneoppismallien käyttö ja koulutus ei ole kuitenkaan täysin ongelmaton lähestymistapa myöskään.
@@ -187,24 +182,30 @@ Tätä varten on kehitetty tietopankkeja, jotka sisältävät massiivisia määr
 
 \section{Lääkkeen retrosyntetisoinnin haastavuus}
 
-Retorsyntetisoinnin tekee hankalaksi fakta, että yhdiste voidaan muodostaa sadoilla tai tuhansilla eri tavoilla.
+Retrosyntetisoinnin tekee hankalaksi fakta, että yhdiste voidaan muodostaa sadoilla tai tuhansilla eri tavoilla.
 Tämä ongelma toistuu rekursiivisesti, kun yhdiste pilkotaan yhdisteisiin, jotka keskenään reagoidessa muodostavat alkuperäisen yhdisteen.
-Pienille ja yksinkertaisille yhdisteille tämä vaihtoehto avaruus on pienempi, mutta yhdisteen koon kasvaessa eri tapojen määrä muodostaa haluttu yhdiste kasvaa eksponentiaalisesti.
+Pienille ja yksinkertaisille yhdisteille tämä vaihtoehtoavaruus on pienempi, mutta yhdisteen koon kasvaessa eri tapojen määrä muodostaa haluttu yhdiste kasvaa eksponentiaalisesti.
 
 Tämän takia tarve tätä prosessia yleistäville koneoppimismalleille on suuri.
 Miksi lääkkeiden retrosyntetisointi on hankalaa?~\cite{ButlerKeithT2018Mlfm,deAlmeidaA.Filipa2019Socd}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{retrosynthesis.jpg}
+  \caption{(a) esimerkki reaktio säännöstä, (b) esimerkki mahdollisista reaktioista, kuinka voidaan luoda haluttu yhdiste (keskellä).
+    Kuvaa on yksinkertaistettu ja se sisältää vain yksitoista mahdollista reaktiota, jotka tuottavat halutun yhdisteen.
+    Väri koodaukset tarkoittavat: Keltainen - kohde yhdiste, Punainen - saatavilla oleva yhdiste, Vihreä - kirjallisuudesta tunnettu yhdiste, liila - tuntematon yhdiste}
+  ~\cite{ExpertKnowledgeRetorsynthesis}
+\end{figure}
 
 \section{Kehitettyjä apuvälineitä}
 
 \subsection{3N-MCTS}
 
-3N-MCTS on kehitetty koneoppimismalli, joka etsii retrosynteesi polkuja yksinkertaisempiin
-ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}. 3N-MCTS:än kehitti Marwin Seglerin, Mike Preussin ja Mark Wallerin tutkijaryhmä. Kun retrosynteesi polku on varmennettu ja
-todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
-3N-MCTS koostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhaku algoritmista
-(\textbf{Monte carlo tree search, MCTS}). Neuroverkot on koulutettu avustamaan puuhaku algoritmia etenemään
-fiksuimpaan suuntaan, kun haku algoritmi etsii syntetisointi polkuja ja tarkistamaan, onko ehdotettu reaktio
-mahdollinen kyseisellä molekyylille.
+3N-MCTS on kehitetty koneoppimismalli, joka etsii retrosynteesipolkuja yksinkertaisempiin ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}.
+3N-MCTS:än kehitti Marwin Seglerin, Mike Preussin ja Mark Wallerin tutkijaryhmä.
+Kun retrosynteesipolku on varmennettu ja todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
+3N-MCTS koostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhaku algoritmista (\textbf{Monte carlo tree search, MCTS}).
+Neuroverkot on koulutettu avustamaan puuhakualgoritmia etenemään fiksuimpaan suuntaan, kun haku algoritmi etsii syntetisointipolkuja ja tarkistamaan, onko ehdotettu reaktio mahdollinen kyseisellä molekyylille.
 
 Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (\textbf{Expansion policy network, EPN}),
 MCTS:än rollout toimintoa tukeva Rollout -verkko (\textbf{Rollout policy network, RPN})
@@ -220,15 +221,15 @@ RPN:än kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja li
 ja lähimmät vierekkäiset atomit. Datasta suodatettiin pois sellaiset reaktiot, jotka ilmaantuivat
 alle 50 kertaa ennen vuotta 2015. EPN:än kouluttamiseen valittiin datasta vain reaktiokeskus.
 EPN:än datasta suodatettiin pois sellaiset reaktiot, jotka ilmenivät datassa alle kolme kertaa ennen vuotta
-2015. Lopulliset reaktio määrät, joilla RPN ja EPN koulutettiin, olivat 17134 ja 301671. Näillä säännöillä
+2015. Lopulliset reaktiomäärät, joilla RPN ja EPN koulutettiin, olivat 17 134 ja 301 671. Näillä säännöillä
 EPN ja RPN koulutetaan toimimaan hakualgoritmia ohjaavina neuroverkkoina.
 
 EPN on toteutettu Highway -neuroverkkona (Highway network, HN). HN on hyvin syvä neuroverkko
 tyyppi, joka saattaa jopa sisältää yli sata kerrosta~\cite{VeryDeepNetworks}.
 
-RPN on neuroverkko, jossa on yksi piilotettu taso. RPN koulutettiin samalla tavalla kuin EPN.
+RPN on neuroverkko, jossa on yksi piilotettu kerros. RPN koulutettiin samalla tavalla kuin EPN.
 
-IFN on neuroverkko, joka tarkistaa, onko EPN:än ja RPN:än valitsemat reaktio säännöt toteutettavissa.
+IFN on neuroverkko, joka tarkistaa, onko EPN:än ja RPN:än valitsemat reaktiosäännöt toteutettavissa.
 IFN koulutetaan sekä onnistuneiden että epäonnistuiden reaktioiden avulla. Koska epäonnistuneita
 reaktioita ei talleneta tietokantaan, niin kyseinen data generoidaan. Data generoidaan siten, että jos reaktiossa
 \[A + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita
@@ -244,7 +245,7 @@ muodostavat lopullisen puun.
 (1) Ensimmäisessä vaiheessa algoritmi valitsee seuraavan lupaavimman tilan puusta kunnes puun lehti on saavutettu.
 Jos lehdessä käydään ensimmäisen kerran valinta vaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia
 $d$ askelta eteenpäin samalla muodostaen synteesi polkua (rollout). Jos lehdessä käydään useamman kuin yhden
-kerran valinta vaiheen aikana, niin mahdolliset reaktiot, jotka muodostavat lehden, tutkitaan ja lisätään lehden
+kerran valintavaiheen aikana, niin mahdolliset reaktiot, jotka muodostavat lehden, tutkitaan ja lisätään lehden
 lapsiksi (expansion)
 
 (2) Toisessa vaiheessa lupaavien tilojen lapset tutkitaan. Tällöin etsitään lupaavimmat reaktiot, jotka muodostavat
@@ -259,11 +260,10 @@ lähtöaineisiin tai kunnes suurin sallittu syvyys $d$ on saavutettu.
 palkonnoksi arvon 1. Jos Kaikkia lähtöaineita ei löydetty, niin lehdelle annetaan osittainen palkinto. Jos yhtään
 lähtöainetta ei löytynyt, niin lehti saa arvon -1.
 
-Saatta kuietnkin olla, että synteesi polkua ei voida luoda. Joko synteesin polun tutkimiseen menee liian kauan
+Saattaa kuitenkin olla, että synteesi polkua ei voida luoda. Joko synteesinpolun tutkimiseen menee liian kauan
 aikaa tai synteesi polku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
 
 \subsection{Expert knowledge aided neural networks}
-- expert knowledge aided neural networks~\cite{ExpertKnowledgeRetorsynthesis}
 
 On myös yleistä, että retrosynteesi polkuja  suunnitelevat mallit hyödyntävät myös heurustiikka.~\cite{ExpertKnowledgeRetorsynthesis}
 Badowski et al ryhmä on kehittänyt mallin, joka suunnittelee retrosynteesi polkuja hyödyntämällä neuroverkkoja ja ammattikemistien muodostamia heuristisia malleja suunnitellessaan retrosynteesi polkua.
