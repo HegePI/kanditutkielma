@@ -1,47 +1,3 @@
-%% History:
-%% December 2020 Veli Mäkinen removed obsolete options related to 40 cr theses
-%% May 2019 Tomi Männistö, Antti-Pekka Tuovinen proofreading; 30 vs. 40 cr theses, etc.
-%% May 2019 Tomi Männistö changed from babelbib to bibtex; Abstract page (and other pages as well) reformatting.
-%% January–May 2019 several issues fixed by Niko Mäkitalo; long fields in abstract
-%% March 2018 template file extended by Lea Kutvonen to exploit HYthesisML.cls.
-%% Feb2018 This template file for the use of HYgraduML.cls was  modified by Veli Mäkinen from HY_fysiikka_LuKtemplate.tex
-%% authored by Roope Halonen ja Tomi Vainio in 2017.
-%% Some text is also inherited from engl_malli.tex versions by Kutvonen, Erkiö, Mäkelä, Verkamo, Kurhila, and
-%% Nykänen, to accompany tktltiki.cls (by Puolakka 2002).
-
-
-%% Follow comments to support use.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% STEP 1: Choose options for MSc / BSc / seminar layout and your bibliographic style
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%  Language: 
-%%      finnish, swedish, or english
-%%  Pagination (use twoside by default)  
-%%      oneside or twoside,
-%%  Study programme / kind of report
-%%      csm  = Master's thesis in Computer Science Master's Programme;
-%%      tkt = Bachelor's thesis in Computer Science Bachelor's Programme;
-%%      seminar = seminar report
-%%  For Master's thesis choose your line or track:
-%%      (30 cr thesis, 2020 onwards, Master's Programme in Computer Science = csm)
-%%      software-track-2020 = Software study track
-%%      algorithms-track-2020 = Algorithms study track
-%%      networking-track-2020 = Networking study track
-%%
-%%      (30 cr thesis, Master's Programme in Computer Science = csm)
-%%      sw-track-2018 = Software Systems study track
-%%      alko-track-2018 = Algorithms study track
-%%      nodes-track-2018 = Networking and Services study track
-%%
-%%      (30 cr thesis, Master's Programme in Computer Science = csm)
-%%      sw-line-2017 =  Software systems subprogramme
-%%      alko-line-2017 = Algorithms, Data Analytics and Machine Learning subprogramme
-%%      bio-line-2017 = Algorithmic Bioinformatics subprogramme
-%%      nodes-line-2017 = Networking and Services subprogramme
-%%
-
 \documentclass[finnish,twoside,censored,tkt,sw-line]{HYthesisML}
 
 
@@ -57,23 +13,23 @@
 %% natbib -> you can use, e.g., \citep{} or \parencite{} for (Einstein, 1905); with APA \cite -> Einstein, 1905 without ()
 %% maxcitenames=2 -> only 2 author names in text citations, if more -> et al. is used
 %% maxbibnames=99 as no great need to suppress the biliography list in a thesis
-%% for more information see biblatex package documentation, e.g., from https://ctan.org/pkg/biblatex 
+%% for more information see biblatex package documentation, e.g., from https://ctan.org/pkg/biblatex
 
-%% Reference style: select one 
+%% Reference style: select one
 %% for APA = Harvard style = authoryear -> (Einstein, 1905) use:
-\usepackage[style=authoryear,bibstyle=authoryear,backend=biber,natbib=true,maxnames=99,maxcitenames=2,giveninits=true,uniquename=init]{biblatex}
+% \usepackage[style=authoryear,bibstyle=authoryear,backend=biber,natbib=true,maxnames=99,maxcitenames=2,giveninits=true,uniquename=init]{biblatex}
 %% for numeric = Vancouver style -> [1] use:
-%\usepackage[style=numeric,bibstyle=numeric,backend=biber,natbib=true,maxbibnames=99,giveninits=true,uniquename=init]{biblatex}
+\usepackage[style=numeric,bibstyle=numeric,backend=biber,natbib=true,maxbibnames=99,giveninits=true,uniquename=init]{biblatex}
 %% for alpahbetic -> [Ein05] use:
 %\usepackage[style=alphabetic,bibstyle=alphabetic,backend=biber,natbib=true,maxbibnames=99,giveninits=true,uniquename=init]{biblatex}
 %
 
 \addbibresource{bibliography.bib}
-% in case you want the final delimiter between authors & -> (Einstein & Zweistein, 1905) 
+% in case you want the final delimiter between authors & -> (Einstein & Zweistein, 1905)
 % \renewcommand{\finalnamedelim}{ \& }
 % List the authors in the Bibilipgraphy as Lastname F, Familyname G,
 \DeclareNameAlias{sortname}{family-given}
-% remove the punctuation between author names in Bibliography 
+% remove the punctuation between author names in Bibliography
 %\renewcommand{\revsdnamepunct}{ }
 
 
@@ -93,6 +49,7 @@
 \usepackage{tikz}            % For making vector graphics (hard to learn but powerful)
 %\usepackage{wrapfig}        % For nice text-wrapping figures (use at own discretion)
 \usepackage{amsmath, amssymb} % For better math
+\graphicspath{{../kuvat/}}
 
 \singlespacing               %line spacing options; normally use single
 
@@ -101,7 +58,7 @@
 % if you want to see which lines are too long or have too little stuff, comment out the following lines
 % \overfullrule=1mm
 % to see more info in the detailed log about under/overfull boxes...
-% \showboxbreadth=50 
+% \showboxbreadth=50
 % \showboxdepth=50
 
 
@@ -111,17 +68,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Set up personal information for the title page and the abstract form.
 %% Replace parameters with your information.
-\title{Tutkielman otsikko}
+\title{Koneoppiminen lääkkeiden kehityksessä}
 
 % TM: Contributors to template editors now listed in the beginning of the file in comments
-\author{Outi Opiskelija}
+\author{Heikki Pulli}
 \date{\today}
 
 
 
 % Set supervisors and examiners, use the titles according to the thesis language
-% Prof. 
-% Dr. or in Finnish toht. or tri or FT, TkT, Ph.D. or in Swedish... 
+% Prof.
+% Dr. or in Finnish toht. or tri or FT, TkT, Ph.D. or in Swedish...
 \supervisors{Prof.~D.U.~Mind, Dr.~O.~Why}
 \examiners{Prof.~D.U.~Mind, Dr.~O.~Why}
 
@@ -197,21 +154,21 @@
 
 \end{abstract}
 
-\begin{otherlanguage}{english}
-    \begin{abstract}
-        Use this otherlanguage environment to write your abstract in another language if needed.
+% \begin{otherlanguage}{english}
+%     \begin{abstract}
+%         Use this otherlanguage environment to write your abstract in another language if needed.
 
-        Topics are classified according to the ACM Computing Classification System
-        (CCS), see
-        \url{https://www.acm.org/about-acm/class}:
-        check command \verb+\classification{}+. A small set of paths (1--3) should be used, starting from any top nodes
-        referred to bu the root term CCS leading to the leaf nodes. The elements
-        in the path are separated by right arrow, and emphasis of each element individually can be indicated
-        by the use of bold face for high importance or italics for intermediate
-        level. The combination of individual boldface terms may give the reader
-        additional insight.
-    \end{abstract}
-\end{otherlanguage}
+%         Topics are classified according to the ACM Computing Classification System
+%         (CCS), see
+%         \url{https://www.acm.org/about-acm/class}:
+%         check command \verb+\classification{}+. A small set of paths (1--3) should be used, starting from any top nodes
+%         referred to bu the root term CCS leading to the leaf nodes. The elements
+%         in the path are separated by right arrow, and emphasis of each element individually can be indicated
+%         by the use of bold face for high importance or italics for intermediate
+%         level. The combination of individual boldface terms may give the reader
+%         additional insight.
+%     \end{abstract}
+% \end{otherlanguage}
 
 % Place ToC
 \newpage
@@ -233,9 +190,281 @@
 %\include{bsc_english_contents}
 % MSc instructions
 %\include{msc_finnish_contents}
-\include{msc_english_contents}
+% \include{msc_english_contents}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Johdanto}
+
+Uusien lääkkeiden tuottaminen on pitkä ja kallis prosessi.
+Tähän kuuluu useita eri vaiheita ja eri vaiheet vievät eri määrän rahaa ja aikaa.
+Nämä ovat sairauden aiheuttajan tunnistaminen, tähän vaikuttavan lääkkeen tunnistaminen, lääkkeen optimointi, lääkkeen ominaisuuksien analysointi ja kliiniset testit.
+Näiden jälkeen lääke joko hyväksytään myyntiin tai ei.
+Nämä eri vaiheet ovat tavallisesti vieneet 10 - 12 vuotta ja kaikkien eri vaiheiden jälkeen hintaa on muodostunut noin 1 - 3 miljardia dollaria.~\cite{EkinsSean2019Emlf}
+
+Vaiheiden pitkän keston ja suuren hinnan takia tutkijat ja lääkefirmat ovatkin alkaneet tutkia mahdollisia keinoja, jotka nopeuttaisivat tai halventaisivat tätä lääkkeen kehityksen prosessia.
+Koneoppimisenmallit ovat nousseet houkuttelevaksi vaihtoehdoksi, joka voisi nopeuttaa tätä prosessia.
+Lääkefirmat ovatkin alkaneet selvittää, kuinka eri koneoppimisen malleja voidaan hyödyntää lääketutkimuksessa nopeuttamaan suurimpia pullonkauloja.~\cite{EkinsSean2019Emlf}.
+Viimeisen kymmenen vuoden aikana saatavilla olevan laadukkaan datan määrä on kasvanut merkittävästi ja on kehitetty uusia tehokkaampia koneoppimismalleja, joita voidaan hyödyntää lääketutkimuksessa.
+Eri mallit voivat esimerkiksi karsia kaikista harkinnasta olevista lääkkeistä vain lupaavimmat kandidaatit, joilla on mahdollisuus päästä testeistä läpi tuotantoon.
+Koneoppimismalleja voidaan myös hyödyntää aivan uusien lääkeaineiden etsinnässä.
+Tähän tarkoitukseen kehitetyt koneoppimismallit kykenevät etsimään lääkkeitä, joilla on halutut lääkkeelliset että fysikaaliset ominaisuudet.~\cite{VamathevanJessica2019Aoml}
+Kehitetyt mallit ovatkin näyttäneet, että koneoppimismallit ovat tehokkaita työkaluja, joita voidaan hyödyntää kaikissa lääketutkimuksen prosessin vaiheissa.
+
+Tässä tektissä paneudutaan syvemmin koneoppimismalleihin, joita käytetään uusien lääkkeiden tunnistaminseen ja näiden tunnistettujen lääkkeiden syntetisoinnin suunnitteluun.
+
+\chapter{Uusien lääkkeiden löytäminen}
+
+% Miksi uusien lääkkeiden löytäminen on vaikeaa?~\cite{EkinsSean2019Emlf}
+
+Yksi ensimmäisistä lääketutkimuksen prosessin osa-alueista on uusien lääkeyhdisteiden löytäminen joko uusiin tai jo tunnettuihin tauteihin.~\cite{EkinsSean2019Emlf}
+Tämä on kuitenkin ollut tavallisesti hidas prosessi ja uuden toimivan yhdisteen löytäminen on kestänyt kahdesta kolmeen vuotta.
+Lisääntynyt datan määrä on kuitenkin mahdollistanut tämän osa-alueen nopeuttamisen koneoppimismallien avulla.
+Tähän ongelmaan on kehitetty useita eri koneoppimismalleja.
+Popovan et al. tutkimusryhmä on kehittänyt mallin, joka ehdottaa uutta yhdistettä perustuen mallin syötteenä saamaan ominaisuusvektoriin.~\cite{PopovaMariya2018Drlf}
+Shahar Harelin ja Kira Radinskyn tutkijaryhmä puolestaan ovat kehittäneet mallin, joka luo uusia yhdisteitä, jotka perustuvat syötteenä annettuun prototyyppiyhdisteeseen.~\cite{ShaharHarelAndKiraRadinsky}
+
+Jotta koneoppimismalleja voidaan hyödyntää lääketutkimuksessa täytyy olla saatavilla tarpeeksi dataa tutkittavasta aiheesta.~\cite{EkinsSean2019Emlf}
+Viimeisimmän kymmenen vuoden aikana saatavilla olevan datan määrä on kasvannut merkittävästi kehitettyjen tietopankkien takia.
+Näitä ovat esimerkiksi PubChem ja ChEMBL.
+
+Lääkkeitä myös kehitetään muokkaamalla jo tunnettua lääkeyhdistettä jolla on jo osittain halutut ominaisuudet.~\cite{ShaharHarelAndKiraRadinsky}
+
+
+\section{Virtuaalinen seulonta}
+
+Kemiallisten yhdisteiden avaruudella tarkoitetaan kaikkien uniikkien yhdisteiden lukumäärää.
+Erilaisten kemiallisten yhdisteiden avaruus on suuri.
+On arvioitu, että erillaisia kemiallisia yhdisteitä, jotka voivat esiintyä huoneenlämmössä ja nesteessä, voi olla välillä $10^{18} - 10^{180}$.~\cite{SotrifferChristoph2011VSPC}
+Yhidsteet, jotka täyttävät lääkkeeltä vaaditut kriteerit, on puolestaan arvioitu olevan noin $10^{60}$.~\cite{SotrifferChristoph2011VSPC}
+Tämä itsessään esittää tarpeen tehokkaille algoritmeille ja menetelmille, jotka auttavat karsimaan tästä suuresta määrästä kemiallisia yhdisteitä vain lupaavimmat.
+
+Virtuaalinen seulonta (Virtual Screning, VS) on suosittu lähestymistapa uusien lääkkeiden löytämiseksi.
+VS käsittää joukon menetelmiä, joissa tietokoneita hyväksi käyttäen karsitaan kaikesta yhdisteiden avaruudesta vain tietyt kriteerit täyttävät yhdisteet, joita voidaan jatkotutkia ja kehittää lääkkeiksi.
+VS menetelmillä tarkoitetaan yleisesti prosesseja, joissa käydään läpi suuria tietokantoja dataa, jotta löydetään haluttu yhdiste.~\cite{SotrifferChristoph2011VSPC}
+
+% \subsection{Koneoppimisen käyttökohteet VS:ässä}
+
+% Ongelman kuvaaminen koneoppimisongelmana~\cite{ShaharHarelAndKiraRadinsky,KadurinArtur2017dAAG}
+
+\section{Kehitettyjä koneoppimismalleja}
+
+% \subsection{Prototyyppiin perustuva lääkkeen suunnittelu}
+% - Prototype based drug design~\cite{ShaharHarelAndKiraRadinsky}
+
+\subsection{Controlled molecule generator, CMG}
+% - Controlled molecule generator~\cite{ShinBonggun}
+
+CMG (Controlled molecule generator) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet.~\cite{ShinBonggun}
+Se eroaa muista kehitetyistä malleista siten, että se pystyy optimoimaan annetun molekyylin useampaa ominaisuutta.
+Edelliset kehitetyt mallit ovat pystyneet optimoimaan vain yhtä molekyylin ominaisuutta.
+
+CMG:n kehittäjät lähestyvät molekyylin ominaisuuksien optimointiongelmaa merkijonojen käännös/luontiongelmana.
+CMG:lle opetetaan, kuinka syötteenä annettu molekyylimerkkijono käännetään molekyylimerkkijonoksi, jolla on lähimpänä haluttuja ominaisuuksia olevat omaisuudet.
+CMG tulkitsee ensin annetut merkkijonot hyödyntäen DN:ää (deep network) jonka jälkeen se luo uusia molekyyliyhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
+Koska ominaisuudet annetaan vektorina, niin CMG pystyy optimoimaan useampaa ominaisuutta.
+CMG lisäksi hyödyntää ennalta koulutettuja rajoiteverkkoja (constraint network, CN), jolloin vältytään luomasta mahdottomia yhdisteitä.
+CMG käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam Search -algoritmia.
+
+(Taustatietoa muista aiheista/malleista, joita on hyödynnetty CMG:ssä\dots)
+
+CMG perusmalli on samanlainen verrattaen aikaisemmin kehitettyyn The Transformer -malliin (Molecule Translation Network, MTN).\cite{TheTransformer}
+CMG:tä on laajennettu tästä lisäämällä siihen tietoa molekyylien ominaisuuksista ja kaksi CN:ää.
+Nämä CN:ät ovat ominaisuuksien ennustamiseen tarkoitettu verkko (property prediction network, PPN) ja samanlaisuuksien ennustamiseen tarkoitettu verkko (similarity prediction network, SPN).
+
+MTN eroaa Transformer -mallista kahdella tavalla.
+Toisin kuin Transformer, joka käsittelee sanoja ja niistä muodostettuja lauseita, MTN käsittelee yksittäisiä merkkejä ja niistä muodostettuja molekyylejä.
+Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallissista ominaisuuksista.
+MTN:än kustannus funktio on muotoa \[\mathcal{L} (\theta_T;X,p_x,p_y) = -\frac{1}{N}\frac{1}{M}\sum_{n \in N}\sum_{i \in M}\sum_{v \in V}y_v,j,n \cdot log(\hat{y}_v,j,n).\]
+
+PPN ottaa syötteenä ennustetun molekyylin merkkijonon ($y_i$).
+Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi (Parempi termi?) hyödyntäen Long short-term memory (LSTM) -kerrosta.
+LSTM muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnassa, ja näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
+Nämä vektorit yhdistetään ja yhdistevektori syötetään täysin yhdistetylle neuroverkolle.
+Tämä verkko sisältää kaksi piilotettua tasoa.
+
+SMP ottaa syötteenä ennustetun molekyylin merkkijono ($y_i$) ja alkuperäisen molekyylin merkkijonon ($x_i$).
+Nämä merkkijonot syötetään kahdelle eri LSTM -tasolle, toinen käsittelee alkuperäisen molekyylin merkkijonot ja toinen ennustetun molekyylin merkkijonot.
+Nämä LSTM -tasot tomivat samalla periaatteella kuin PPN:ässä ja palauttavat näin ollen neljä eri vektoria.
+Nämä vektorit yhdistetään ja tämä yhdiste vektori annetaan täysin yhdistetylle verkolle, joka sisältää kaksi piilotettua tasoa.
+
+Data, jolla, mallit koulutetaan, on peräisin ZINC ja DRD2 dataseteistä. (Kuka hallinnoi?)
+Data sisältää kaiken kaikkiaan 257 565 molekyyliä, joista luodaan pareja.
+Parit muodostetaan siten, että kahden molekyylin välinen samanlaisuus luku on yli 0.4. (Miten lasketaan?)
+Näitä pareja $(X,Y)$ muodostetaan kaiken kaikkiaan 10 827 615 kappaletta.
+Lisäksi kaikille molekyyleille lasketaan niiden eri kemiallisten ominaisuuksien arvot, jotka ovat PlogP, QED ja DRD2.
+Nämä kuvaavat eri haluttuja ominaisuuksia, joita lääkkeiltä halutaan.
+
+PPN koulutetaan käyttäen 257 565 eri molekyyliä.
+nämä molekyylit jaetaan satunnanavaraisella valinnalla koulutus -ja testiryhmiin suhteella 8:2.
+
+SPN kouluttamiseen käytetään osajoukkoa 10 827 615 eri parista.
+Tästä määrästä valitaan kymmenen prosentin osajoukko, joka on kaiken kaikkiaan 997 773 molekyylin suuruinen.
+Tämä joukko jaettiin samalla tavalla koulutus ja testi ryhmiin kuin PPN:ässä.
+
+\chapter{Uusien lääkkeiden syntetisointi}
+
+Yhdisteen syntetisoinnin suunnittelulla tarkoitetaan prosessia, jossa määritellään, kuinka haluttu yhdiste voidaan tuottaa synteettisesti saatavilla olevista lähtöaineista.~\cite{ColeyConnorW2018MLiC}
+Retrosynteesianalyysillä tarkoitetaan puolestaan menetelmää, jonka avulla löydetään halutun yhdisteen tuottamiseen tarvittavat lähtöaineet.
+Retrosynteesi toimii siis toiseen suuntaan kuin syntetisointi.
+Retrosynteesissä yhdiste pilkotaan rekursiivisesti pienempiin lähtöaineisiin kunnes jäljellä on vain saatavilla olevia lähtöaineita.
+
+Tavallisesti yhdisteen retrosyntetisointi on vaatinut suorittavalta kemistiltä usean vuoden kokemusta ja tietoa saatavilla olevista lähtöaineista ja eri reaktioista.
+Tätä on pyritty automatisoimaan eri CASP -menetelmien avulla (Computer-Aided Synthesis Planning).
+Ensimmäiset CASP -menetelmät perustuivat heuristisiin algoritmeihin, joissa kemistit käsin koodasivat, miten eri lähtöaineet reagoivat keskenään ja mikä on reaktion lopputuote.
+Tämä on kuitenkin osoittautunut toivottomaksi yritykseksi massiivisen datan määrän takia.
+
+Kehitys koneoppimismenetelmissä on kuitenkin tarjonnut uuden lähestymistavan CASP -menetelmien keshitykseen.
+Sen sijaan, että kemistit loisivat heuristisia malleja, niin uudet koneoppimismallit koulutetaan saatavilla olevan datan avulla.
+Tämä on todettu merkittävästi enemmän toteutettavaksi lähestymistavaksi.
+
+Koneoppismallien käyttö ja koulutus ei ole kuitenkaan täysin ongelmaton lähestymistapa myöskään.
+Ongelmaan liittyen dataa ei välttämättä ole saatavilla ja datan hankkiminen voi olla kallis operaatio.
+Tätä varten on kehitetty tietopankkeja, jotka sisältävät massiivisia määriä dataa tietystä aiheesta, esim. Reaxys kemiallisesista raektioista.
+
+
+\section{Lääkkeen retrosyntetisoinnin haastavuus}
+
+Retrosyntetisoinnin tekee hankalaksi fakta, että yhdiste voidaan muodostaa sadoilla tai tuhansilla eri tavoilla.
+Tämä ongelma toistuu rekursiivisesti, kun yhdiste pilkotaan yhdisteisiin, jotka keskenään reagoidessa muodostavat alkuperäisen yhdisteen.
+Pienille ja yksinkertaisille yhdisteille tämä vaihtoehtoavaruus on pienempi, mutta yhdisteen koon kasvaessa eri tapojen määrä muodostaa haluttu yhdiste kasvaa eksponentiaalisesti.
+
+Tämän takia tarve tätä prosessia yleistäville koneoppimismalleille on suuri.
+Miksi lääkkeiden retrosyntetisointi on hankalaa?~\cite{ButlerKeithT2018Mlfm,deAlmeidaA.Filipa2019Socd}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{retrosynthesis.jpg}
+    \caption{(a) esimerkki reaktio säännöstä, (b) esimerkki mahdollisista reaktioista, kuinka voidaan luoda haluttu yhdiste (keskellä).
+        Kuvaa on yksinkertaistettu ja se sisältää vain yksitoista mahdollista reaktiota, jotka tuottavat halutun yhdisteen.
+        Väri koodaukset tarkoittavat: Keltainen - kohde yhdiste, Punainen - saatavilla oleva yhdiste, Vihreä - kirjallisuudesta tunnettu yhdiste, liila - tuntematon yhdiste}
+    ~\cite{ExpertKnowledgeRetorsynthesis}
+\end{figure}
+
+\section{Kehitettyjä apuvälineitä}
+
+\subsection{3N-MCTS}
+
+3N-MCTS on kehitetty koneoppimismalli, joka etsii retrosynteesipolkuja yksinkertaisempiin ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}.
+3N-MCTS:än kehitti Marwin Seglerin, Mike Preussin ja Mark Wallerin tutkijaryhmä.
+Kun retrosynteesipolku on varmennettu ja todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
+3N-MCTS koostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhaku algoritmista (\textbf{Monte carlo tree search, MCTS}).
+Neuroverkot on koulutettu avustamaan puuhakualgoritmia etenemään fiksuimpaan suuntaan, kun haku algoritmi etsii syntetisointipolkuja ja tarkistamaan, onko ehdotettu reaktio mahdollinen kyseisellä molekyylille.
+
+Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (\textbf{Expansion policy network, EPN}),
+MCTS:än rollout toimintoa tukeva Rollout -verkko (\textbf{Rollout policy network, RPN})
+ja verkko, joka tarkistaa, onko syntetisointi polku toteutettavissa (\textbf{In-scope filter network, IFN}).
+
+Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta. Reaxyksen omistaa Elsevier kustantamo. Reaxys -tietokannan sisältämä data koostuu
+säännöistä, jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion
+tuote. Näitä sääntöjä käytetään mallien kouluttamiseen. Reaxys sisältää yli 12.4 miljoonaa sääntöä. Mallien
+kouluttamiseen käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain
+yhdestä kolmeen lähtötuotetta. Eri mallien kouluttamiseen käytetiin eri kriteerein suodatettua dataa tietokannasta.
+
+RPN:än kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (reaktiokeskus)
+ja lähimmät vierekkäiset atomit. Datasta suodatettiin pois sellaiset reaktiot, jotka ilmaantuivat
+alle 50 kertaa ennen vuotta 2015. EPN:än kouluttamiseen valittiin datasta vain reaktiokeskus.
+EPN:än datasta suodatettiin pois sellaiset reaktiot, jotka ilmenivät datassa alle kolme kertaa ennen vuotta
+2015. Lopulliset reaktiomäärät, joilla RPN ja EPN koulutettiin, olivat 17 134 ja 301 671. Näillä säännöillä
+EPN ja RPN koulutetaan toimimaan hakualgoritmia ohjaavina neuroverkkoina.
+
+EPN on toteutettu Highway -neuroverkkona (Highway network, HN). HN on hyvin syvä neuroverkko
+tyyppi, joka saattaa jopa sisältää yli sata kerrosta~\cite{VeryDeepNetworks}.
+
+RPN on neuroverkko, jossa on yksi piilotettu kerros. RPN koulutettiin samalla tavalla kuin EPN.
+
+IFN on neuroverkko, joka tarkistaa, onko EPN:än ja RPN:än valitsemat reaktiosäännöt toteutettavissa.
+IFN koulutetaan sekä onnistuneiden että epäonnistuiden reaktioiden avulla. Koska epäonnistuneita
+reaktioita ei talleneta tietokantaan, niin kyseinen data generoidaan. Data generoidaan siten, että jos reaktiossa
+\[A + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita
+D, E, F, jne. ei muodostu (voisi selittää syvemmin). IFN kouluttamista varten luotiin 100 miljoonaa
+epäonnistunutta reaktiota ja 10 miljoonaa testaamista varten.
+
+3N-MCTS:ässä IFN ja EPN on yhdistetty toimimaan yhdessä. Tutkittaessa puun tilaa $S_i$ (selitä Si vaihe) jokainen
+molekyyli syötetään EPN:älle ja se tulostaa, mitkä reaktiot voivat muodostaa annetun yhdisteen ja näin ollen
+myös mitkä lähtöaineet voivat muodostaa annetun yhdisteen. Nämä reaktiot syötetään IFN:älle, joka suodattaa
+valituista reaktioista toteutettavissa olevat. Tämän jälkeen algoritmissa iteroidaan neljää vaihetta, jotka
+muodostavat lopullisen puun.
+
+(1) Ensimmäisessä vaiheessa algoritmi valitsee seuraavan lupaavimman tilan puusta kunnes puun lehti on saavutettu.
+Jos lehdessä käydään ensimmäisen kerran valinta vaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia
+$d$ askelta eteenpäin samalla muodostaen synteesi polkua (rollout). Jos lehdessä käydään useamman kuin yhden
+kerran valintavaiheen aikana, niin mahdolliset reaktiot, jotka muodostavat lehden, tutkitaan ja lisätään lehden
+lapsiksi (expansion)
+
+(2) Toisessa vaiheessa lupaavien tilojen lapset tutkitaan. Tällöin etsitään lupaavimmat reaktiot, jotka muodostavat
+kyseisessä tilassa olevan yhdisteen.
+
+(3) Kolmannessa vaiheessa tarkistetaan lehden tila. Jos lehti on `todistetusti toimiva', niin algoritmi palauttaa
+luvun suuremman kuin yksi, jolloin lehteä suositellaan käytettävän synteesipolussa. Muussa tapauksessa lehdelle
+suoritetaan rollout, jolloin RPN antaa rekursiivisesti uusia reaktioita niin kauan, kunnes lehti on pilkottu
+lähtöaineisiin tai kunnes suurin sallittu syvyys $d$ on saavutettu.
+
+(4) Viimeisessä vaiheessa lehtien arvot päivitetään. Jos lähtöaineet löydetään rolloutin aikana, niin lehti saa
+palkonnoksi arvon 1. Jos Kaikkia lähtöaineita ei löydetty, niin lehdelle annetaan osittainen palkinto. Jos yhtään
+lähtöainetta ei löytynyt, niin lehti saa arvon -1.
+
+Saattaa kuitenkin olla, että synteesi polkua ei voida luoda. Joko synteesinpolun tutkimiseen menee liian kauan
+aikaa tai synteesi polku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
+
+\subsection{Expert knowledge aided neural networks}
+
+On myös yleistä, että retrosynteesi polkuja  suunnitelevat mallit hyödyntävät myös heurustiikka.~\cite{ExpertKnowledgeRetorsynthesis}
+Badowski et al ryhmä on kehittänyt mallin, joka suunnittelee retrosynteesi polkuja hyödyntämällä neuroverkkoja ja ammattikemistien muodostamia heuristisia malleja suunnitellessaan retrosynteesi polkua.
+
+ICHO:n (Instytut Chemii Organicznej) kouluttamiseen käyettiin dataa 1.4 miljoonasta reaktiota ja niiden lopputuotteista.
+Data saadaan julkaisuista artikkeleista ja patenteista.
+Reaktiolta kuitenkin vaaditaan, että ainakin yksi reaktio per lopputuote löytyy myös Chematican (taustatietoa) expert-coded säännöstöstä.
+Lisäksi datasta suodatettiin pois suojaryhmien reaktiot.
+
+ICHO:sta kehitettiin myös malli, jonka kouluttamisessa käytettiin lisäksi vektoreita, jotka sisäslsivät dataa kemiallisesti intuitiivisistä reaktio piirteistä, joita on käytetty aikaisemmissa tutkimuksissa.
+Tätä mallia kutsutaan ICHO+ malliksi, ja sitä käytetään vertailemaan ICHO mallin suoriutumista.
+
+Kehitetyssä ICHO mallissa on kaksi tärkeää seikkaa.
+(1) Se laskee reaktioiden ilmaantumistodennäköisyyttä uudelleen perustaen kuinka usein ne ne ilmaantuvat ammattilaisten käyttämissä reaktiossa.
+Tämä laskenta tapahtuu mallin koulutusvaiheessa.
+Käytännössä tämä tarkoittaa, että koulutusvaiheessa mallilla on tieto, kuinka monta kertaa tietty reaktio sääntö ilmeni datassa ja kuinka monta kertaa kysesitä reaktiota käytettiin luomaan jokin lopputuote.
+Malli laskee näiden välisen suhteen, jolloin malli pystyy määrittämään, kuinka usein kyseistä reaktioita kannattaa käyttää.
+Jos esimerkiksi jokin reaktio on mainittu datassa kymmenen kertaa ja samassa datassa kyseistä reaktiota käytetään kymmenen kertaa luomaan jokin lopputuote, niin malli käyttää tätä reaktiota, koska se luokitellaan `Helpoksi ja varmaksi toteuttaa'.
+Jos suhde taas on pieni, niin reaktio luokitellaan `vaikeaksi toteuttaa'.
+(2) Se kykenee antamaan suuremman kuin nolla todennäköisyyden reaktiolle, joka ei ilmaantunut koulutusvaiheessa.
+Tämä sen takia, että mallille koulutetaan jatkuva funktio, joka antaa todennäköisyyden jokaiselle reaktio tyypille perustuen, kuinka reaktio muuttaa lopputuotteen lähtötuotteiksi.
+Eli jos jokin reaktion sormenjälki (Lisää tietoa, koska useassa mallissa käytetään) tai heuristinen kuvaus on samankaltainen toisen reaktion kanssa, joka ilmenee koulutusdatassa, niin reaktiolle voidaan antaa todennäköisyys sen käytölle.
+
+ICHO mallia vertailtiin aikasiemmin mainitun 3N-MCTS mallin kanssa, jota kustsutaan artikkelissa SW mallina.
+Kyseisestä SW mallista kehitettiin myös heuristista dataa hyödyntävä malli SW+.
+Lisäksi luotiin SW malli, joka ei käy läpi kaikkia mahdollisia reaktioita, vaan valitsee reaktiot vain niistä reaktioista, jotka eivät aiheuta konfliktia (selitys) ja jotka johtavat vain tiettyyn lopputuotteeseen.
+Tätä mallia kutsutaan SW2 malliksi ja täsät luodusta heuristisesta mallista käytetään nimeä SW2+
+Lisäksi vertailumalliksi luodaan myös täysin heuristinen malli, joka arvioi reaktioita sen mukaan, kuinka paljon ne yksinkertaistavat lopputuotetta rakenteellisesti.
+Tämä malli suosii reaktioita, jotka pilkkovat molekyylin keskeltä, eli puolittavat sen.
+Tämä on haluttu lähestymistapa retrosuynteesiin, koska se minimoi syntetisointi vaiheiden määrän.
+
+
+Miten koneoppimista hyödynnetään tällä hetkellä lääkkeiden syntetisoinnissa?~\cite{SeglerMarwinHS2018Pcsw,ShaharHarelAndKiraRadinsky,ShinBonggun}
+
+\chapter{Lääkkeiden kehitys tulevaisuudessa}
+
+Vaikka koneoppimisen käyttökohteet ovat yleistyneet lääkekehityksessä, niin koneoppimisen lähestymistavaoilla on edelleen potenttiaalia kehittyä.~\cite{ButlerKeithT2018Mlfm}
+
+Yksi kehityksen kohteista on tehokkaampi datan tulkinta pienestä määrästä dataa.
+Paikoin kemian ja lääkekehityksen alalla on muihin koneoppimismallien käyttökohteisiin verrattaen vähän dataa saatavilla ja sitä on kallista tuottaa.
+Tämä vaatii tutkijoilta enemmän työtä, jotta tieteellisistä julkaisuista saatava data saadaan koneiden hyödyntämään muotoon.
+Toinen ratkaisu tähän on meta-oppimis (selitys) lähestymistapa.
+Uudet lähestymistavat kuten Neuro Turing kone ja matkija oppiminen mahdollistavatkin oppimisen vähästä määrästä dataa ja Bayes luokittelija on suoriutunut lähes ihmistasoisesti käyttämällä One-shot oppismallia.
+
+Toinen merkittävä edistysaskel on kemiallisten yhdisteiden ja reaktioiden tehokkaampi esitysmalli.
+Tähän asti kemiaa on esitetty ihmisten ymmärtämässä muodossa, mutta tämä ei aina ole koneelle paras esitysmalli.
+Koneoppimismallit käyttävät tietoa molekyyleistä ja atomeista ja koneoppimismallit ovat niin hyviä kuin nämä kuvaukset.
+Hyvältä kuvaukselta vaaditaan, että sen avulla on yksinkertaista hankkia kohteen ominaisuudet ja sen tulee olla mahdollisimman pieni ulottuvuinen.
+Uusia kuvausmalleja on kehitetty ja uudet mallit ovat näyttäneet, että ne ovat tehokkaita, niin uusien kuvauksien kehittäminen jatkuu edelleen.
+
+Kemiallista koneoppimista edistävä asia on myös kvanttilaskennan hyväksi käyttö.
+Kvanttikoneiden suuri laskuteho pystyy laskemaan uusien mallien koulutusaikaa merkittävästi.
+
+Koenoppimista voidaan myös käyttää tulevaisuudessa mahdollisesti uusien tieteellisten lakien löytämisessä.
+Mutta vaikka eri koneoppimisesta kehitetyt mallit ovat ennalta arvattavia, niin ne ei kuitenkaan ole aina tulkittavia.
+Neuroverkko voi esimerkiksi oppia ideaalin kaaulain $(pV=nRT)$, mutta neuroverkon kaarien painojen muuttamien ymmärrettäväksi säännöksi ei ole yksinkertainen tehtävä.
+Voi olla, että koneoppimismalli pystyy huomaamaan datasta säännön, joka toistuu, mutta jos tutkijat eivät tiedä tai tunne kyseistä sääntöä, niin mallin tulkitseminen on lähes mahdotonta.
+
 \cleardoublepage                          %fixes the position of bibliography in bookmarks
 \phantomsection
 \addcontentsline{toc}{chapter}{\bibname}  % This lines adds the bibliography to the ToC
@@ -243,17 +472,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \backmatter
-\begin{appendices}
+% \begin{appendices}
 
-    \appendix{Sample Appendix\label{appendix:model}}
-    usually starts on its own page, with the name and number of the appendix at the top.
-    The appendices here are just models of the table of contents and the presentation. Each appendix
-    Each appendix is paginated separately.
+%     \appendix{Sample Appendix\label{appendix:model}}
+%     usually starts on its own page, with the name and number of the appendix at the top.
+%     The appendices here are just models of the table of contents and the presentation. Each appendix
+%     Each appendix is paginated separately.
 
-    In addition to complementing the main document, each appendix is also its own, independent entity.
-    This means that an appendix cannot be just an image or a piece of programming, but the appendix must explain its contents and meaning.
+%     In addition to complementing the main document, each appendix is also its own, independent entity.
+%     This means that an appendix cannot be just an image or a piece of programming, but the appendix must explain its contents and meaning.
 
-\end{appendices}
+% \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
