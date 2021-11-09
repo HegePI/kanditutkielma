@@ -303,6 +303,13 @@ Nämä merkkijonot syötetään kahdelle eri LSTM -tasolle, toinen käsittelee a
 Nämä LSTM -tasot tomivat samalla periaatteella kuin PPN:ässä ja palauttavat näin ollen neljä eri vektoria.
 Nämä vektorit yhdistetään ja tämä yhdiste vektori annetaan täysin yhdistetylle verkolle, joka sisältää kaksi piilotettua tasoa.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{CMG-fig.png}
+    \caption{CMG:n toiminta periaate kuvattuna}
+    ~\cite{ShinBonggun}
+\end{figure}
+
 Data, jolla, mallit koulutetaan, on peräisin ZINC ja DRD2 dataseteistä. (Kuka hallinnoi?)
 Data sisältää kaiken kaikkiaan 257 565 molekyyliä, joista luodaan pareja.
 Parit muodostetaan siten, että kahden molekyylin välinen samanlaisuus luku on yli 0.4. (Miten lasketaan?)
@@ -368,6 +375,13 @@ Miksi lääkkeiden retrosyntetisointi on hankalaa?~\cite{ButlerKeithT2018Mlfm,de
 Kun retrosynteesipolku on varmennettu ja todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
 3N-MCTS koostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhaku algoritmista (\textbf{Monte carlo tree search, MCTS}).
 Neuroverkot on koulutettu avustamaan puuhakualgoritmia etenemään fiksuimpaan suuntaan, kun haku algoritmi etsii syntetisointipolkuja ja tarkistamaan, onko ehdotettu reaktio mahdollinen kyseisellä molekyylille.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{3N-MCTS-fig.jpg}
+    \caption{3N-MCTS:än toiminta periaate kuvattuna}
+    ~\cite{SeglerMarwinHS2018Pcsw}
+\end{figure}
 
 Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (\textbf{Expansion policy network, EPN}),
 MCTS:än rollout toimintoa tukeva Rollout -verkko (\textbf{Rollout policy network, RPN})
