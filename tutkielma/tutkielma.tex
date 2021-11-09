@@ -200,7 +200,7 @@ Uusien lääkkeiden tuottaminen on pitkä ja kallis prosessi.
 Tähän kuuluu useita eri vaiheita ja eri vaiheet vievät eri määrän rahaa ja aikaa.
 Nämä ovat sairauden aiheuttajan tunnistaminen, tähän vaikuttavan lääkkeen tunnistaminen, lääkkeen optimointi, lääkkeen ominaisuuksien analysointi ja kliiniset testit.
 Näiden jälkeen lääke joko hyväksytään myyntiin tai ei.
-Nämä eri vaiheet ovat tavallisesti vieneet 10 - 12 vuotta ja kaikkien eri vaiheiden jälkeen hintaa on muodostunut noin 1 - 3 miljardia dollaria~\cite{EkinsSean2019Emlf}.
+Nämä eri vaiheet ovat tavallisesti vieneet 10--12 vuotta ja kaikkien eri vaiheiden jälkeen hintaa on muodostunut noin 1--3 miljardia dollaria~\cite{EkinsSean2019Emlf}.
 
 Vaiheiden pitkän keston ja suuren hinnan takia tutkijat ja lääkefirmat ovatkin alkaneet tutkia mahdollisia keinoja, jotka nopeuttaisivat tai halventaisivat tätä lääkkeen kehityksen prosessia.
 Koneoppimisenmallit ovat nousseet houkuttelevaksi vaihtoehdoksi, joka voisi nopeuttaa tätä prosessia.
@@ -236,12 +236,12 @@ Yksi ensimmäisistä lääketutkimuksen prosessin osa-alueista on uusien lääke
 Tämä on kuitenkin ollut tavallisesti hidas prosessi ja uuden toimivan yhdisteen löytäminen on kestänyt kahdesta kolmeen vuotta.
 Lisääntynyt datan määrä on kuitenkin mahdollistanut tämän osa-alueen nopeuttamisen koneoppimismallien avulla.
 Tähän ongelmaan on kehitetty useita eri koneoppimismalleja.
-Popovan et al. tutkimusryhmä on kehittänyt mallin, joka ehdottaa uutta yhdistettä perustuen mallin syötteenä saamaan ominaisuusvektoriin~\cite{PopovaMariya2018Drlf}.
+Popovan et al. \@ tutkimusryhmä on kehittänyt mallin, joka ehdottaa uutta yhdistettä perustuen mallin syötteenä saamaan ominaisuusvektoriin~\cite{PopovaMariya2018Drlf}.
 Shahar Harelin ja Kira Radinskyn tutkijaryhmä puolestaan ovat kehittäneet mallin, joka luo uusia yhdisteitä, jotka perustuvat syötteenä annettuun prototyyppiyhdisteeseen~\cite{ShaharHarelAndKiraRadinsky}.
 
 Jotta koneoppimismalleja voidaan hyödyntää lääketutkimuksessa täytyy olla saatavilla tarpeeksi dataa tutkittavasta aiheesta~\cite{EkinsSean2019Emlf}.
 Viimeisimmän kymmenen vuoden aikana saatavilla olevan datan määrä on kasvannut merkittävästi kehitettyjen tietopankkien takia.
-Näitä ovat esimerkiksi PubChem ja ChEMBL.
+Näitä ovat esimerkiksi PubChem ja ChEMBL.\@
 
 Lääkkeitä myös kehitetään muokkaamalla jo tunnettua lääkeyhdistettä jolla on jo osittain halutut ominaisuudet~\cite{ShaharHarelAndKiraRadinsky}.
 
@@ -250,8 +250,8 @@ Lääkkeitä myös kehitetään muokkaamalla jo tunnettua lääkeyhdistettä jol
 
 Kemiallisten yhdisteiden avaruudella tarkoitetaan kaikkien uniikkien yhdisteiden lukumäärää.
 Erilaisten kemiallisten yhdisteiden avaruus on suuri.
-On arvioitu, että erilaisia kemiallisia yhdisteitä, jotka voivat esiintyä huoneenlämmössä ja nesteessä, voi olla välillä $10^{18} - 10^{180}$~\cite{SotrifferChristoph2011VSPC}.
-Yhdisteet, jotka täyttävät lääkkeeltä vaaditut kriteerit, on puolestaan arvioitu olevan noin $10^{60}$~\cite{SotrifferChristoph2011VSPC}.
+On arvioitu, että erilaisia kemiallisia yhdisteitä, jotka voivat esiintyä huoneenlämmössä ja nesteessä, voi olla välillä \(10^{18} - 10^{180}\)~\cite{SotrifferChristoph2011VSPC}.
+Yhdisteet, jotka täyttävät lääkkeeltä vaaditut kriteerit, on puolestaan arvioitu olevan noin \(10^{60}\)~\cite{SotrifferChristoph2011VSPC}.
 Tämä itsessään esittää tarpeen tehokkaille algoritmeille ja menetelmille, jotka auttavat karsimaan tästä suuresta määrästä kemiallisia yhdisteitä vain lupaavimmat.
 
 Virtuaalinen seulonta (Virtual Screning, VS) on suosittu lähestymistapa uusien lääkkeiden löytämiseksi.
@@ -290,15 +290,15 @@ Nämä CN:ät ovat ominaisuuksien ennustamiseen tarkoitettu verkko (property pre
 MTN eroaa Transformer -mallista kahdella tavalla.
 Toisin kuin Transformer, joka käsittelee sanoja ja niistä muodostettuja lauseita, MTN käsittelee yksittäisiä merkkejä ja niistä muodostettuja molekyylejä.
 Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallissista ominaisuuksista.
-MTN:än kustannusfunktio on muotoa \[\mathcal{L} (\theta_T;X,p_x,p_y) = -\frac{1}{N}\frac{1}{M}\sum_{n \in N}\sum_{i \in M}\sum_{v \in V}y_v,j,n \cdot log(\hat{y}_v,j,n).\]
+MTN:än kustannusfunktio on muotoa \[\mathcal{L} (\theta_T;X,p_x,p_y) = -\frac{1}{N}\frac{1}{M}\sum_{n \in N}\sum_{i \in M}\sum_{v \in V}y_v,j,n \cdot \log(\hat{y}_v,j,n).\]
 
-PPN ottaa syötteenä ennustetun molekyylin merkkijonon ($y_i$).
+PPN ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)).
 Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi (Parempi termi?) hyödyntäen Long short-term memory (LSTM) -kerrosta.
 LSTM muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnassa, ja näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
 Nämä vektorit yhdistetään ja yhdistevektori syötetään täysin yhdistetylle neuroverkolle.
 Tämä verkko sisältää kaksi piilotettua tasoa.
 
-SMP ottaa syötteenä ennustetun molekyylin merkkijono ($y_i$) ja alkuperäisen molekyylin merkkijonon ($x_i$).
+SMP ottaa syötteenä ennustetun molekyylin merkkijono (\(y_i\)) ja alkuperäisen molekyylin merkkijonon (\(x_i\)).
 Nämä merkkijonot syötetään kahdelle eri LSTM -tasolle, toinen käsittelee alkuperäisen molekyylin merkkijonot ja toinen ennustetun molekyylin merkkijonot.
 Nämä LSTM -kerrokset tomivat samalla periaatteella kuin PPN:ässä ja palauttavat näin ollen neljä eri vektoria.
 Nämä vektorit yhdistetään ja tämä yhdiste vektori annetaan täysin yhdistetylle verkolle, joka sisältää kaksi piilotettua tasoa.
@@ -313,7 +313,7 @@ Nämä vektorit yhdistetään ja tämä yhdiste vektori annetaan täysin yhdiste
 Data, jolla, mallit koulutetaan, on peräisin ZINC ja DRD2 dataseteistä. (Kuka hallinnoi?)
 Data sisältää kaiken kaikkiaan 257 565 molekyyliä, joista luodaan pareja.
 Parit muodostetaan siten, että kahden molekyylin välinen samanlaisuus luku on yli 0.4. (Miten lasketaan?)
-Näitä pareja $(X,Y)$ muodostetaan kaiken kaikkiaan 10 827 615 kappaletta.
+Näitä pareja \((X,Y)\) muodostetaan kaiken kaikkiaan 10 827 615 kappaletta.
 Lisäksi kaikille molekyyleille lasketaan niiden eri kemiallisten ominaisuuksien arvot, jotka ovat PlogP, QED ja DRD2.
 Nämä kuvaavat eri haluttuja ominaisuuksia, joita lääkkeiltä halutaan.
 
@@ -362,7 +362,7 @@ Miksi lääkkeiden retrosyntetisointi on hankalaa~\cite{ButlerKeithT2018Mlfm,deA
     \includegraphics[width=\textwidth]{retrosynthesis.jpg}
     \caption{(a) esimerkki reaktiosäännöstä, (b) esimerkki mahdollisista reaktioista, kuinka voidaan luoda haluttu yhdiste (keskellä).
         Kuvaa on yksinkertaistettu ja se sisältää vain yksitoista mahdollista reaktiota, jotka tuottavat halutun yhdisteen.
-        Värikoodaukset tarkoittavat: Keltainen - kohde yhdiste, Punainen - saatavilla oleva yhdiste, Vihreä - kirjallisuudesta tunnettu yhdiste, liila - tuntematon yhdiste}
+        Värikoodaukset tarkoittavat: Keltainen --- kohde yhdiste, Punainen --- saatavilla oleva yhdiste, Vihreä --- kirjallisuudesta tunnettu yhdiste, liila --- tuntematon yhdiste}
     ~\cite{ExpertKnowledgeRetorsynthesis}
 \end{figure}
 
@@ -383,61 +383,57 @@ Neuroverkot on koulutettu avustamaan puuhakualgoritmia etenemään fiksuimpaan s
     ~\cite{SeglerMarwinHS2018Pcsw}
 \end{figure}
 
-Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (\textbf{Expansion policy network, EPN}),
-MCTS:än rollout toimintoa tukeva Rollout -verkko (\textbf{Rollout policy network, RPN})
-ja verkko, joka tarkistaa, onko syntetisointi polku toteutettavissa (\textbf{In-scope filter network, IFN}).
+Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (\textbf{Expansion policy network, EPN}), MCTS:än rollout toimintoa tukeva Rollout -verkko (\textbf{Rollout policy network, RPN}) ja verkko, joka tarkistaa, onko syntetisointi polku toteutettavissa (\textbf{In-scope filter network, IFN}).
 
-Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta. Reaxyksen omistaa Elsevier kustantamo. Reaxys -tietokannan sisältämä data koostuu
-säännöistä, jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion
-tuote. Näitä sääntöjä käytetään mallien kouluttamiseen. Reaxys sisältää yli 12.4 miljoonaa sääntöä. Mallien
-kouluttamiseen käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain
-yhdestä kolmeen lähtötuotetta. Eri mallien kouluttamiseen käytetiin eri kriteerein suodatettua dataa tietokannasta.
+Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta.
+Reaxyksen omistaa Elsevier kustantamo.
+Reaxys -tietokannan sisältämä data koostuu säännöistä, jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion tuote.
+Näitä sääntöjä käytetään mallien kouluttamiseen.
+Reaxys sisältää yli 12.4 miljoonaa sääntöä.
+Mallien kouluttamiseen käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain yhdestä kolmeen lähtötuotetta.
+Eri mallien kouluttamiseen käytetiin eri kriteerein suodatettua dataa tietokannasta.
 
-RPN:än kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (reaktiokeskus)
-ja lähimmät vierekkäiset atomit. Datasta suodatettiin pois sellaiset reaktiot, jotka ilmaantuivat
-alle 50 kertaa ennen vuotta 2015. EPN:än kouluttamiseen valittiin datasta vain reaktiokeskus.
-EPN:än datasta suodatettiin pois sellaiset reaktiot, jotka ilmenivät datassa alle kolme kertaa ennen vuotta
-2015. Lopulliset reaktiomäärät, joilla RPN ja EPN koulutettiin, olivat 17 134 ja 301 671. Näillä säännöillä
-EPN ja RPN koulutetaan toimimaan hakualgoritmia ohjaavina neuroverkkoina.
+RPN:än kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (reaktiokeskus) ja lähimmät vierekkäiset atomit.
+Datasta suodatettiin pois sellaiset reaktiot, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
+EPN:än kouluttamiseen valittiin datasta vain reaktiokeskus.
+EPN:än datasta suodatettiin pois sellaiset reaktiot, jotka ilmenivät datassa alle kolme kertaa ennen vuotta 2015.
+Lopulliset reaktiomäärät, joilla RPN ja EPN koulutettiin, olivat 17 134 ja 301 671.
+Näillä säännöillä EPN ja RPN koulutetaan toimimaan hakualgoritmia ohjaavina neuroverkkoina.
 
 EPN on toteutettu Highway -neuroverkkona (Highway network, HN).
 HN on hyvin syvä neuroverkkotyyppi, joka saattaa jopa sisältää yli sata kerrosta~\cite{VeryDeepNetworks}.
 
-RPN on neuroverkko, jossa on yksi piilotettu kerros. RPN koulutettiin samalla tavalla kuin EPN.
+RPN on neuroverkko, jossa on yksi piilotettu kerros. RPN koulutettiin samalla tavalla kuin EPN.\@
 
 IFN on neuroverkko, joka tarkistaa, onko EPN:än ja RPN:än valitsemat reaktiosäännöt toteutettavissa.
-IFN koulutetaan sekä onnistuneiden että epäonnistuiden reaktioiden avulla. Koska epäonnistuneita
-reaktioita ei talleneta tietokantaan, niin kyseinen data generoidaan. Data generoidaan siten, että jos reaktiossa
-\[A + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita
-D, E, F, jne. ei muodostu (voisi selittää syvemmin). IFN kouluttamista varten luotiin 100 miljoonaa
-epäonnistunutta reaktiota ja 10 miljoonaa testaamista varten.
+IFN koulutetaan sekä onnistuneiden että epäonnistuiden reaktioiden avulla.
+Koska epäonnistuneita reaktioita ei talleneta tietokantaan, niin kyseinen data generoidaan.
+Data generoidaan siten, että jos reaktiossa \[A + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita D, E, F, jne.\@ ei muodostu (voisi selittää syvemmin).
+IFN kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiota ja 10 miljoonaa testaamista varten.
 
-3N-MCTS:ässä IFN ja EPN on yhdistetty toimimaan yhdessä. Tutkittaessa puun tilaa $S_i$ (selitä Si vaihe) jokainen
-molekyyli syötetään EPN:älle ja se tulostaa, mitkä reaktiot voivat muodostaa annetun yhdisteen ja näin ollen
-myös mitkä lähtöaineet voivat muodostaa annetun yhdisteen. Nämä reaktiot syötetään IFN:älle, joka suodattaa
-valituista reaktioista toteutettavissa olevat. Tämän jälkeen algoritmissa iteroidaan neljää vaihetta, jotka
-muodostavat lopullisen puun.
+3N-MCTS:ässä IFN ja EPN on yhdistetty toimimaan yhdessä.
+Tutkittaessa puun tilaa \(S_i\) (selitä Si vaihe) jokainen molekyyli syötetään EPN:älle ja se tulostaa, mitkä reaktiot voivat muodostaa annetun yhdisteen ja näin ollen myös mitkä lähtöaineet voivat muodostaa annetun yhdisteen.
+Nämä reaktiot syötetään IFN:älle, joka suodattaa valituista reaktioista toteutettavissa olevat.
+Tämän jälkeen algoritmissa iteroidaan neljää vaihetta, jotka muodostavat lopullisen puun.
 
 (1) Ensimmäisessä vaiheessa algoritmi valitsee seuraavan lupaavimman tilan puusta kunnes puun lehti on saavutettu.
-Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia
-$d$ askelta eteenpäin samalla muodostaen synteesipolkua (rollout). Jos lehdessä käydään useamman kuin yhden
-kerran valintavaiheen aikana, niin mahdolliset reaktiot, jotka muodostavat lehden, tutkitaan ja lisätään lehden
-lapsiksi (expansion)
+Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia \(d\) askelta eteenpäin samalla muodostaen synteesipolkua (rollout).
+Jos lehdessä käydään useamman kuin yhden kerran valintavaiheen aikana, niin mahdolliset reaktiot, jotka muodostavat lehden, tutkitaan ja lisätään lehden lapsiksi (expansion).
 
-(2) Toisessa vaiheessa lupaavien tilojen lapset tutkitaan. Tällöin etsitään lupaavimmat reaktiot, jotka muodostavat
-kyseisessä tilassa olevan yhdisteen.
+(2) Toisessa vaiheessa lupaavien tilojen lapset tutkitaan.
+Tällöin etsitään lupaavimmat reaktiot, jotka muodostavat kyseisessä tilassa olevan yhdisteen.
 
-(3) Kolmannessa vaiheessa tarkistetaan lehden tila. Jos lehti on `todistetusti toimiva', niin algoritmi palauttaa
-luvun suuremman kuin yksi, jolloin lehteä suositellaan käytettävän synteesipolussa. Muussa tapauksessa lehdelle
-suoritetaan rollout, jolloin RPN antaa rekursiivisesti uusia reaktioita niin kauan, kunnes lehti on pilkottu
-lähtöaineisiin tai kunnes suurin sallittu syvyys $d$ on saavutettu.
+(3) Kolmannessa vaiheessa tarkistetaan lehden tila.
+Jos lehti on `todistetusti toimiva', niin algoritmi palauttaa luvun suuremman kuin yksi, jolloin lehteä suositellaan käytettävän synteesipolussa.
+Muussa tapauksessa lehdelle suoritetaan rollout, jolloin RPN antaa rekursiivisesti uusia reaktioita niin kauan, kunnes lehti on pilkottu lähtöaineisiin tai kunnes suurin sallittu syvyys \(d\) on saavutettu.
 
-(4) Viimeisessä vaiheessa lehtien arvot päivitetään. Jos lähtöaineet löydetään rolloutin aikana, niin lehti saa
-palkonnoksi arvon 1. Jos Kaikkia lähtöaineita ei löydetty, niin lehdelle annetaan osittainen palkinto. Jos yhtään
-lähtöainetta ei löytynyt, niin lehti saa arvon -1.
+(4) Viimeisessä vaiheessa lehtien arvot päivitetään.
+Jos lähtöaineet löydetään rolloutin aikana, niin lehti saa palkonnoksi arvon 1.
+Jos Kaikkia lähtöaineita ei löydetty, niin lehdelle annetaan osittainen palkinto.
+Jos yhtään lähtöainetta ei löytynyt, niin lehti saa arvon -1.
 
-Saattaa kuitenkin olla, että synteesi polkua ei voida luoda. Joko synteesinpolun tutkimiseen menee liian kauan
-aikaa tai synteesi polku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
+Saattaa kuitenkin olla, että synteesi polkua ei voida luoda.
+Joko synteesinpolun tutkimiseen menee liian kauan aikaa tai synteesi polku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
 
 \subsection{Expert knowledge aided neural networks}
 
@@ -497,7 +493,7 @@ Kvanttikoneiden suuri laskuteho pystyy laskemaan uusien mallien koulutusaikaa me
 
 Koenoppimista voidaan myös käyttää tulevaisuudessa mahdollisesti uusien tieteellisten lakien löytämisessä.
 Mutta vaikka eri koneoppimisesta kehitetyt mallit ovat ennalta arvattavia, niin ne ei kuitenkaan ole aina tulkittavia.
-Neuroverkko voi esimerkiksi oppia ideaalin kaaulain $(pV=nRT)$, mutta neuroverkon kaarien painojen muuttamien ymmärrettäväksi säännöksi ei ole yksinkertainen tehtävä.
+Neuroverkko voi esimerkiksi oppia ideaalin kaaulain \((pV=nRT)\), mutta neuroverkon kaarien painojen muuttamien ymmärrettäväksi säännöksi ei ole yksinkertainen tehtävä.
 Voi olla, että koneoppimismalli pystyy huomaamaan datasta säännön, joka toistuu, mutta jos tutkijat eivät tiedä tai tunne kyseistä sääntöä, niin mallin tulkitseminen on lähes mahdotonta.
 
 \cleardoublepage                          %fixes the position of bibliography in bookmarks
