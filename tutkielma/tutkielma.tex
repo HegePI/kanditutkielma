@@ -213,7 +213,30 @@ Kehitetyt mallit ovatkin näyttäneet, että koneoppimismallit ovat tehokkaita t
 
 Tässä tektissä paneudutaan syvemmin koneoppimismalleihin, joita käytetään uusien lääkkeiden tunnistaminseen ja näiden tunnistettujen lääkkeiden syntetisoinnin suunnitteluun.
 
+Ensimmäisessä kappaleessa tutustutaan hieman eri datatyyppeihin, joita käytetään koneoppimismallien kouluttamisessa.
+Näiden ymmärtäminen auttaa hahmottamaan myöhemmin tekstissä selitettävien eri mallien toimintaa.
+
+Toisessa kappaleessa käyddän läpi, kuinka uusia lääkkeitä löydetään.
+Kappaleessa kerrotaan virtualisesta seulonnasta (Virtual screening), mitä silla tarkoitetan ja kuinka sitä käytetään hyväksi.
+Lisäksi toisessa kappaleessa käydään läpi kahden eri koneoppimismallin toiminta.
+Nämä koneoppimismallit keskittyvät uusien lääkkeiden löytämiseen, mutta niiden perustoimintaperiaatteet eroavat toisistaan.
+
+Kolmannessa kappaleessa käsitellään yhdisteiden syntetisointia.
+Kappaleessa kerrotaan, mikä tekee yhdisteiden syntetisoinnista hankalaa ja mitä ratkaisuja tähän on kehitetty.
+Kappale myös kertoo retrosyntetisoinnista, CASP -menetelmistä ja kuinka nämä liittyvät toisiinsa.
+Lisäksi kappaleessa myös käyddän läpi kahden eri koneoppimismallin toiminta, jotka on kehitetty auttamaan eri yhdisteiden syntetisoinnissa.
+
+Neljäs kappale käsittelee, kuinka koneoppimista tullaan käyttämään tulevaisuuden lääkekehityksessä ja tutkimisessa.
+Kappale kertoo, kuinka koneoppiminen tulee enenemissä määrin muuttamaan lääkekehityksen prosessia.
+
 \chapter{Kemiallinen data}
+
+Tässä kappaleessa käydään pintapuolisesti läpi, minkälaista dataa käytetään mallien kouluttamiseen.
+Kappaleessa keskitytään datatyyppeihin, joita käytetään malleissa, joiden toimintaa tullaan avaamaan tämän tekstin muissa osissa.
+Mallit, joiden toimintaa avataan, käyttävät datatyyppejä, joilla kuvataan pieniä yhdisteitä.
+Tämän takia kappaleessa keskitytään pieniäyhdisteitä kuvaaviin datatyyppeihin.
+Kappaleessa käyddän läpi SMILES ja SMARTS dattyypit, mihin niitä käytetään ja kuinka ne eroavat toisistan.
+Lisäksi kappaleessa kerrotaan ominaisuusvektoreista ja kuinka niitä käytetään ja missä tilanteissa.
 
 oleelliset asiat datasta
 Mitä datasta halutaan tietää?
@@ -223,14 +246,26 @@ Mitä on?
 Mitä kertoo?
 Miten käytetään malleissa? (esikäsittely)
 
+SMILES (Simplified Molecular Input Line Entry System) on David Weiningerin kehittämä tapa kuvata molekyylejä ja yksinkertaisia yhdisteitä~\cite{WeiningerSMILES}.
+
 \section{SMARTS}
 Mitä on?
 Mitä kertoo?
 Miten käytetään malleissa? (esikäsittely)
 
+\section{Ominaisuusvektorit}
+
 \chapter{Uusien lääkkeiden löytäminen}
 
 % Miksi uusien lääkkeiden löytäminen on vaikeaa?~\cite{EkinsSean2019Emlf}
+
+Tässä kappaleessa kerrotaan, mitä asioita liittyy lääkkeiden löytämiseen.
+Lisäksi kappaleessa kerrotaan, mitä on virtuaalinen seuronta ja kuinka sitä käytetään lääkkeiden löytämisessä.
+Kappaleessa myös käydään läpi kahden eri koneoppimismallin toimintamalli.
+Toinen malleista löytää uusia lääkkeitä muokkaamalla jo tunnettuja lääkkeitä.
+Toinen puolestaan luo uusia lääkkeitä perustuen ominaisuusvektoreihin.
+
+\section{Yhdisteiden syntetisointi}
 
 Yksi ensimmäisistä lääketutkimuksen prosessin osa-alueista on uusien lääkeyhdisteiden löytäminen joko uusiin tai jo tunnettuihin tauteihin~\cite{EkinsSean2019Emlf}.
 Tämä on kuitenkin ollut tavallisesti hidas prosessi ja uuden toimivan yhdisteen löytäminen on kestänyt kahdesta kolmeen vuotta.
@@ -329,6 +364,13 @@ Tämä joukko jaettiin samalla tavalla koulutus ja testi ryhmiin kuin PPN:ässä
 lähde~\cite{ShaharHarelAndKiraRadinsky}
 
 \chapter{Uusien lääkkeiden syntetisointi}
+
+Tässä kappaleessa käydään läpi, miten lääkkeiden syntetisoinnin suunnittelua voidaan tehdä koneoppimismallien avulla.
+Kappale keskittyy syntetisointiin retrosyntetisoinnin avulla.
+Kappaleessa kerrotaan, mikä tekee yhdisteen retrosyntetisoinnista vaikeaa ja kuinka sitä voidaan tehostaa eri koneoppimismallien avulla.
+Kappaleessa käydään läpi kahden koneoppimismallin toimintaa, jotka suorittavat halutun yhdisteen retrosyntetisointia.
+
+\section{Yhdisteiden syntetisointi}
 
 Yhdisteen syntetisoinnin suunnittelulla tarkoitetaan prosessia, jossa määritellään, kuinka haluttu yhdiste voidaan tuottaa synteettisesti saatavilla olevista lähtöaineista~\cite{ColeyConnorW2018MLiC}.
 Retrosynteesianalyysillä tarkoitetaan puolestaan menetelmää, jonka avulla löydetään halutun yhdisteen tuottamiseen tarvittavat lähtöaineet.

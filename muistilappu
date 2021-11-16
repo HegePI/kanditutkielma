@@ -1,0 +1,71 @@
+Esittely
+
+Käytävät asiat
+
+Lääkekehityksen vaiheet
+
+    * Kohteen löytäminen - löydetään kehosta kohta, jota muuttamalla voidaan vaikuttaa sairauteen
+
+    * Lääkkeen tunnistaminen - Löydetään yhdiste, joka vaikuttaa haluttuun kohtaan kehosta
+
+    * ADME/TOX - Absorption/administration, Distribution, Metabolism, Excretion / Toxicity, miten toimii muiden lääkkeiden kanssa
+
+    * kliiniset testit - sisältää useita vaiheita, joissa testataan useita eri asioita
+
+De Novo -lääkekehitys
+
+    * Keskittyy uusien mahdollisten lääkkeiden löytämiseen
+
+    * Prototyyppi perustainen - Aloitetaan, yhdisteestä, jolla on jo osittain halutut ominaisuudet. Tätä muokkaamalla voidaan luoda uusi lääke haluttuun sairrauteen. Voidaan myös muokata siten, että lääke on sopivampi henkilöille, jotka eivät voi äkyttää alkuperäistä lääkettä.
+
+    * Ominaisuusvektoreihin perustuva - Kartoitetaan halutut ominaisuudet yhdisteestä, jolloin voidaan yhdistää yhdisteen rakenne haluttuun ominaisuuteen. Tällöin voidaan luoda uusia yhdisteitä haluttujen ominaisuuksien perusteella.
+
+Datasta
+
+    * SMILES - standardi kuvaamaan lyhyitä yhdisteitä ja niiden rakenteita
+
+    * SMARTS - SMILES:ista jatkokehitetty standardi, ottaa huomioon myös mahdolliset yksinkertaisten liitosten kiertymiset
+
+    * Ominaisuusvektorit - Kuvaavat yhdisteen lääkkeellisiä ominaisuuksia, rule of five
+
+CMG
+
+    * Lähestyy uusien molekyylien luomista käännös ongelmana, perustuu NLP malliin the Transformer
+
+    * Saa syötteenä
+        - Lähtömolekyylin
+        - Lähtömolekyylin ominaisuusvektorin
+        - Kehitettävän lääkkeen ominaisuusvektorin
+
+    * Luo lähtömolekyyliä muistuttavan molekyylin, jolla on halutut ominaisuudet
+
+    * Käyttää SMILES standardia, jolloin se voi assosioida molekyylin rakenteen tietyn ominaisuuden kanssa
+
+CASP
+
+    * Vanha konsepti, E.J Corey LHASA -projekti vuonna 1968
+
+    * Perustuu retrosynteesiin - pilkotaan haluttua molekyyliä pienemmiksi paloiksi, kunnes jäljellä vain saatavilla olevia lähtöaineita
+
+    * Tunnetut reaktiosäännöt kertovat, kuinka olekyyli voidaan pilkkoa pienempiin osiin
+
+    * Kehitys laskennassa ja koneoppimisessa on mahdollistanut tehokkaammat meentelmät
+
+3N-MCTS
+
+    * Perustuu Monte Carlo -puuhaku algoritmiin, jota ohjaa kolme neuroverkkoa
+
+    * Käyttää reaktiosääntöjä Reaxys -tietokannasta
+
+    * Expansion policy network
+
+    * Rollout Policy network
+
+    * In-Scope policy network
+
+ICHO
+
+    * Käyttää heurestiikkaa reaktiosääntöjen kanssa
+
+    * Reaktio säännöt on kemistien tekemät
+
