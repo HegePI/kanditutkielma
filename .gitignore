@@ -301,3 +301,8 @@ TSWLatexianTemp*
 
 # End of https://www.toptal.com/developers/gitignore/api/latex
 misc/
+
+*.docx
+*.odt
+vertaisarvioinnit/
+kypsyysnayte.pdf
