@@ -445,34 +445,8 @@ Näitä sääntöjä käytetään mallien kouluttamiseen.
 Reaxys sisältää yli 12.4 miljoonaa sääntöä.
 Mallien kouluttamiseen käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain yhdestä kolmeen lähtötuotetta.
 Eri mallien kouluttamiseen käytetiin eri kriteerein suodatettua dataa tietokannasta.
-EPN ja RPN koulutettiin käyttämällä ADAM -optimoijaa.
+Kaikki koneoppimismallit koulutettiin käyttämällä ADAM -optimoijaa.
 ADAM -optimoija hyödyntää AdaGrad:in ja RMSProp:in toiminnallisuutta~\cite{kingma2017adam}.
-
-\subsubsection{Expansion policy netwrok}
-
-EPN on toteutettu Highway -neuroverkkona (Highway network, HN), joka käyttää ELU -funktiota aktivointifunktiona.
-% Koska EPN sisältää useita tasoja ja tasot sisältävät useita neuroneja, ~\cite{VeryDeepNetworks}.
-
-EPN:än kouluttamiseen valittiin datasta vain reaktiokeskus.
-EPN:än datasta suodatettiin pois sellaiset reaktiot, jotka ilmenivät datassa alle kolme kertaa ennen vuotta 2015.
-Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
-
-
-\subsubsection{Rollout policy network}
-
-RPN on neuroverkko, jossa on yksi piilotettu kerros. RPN koulutettiin samalla tavalla kuin EPN.\@
-
-RPN:än kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (reaktiokeskus) ja lähimmät vierekkäiset atomit.
-Datasta suodatettiin pois sellaiset reaktiot, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
-Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
-
-\subsubsection{In-scope filter network}
-
-IFN on neuroverkko, joka tarkistaa, onko EPN:än ja RPN:än valitsemat reaktiosäännöt toteutettavissa.
-IFN koulutetaan sekä onnistuneiden että epäonnistuiden reaktioiden avulla.
-Koska epäonnistuneita reaktioita ei talleneta tietokantaan, niin kyseinen data generoidaan.
-Data generoidaan siten, että jos reaktiossa \[A + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita D, E, F, jne.\@ ei muodostu (voisi selittää syvemmin).
-IFN kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiota ja 10 miljoonaa testaamista varten.
 
 \subsubsection{3N-MCTS toimintamalli}
 
@@ -507,6 +481,63 @@ Jos yhtään lähtöainetta ei löytynyt, niin lehti saa arvon -1.
 Saattaa kuitenkin olla, että synteesi polkua ei voida luoda.
 Joko synteesinpolun tutkimiseen menee liian kauan aikaa tai synteesi polku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
 
+
+\subsubsection{Expansion policy netwrok}
+
+\begin{figure}
+    \centering
+    \includegraphics[]{expansion-policy.jpg}
+    \caption{Kuvassa expansion policy -neuroverkon rakenne.}
+    {~\cite{SeglerMarwinHS2018Pcsw}}
+\end{figure}
+
+EPN muodostuu täysin kytketystä tasosta ja viidestä highway -tasosta.
+Molemmissa tasoissa on käytetty aktivointifunktiona ELU -funktiota (\textbf{exponential linear unit}).
+Täysin kytketyssä tasossa suoritetaan dropout, jonka jälkeen vain 0.3 ensimmäisen tason solmujen tuloksista otetaan huomioon seuraavalla tasolla.
+Tämän jälkeen jokaisen highway -tason jälkeen suoritetaan 0.1 dropout.
+EPN:än viimeinen taso on softmax, joka palauttaa todennäköisyysjakauman.
+Tämä jakauma kertoo kuinka todennäköisesti transformaatio \emph{a} muodostaa tuotteen \emph{m}.
+
+EPN:än kouluttamiseen valittiin datasta vain reaktiokeskus.
+EPN:än datasta suodatettiin pois sellaiset reaktiot, jotka ilmenivät datassa alle kolme kertaa ennen vuotta 2015.
+Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
+
+\subsubsection{Rollout policy network}
+
+\begin{figure}
+    \centering
+    \includegraphics[]{rollout-policy.jpg}
+    \caption{Kuvassa Rollout policy -neuroverkon rakenne.}
+    {~\cite{SeglerMarwinHS2018Pcsw}}
+\end{figure}
+
+% RPN on neuroverkko, jossa on yksi piilotettu kerros. RPN koulutettiin samalla tavalla kuin EPN.\@
+
+RPN muodostuu yhdestä täysin kytketystä tasosta.
+Samalla tavalla kuin EPN, RPN käyttää myös ELU -funktiota aktivointifunktiona.
+RPN:än viimeinen taso on myös softmax, joka palauttaa todennäköisyysjakauman.
+
+RPN:än kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (reaktiokeskus) ja lähimmät vierekkäiset atomit.
+Datasta suodatettiin pois sellaiset reaktiot, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
+Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
+
+\subsubsection{In-scope filter network}
+
+\begin{figure}
+    \centering
+    \includegraphics[]{in-scope-filter.jpg}
+    \caption{Kuvassa In scope filter -neuroverkon rakenne.}
+    {~\cite{SeglerMarwinHS2018Pcsw}}
+\end{figure}
+
+IFN on neuroverkko, joka tarkistaa, onko EPN:än ja RPN:än valitsemat reaktiosäännöt toteutettavissa.
+IFN koulutetaan sekä onnistuneiden että epäonnistuiden reaktioiden avulla.
+Koska epäonnistuneita reaktioita ei talleneta tietokantaan, niin kyseinen data generoidaan.
+Data generoidaan siten, että jos reaktiossa \[A + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita D, E, F, jne.\@ ei muodostu (voisi selittää syvemmin).
+IFN kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiota ja 10 miljoonaa testaamista varten.
+
+\subsubsection{3N-MCTS suorituskyky}
+
 \subsection{Expert knowledge aided neural networks}
 
 On myös yleistä, että retrosynteesi polkuja  suunnitelevat mallit hyödyntävät myös heurustiikka~\cite{ExpertKnowledgeRetorsynthesis}.
@@ -540,6 +571,8 @@ Tätä mallia kutsutaan SW2 malliksi ja täsät luodusta heuristisesta mallista 
 Lisäksi vertailumalliksi luodaan myös täysin heuristinen malli, joka arvioi reaktioita sen mukaan, kuinka paljon ne yksinkertaistavat lopputuotetta rakenteellisesti.
 Tämä malli suosii reaktioita, jotka pilkkovat molekyylin keskeltä, eli puolittavat sen.
 Tämä on haluttu lähestymistapa retrosuynteesiin, koska se minimoi syntetisointi vaiheiden määrän.
+
+\subsubsection{ICHO suorituskyky}
 
 
 Miten koneoppimista hyödynnetään tällä hetkellä lääkkeiden syntetisoinnissa~\cite{SeglerMarwinHS2018Pcsw,ShaharHarelAndKiraRadinsky,ShinBonggun}?
