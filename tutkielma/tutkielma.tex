@@ -440,7 +440,7 @@ Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (\textbf{Expansio
 
 Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta.
 Reaxyksen omistaa Elsevier kustantamo.
-Reaxys -tietokannan sisältämä data koostuu säännöistä, jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion tuote.
+Reaxys -tietokannan sisältämä data koostuu muunnossäännöistä (\textbf{transformation rule}), jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion tuote.
 Näitä sääntöjä käytetään mallien kouluttamiseen.
 Reaxys sisältää yli 12.4 miljoonaa sääntöä.
 Mallien kouluttamiseen käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain yhdestä kolmeen lähtötuotetta.
@@ -458,20 +458,20 @@ ADAM -optimoija hyödyntää AdaGrad:in ja RMSProp:in toiminnallisuutta~\cite{ki
 \end{figure}
 
 3N-MCTS:ässä IFN ja EPN on yhdistetty toimimaan yhdessä.
-Tutkittaessa puun tilaa \(S_i\) (selitä Si vaihe) jokainen molekyyli syötetään EPN:älle ja se tulostaa, mitkä reaktiot voivat muodostaa annetun yhdisteen ja näin ollen myös mitkä lähtöaineet voivat muodostaa annetun yhdisteen.
-Nämä reaktiot syötetään IFN:älle, joka suodattaa valituista reaktioista toteutettavissa olevat.
+Tutkittaessa puun tilaa \(S_i\) (selitä Si vaihe) jokainen molekyyli syötetään EPN:älle ja se tulostaa, mitkä säännöt voivat muodostaa annetun yhdisteen ja näin ollen myös mitkä lähtöaineet voivat muodostaa annetun yhdisteen.
+Nämä säännöt syötetään IFN:älle, joka suodattaa valituista reaktioista toteutettavissa olevat.
 Tämän jälkeen algoritmissa iteroidaan neljää vaihetta, jotka muodostavat lopullisen puun.
 
 (1) Ensimmäisessä vaiheessa algoritmi valitsee seuraavan lupaavimman tilan puusta kunnes puun lehti on saavutettu.
 Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia \(d\) askelta eteenpäin samalla muodostaen synteesipolkua (rollout).
-Jos lehdessä käydään useamman kuin yhden kerran valintavaiheen aikana, niin mahdolliset reaktiot, jotka muodostavat lehden, tutkitaan ja lisätään lehden lapsiksi (expansion).
+Jos lehdessä käydään useamman kuin yhden kerran valintavaiheen aikana, niin mahdolliset säännöt, jotka muodostavat lehden, tutkitaan ja lisätään lehden lapsiksi (expansion).
 
 (2) Toisessa vaiheessa lupaavien tilojen lapset tutkitaan.
-Tällöin etsitään lupaavimmat reaktiot, jotka muodostavat kyseisessä tilassa olevan yhdisteen.
+Tällöin etsitään lupaavimmat säännöt, jotka muodostavat kyseisessä tilassa olevan yhdisteen.
 
 (3) Kolmannessa vaiheessa tarkistetaan lehden tila.
 Jos lehti on `todistetusti toimiva', niin algoritmi palauttaa luvun suuremman kuin yksi, jolloin lehteä suositellaan käytettävän synteesipolussa.
-Muussa tapauksessa lehdelle suoritetaan rollout, jolloin RPN antaa rekursiivisesti uusia reaktioita niin kauan, kunnes lehti on pilkottu lähtöaineisiin tai kunnes suurin sallittu syvyys \(d\) on saavutettu.
+Muussa tapauksessa lehdelle suoritetaan rollout, jolloin RPN antaa rekursiivisesti uusia sääntöjä niin kauan, kunnes lehti on pilkottu lähtöaineisiin tai kunnes suurin sallittu syvyys \(d\) on saavutettu.
 
 (4) Viimeisessä vaiheessa lehtien arvot päivitetään.
 Jos lähtöaineet löydetään rolloutin aikana, niin lehti saa palkonnoksi arvon 1.
@@ -496,10 +496,10 @@ Molemmissa tasoissa on käytetty aktivointifunktiona ELU -funktiota (\textbf{exp
 Täysin kytketyssä tasossa suoritetaan dropout, jonka jälkeen vain 0.3 ensimmäisen tason solmujen tuloksista otetaan huomioon seuraavalla tasolla.
 Tämän jälkeen jokaisen highway -tason jälkeen suoritetaan 0.1 dropout.
 EPN:än viimeinen taso on softmax, joka palauttaa todennäköisyysjakauman.
-Tämä jakauma kertoo kuinka todennäköisesti transformaatio \emph{a} muodostaa tuotteen \emph{m}.
+Tämä jakauma kertoo kuinka todennäköisesti muunnosssäntö \emph{a} muodostaa tuotteen \emph{m}.
 
 EPN:än kouluttamiseen valittiin datasta vain reaktiokeskus.
-EPN:än datasta suodatettiin pois sellaiset reaktiot, jotka ilmenivät datassa alle kolme kertaa ennen vuotta 2015.
+EPN:än datasta suodatettiin pois sellaiset säännöt, jotka ilmenivät datassa alle kolme kertaa ennen vuotta 2015.
 Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
 
 \subsubsection{Rollout policy network}
@@ -518,7 +518,7 @@ Samalla tavalla kuin EPN, RPN käyttää myös ELU -funktiota aktivointifunktion
 RPN:än viimeinen taso on myös softmax, joka palauttaa todennäköisyysjakauman.
 
 RPN:än kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (reaktiokeskus) ja lähimmät vierekkäiset atomit.
-Datasta suodatettiin pois sellaiset reaktiot, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
+Datasta suodatettiin pois sellaiset säännöt, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
 Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
 
 \subsubsection{In-scope filter network}
@@ -530,9 +530,26 @@ Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
     {~\cite{SeglerMarwinHS2018Pcsw}}
 \end{figure}
 
-IFN on neuroverkko, joka tarkistaa, onko EPN:än ja RPN:än valitsemat reaktiosäännöt toteutettavissa.
-IFN koulutetaan sekä onnistuneiden että epäonnistuiden reaktioiden avulla.
-Koska epäonnistuneita reaktioita ei talleneta tietokantaan, niin kyseinen data generoidaan.
+% IFN on neuroverkko, joka tarkistaa, onko EPN:än ja RPN:än valitsemat reaktiosäännöt toteutettavissa.
+
+3N-MCTS:ässä IFN toimii binääriluokittelijana.
+Se kertoo, onko sille annettu yhdiste mahdollista muodostaa sille annetulla muunnossäännöllä.
+
+IFN neuroverkko muodostuu kahdesta haarasta.
+Toinen haara saa syötteenään muodostettavan yhdisteen tunnisteen ja toinen haara saa muunnossäännön tunnisteen.
+
+Haara, joka saa syöteenä yhdisteen tunnisteen, muodostuu yhdestä täysin kytketystä tasosta jonka jälkeen suoritetaan 0.3 dropout.
+Tämän jälkeen data kulkee viiden highway -tason läpi.
+Sekä täysin kytketty että highway -tasot käyttävät ELU -funktiota aktivointifunktiona.
+
+Haara, joka saa syötteenään muunnossäännön tunnisteen, muodostuu vain yhdestä täysin kytketystä tasosta.
+Tämä taso käyttää myös ELU -aktivointifuktiota.
+
+Näiden haarojen jälkeen saaduista tuloksista lasketaan niiden kosinisamankaltaisuus.
+Tämä syötetään sitten sigmoid -funktiolle, jonka tulos kertoo, pystyykö kyseinen muunnosssäntö muodostamaan halutun yhdisteen.
+
+IFN koulutetaan sekä onnistuneiden että epäonnistuiden sääntöjen avulla.
+Koska epäonnistuneita sääntöjä ei talleneta tietokantaan, niin kyseinen data generoidaan.
 Data generoidaan siten, että jos reaktiossa \[A + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita D, E, F, jne.\@ ei muodostu (voisi selittää syvemmin).
 IFN kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiota ja 10 miljoonaa testaamista varten.
 
@@ -546,7 +563,7 @@ Badowski et al ryhmä on kehittänyt mallin, joka suunnittelee retrosynteesi pol
 ICHO:n (Instytut Chemii Organicznej) kouluttamiseen käyettiin dataa 1.4 miljoonasta reaktiota ja niiden lopputuotteista.
 Data saadaan julkaisuista artikkeleista ja patenteista.
 Reaktiolta kuitenkin vaaditaan, että ainakin yksi reaktio per lopputuote löytyy myös Chematican (taustatietoa) expert-coded säännöstöstä.
-Lisäksi datasta suodatettiin pois suojaryhmien reaktiot.
+Lisäksi datasta suodatettiin pois suojaryhmien säännöt.
 
 ICHO:sta kehitettiin myös malli, jonka kouluttamisessa käytettiin lisäksi vektoreita, jotka sisäslsivät dataa kemiallisesti intuitiivisistä reaktio piirteistä, joita on käytetty aikaisemmissa tutkimuksissa.
 Tätä mallia kutsutaan ICHO+ malliksi, ja sitä käytetään vertailemaan ICHO mallin suoriutumista.
@@ -566,7 +583,7 @@ Eli jos jokin reaktion sormenjälki (Lisää tietoa, koska useassa mallissa käy
 
 ICHO mallia vertailtiin aikasiemmin mainitun 3N-MCTS mallin kanssa, jota kustsutaan artikkelissa SW mallina.
 Kyseisestä SW mallista kehitettiin myös heuristista dataa hyödyntävä malli SW+.
-Lisäksi luotiin SW malli, joka ei käy läpi kaikkia mahdollisia reaktioita, vaan valitsee reaktiot vain niistä reaktioista, jotka eivät aiheuta konfliktia (selitys) ja jotka johtavat vain tiettyyn lopputuotteeseen.
+Lisäksi luotiin SW malli, joka ei käy läpi kaikkia mahdollisia reaktioita, vaan valitsee säännöt vain niistä reaktioista, jotka eivät aiheuta konfliktia (selitys) ja jotka johtavat vain tiettyyn lopputuotteeseen.
 Tätä mallia kutsutaan SW2 malliksi ja täsät luodusta heuristisesta mallista käytetään nimeä SW2+
 Lisäksi vertailumalliksi luodaan myös täysin heuristinen malli, joka arvioi reaktioita sen mukaan, kuinka paljon ne yksinkertaistavat lopputuotetta rakenteellisesti.
 Tämä malli suosii reaktioita, jotka pilkkovat molekyylin keskeltä, eli puolittavat sen.
