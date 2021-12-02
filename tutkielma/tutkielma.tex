@@ -555,6 +555,37 @@ IFN kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiota ja 10 
 
 \subsubsection{3N-MCTS suorituskyky}
 
+3N-MCTS:än suorituskykyä verrattiin BFS -menetelmään (Best-first search -method), joka käyttää heuristista käsinkoodattua \(SMILES^{3/2}\) -kustannefunktiota.
+Tämä funktio antaa parhaimman tuloksen muunnossäännölle, joka jakaa halutun yhdisteen mahdollisimman hyvin yhtä suuriin lähtötuotteisiin.
+Tästä menetelmästä luotiin myös versio, joka käyttää muokattua \(SMILES^{3/2}\) -kustannefunktiota.
+Muokattu funktio käyttää 3N-MCTS:än expansion policy -neuroverkkoa ja in-scope filter -neuroverkkoa parhaimman muunnossäänön selvittämiseen.
+
+Mallit koulutettiin samoilla muunnossäännöillä ja testeissä käytettiin samaa aikaan perustuvaa jakoa.
+Mallit koulutettiin muunnossäännöillä, jotka ilmenivät ennen vuotta 2015, ja malleja testatiin vuoden 2015 jälkeen ilmenneillä muunnossäänöillä.
+
+Mallien tehtäväksi annettiin löytää halutulle yhdisteelle retrosyntetisointipolku annetussa ajassa.
+Testaamiseen käytettiin 497 eri yhdistettä.
+
+3N-MCTS suoriutui kahta muuta algoritmia paremmin jokaisessa eri aika kategoriassa.
+3N-MCTS löysi viidessä sekunnissa 80 prosentille yhdisteistä retrosyntetisointipolun, kun taas muokattu \(SMILES^{3/2}\) -menetelmä löysi retrosyntetisointipolun vain 40 prosenttia yhdisteistä ja alkuperäinen ei löytänyt polkuja ollenkaan.
+Kun aikaa kasvatettiin 60 sekunttiin per yhdiste, 3N-MCTS löysin 92 prosentille yhdisteistä polun, muokattu \(SMILES^{3/2}\) löysi 71 prosentille yhdisteistä ja alkuperäinen versio vain 4 prosentille yhdisteistä.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm, height=6cm]{3N-MCTS-performance-fig.jpg}
+    \caption{
+        3N-MCTS:än suorituskyky verrattuna \(SMILES^{3/2}\) hyödyntävään BFS -menetelmään ja 3N-MCTS:än neuroverkkoja hyödyntävään BFS -menetelmään.
+        Kuvaaja kertoo, kuinka monelle prosenttia annetuista yhdisteistä menetelmä kykenee löytämään retrosyntetisointipolun annaetusssa ajassa.
+        Annetulla ajalla tarkoitetaan aikaa, jonka menetelmä voi korkeintaan käyttää yhden yhdisteen retrosyntetisointipolun löytämiseen.
+    }
+    {~\cite{SeglerMarwinHS2018Pcsw}}
+\end{figure}
+
+3N-MCTS:ää testattiin myös sokkotestillä 45 yliopistotason kemistille.
+Testin tarkoituksena oli selvittää, suosivatko henkilöt ennemmin kirjallisuuteen perustuvaa retrosyntetisointipolkua vai 3N-MCTS:än antamaa polkua.
+Sokkotestissä 57 prosenttia henkilöistä valitsi 3N-MCTS muodostaman polun ja loput valitsivat kirjallisuuteen perustuvan polun.
+
+
 \subsection{Expert knowledge aided neural networks}
 
 On myös yleistä, että retrosynteesi polkuja  suunnitelevat mallit hyödyntävät myös heurustiikka~\cite{ExpertKnowledgeRetorsynthesis}.
@@ -584,8 +615,8 @@ Eli jos jokin reaktion sormenjälki (Lisää tietoa, koska useassa mallissa käy
 \begin{figure}
     \centering
     \includegraphics[width=8cm, height=8cm]{icho-neuralnetwork.png}
-    \caption{Kuvassa ICHO -neuroverkon rakenne~\cite{ExpertKnowledgeRetorsynthesis}.}
-    {~\cite{SeglerMarwinHS2018Pcsw}}
+    \caption{Kuvassa ICHO -neuroverkon rakenne.}
+    {~\cite{ExpertKnowledgeRetorsynthesis}}
 \end{figure}
 
 ICHO mallia vertailtiin aikasiemmin mainitun 3N-MCTS mallin kanssa, jota kustsutaan artikkelissa SW mallina.
