@@ -252,7 +252,7 @@ Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
 
 \begin{figure}
     \centering
-    \includegraphics[]{melatonin-smiles.png}
+    \includegraphics[width=8cm, height=8cm]{melatonin-smiles.png}
     \caption{Kuvassa melatoniini molekyyli, kuinka se kuvataan graaffina ja SMILES -merkijonona.
         Kuva on tehty käyttämällä RDKit -ohjelmistoa.}
     {~\cite{ShinBonggun}}
@@ -581,6 +581,13 @@ Jos suhde taas on pieni, niin reaktio luokitellaan `vaikeaksi toteuttaa'.
 Tämä sen takia, että mallille koulutetaan jatkuva funktio, joka antaa todennäköisyyden jokaiselle reaktiotyypille perustuen, kuinka reaktio muuttaa lopputuotteen lähtötuotteiksi.
 Eli jos jokin reaktion sormenjälki (Lisää tietoa, koska useassa mallissa käytetään) tai heuristinen kuvaus on samankaltainen toisen reaktion kanssa, joka ilmenee koulutusdatassa, niin reaktiolle voidaan antaa todennäköisyys sen käytölle.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm, height=8cm]{icho-neuralnetwork.png}
+    \caption{Kuvassa ICHO -neuroverkon rakenne~\cite{ExpertKnowledgeRetorsynthesis}.}
+    {~\cite{SeglerMarwinHS2018Pcsw}}
+\end{figure}
+
 ICHO mallia vertailtiin aikasiemmin mainitun 3N-MCTS mallin kanssa, jota kustsutaan artikkelissa SW mallina.
 Kyseisestä SW mallista kehitettiin myös heuristista dataa hyödyntävä malli SW+.
 Lisäksi luotiin SW malli, joka ei käy läpi kaikkia mahdollisia reaktioita, vaan valitsee säännöt vain niistä reaktioista, jotka eivät aiheuta konfliktia (selitys) ja jotka johtavat vain tiettyyn lopputuotteeseen.
@@ -617,6 +624,8 @@ Koenoppimista voidaan myös käyttää tulevaisuudessa mahdollisesti uusien tiet
 Mutta vaikka eri koneoppimisesta kehitetyt mallit ovat ennalta arvattavia, niin ne ei kuitenkaan ole aina tulkittavia.
 Neuroverkko voi esimerkiksi oppia ideaalin kaaulain \((pV=nRT)\), mutta neuroverkon kaarien painojen muuttamien ymmärrettäväksi säännöksi ei ole yksinkertainen tehtävä.
 Voi olla, että koneoppimismalli pystyy huomaamaan datasta säännön, joka toistuu, mutta jos tutkijat eivät tiedä tai tunne kyseistä sääntöä, niin mallin tulkitseminen on lähes mahdotonta.
+
+\chapter{Yhteenveto}
 
 \cleardoublepage{}                          %fixes the position of bibliography in bookmarks
 \phantomsection{}
