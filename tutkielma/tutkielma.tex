@@ -570,7 +570,7 @@ Sokkotestissä 57 prosenttia henkilöistä valitsi 3N-MCTS muodostaman polun ja 
 \subsection{Heurustiikka avusteiset neuroverkot}
 
 On myös yleistä, että retrosynteesipolkuja suunnitelevat mallit hyödyntävät heurustiikka~\cite{ExpertKnowledgeRetorsynthesis}.
-Badowski et al.\ ryhmä on kehittänyt koneoppimismallin, joka suunnittelee retrosynteesi polkuja hyödyntämällä neuroverkkoja ja ammattikemistien muodostamia heuristisia sääntöjä suunnitellessaan retrosynteesipolkua.
+Badowski et al.\ ryhmä on kehittänyt koneoppimismallin, joka suunnittelee retrosynteesipolkuja hyödyntämällä neuroverkkoja ja ammattikemistien muodostamia heuristisia sääntöjä suunnitellessaan retrosynteesipolkua.
 
 ICHO:n (Instytut Chemii Organicznej) kouluttamiseen käyettiin dataa 1.4 miljoonasta reaktiosta ja niiden lopputuotteista.
 Data saadaan julkaistuista artikkeleista ja patenteista.
@@ -596,9 +596,14 @@ Eli jos jokin reaktion sormenjälki (Lisää tietoa, koska useassa mallissa käy
 \begin{figure}
     \centering
     \includegraphics[width=8cm, height=8cm]{icho-neuralnetwork.png}
-    \caption{Kuvassa ICHO -neuroverkon rakenne.}
+    \caption{ICHO -neuroverkon rakenne.}
     {~\cite{ExpertKnowledgeRetorsynthesis}}
 \end{figure}
+
+ICHO -malli muodostuu neljästä kerroksesta, joista kolme kerrosta ovat täysin kytkettyjä neuroverkkoja ja viimeinen taso on sigmoid -taso.
+Samalla tavalla kuin 3N-MCTS mallissa, ICHO -malli käyttää myös ELU -aktivointifunktiota.
+ICHO -malli käyttää Batch normaliztion -algoritmia koulutusvaiheessa.
+Batch normalization -algoritmin idea on standardoida koulutusvaiheessa kerrokselle tuleva syöte, jolla verkon painoja muutetaan.
 
 ICHO mallia vertailtiin aikasiemmin mainitun 3N-MCTS -mallin kanssa, jota kustsutaan artikkelissa SW mallina.
 Kyseisestä SW mallista kehitettiin myös heuristista dataa hyödyntävä malli SW+.
@@ -610,6 +615,11 @@ Tämä on haluttu lähestymistapa retrosynteesiin, koska se minimoi syntetisoint
 
 \subsubsection{ICHO suorituskyky}
 
+ICHO -mallia testataan eri tavalla 3N-MCTS mallia, jossa mitataan, kuinka monelle yhdisteelle malli kykenee löytämään toimivan retrosyntetisointipolun tietyssä ajassa.
+ICHO -mallia testataan siten, että jokaiselle mallille annetaan yhdiste, ja malli antaa tulosteena listan muunnossäännöistä, jotka on asetettu paremmuusjärjestykseen niille annetun pisteytyksen mukaan.
+Muunnossäänön pisteytys kertoo, kuinka paljon malli suosittelee käytettävän kyseistä muunnossääntöä.
+Näistä muunnossäännöistä laskettiin, kuinka suuri osa niistä pohjautuu johonkin aikaisempaan muunnossääntöön, joka on esiintynyt kirjallisuudessa tai patenteissa.
+Mitä suurempi osa ehdotetuista muunnossäänöistä löytyy kirjallisuudesta, sitä paremmin malli toimii.
 
 Miten koneoppimista hyödynnetään tällä hetkellä lääkkeiden syntetisoinnissa~\cite{SeglerMarwinHS2018Pcsw,ShaharHarelAndKiraRadinsky,ShinBonggun}?
 
