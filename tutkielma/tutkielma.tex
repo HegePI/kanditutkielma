@@ -355,8 +355,9 @@ Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallissista omina
 \end{figure}
 
 PPN -verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)).
-Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi (Parempi termi?) hyödyntäen Long short-term memory (LSTM) -kerrosta.
-LSTM -kerros muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnassa, ja näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
+Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi hyödyntäen Bidirectional Long short-term memory (biLSTM) -kerrosta.
+BiLSTM on rakenteeltaan samanlainen kuin LSTM taso, mutta koska se käsittelee syötteen sekä alku-loppu suunnassa että loppu-alku suunnassa se oppii tietyn merkin konteksin molemmissa suunnissa.
+BiLSTM -kerros muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnassa, ja näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
 Nämä vektorit yhdistetään ja yhdistevektori syötetään täysin yhdistetylle neuroverkolle.
 Tämä verkko sisältää kaksi piilotettua tasoa.
 Verkko antaa tuloksena kyseisen yhdisteen ominaisuuksien ennusteen.
@@ -371,8 +372,8 @@ Verkko antaa tuloksena kyseisen yhdisteen ominaisuuksien ennusteen.
 \end{figure}
 
 SPN ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)) ja alkuperäisen molekyylin merkkijonon (\(x_i\)).
-Nämä merkkijonot syötetään kahdelle eri LSTM -tasolle, toinen käsittelee alkuperäisen molekyylin merkkijonot ja toinen ennustetun molekyylin merkkijonot.
-Nämä LSTM -kerrokset tomivat samalla periaatteella kuin PPN:ässä ja palauttavat näin ollen neljä eri vektoria.
+Nämä merkkijonot syötetään kahdelle eri biLSTM -tasolle, toinen käsittelee alkuperäisen molekyylin merkkijonot ja toinen ennustetun molekyylin merkkijonot.
+Nämä biLSTM -kerrokset tomivat samalla periaatteella kuin PPN:ässä ja palauttavat näin ollen neljä eri vektoria, kaksi ennustetulta merkkijonolta ja kaksi alkuperäiseltä merkkijonolta.
 Nämä vektorit yhdistetään ja tämä yhdistevektori annetaan täysin yhdistetylle verkolle, joka sisältää kaksi piilotettua tasoa.
 
 \chapter{Uusien lääkkeiden syntetisointi}
