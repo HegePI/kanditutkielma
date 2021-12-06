@@ -615,11 +615,41 @@ Tämä on haluttu lähestymistapa retrosynteesiin, koska se minimoi syntetisoint
 
 \subsubsection{ICHO suorituskyky}
 
-ICHO -mallia testataan eri tavalla 3N-MCTS mallia, jossa mitataan, kuinka monelle yhdisteelle malli kykenee löytämään toimivan retrosyntetisointipolun tietyssä ajassa.
+ICHO -mallia testataan eri tavalla kuin 3N-MCTS mallia, jossa mitataan, kuinka monelle yhdisteelle malli kykenee löytämään toimivan retrosyntetisointipolun tietyssä ajassa.
 ICHO -mallia testataan siten, että jokaiselle mallille annetaan yhdiste, ja malli antaa tulosteena listan muunnossäännöistä, jotka on asetettu paremmuusjärjestykseen niille annetun pisteytyksen mukaan.
 Muunnossäänön pisteytys kertoo, kuinka paljon malli suosittelee käytettävän kyseistä muunnossääntöä.
-Näistä muunnossäännöistä laskettiin, kuinka suuri osa niistä pohjautuu johonkin aikaisempaan muunnossääntöön, joka on esiintynyt kirjallisuudessa tai patenteissa.
+Näistä muunnossäännöistä laskettiin, kuinka suuri osa niistä pohjautuu johonkin aikaisempaan muunnossääntöön, joka on esiintynyt jossain kirjallisuudessa.
 Mitä suurempi osa ehdotetuista muunnossäänöistä löytyy kirjallisuudesta, sitä paremmin malli toimii.
+
+Kuvaajaan on piirretty vain eri mallien heuristiikkaa hyödyntävät versiot, koska ne pärjäsivät testeissä ei-heuristisia versioita paremmin.
+Lisäksi kuvaajaan on piirretty \emph{SMALLER} malli vertailuksi.
+
+Nähdään, että ICHO+ -malli pisteyttää kirjallisuuteen perustuvat muunnossäännöt paremmin kuin muut mallit, vaikkakin eroavaisuudet ovat vähäiset.
+
+Kuvaajista b ja c nähdään, että pienelläkin koulutusaineistolla ICHO+ sijoittaa kirjallisuuden muunnossäännöt korkeammalle kuin muut mallit ja mitä enemmän koulutuaineistoa käytetään mallin kouluttamiseen sitä suurempi osa korkeimmin sijoitetuista muunnossäännöistä perustuvat kirjallisuuteen.
+Mielenkiintoinen huomio, mikä kuvaajasta nähdään, että \emph{SMALLER} -malli sijoittaa kirjallisuuteen perustuvat säännöt pienemmällä koulutusaineistolla korkeammalle kuin suuremmalla aineistomäärällä.
+SW2+ -malli taas toimii päinvastaisesti.
+Mitä enemmän koulutusaineistoa se saa sitä korkeammalla se sijoittaa kirjallisuuteen perustuvt säännöt.
+
+Kuvaajat d ja e eivät ole ristiriidassa kuvaajien a-c kanssa.
+Kuvaajast d nähdään, että nopeasti koulutusaineiston kasvaessa tutkittvat muunnossäännöt siirtyvät nopeasti korkeille sijoille sw2+ -mallissa ja ICHO+ -malli sijoittaa ne korkealla jo pienellä data määrällä.
+\emph{SMALLER} -malli sen sijaan sijoittaa tutkittavat muunnossäännöt koulutusaineiston kasvaessa huonommalle sijalle.
+Kuvaaja e myös näyttää, että ICHO+ j SW2+ -mallien MRR -pisteet kasvavat koulutusaineiston kasvaessa, kun taas \emph{SMALLER} -mallin pisteytys laskee.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm, height=10cm]{icho-performance-fig.jpg}
+    \caption{
+        ICHO -neuroverkon ja muiden testattujen koneoppimismallien suorituskyky kuvattuna.
+        Kuvaajat a-c kertovat, kuinka suuri osa n-määrästä parhaiten pisteytettyjä muunnossääntöjä oli jostain kirjallisuudesta, esim.\ raportti.
+        Esim, top 1 = 1 tarkoittaa, että malli antaa parhaimman pisteytyksen aina kirjallisuuteen perustuvalla muunnossäännölle.
+        Kuvaaja d kertoo, mille sijalle kukin malli sijoittaa tietyn muunnossäännön.
+        Tässä tapauksessa rank = 1 tarkoittaa, että malli sijoittaa tietyn muunnossäännön aina sijalle yksi.
+        Kuvaaja e kertoo keskiarvon kirjallisuuteen perustuvien muunnossääntöjen käänteisestä sijoituksesta.
+        Tämä tarkoittaa, että jos malli sijoittaa kaikkien kirjallisuuteen perustuvat muunnossäännöt ensimmäiseksi, niin MRR saa arvon yksi.
+    }
+    {~\cite{ExpertKnowledgeRetorsynthesis}}
+\end{figure}
 
 Miten koneoppimista hyödynnetään tällä hetkellä lääkkeiden syntetisoinnissa~\cite{SeglerMarwinHS2018Pcsw,ShaharHarelAndKiraRadinsky,ShinBonggun}?
 
