@@ -317,30 +317,6 @@ CMG -malli käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam 
 CMG -malli muodostuu kolmesta verkosta, joista kaksi toimivat rajoiteverkkoina.
 Ensimmäinen verkko on MTN (\textbf{Molecule Translation Network}) ja rajoiteverkot ovat PPN (\textbf{Property Prediction Network}) ja SPN (\textbf{Similarity Prediction Network}).
 
-MTN -verkko perustuu aikaisemmin kehitettyyn  The Transformer -malliin~\cite{TheTransformer}.
-MTN eroaa Transformer -mallista kahdella tavalla.
-Toisin kuin Transformer -malli, joka käsittelee sanoja ja niistä muodostettuja lauseita, MTN -verkko käsittelee yksittäisiä merkkejä ja niistä muodostettuja molekyylejä.
-Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallissista ominaisuuksista.
-MTN:än kustannusfunktio on muotoa \[\mathcal{L} (\theta_T;X,p_x,p_y) = -\frac{1}{N}\frac{1}{M}\sum_{n \in N}\sum_{i \in M}\sum_{v \in V}y_v,j,n \cdot \log(\hat{y}_v,j,n).\]
-
-PPN -verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)).
-Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi (Parempi termi?) hyödyntäen Long short-term memory (LSTM) -kerrosta.
-LSTM -kerros muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnassa, ja näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
-Nämä vektorit yhdistetään ja yhdistevektori syötetään täysin yhdistetylle neuroverkolle.
-Tämä verkko sisältää kaksi piilotettua tasoa.
-
-SPN ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)) ja alkuperäisen molekyylin merkkijonon (\(x_i\)).
-Nämä merkkijonot syötetään kahdelle eri LSTM -tasolle, toinen käsittelee alkuperäisen molekyylin merkkijonot ja toinen ennustetun molekyylin merkkijonot.
-Nämä LSTM -kerrokset tomivat samalla periaatteella kuin PPN:ässä ja palauttavat näin ollen neljä eri vektoria.
-Nämä vektorit yhdistetään ja tämä yhdistevektori annetaan täysin yhdistetylle verkolle, joka sisältää kaksi piilotettua tasoa.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{CMG-fig.png}
-    \caption{CMG:n toiminta periaate kuvattuna}
-    {~\cite{ShinBonggun}}
-\end{figure}
-
 Data, jolla mallit koulutetaan, on peräisin ZINC ja DRD2 dataseteistä. (Kuka hallinnoi?)
 Data sisältää kaiken kaikkiaan 257 565 molekyyliä, joista luodaan pareja.
 Parit muodostetaan siten, että kahden molekyylin välinen samanlaisuusluku on yli 0.4. (Miten lasketaan?)
@@ -355,7 +331,49 @@ SPN kouluttamiseen käytetään osajoukkoa 10 827 615 eri parista.
 Tästä määrästä valitaan kymmenen prosentin osajoukko, joka on kaiken kaikkiaan 997 773 molekyylin suuruinen.
 Tämä joukko jaetaan samalla tavalla koulutus ja testi ryhmiin kuin PPN:ässä.
 
-\subsubsection{CMG:n suorituskyky}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{CMG-fig.png}
+    \caption{CMG:n toiminta periaate kuvattuna}
+    {~\cite{ShinBonggun}}
+\end{figure}
+
+\subsubsection{MTN}
+
+MTN -verkko perustuu aikaisemmin kehitettyyn  The Transformer -malliin~\cite{TheTransformer}.
+MTN eroaa Transformer -mallista kahdella tavalla.
+Toisin kuin Transformer -malli, joka käsittelee sanoja ja niistä muodostettuja lauseita, MTN -verkko käsittelee yksittäisiä merkkejä ja niistä muodostettuja molekyylejä.
+Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallissista ominaisuuksista.
+
+\subsubsection{PPN}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm, height=8cm]{cmg-property-prediction-network.png}
+    \caption{CMG -mallin PPN -neuroverkon rakenne}
+    {~\cite{ShinBonggun}}
+\end{figure}
+
+PPN -verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)).
+Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi (Parempi termi?) hyödyntäen Long short-term memory (LSTM) -kerrosta.
+LSTM -kerros muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnassa, ja näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
+Nämä vektorit yhdistetään ja yhdistevektori syötetään täysin yhdistetylle neuroverkolle.
+Tämä verkko sisältää kaksi piilotettua tasoa.
+Verkko antaa tuloksena kyseisen yhdisteen ominaisuuksien ennusteen.
+
+\subsection{SPN}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm, height=8cm]{cmg-similarity-network.png}
+    \caption{CMG -mallin SPN -neuroverkon rakenne}
+    {~\cite{ShinBonggun}}
+\end{figure}
+
+SPN ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)) ja alkuperäisen molekyylin merkkijonon (\(x_i\)).
+Nämä merkkijonot syötetään kahdelle eri LSTM -tasolle, toinen käsittelee alkuperäisen molekyylin merkkijonot ja toinen ennustetun molekyylin merkkijonot.
+Nämä LSTM -kerrokset tomivat samalla periaatteella kuin PPN:ässä ja palauttavat näin ollen neljä eri vektoria.
+Nämä vektorit yhdistetään ja tämä yhdistevektori annetaan täysin yhdistetylle verkolle, joka sisältää kaksi piilotettua tasoa.
 
 \chapter{Uusien lääkkeiden syntetisointi}
 
