@@ -199,12 +199,13 @@
 Uusien lääkkeiden kehittäminen on pitkä ja kallis prosessi.
 Tähän kuuluu useita vaiheita ja eri vaiheet vievät eri määrän rahaa ja aikaa.
 Vaiheet ovat sairauden aiheuttajan tunnistaminen, aiheuttajaan vaikuttavan lääkkeen tunnistaminen, lääkkeen optimointi, lääkkeen ominaisuuksien analysointi ja kliiniset testit.
-Näiden jälkeen lääke joko hyväksytään myyntiin tai ei.
-Vaiheet ovat tavallisesti vieneet 10--12 vuotta ja kaikkien vaiheiden jälkeen työn hinnaksi on voinut muodostua 1--3 miljardia dollaria~\cite{EkinsSean2019Emlf}.
+Näiden vaiheiden jälkeen lääke joko hyväksytään myyntiin tai sitä joudutaan edelleen jatkokehittämään.
+Kaikki vaiheet yhdessä ovat tavallisesti vieneet 10--12 vuotta ja kaikkien vaiheiden jälkeen työn hinnaksi on voinut muodostua 1--3 miljardia dollaria~\cite{EkinsSean2019Emlf}.
 
-Vaiheiden pitkän keston ja korkean hinnan takia tutkijat ja lääkealan yritykset ovatkin alkaneet tutkia mahdollisia keinoja, jotka nopeuttaisivat tai halventaisivat tätä lääkekehityksen prosessia.
-Koneoppimismallit ovat nousseet houkuttelevaksi vaihtoehdoksi prosessin nopeuttamiseksi.
+Vaiheiden pitkän keston ja korkean hinnan takia tutkijat ja lääkealan yritykset ovatkin alkaneet tutkia mahdollisia keinoja, jotka nopeuttaisivat lääkkeiden tutkimista tai laskisivat lääkekehityksen prosessiin kuluvaa hintaa.
+Koneoppimismallit ovat nousseet houkuttelevaksi vaihtoehdoksi ratkaisemaan näitä ongelmia.
 Yritykset ovatkin alkaneet selvittää, kuinka eri koneoppimismalleja voidaan hyödyntää nopeuttamaan lääketutkimuksen suurimpia pullonkauloja~\cite{EkinsSean2019Emlf}.
+
 Viimeisen kymmenen vuoden aikana saatavilla olevan laadukkaan datan määrä on kasvanut merkittävästi ja samalla on kehitetty uusia tehokkaampia koneoppimismalleja, joita voidaan hyödyntää lääketutkimuksessa.
 Koneoppimismallien avulla voidaan esimerkiksi karsia kaikista harkinnasta olevista lääkkeistä lupaavimmat kandidaatit, joilla on mahdollisuus päästä testeistä läpi tuotantoon.
 Koneoppimismalleja voidaan myös hyödyntää aivan uusien lääkkeeksi sopivien yhdisteiden etsinnässä.
@@ -214,16 +215,17 @@ Kehitetyt mallit ovatkin näyttäneet, että koneoppimismallit ovat tehokkaita t
 Tässä tekstissä paneudutaan syvemmin koneoppimismalleihin, joita käytetään uusien lääkkeiden tunnistamiseen ja näiden tunnistettujen lääkkeiden syntetisoinnin suunnitteluun.
 
 Ensimmäisessä kappaleessa tutustutaan eri datatyyppeihin, joita käytetään koneoppimismallien kouluttamisessa.
+Tämä on lyhyt kappale, jossa käydään vain ne datatyypit läpi, joita myöhemmin selitettävät koneoppimismallit käyttävät.
 Näiden ymmärtäminen auttaa hahmottamaan myöhemmin tekstissä selitettävien eri mallien toimintaperiaatteita.
 
 Toisessa kappaleessa käydään läpi, kuinka uusia lääkkeitä löydetään.
 Kappaleessa kerrotaan virtualisesta seulonnasta (Virtual screening), mitä sillä tarkoitetaan ja kuinka sitä hyödynnetään.
-Lisäksi toisessa kappaleessa käydään läpi yhden koneoopimismallin toimintaa.
-Tämä koneoppimismalli keskittyy uusien lääkkeiden löytämiseen.
+Lisäksi toisessa kappaleessa käydään läpi yhden koneoopimismallin toimintaa, joka on koulutettu löytämään uusia yhdisteitä.
+Tämä malli mahdollistaa nopean uusien lääkkeiden löytämisen, joita näin ollen päästään nopeasti jatkotutkimaan.
 
 Kolmannessa kappaleessa käsitellään yhdisteiden syntetisointia.
 Kappaleessa kerrotaan, mikä tekee yhdisteiden syntetisoinnista hankalaa ja mitä ratkaisuja tähän on kehitetty.
-Kappale myös kertoo retrosyntetisoinnista, CASP -menetelmistä (\textbf{Computer Aided Synthesis Planning}) ja kuinka nämä liittyvät toisiinsa.
+Kappale myös kertoo retrosyntetisoinnista ja CASP -menetelmistä (\textbf{Computer Aided Synthesis Planning}) ja kuinka nämä liittyvät toisiinsa.
 Lisäksi kappaleessa käydään läpi kahden eri koneoppimismallin toimintaa, jotka on kehitetty auttamaan eri yhdisteiden syntetisoinnissa.
 
 Neljäs kappale käsittelee, kuinka koneoppimista tullaan käyttämään tulevaisuuden lääkekehityksessä ja tutkimisessa.
@@ -238,13 +240,9 @@ Tämän takia kappaleessa keskitytään pieniäyhdisteitä kuvaaviin datatyyppei
 Kappaleessa käydään läpi SMILES ja SMARTS datatyypit, mihin niitä käytetään ja kuinka ne eroavat toisistaan.
 Lisäksi kappaleessa kerrotaan ominaisuusvektoreista, kuinka niitä käytetään ja missä tilanteissa.
 
-\section{SMILES, SMARTS ja SMIRKS}
+\section{Yhdisteiden kuvaaminen merkkijonoilla}
 
-SMILES (Simplified Molecular Input Line Entry System) on David Weiningerin vuonna 1988 kehittämä tapa kuvata molekyylejä ja yksinkertaisia yhdisteitä~\cite{WeiningerSMILES}.
-Se kuvaa yhdisteen yhdellä rivillä käyttäen ASCII -merkistöä.
-Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
-
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=8cm, height=8cm]{melatonin-smiles.png}
     \caption{Melatoniini yhdiste, kuinka se kuvataan graaffina ja SMILES -merkijonona.
@@ -252,13 +250,23 @@ Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
     {~\cite{ShinBonggun}}
 \end{figure}
 
-SMARTS on puolestaan SMILES:ista jatkettu tapa kuvata yhdisteitä.
-Se mahdollistaa yhdisteiden sisäisten rakenteiden määrittämisen.
-Tämän takia kaikki SMILES -merkkijonoiksi kelpaavat merkkijonot ovat myös kelpoja SMARTS -merkkijonoja.
+Tavallinen tapa kuvata yhdisteitä on kuvata ne yhdellä rivillä merkkijonoina.
+SMILES (Simplified Molecular Input Line Entry System) on David Weiningerin vuonna 1988 kehittämä tapa kuvata molekyylejä ja yksinkertaisia yhdisteitä~\cite{WeiningerSMILES}.
+Se kuvaa yhdisteen yhdellä rivillä käyttäen ASCII -merkistöä.
+Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
 
-SMIRKS on edelleen jatkokehitetty tapa kuvata yhdisteiden välisiä reaktioita ASCII -merkistöllä.
+SMARTS on SMILES -standardista jatkokehitetty tapa kuvata yhdisteitä.
+Se mahdollistaa yhdisteiden sisäisten rakenteiden määrittämisen.
+SMARTS on yläluokka SMILES standardista, jonka takia kaikki SMILES -merkkijonoiksi kelpaavat merkkijonot ovat myös kelpoja SMARTS -merkkijonoja.
+SMARTS ja SMILES standardit mahdollistavat myös kemiallisten reaktioiden kuvaamisen ASCII -merkistöllä yhdellä rivillä.
 
 \section{Ominaisuusvektorit}
+
+Yksi tässä tekstissä käsiteltävistä koneoppimismalleista käyttää ominaisuusvektoreita hyödykseen.
+Ominaisuusvektorit sisältävät tietoa yhdisteen tai molekyylin lääkkeellisistä ominaisuuksista.
+Ominaisuusvektorit voivat kuvata mitä tahansa yhdisteen tai molekyylin ominaisuutta ja ne voidaan valita tilanteen mukaan.
+Kyseisessä mallissa ominaisuusvektorit kuvaavat molekyylin PlogP, QED ja DRD2 arvoja.
+PlogP (Penalized logP) kuvaa aineen rasvaliukoisuutta, QED kuvaa, kuinka paljon tietty yhdiste on lääkkeenkaltainen ja DRD2 kuvaa, kuinka paljon molekyyli reagoi dopamiini 2 receptoria vastaan~\cite{BickertonGRichard2012Qtcb}.
 
 \chapter{Uusien lääkkeiden löytäminen}
 
@@ -283,15 +291,15 @@ Popovan et al.\ tutkimusryhmä on kehittänyt mallin, joka ehdottaa uutta yhdist
 \section{Virtuaalinen seulonta}
 
 Kemiallisten yhdisteiden avaruudella tarkoitetaan kaikkien uniikkien yhdisteiden lukumäärää.
-On arvioitu, että erilaisia kemiallisia yhdisteitä, jotka voivat esiintyä huoneenlämmössä ja nesteessä, voi olla välillä \(10^{18} - 10^{180}\)~\cite{SotrifferChristoph2011VSPC}.
+On arvioitu, että erilaisia kemiallisia yhdisteitä, jotka voivat esiintyä huoneenlämmössä nesteessä, voi olla välillä \(10^{18} - 10^{180}\)~\cite{SotrifferChristoph2011VSPC}.
 Yhdisteet, jotka täyttävät lääkkeeltä vaaditut kriteerit, on puolestaan arvioitu olevan noin \(10^{60}\)~\cite{SotrifferChristoph2011VSPC}.
 Erillaisten yhdisteiden suuri lukumäärä itsessään esittää tarpeen tehokkaille algoritmeille ja menetelmille, jotka auttavat karsimaan tästä suuresta määrästä kemiallisia yhdisteitä vain lupaavimmat.
 
-Virtuaalinen seulonta (Virtual Screning, VS) on suosittu lähestymistapa uusien lääkkeiden löytämiseksi.
-VS käsittää joukon menetelmiä, joissa tietokoneita hyväksi käyttäen karsitaan yhdisteiden avaruudesta vain tietyt kriteerit täyttävät yhdisteet~\cite{SotrifferChristoph2011VSPC}.
-Yhdisteiden karsimiseen käytetään ohjelmistoja, joissa toteutetut algoritmit suorittavat seulontaa.
+Virtuaaliseulonta (Virtual Screning, VS) on suosittu lähestymistapa uusien lääkkeiden löytämiseksi.
+Virtuaaliseulonta käsittää joukon menetelmiä, joissa tietokoneita hyväksi käyttäen karsitaan yhdisteiden avaruudesta vain tietyt kriteerit täyttävät yhdisteet~\cite{SotrifferChristoph2011VSPC}.
+Yhdisteiden karsimiseen käytetään ohjelmistoja, joissa toteutetut algoritmit suorittavat seulontaa annetuilla parametreilla.
 Koneoppimismenetelmiä voidaan myös käyttää virtuaalisessa seulonnassa.
-VS:än avulla löydettyjä yhdisteitä voidaan sitten jatkotutkia ja edelleen kehittää lääkkeiksi.
+Virtuaaliseulonnan avulla löydettyjä yhdisteitä voidaan sitten jatkotutkia ja edelleen kehittää lääkkeiksi.
 
 \section{Kehitettyjä koneoppimismalleja}
 
@@ -302,13 +310,13 @@ Kemialliset ominaisuudet on koodattu ominaisuusvektoreihin.
 \subsection{CMG}
 
 CMG (Controlled molecule generator) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet~\cite{ShinBonggun}.
-Se eroaa aikaisemmin kehitetyistä malleista siten, että se pystyy optimoimaan annetun molekyylin useampaa ominaisuutta.
-Aikaisemmat mallit ovat pystyneet optimoimaan vain yhtä molekyylin ominaisuutta.
+Se eroaa aikaisemmin kehitetyistä malleista siten, että se pystyy optimoimaan annetun molekyylin useampaa ominaisuutta samanaikaisesti.
+Aikaisemmin kehitetyt mallit ovat pystyneet optimoimaan vain yhtä molekyylin ominaisuutta.
 
 CMG:n kehittäjät lähestyvät molekyylin ominaisuuksien optimointiongelmaa merkkijonojen käännös -ja luontiongelmana.
-CMG:lle opetetaan, kuinka syötteenä annettu molekyylimerkkijono käännetään molekyylimerkkijonoksi, jolla on lähimpänä haluttuja ominaisuuksia olevat ominaisuudet.
+CMG:lle opetetaan, kuinka syötteenä annettu yhdistemerkkijono käännetään yhdistemerkkijonoksi, jolla on lähimpänä haluttuja ominaisuuksia olevat ominaisuudet.
 CMG tulkitsee ensin annetut merkkijonot hyödyntäen DN:ää (deep network) jonka jälkeen se luo uusia molekyyliyhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
-Koska ominaisuudet annetaan vektorina, niin CMG pystyy optimoimaan useampaa ominaisuutta.
+Koska ominaisuudet annetaan vektorina, niin CMG pystyy optimoimaan useampaa ominaisuutta samanaikaisesti.
 CMG lisäksi hyödyntää ennalta koulutettuja rajoiteverkkoja (constraint network, CN), jolloin vältytään luomasta mahdottomia yhdisteitä.
 CMG -malli käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam Search -algoritmia.
 
@@ -322,16 +330,9 @@ Data sisältää kaiken kaikkiaan 257 565 molekyyliä, joista luodaan pareja.
 Parit muodostetaan siten, että kahden molekyylin välinen samanlaisuusluku on yli 0.4. (Miten lasketaan?)
 Näitä pareja \((X,Y)\) muodostetaan kaiken kaikkiaan 10 827 615 kappaletta.
 Lisäksi kaikille molekyyleille lasketaan niiden eri kemiallisten ominaisuuksien arvot, jotka ovat PlogP, QED ja DRD2.
-Nämä kuvaavat eri haluttuja ominaisuuksia, joita lääkkeiltä halutaan.
+Nämä kuvaavat eri ominaisuuksia, joita malli pyrkii optimoimaan halutulla tavalla.
 
-PPN koulutetaan käyttäen 257 565 eri molekyyliä.
-nämä molekyylit jaetaan satunnanvaraisella valinnalla koulutus -ja testiryhmiin suhteella 8:2.
-
-SPN kouluttamiseen käytetään osajoukkoa 10 827 615 eri parista.
-Tästä määrästä valitaan kymmenen prosentin osajoukko, joka on kaiken kaikkiaan 997 773 molekyylin suuruinen.
-Tämä joukko jaetaan samalla tavalla koulutus ja testi ryhmiin kuin PPN:ässä.
-
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{CMG-fig.png}
     \caption{CMG:n toiminta periaate kuvattuna}
@@ -347,7 +348,7 @@ Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallissista omina
 
 \subsubsection{PPN}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=10cm, height=8cm]{cmg-property-prediction-network.png}
     \caption{CMG -mallin PPN -neuroverkon rakenne}
@@ -362,9 +363,12 @@ Nämä vektorit yhdistetään ja yhdistevektori syötetään täysin yhdistetyll
 Tämä verkko sisältää kaksi piilotettua tasoa.
 Verkko antaa tuloksena kyseisen yhdisteen ominaisuuksien ennusteen.
 
+PPN koulutetaan käyttäen 257 565 eri molekyyliä.
+nämä molekyylit jaetaan satunnanvaraisella valinnalla koulutus -ja testiryhmiin suhteella 8:2.
+
 \subsection{SPN}
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=10cm, height=8cm]{cmg-similarity-network.png}
     \caption{CMG -mallin SPN -neuroverkon rakenne}
@@ -376,9 +380,13 @@ Nämä merkkijonot syötetään kahdelle eri biLSTM -tasolle, toinen käsittelee
 Nämä biLSTM -kerrokset tomivat samalla periaatteella kuin PPN:ässä ja palauttavat näin ollen neljä eri vektoria, kaksi ennustetulta merkkijonolta ja kaksi alkuperäiseltä merkkijonolta.
 Nämä vektorit yhdistetään ja tämä yhdistevektori annetaan täysin yhdistetylle verkolle, joka sisältää kaksi piilotettua tasoa.
 
+SPN kouluttamiseen käytetään osajoukkoa 10 827 615 eri parista.
+Tästä määrästä valitaan kymmenen prosentin osajoukko, joka on 997 773 molekyylin suuruinen.
+Tämä joukko jaetaan samalla tavalla koulutus ja testi ryhmiin kuin PPN:ässä.
+
 \chapter{Uusien lääkkeiden syntetisointi}
 
-Tässä kappaleessa käydään läpi, miten lääkkeiden syntetisoinnin suunnittelua voidaan tehdä koneoppimismallien avulla.
+Tässä kappaleessa käydään läpi, miten lääkkeiden syntetisoinnin suunnittelua voidaan tehostaa koneoppimismallien avulla.
 Kappaleessa keskitytään syntetisointiin retrosyntetisoinnin avulla.
 Kappaleessa kerrotaan, mikä tekee yhdisteen retrosyntetisoinnista vaikeaa ja kuinka sitä voidaan tehostaa eri koneoppimismallien avulla.
 Kappaleessa käydään läpi kahden koneoppimismallin toimintaa, jotka suorittavat halutun yhdisteen retrosyntetisointia.
@@ -393,15 +401,15 @@ Retrosynteesissä yhdiste pilkotaan rekursiivisesti pienempiin lähtöaineisiin 
 Tavallisesti yhdisteen retrosyntetisointi on vaatinut suorittavalta kemistiltä usean vuoden kokemusta ja tietoa saatavilla olevista lähtöaineista ja eri reaktioista.
 Tätä on pyritty automatisoimaan eri CASP -menetelmien avulla (Computer-Aided Synthesis Planning).
 Ensimmäiset CASP -menetelmät perustuivat heuristisiin algoritmeihin, joissa kemistit käsin koodasivat, miten eri lähtöaineet reagoivat keskenään ja mikä on reaktion lopputuote.
-Tämä on kuitenkin osoittautunut toivottomaksi yritykseksi massiivisen datan määrän takia.
+Tämä on kuitenkin osoittautunut toivottomaksi yritykseksi massiivisen data määrän takia.
 
 Kehitys koneoppimismenetelmissä on kuitenkin tarjonnut uuden lähestymistavan CASP -menetelmien kehitykseen.
 Sen sijaan, että kemistit kehittäisivät heuristisia malleja, uudet koneoppimismallit koulutetaan saatavilla olevan datan avulla.
-Tämä on todettu merkittävästi enemmän toteutettavaksi lähestymistavaksi.
+Tämä on todettu merkittävästi toteutettavammaksi lähestymistavaksi.
 
 Koneoppimismallien käyttö ja koulutus ei ole kuitenkaan täysin ongelmaton lähestymistapa.
 Ongelmaan liittyvää dataa ei välttämättä ole saatavilla ja datan hankkiminen voi olla kallista.
-Tätä varten on kehitetty tietopankkeja, jotka sisältävät suuria määriä dataa tietystä aiheesta, esim. Reaxys kemiallisesista reaktioista.
+Tätä varten on kehitetty tietopankkeja, jotka sisältävät suuria määriä dataa tietystä aiheesta, esim. Reaxys kemiallisista reaktioista.
 
 \section{Lääkkeen retrosyntetisoinnin haastavuus}
 
@@ -412,7 +420,7 @@ Pienille ja yksinkertaisille yhdisteille tämä vaihtoehtoavaruus on pienempi, m
 Tästä johtuen prosessia yleistäville koneoppimismalleille on suuri.
 
 % Miksi lääkkeiden retrosyntetisointi on hankalaa~\cite{ButlerKeithT2018Mlfm,deAlmeidaA.Filipa2019Socd}?
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{retrosynthesis.jpg}
     \caption{(a) esimerkki reaktiosäännöstä, (b) esimerkki mahdollisista reaktioista, kuinka voidaan luoda haluttu yhdiste (keskellä).
@@ -423,7 +431,7 @@ Tästä johtuen prosessia yleistäville koneoppimismalleille on suuri.
 
 \section{Kehitettyjä apuvälineitä}
 
-Seuraavissa kappaleissa vataan kahden kehitetyn koneoppimismallin toimintaa.
+Seuraavissa kappaleissa avataan kahden kehitetyn koneoppimismallin toimintaa.
 Nämä mallit ovat toteutettu suorittaman retrosynteesiä, mutta niiden toimintaperiaate perustuu eri lähestymistapaan.
 3N-MCTS -mallin toimintaperiaate perustuu täysin oppimiseen datasta, kun taas ICHO -malli hyödyntää myös ammattikemistien luomia heuristisiasääntöjä.
 
@@ -450,7 +458,7 @@ ADAM -optimoija hyödyntää AdaGrad:in ja RMSProp:in toiminnallisuutta~\cite{ki
 
 \subsubsection{3N-MCTS toimintamalli}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{3N-MCTS-fig.jpg}
     \caption{3N-MCTS:än toiminta periaate kuvattuna}
@@ -484,7 +492,7 @@ Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisält
 
 \subsubsection{Expansion policy netwrok}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[]{expansion-policy.jpg}
     \caption{Kuvassa expansion policy -neuroverkon rakenne.}
@@ -504,7 +512,7 @@ Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
 
 \subsubsection{Rollout policy network}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[]{rollout-policy.jpg}
     \caption{Kuvassa Rollout policy -neuroverkon rakenne.}
@@ -523,7 +531,7 @@ Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
 
 \subsubsection{In-scope filter network}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[]{in-scope-filter.jpg}
     \caption{Kuvassa In scope filter -neuroverkon rakenne.}
@@ -570,7 +578,7 @@ Testaamiseen käytettiin 497 eri yhdistettä.
 3N-MCTS löysi viidessä sekunnissa 80 prosentille yhdisteistä retrosyntetisointipolun, kun taas muokattu \(SMILES^{3/2}\) -menetelmä löysi retrosyntetisointipolun vain 40 prosenttia yhdisteistä ja alkuperäinen ei löytänyt polkuja ollenkaan.
 Kun aikaa kasvatettiin 60 sekunttiin per yhdiste, 3N-MCTS löysin 92 prosentille yhdisteistä polun, muokattu \(SMILES^{3/2}\) löysi 71 prosentille yhdisteistä ja alkuperäinen versio vain 4 prosentille yhdisteistä.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=8cm, height=6cm]{3N-MCTS-performance-fig.jpg}
     \caption{
@@ -612,7 +620,7 @@ Jos suhde taas on pieni, niin reaktio luokitellaan `vaikeaksi toteuttaa'.
 Tämä sen takia, että mallille koulutetaan jatkuva funktio, joka antaa todennäköisyyden jokaiselle reaktiotyypille perustuen, kuinka reaktio muuttaa lopputuotteen lähtötuotteiksi.
 Eli jos jokin reaktion sormenjälki (Lisää tietoa, koska useassa mallissa käytetään) tai heuristinen kuvaus on samankaltainen toisen reaktion kanssa, joka ilmenee koulutusdatassa, niin reaktiolle voidaan antaa todennäköisyys sen käytölle.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=8cm, height=8cm]{icho-neuralnetwork.png}
     \caption{ICHO -neuroverkon rakenne.}
@@ -655,7 +663,7 @@ Kuvaajast d nähdään, että nopeasti koulutusaineiston kasvaessa tutkittvat mu
 \emph{SMALLER} -malli sen sijaan sijoittaa tutkittavat muunnossäännöt koulutusaineiston kasvaessa huonommalle sijalle.
 Kuvaaja e myös näyttää, että ICHO+ j SW2+ -mallien MRR -pisteet kasvavat koulutusaineiston kasvaessa, kun taas \emph{SMALLER} -mallin pisteytys laskee.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=10cm, height=10cm]{icho-performance-fig.jpg}
     \caption{
