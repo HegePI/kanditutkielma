@@ -244,7 +244,7 @@ SMILES (Simplified Molecular Input Line Entry System) on David Weiningerin vuonn
 Se kuvaa yhdisteen yhdellä rivillä käyttäen ASCII -merkistöä.
 Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=8cm, height=8cm]{melatonin-smiles.png}
     \caption{Melatoniini yhdiste, kuinka se kuvataan graaffina ja SMILES -merkijonona.
@@ -331,7 +331,7 @@ SPN kouluttamiseen käytetään osajoukkoa 10 827 615 eri parista.
 Tästä määrästä valitaan kymmenen prosentin osajoukko, joka on kaiken kaikkiaan 997 773 molekyylin suuruinen.
 Tämä joukko jaetaan samalla tavalla koulutus ja testi ryhmiin kuin PPN:ässä.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{CMG-fig.png}
     \caption{CMG:n toiminta periaate kuvattuna}
@@ -347,7 +347,7 @@ Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallissista omina
 
 \subsubsection{PPN}
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=10cm, height=8cm]{cmg-property-prediction-network.png}
     \caption{CMG -mallin PPN -neuroverkon rakenne}
@@ -364,7 +364,7 @@ Verkko antaa tuloksena kyseisen yhdisteen ominaisuuksien ennusteen.
 
 \subsection{SPN}
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=10cm, height=8cm]{cmg-similarity-network.png}
     \caption{CMG -mallin SPN -neuroverkon rakenne}
@@ -412,7 +412,7 @@ Pienille ja yksinkertaisille yhdisteille tämä vaihtoehtoavaruus on pienempi, m
 Tästä johtuen prosessia yleistäville koneoppimismalleille on suuri.
 
 % Miksi lääkkeiden retrosyntetisointi on hankalaa~\cite{ButlerKeithT2018Mlfm,deAlmeidaA.Filipa2019Socd}?
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{retrosynthesis.jpg}
     \caption{(a) esimerkki reaktiosäännöstä, (b) esimerkki mahdollisista reaktioista, kuinka voidaan luoda haluttu yhdiste (keskellä).
@@ -450,7 +450,7 @@ ADAM -optimoija hyödyntää AdaGrad:in ja RMSProp:in toiminnallisuutta~\cite{ki
 
 \subsubsection{3N-MCTS toimintamalli}
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{3N-MCTS-fig.jpg}
     \caption{3N-MCTS:än toiminta periaate kuvattuna}
@@ -484,7 +484,7 @@ Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisält
 
 \subsubsection{Expansion policy netwrok}
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[]{expansion-policy.jpg}
     \caption{Kuvassa expansion policy -neuroverkon rakenne.}
@@ -504,7 +504,7 @@ Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
 
 \subsubsection{Rollout policy network}
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[]{rollout-policy.jpg}
     \caption{Kuvassa Rollout policy -neuroverkon rakenne.}
@@ -523,7 +523,7 @@ Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
 
 \subsubsection{In-scope filter network}
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[]{in-scope-filter.jpg}
     \caption{Kuvassa In scope filter -neuroverkon rakenne.}
@@ -570,7 +570,7 @@ Testaamiseen käytettiin 497 eri yhdistettä.
 3N-MCTS löysi viidessä sekunnissa 80 prosentille yhdisteistä retrosyntetisointipolun, kun taas muokattu \(SMILES^{3/2}\) -menetelmä löysi retrosyntetisointipolun vain 40 prosenttia yhdisteistä ja alkuperäinen ei löytänyt polkuja ollenkaan.
 Kun aikaa kasvatettiin 60 sekunttiin per yhdiste, 3N-MCTS löysin 92 prosentille yhdisteistä polun, muokattu \(SMILES^{3/2}\) löysi 71 prosentille yhdisteistä ja alkuperäinen versio vain 4 prosentille yhdisteistä.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=8cm, height=6cm]{3N-MCTS-performance-fig.jpg}
     \caption{
@@ -612,7 +612,7 @@ Jos suhde taas on pieni, niin reaktio luokitellaan `vaikeaksi toteuttaa'.
 Tämä sen takia, että mallille koulutetaan jatkuva funktio, joka antaa todennäköisyyden jokaiselle reaktiotyypille perustuen, kuinka reaktio muuttaa lopputuotteen lähtötuotteiksi.
 Eli jos jokin reaktion sormenjälki (Lisää tietoa, koska useassa mallissa käytetään) tai heuristinen kuvaus on samankaltainen toisen reaktion kanssa, joka ilmenee koulutusdatassa, niin reaktiolle voidaan antaa todennäköisyys sen käytölle.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=8cm, height=8cm]{icho-neuralnetwork.png}
     \caption{ICHO -neuroverkon rakenne.}
@@ -655,7 +655,7 @@ Kuvaajast d nähdään, että nopeasti koulutusaineiston kasvaessa tutkittvat mu
 \emph{SMALLER} -malli sen sijaan sijoittaa tutkittavat muunnossäännöt koulutusaineiston kasvaessa huonommalle sijalle.
 Kuvaaja e myös näyttää, että ICHO+ j SW2+ -mallien MRR -pisteet kasvavat koulutusaineiston kasvaessa, kun taas \emph{SMALLER} -mallin pisteytys laskee.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=10cm, height=10cm]{icho-performance-fig.jpg}
     \caption{
