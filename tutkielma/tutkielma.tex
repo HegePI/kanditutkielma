@@ -341,10 +341,15 @@ Nämä kuvaavat eri ominaisuuksia, joita malli pyrkii optimoimaan halutulla tava
 
 \subsubsection{MTN}
 
-MTN -verkko perustuu aikaisemmin kehitettyyn  The Transformer -malliin~\cite{TheTransformer}.
+MTN -verkko perustuu aikaisemmin kehitettyyn Transformer -malliin~\cite{TheTransformer}.
+Transformer -malli eroaa aikaisemmin yleisistä NLP -malleista siten, että se perustuu täysin attention -perusteiseen lähestymistapaan.
+Transformer -malli noudattaa encoder-decoder arkkitehtuuria.
+Encoder ensin muuntaa saamansa syötteen jokaisen sanan todennäköisyysjakaumaksi ja nämä todennäköisyysjakaumat syötetään decoder -osiolle.
+Tämän todennäköisyysjakauman ja aikaisemman sanan avulla se laskee seuraavan sanan tulosteeseen.
+
 MTN eroaa Transformer -mallista kahdella tavalla.
 Toisin kuin Transformer -malli, joka käsittelee sanoja ja niistä muodostettuja lauseita, MTN -verkko käsittelee yksittäisiä merkkejä ja niistä muodostettuja molekyylejä.
-Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallissista ominaisuuksista.
+Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallisista ominaisuuksista.
 
 \subsubsection{PPN}
 
@@ -705,6 +710,14 @@ Neuroverkko voi esimerkiksi oppia ideaalin kaasulain \((pV=nRT)\), mutta neurove
 Voi olla, että koneoppimismalli pystyy huomaamaan datasta säännön, joka toistuu, mutta jos tutkijat eivät tiedä tai tunne kyseistä sääntöä, niin mallin tulkitseminen on lähes mahdotonta.
 
 \chapter{Yhteenveto}
+
+Tässä tekstissä käytiin läpi yleisiä asioita, mitä liittyy uusien lääkkeiden löytämiseen.
+Lisäksi tekstissä käytiin läpi kolmen eri koneoppimismallin toimintaperiaatteet.
+Nämä koneoppimismallit kertovat, kuinka koneoppimista voidaan hyödyntää uusien lääkkeiden löytämisessä ja syntetisoinnin suunnittelussa.
+Koneoppimismalleista myös huomattiin, kuinka eri tavoilla koneoppimista voidaan hyödyntää ja kuinka monia eri tekniikoita voidaan käyttää lääkkeiden löytämisessä.
+
+Vaikka tekstissä käytiin läpi koneoppimisen tekniikoita vain lääkkeiden löytämisen -ja syntetisoinnin kuvakulmasta, niin koneoppimista voidaan käyttää tehostamaan kaikkia lääkekehityksen prosessin vaiheita.
+
 
 \cleardoublepage{}                          %fixes the position of bibliography in bookmarks
 \phantomsection{}
