@@ -206,9 +206,9 @@ Vaiheiden pitkän keston ja korkean hinnan takia tutkijat ja lääkealan yrityks
 Koneoppimismallit ovat nousseet houkuttelevaksi vaihtoehdoksi ratkaisemaan näitä ongelmia.
 Yritykset ovatkin alkaneet selvittää, kuinka eri koneoppimismalleja voidaan hyödyntää nopeuttamaan lääketutkimuksen suurimpia pullonkauloja~\cite{EkinsSean2019Emlf}.
 
-Viimeisen kymmenen vuoden aikana saatavilla olevan laadukkaan datan määrä on kasvanut merkittävästi ja samalla on kehitetty uusia tehokkaampia koneoppimismalleja, joita voidaan hyödyntää lääketutkimuksessa.
-Koneoppimismallien avulla voidaan esimerkiksi karsia kaikista harkinnasta olevista lääkkeistä lupaavimmat kandidaatit, joilla on mahdollisuus päästä testeistä läpi tuotantoon.
-Koneoppimismalleja voidaan myös hyödyntää aivan uusien lääkkeeksi sopivien yhdisteiden etsinnässä.
+Viimeisen kymmenen vuoden aikana saatavilla olevan laadukkaan datan määrä on kasvanut merkittävästi ja samalla on kehitetty uusia tehokkaampia koneoppimismalleja, joita voidaan hyödyntää lääketutkimuksessa~\cite{ButlerKeithT2018Mlfm,VamathevanJessica2019Aoml}.
+Koneoppimismallien avulla voidaan esimerkiksi karsia kaikista harkinnasta olevista lääkkeistä lupaavimmat kandidaatit, joilla on mahdollisuus päästä testeistä läpi tuotantoon~\cite{GayvertKaitlyn}.
+Koneoppimismalleja voidaan myös hyödyntää aivan uusien lääkkeeksi sopivien yhdisteiden etsinnässä~\cite{ShinBonggun,ShaharHarelAndKiraRadinsky}.
 Tähän tarkoitukseen kehitetyt koneoppimismallit kykenevät etsimään lääkkeitä, joilla on halutut lääkkeelliset ja fysikaaliset ominaisuudet~\cite{VamathevanJessica2019Aoml}.
 Kehitetyt mallit ovatkin näyttäneet, että koneoppimismallit ovat tehokkaita työkaluja, joita voidaan hyödyntää kaikissa lääketutkimuksen eri vaiheissa.
 
@@ -247,7 +247,6 @@ Lisäksi kappaleessa kerrotaan ominaisuusvektoreista, kuinka niitä käytetään
     \includegraphics[width=8cm, height=8cm]{melatonin-smiles.png}
     \caption{Melatoniini yhdiste, kuinka se kuvataan graaffina ja SMILES -merkijonona.
         Kuva on tuotettu hyödyntämällä RDKit -kirjastoa.}
-    {~\cite{ShinBonggun}}
 \end{figure}
 
 Tavallinen tapa kuvata yhdisteitä on kuvata ne yhdellä rivillä merkkijonoina.
@@ -255,7 +254,7 @@ SMILES (Simplified Molecular Input Line Entry System) on David Weiningerin vuonn
 Se kuvaa yhdisteen yhdellä rivillä käyttäen ASCII -merkistöä.
 Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
 
-SMARTS on SMILES -standardista jatkokehitetty tapa kuvata yhdisteitä.
+SMARTS (SMILES arbitrary target specification) on SMILES -standardista jatkokehitetty tapa kuvata yhdisteitä.
 Se mahdollistaa yhdisteiden sisäisten rakenteiden määrittämisen.
 SMARTS on yläluokka SMILES standardista, jonka takia kaikki SMILES -merkkijonoiksi kelpaavat merkkijonot ovat myös kelpoja SMARTS -merkkijonoja.
 SMARTS ja SMILES standardit mahdollistavat myös kemiallisten reaktioiden kuvaamisen ASCII -merkistöllä yhdellä rivillä.
@@ -265,7 +264,7 @@ SMARTS ja SMILES standardit mahdollistavat myös kemiallisten reaktioiden kuvaam
 Yksi tässä tekstissä käsiteltävistä koneoppimismalleista käyttää ominaisuusvektoreita hyödykseen.
 Ominaisuusvektorit sisältävät tietoa yhdisteen tai molekyylin lääkkeellisistä ominaisuuksista.
 Ominaisuusvektorit voivat kuvata mitä tahansa yhdisteen tai molekyylin ominaisuutta ja ne voidaan valita tilanteen mukaan.
-Kyseisessä mallissa ominaisuusvektorit kuvaavat molekyylin PlogP, QED ja DRD2 arvoja.
+Kyseisessä mallissa ominaisuusvektorit kuvaavat molekyylin PlogP, QED ja DRD2 arvoja~\cite{ShinBonggun}.
 PlogP (Penalized logP) kuvaa aineen rasvaliukoisuutta, QED kuvaa, kuinka paljon tietty yhdiste on lääkkeenkaltainen ja DRD2 kuvaa, kuinka paljon molekyyli reagoi dopamiini 2 receptoria vastaan~\cite{BickertonGRichard2012Qtcb}.
 
 \chapter{Uusien lääkkeiden löytäminen}
@@ -280,7 +279,7 @@ Kyseinen koneoppimismalli luo uusia lääkkeitä perustuen ominaisuusvektoreihin
 \section{Lääkkeiden löytäminen}
 
 Yksi ensimmäisistä lääkekehityksen osa-alueista on uusien lääkkeiksi kelpaavien yhdisteiden löytäminen joko uusiin tai jo tunnettuihin tauteihin~\cite{EkinsSean2019Emlf}.
-Lääkeyhdisteiden löytäminen on kuitenkin ollut tavallisesti hidas prosessi ja uuden toimivan yhdisteen löytäminen on kestänyt useita vuosia.
+Lääkeyhdisteiden löytäminen on kuitenkin ollut tavallisesti hidas prosessi ja uuden toimivan yhdisteen löytäminen on kestänyt useita vuosia~\cite{EkinsSean2019Emlf,}.
 
 Viimeisimmän kymmenen vuoden aikana saatavilla olevan datan määrä on kasvannut merkittävästi kehitettyjen tietopankkien takia~\cite{EkinsSean2019Emlf}.
 Näitä ovat esimerkiksi PubChem ja ChEMBL.\
@@ -327,7 +326,10 @@ Ensimmäinen verkko on MTN (\textbf{Molecule Translation Network}) ja rajoitever
 
 Data, jolla mallit koulutetaan, on peräisin ZINC ja DRD2 dataseteistä. (Kuka hallinnoi?)
 Data sisältää kaiken kaikkiaan 257 565 molekyyliä, joista luodaan pareja.
-Parit muodostetaan siten, että kahden molekyylin välinen samanlaisuusluku on yli 0.4. (Miten lasketaan?)
+Parit muodostetaan siten, että kahden molekyylin välinen tanimoto -indeksi on yli 0.4.
+Tanimoto -indeksi kertoo, kuinka paljon molekyylit muistuttavat toisiaan rakenteellisesti~\cite{MaggioraGerald2014Msim}.
+Tanimoto -indeksin arvot ovat välillä \([0,1]\).
+
 Näitä pareja \((X,Y)\) muodostetaan kaiken kaikkiaan 10 827 615 kappaletta.
 Lisäksi kaikille molekyyleille lasketaan niiden eri kemiallisten ominaisuuksien arvot, jotka ovat PlogP, QED ja DRD2.
 Nämä kuvaavat eri ominaisuuksia, joita malli pyrkii optimoimaan halutulla tavalla.
