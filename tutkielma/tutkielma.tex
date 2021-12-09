@@ -221,7 +221,7 @@ Näiden ymmärtäminen auttaa hahmottamaan myöhemmin tekstissä selitettävien 
 Toisessa kappaleessa käydään läpi, kuinka uusia lääkkeitä löydetään.
 Kappaleessa kerrotaan virtualisesta seulonnasta (Virtual screening), mitä sillä tarkoitetaan ja kuinka sitä hyödynnetään.
 Lisäksi toisessa kappaleessa käydään läpi yhden koneoopimismallin toimintaa, joka on koulutettu löytämään uusia yhdisteitä.
-Tämä malli mahdollistaa nopean uusien lääkkeiden löytämisen, joita näin ollen päästään nopeasti jatkotutkimaan.
+Tämä malli mahdollistaa uusien lääkkeiden löytämisen nopeasti, joita näin ollen päästään jatkotutkimaan nopeasti.
 
 Kolmannessa kappaleessa käsitellään yhdisteiden syntetisointia.
 Kappaleessa kerrotaan, mikä tekee yhdisteiden syntetisoinnista hankalaa ja mitä ratkaisuja tähän on kehitetty.
@@ -236,9 +236,9 @@ Kappale kertoo, kuinka koneoppiminen tulee enenemissä määrin muuttamaan lää
 Tässä kappaleessa käydään pintapuolisesti läpi, minkälaista dataa käytetään mallien kouluttamiseen.
 Kappaleessa keskitytään datatyyppeihin, joita käytetään malleissa, joiden toimintaa tullaan avaamaan tämän tekstin muissa osissa.
 Mallit, joiden toimintaa avataan, käyttävät datatyyppejä, joilla kuvataan pienyhdisteitä.
-Tämän takia kappaleessa keskitytään pieniäyhdisteitä kuvaaviin datatyyppeihin.
+Tämän takia kappaleessa keskitytään vain pieniäyhdisteitä kuvaaviin datatyyppeihin.
 Kappaleessa käydään läpi SMILES ja SMARTS datatyypit, mihin niitä käytetään ja kuinka ne eroavat toisistaan.
-Lisäksi kappaleessa kerrotaan ominaisuusvektoreista, kuinka niitä käytetään ja missä tilanteissa.
+Lisäksi kappaleessa kerrotaan ominaisuusvektoreista ja mitä tietoa ne sisältävät yhdisteistä.
 
 \section{Yhdisteiden kuvaaminen merkkijonoilla}
 
@@ -265,27 +265,33 @@ Yksi tässä tekstissä käsiteltävistä koneoppimismalleista käyttää ominai
 Ominaisuusvektorit sisältävät tietoa yhdisteen tai molekyylin lääkkeellisistä ominaisuuksista.
 Ominaisuusvektorit voivat kuvata mitä tahansa yhdisteen tai molekyylin ominaisuutta ja ne voidaan valita tilanteen mukaan.
 Kyseisessä mallissa ominaisuusvektorit kuvaavat molekyylin PlogP, QED ja DRD2 arvoja~\cite{ShinBonggun}.
-PlogP (Penalized logP) kuvaa aineen rasvaliukoisuutta, QED kuvaa, kuinka paljon tietty yhdiste on lääkkeenkaltainen ja DRD2 kuvaa, kuinka paljon molekyyli reagoi dopamiini 2 receptoria vastaan~\cite{BickertonGRichard2012Qtcb}.
+PlogP (Penalized logP) kuvaa aineen rasvaliukoisuutta, QED kuvaa tietyn yhdisteen lääkkeenkaltaisuutta ja DRD2 kuvaa, kuinka paljon molekyyli reagoi dopamiini 2 receptoria vastaan~\cite{BickertonGRichard2012Qtcb}.
+Nämä ovat oleellisia tietoja tutkittaessa uusia mahdollisia lääkeyhdisteitä~\cite{ShinBonggun}.
 
 \chapter{Uusien lääkkeiden löytäminen}
 
 % Miksi uusien lääkkeiden löytäminen on vaikeaa?~\cite{EkinsSean2019Emlf}
 
 Tässä kappaleessa kerrotaan, mitä asioita liittyy lääkkeiden löytämiseen.
-Lisäksi kappaleessa kerrotaan, mitä on virtuaalinen seulonta ja kuinka sitä hyödynnetään lääkkeiden löytämisessä.
+Lisäksi kappaleessa kerrotaan, mitä on virtuaalinen seulonta ja kuinka sitä hyödynnetään lääkkeiden etsinnässä.
 Kappaleessa myös käydään läpi yhden koneoppimismallin toimintaperiaate.
 Kyseinen koneoppimismalli luo uusia lääkkeitä perustuen ominaisuusvektoreihin.
 
 \section{Lääkkeiden löytäminen}
 
 Yksi ensimmäisistä lääkekehityksen osa-alueista on uusien lääkkeiksi kelpaavien yhdisteiden löytäminen joko uusiin tai jo tunnettuihin tauteihin~\cite{EkinsSean2019Emlf}.
-Lääkeyhdisteiden löytäminen on kuitenkin ollut tavallisesti hidas prosessi ja uuden toimivan yhdisteen löytäminen on kestänyt useita vuosia~\cite{EkinsSean2019Emlf,}.
+Lääkeyhdisteiden löytäminen on kuitenkin ollut tavallisesti hidas prosessi ja uuden toimivan yhdisteen löytäminen on kestänyt useita vuosia~\cite{EkinsSean2019Emlf,MunosBernardH2011Htrb}.
+On itse asiassa huomattu, että uusien lääkkeiden löytäminen on muuttunut yhä kalliimaksi ja uusia lääkkeitä tulee markkinoille vähemmän kuin aikaisemmin~\cite{MunosBernardH2011Htrb}.
+Koneoppimista onkin alettu hyödyntämään tässä vaiheessa nopeuttamaan prosessiin kuluvaa aikaa~\cite{VamathevanJessica2019Aoml}.
 
-Viimeisimmän kymmenen vuoden aikana saatavilla olevan datan määrä on kasvannut merkittävästi kehitettyjen tietopankkien takia~\cite{EkinsSean2019Emlf}.
-Näitä ovat esimerkiksi PubChem ja ChEMBL.\
-Lisääntynyt datan määrä on täten mahdollistanut lääkkeiden löytämisen nopeuttamisen koneoppimismallien avulla.
+Viimeisimmän kymmenen vuoden aikana saatavilla olevan datan määrä koskien lääkkeitä ja lääkeyhdisteitä on kasvannut merkittävästi kehitettyjen tietopankkien takia~\cite{EkinsSean2019Emlf}.
+Näitä ovat esimerkiksi PubChem ja ChEMBL~\cite{NationalCenterForBiotechnologyInformation,chembl}.
+Molemmat näistä tietopankeista keskittyvät lääkeyhdisteiden tietojen tallentamiseen.
+PubChem on yhdysvaltain terveysviraston (National Institute of Health) ylläpitämä ja ChEMBL on Euroopan bioinformatiikka instituution (European Bioinformatics Institute, EBI) ylläpitämä.
 
-Popovan et al.\ tutkimusryhmä on kehittänyt mallin, joka ehdottaa uutta yhdistettä perustuen mallin syötteenä saamaan ominaisuusvektoriin~\cite{PopovaMariya2018Drlf}.
+% Lisääntynyt datan määrä on täten mahdollistanut lääkkeiden löytämisen nopeuttamisen koneoppimismallien avulla.
+
+% Popovan et al.\ tutkimusryhmä on kehittänyt mallin, joka ehdottaa uutta yhdistettä perustuen mallin syötteenä saamaan ominaisuusvektoriin~\cite{PopovaMariya2018Drlf}.
 
 \section{Virtuaalinen seulonta}
 
@@ -294,22 +300,32 @@ On arvioitu, että erilaisia kemiallisia yhdisteitä, jotka voivat esiintyä huo
 Yhdisteet, jotka täyttävät lääkkeeltä vaaditut kriteerit, on puolestaan arvioitu olevan noin \(10^{60}\)~\cite{SotrifferChristoph2011VSPC}.
 Erillaisten yhdisteiden suuri lukumäärä itsessään esittää tarpeen tehokkaille algoritmeille ja menetelmille, jotka auttavat karsimaan tästä suuresta määrästä kemiallisia yhdisteitä vain lupaavimmat.
 
-Virtuaaliseulonta (Virtual Screning, VS) on suosittu lähestymistapa uusien lääkkeiden löytämiseksi.
+Virtuaaliseulonta (Virtual Screening, VS) on suosittu lähestymistapa uusien lääkkeiden tai lääkkeeksi kelpaavien yhdisteiden löytämiseksi.
 Virtuaaliseulonta käsittää joukon menetelmiä, joissa tietokoneita hyväksi käyttäen karsitaan yhdisteiden avaruudesta vain tietyt kriteerit täyttävät yhdisteet~\cite{SotrifferChristoph2011VSPC}.
 Yhdisteiden karsimiseen käytetään ohjelmistoja, joissa toteutetut algoritmit suorittavat seulontaa annetuilla parametreilla.
-Koneoppimismenetelmiä voidaan myös käyttää virtuaalisessa seulonnassa.
-Virtuaaliseulonnan avulla löydettyjä yhdisteitä voidaan sitten jatkotutkia ja edelleen kehittää lääkkeiksi.
+
+Koneoppimismenetelmiä voidaan myös käyttää virtuaalisessa seulonnassa~\cite{SotrifferChristoph2011VSPC}.
+Yleisimpiä koneoppimismenetelmiä ovat tällä hetkellä SVM (Support Vector Machine) ja Random forest -mallit~\cite{SotrifferChristoph2011VSPC}.
+Neuroverkko ja ensemble -koneoopimismallit ovat myös yleistyneet viimevuosina~\cite{ShinBonggun,PopovaMariya2018Drlf}.
+Ensemble -mallien ideana on yhdistää useita eri koneoppimismalleja yhdeksi malliksi~\cite{RokachLior2009Ec}.
+Ensemble -mallit ovat tavallisesti parempia ja monipuolisempia toiminnalisuuksissaan kuin yksittäiset koneoppimismallit ja luovat tarkempia tuloksia.
+
+koneoppimismallien avulla löydettyjä yhdisteitä voidaan sitten jatkotutkia ja edelleen kehittää lääkkeiksi.
 
 \section{Kehitettyjä koneoppimismalleja}
-
-Käydään seuraavaksi läpi yhden toteutetun koneoppimismallin toimintaperiaate.
+Käydään seuraavaksi läpi erään toteutetun koneoppimismallin toimintaperiaate.
 Kyseinen malli etsii uusia lääkkeitä käyttämällä hyödyksi sille annettua prototyyppiyhdistettä, prototyypin kemiallisia ominaisuuksia ja uudelta lääkkeeltä haluttuja kemiallisia ominaisuuksia.
 Kemialliset ominaisuudet on koodattu ominaisuusvektoreihin.
 
 \subsection{CMG}
 
 CMG (Controlled molecule generator) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet~\cite{ShinBonggun}.
-Se eroaa aikaisemmin kehitetyistä malleista siten, että se pystyy optimoimaan annetun molekyylin useampaa ominaisuutta samanaikaisesti.
+CMG -mallin toimintaperiaatteen idea on muokata prototyyppiyhdistettä siten, että se maksimoi halutut ominaisuudet, jotka on määritelty sen syötteenä saamassa ominaisuusvektorissa.
+CMG -mallin toimintaa rajoittaa kuitenkin prototyyppi yhdiste ja syötteenä annettu samanlaisuusluku, jonka alle uuden luodun yhdisteen ja prototyyppi yhdisteen välinen tanimoto -indeksi ei saa mennä.
+Tanimoto -indeksi kuvaa, kuinka paljon molekyylit muistuttavat toisiaan rakenteellisesti~\cite{MaggioraGerald2014Msim}.
+Tanimoto -indeksin arvot ovat välillä \([0,1]\).
+
+CMG -malli eroaa aikaisemmin kehitetyistä malleista siten, että se pystyy optimoimaan annetun molekyylin useampaa ominaisuutta samanaikaisesti.
 Aikaisemmin kehitetyt mallit ovat pystyneet optimoimaan vain yhtä molekyylin ominaisuutta.
 
 CMG:n kehittäjät lähestyvät molekyylin ominaisuuksien optimointiongelmaa merkkijonojen käännös -ja luontiongelmana.
@@ -319,17 +335,17 @@ Koska ominaisuudet annetaan vektorina, niin CMG pystyy optimoimaan useampaa omin
 CMG lisäksi hyödyntää ennalta koulutettuja rajoiteverkkoja (constraint network, CN), jolloin vältytään luomasta mahdottomia yhdisteitä.
 CMG -malli käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam Search -algoritmia.
 
-% (Taustatietoa muista aiheista/malleista, joita on hyödynnetty CMG:ssä\dots)
-
 CMG -malli muodostuu kolmesta verkosta, joista kaksi toimivat rajoiteverkkoina.
 Ensimmäinen verkko on MTN (\textbf{Molecule Translation Network}) ja rajoiteverkot ovat PPN (\textbf{Property Prediction Network}) ja SPN (\textbf{Similarity Prediction Network}).
 
-Data, jolla mallit koulutetaan, on peräisin ZINC ja DRD2 dataseteistä. (Kuka hallinnoi?)
+Data, jolla mallit koulutetaan, on peräisin ZINC -tietokannasta ja DRD2 dataseteistä.
+ZINC on ilmainen tietokanta, joka sisältää tietoa lääkeyhdsteistä, ja jota voidaan käyttää virtuaalisessa seulonnassa~\cite{ZINC}.
+ZINC tietokantaa ylläpitää Irwin ja Shoichet laboratoriot Kalifornian yliopistossa.
+DRD2 datasetti sisältää tietoa yhdisteistä ja kuinka nämä yhdisteet reagoivat dopamiini 2 receptorin kanssa.
+DRD2 datasetti luotiin Olivecrona et al.\ tutkimuksen yhteydessä ja sitä käytetään samalla tavalla CMG -mallissa.
+
 Data sisältää kaiken kaikkiaan 257 565 molekyyliä, joista luodaan pareja.
 Parit muodostetaan siten, että kahden molekyylin välinen tanimoto -indeksi on yli 0.4.
-Tanimoto -indeksi kertoo, kuinka paljon molekyylit muistuttavat toisiaan rakenteellisesti~\cite{MaggioraGerald2014Msim}.
-Tanimoto -indeksin arvot ovat välillä \([0,1]\).
-
 Näitä pareja \((X,Y)\) muodostetaan kaiken kaikkiaan 10 827 615 kappaletta.
 Lisäksi kaikille molekyyleille lasketaan niiden eri kemiallisten ominaisuuksien arvot, jotka ovat PlogP, QED ja DRD2.
 Nämä kuvaavat eri ominaisuuksia, joita malli pyrkii optimoimaan halutulla tavalla.
@@ -347,7 +363,7 @@ MTN -verkko perustuu aikaisemmin kehitettyyn Transformer -malliin~\cite{TheTrans
 Transformer -malli eroaa aikaisemmin yleisistä NLP -malleista siten, että se perustuu täysin attention -perusteiseen lähestymistapaan.
 Transformer -malli noudattaa encoder-decoder arkkitehtuuria.
 Encoder ensin muuntaa saamansa syötteen jokaisen sanan todennäköisyysjakaumaksi ja nämä todennäköisyysjakaumat syötetään decoder -osiolle.
-Tämän todennäköisyysjakauman ja aikaisemman sanan avulla se laskee seuraavan sanan tulosteeseen.
+Tämän todennäköisyysjakauman ja aikaisemman sanan avulla se määrittää seuraavan sanan tulosteeseen.
 
 MTN eroaa Transformer -mallista kahdella tavalla.
 Toisin kuin Transformer -malli, joka käsittelee sanoja ja niistä muodostettuja lauseita, MTN -verkko käsittelee yksittäisiä merkkejä ja niistä muodostettuja molekyylejä.
@@ -373,7 +389,7 @@ Verkko antaa tuloksena kyseisen yhdisteen ominaisuuksien ennusteen.
 PPN koulutetaan käyttäen 257 565 eri molekyyliä.
 nämä molekyylit jaetaan satunnanvaraisella valinnalla koulutus -ja testiryhmiin suhteella 8:2.
 
-\subsection{SPN}
+\subsubsection{SPN}
 
 \begin{figure}[!h]
     \centering
@@ -386,6 +402,7 @@ SPN ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)) ja alkuperäis
 Nämä merkkijonot syötetään kahdelle eri biLSTM -tasolle, toinen käsittelee alkuperäisen molekyylin merkkijonot ja toinen ennustetun molekyylin merkkijonot.
 Nämä biLSTM -kerrokset tomivat samalla periaatteella kuin PPN:ässä ja palauttavat näin ollen neljä eri vektoria, kaksi ennustetulta merkkijonolta ja kaksi alkuperäiseltä merkkijonolta.
 Nämä vektorit yhdistetään ja tämä yhdistevektori annetaan täysin yhdistetylle verkolle, joka sisältää kaksi piilotettua tasoa.
+Tämä verkko toimii binääriluokittelijana ja palauttaa, onko kaksi syötemolekyyliä samanlaisia määritellyn samanlaisuus rajan mukaan.
 
 SPN kouluttamiseen käytetään osajoukkoa 10 827 615 eri parista.
 Tästä määrästä valitaan kymmenen prosentin osajoukko, joka on 997 773 molekyylin suuruinen.
@@ -394,8 +411,8 @@ Tämä joukko jaetaan samalla tavalla koulutus ja testi ryhmiin kuin PPN:ässä.
 \chapter{Uusien lääkkeiden syntetisointi}
 
 Tässä kappaleessa käydään läpi, miten lääkkeiden syntetisoinnin suunnittelua voidaan tehostaa koneoppimismallien avulla.
-Kappaleessa keskitytään syntetisointiin retrosyntetisoinnin avulla.
-Kappaleessa kerrotaan, mikä tekee yhdisteen retrosyntetisoinnista vaikeaa ja kuinka sitä voidaan tehostaa eri koneoppimismallien avulla.
+Kappaleessa keskitytään syntetisoinnin suunnitteluun käytämällä retrosyntetisointi menetelmää.
+Kappaleessa kerrotaan, mikä tekee yhdisteen retrosyntetisoinnista vaikeaa ja kuinka sitä voidaan tehostaa hyödyntämällä eri koneoppimismalleja.
 Kappaleessa käydään läpi kahden koneoppimismallin toimintaa, jotka suorittavat halutun yhdisteen retrosyntetisointia.
 
 \section{Yhdisteiden syntetisointi}
@@ -403,11 +420,12 @@ Kappaleessa käydään läpi kahden koneoppimismallin toimintaa, jotka suorittav
 Yhdisteen syntetisoinnin suunnittelulla tarkoitetaan prosessia, jossa määritellään, kuinka haluttu yhdiste voidaan tuottaa synteettisesti saatavilla olevista lähtöaineista~\cite{ColeyConnorW2018MLiC}.
 Retrosynteesianalyysillä tarkoitetaan puolestaan menetelmää, jonka avulla löydetään halutun yhdisteen tuottamiseen tarvittavat lähtöaineet.
 Retrosynteesi toimii siis toiseen suuntaan kuin syntetisointi.
-Retrosynteesissä yhdiste pilkotaan rekursiivisesti pienempiin lähtöaineisiin kunnes jäljellä on vain saatavilla olevia lähtöaineita.
+Retrosynteesissä yhdiste pilkotaan rekursiivisesti pienempiin lähtöaineisiin kunnes jäljellä on vain saatavilla olevia lähtöaineita~\cite{ECoreyRetrosynthesis}.
 
 Tavallisesti yhdisteen retrosyntetisointi on vaatinut suorittavalta kemistiltä usean vuoden kokemusta ja tietoa saatavilla olevista lähtöaineista ja eri reaktioista.
 Tätä on pyritty automatisoimaan eri CASP -menetelmien avulla (Computer-Aided Synthesis Planning).
-Ensimmäiset CASP -menetelmät perustuivat heuristisiin algoritmeihin, joissa kemistit käsin koodasivat, miten eri lähtöaineet reagoivat keskenään ja mikä on reaktion lopputuote.
+CASP on jo 1960 -luvulla kehitetty idea, ja ensimmäisiä yrityksiä toteuttaa retrosyntetisointia tekoälyn avulla oli E.J Coreyn LHASA -projekti.
+LHASA perustui heuristisiin algoritmeihin, joissa kemistit käsin koodasivat, miten eri lähtöaineet reagoivat keskenään ja mikä on reaktion lopputuote~\cite{LHASA}.
 Tämä on kuitenkin osoittautunut toivottomaksi yritykseksi massiivisen data määrän takia.
 
 Kehitys koneoppimismenetelmissä on kuitenkin tarjonnut uuden lähestymistavan CASP -menetelmien kehitykseen.
