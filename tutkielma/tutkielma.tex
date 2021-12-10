@@ -238,7 +238,7 @@ Kappaleessa keskitytään datatyyppeihin, joita käytetään malleissa, joiden t
 Mallit, joiden toimintaa avataan, käyttävät datatyyppejä, joilla kuvataan pienyhdisteitä.
 Tämän takia kappaleessa keskitytään vain pieniäyhdisteitä kuvaaviin datatyyppeihin.
 Kappaleessa käydään läpi SMILES ja SMARTS datatyypit, mihin niitä käytetään ja kuinka ne eroavat toisistaan.
-Lisäksi kappaleessa kerrotaan ominaisuusvektoreista ja mitä tietoa ne sisältävät yhdisteistä.
+Kappaleessa myös kerrotaan ECFP -tunnisteista ja ominaisuusvektoreista ja mitä tietoa ne sisältävät yhdisteistä.
 
 \section{Yhdisteiden kuvaaminen merkkijonoilla}
 
@@ -258,6 +258,14 @@ SMARTS (SMILES arbitrary target specification) on SMILES -standardista jatkokehi
 Se mahdollistaa yhdisteiden sisäisten rakenteiden määrittämisen.
 SMARTS on yläluokka SMILES standardista, jonka takia kaikki SMILES -merkkijonoiksi kelpaavat merkkijonot ovat myös kelpoja SMARTS -merkkijonoja.
 SMARTS ja SMILES standardit mahdollistavat myös kemiallisten reaktioiden kuvaamisen ASCII -merkistöllä yhdellä rivillä.
+
+\section{Yhdisteiden kuvaaminen bitteinä, ECFP}
+
+Toinen tavallinen tapa kuvata yhdisteitä muodossa, jossa koneoppimismallit ymmärtävät ne, on muuttaa ne ECFP (Extended Connectivity FingerPrint) -bitttijonoiksi.
+ECFP -tunnisteita kutsutaan myös Morgan -tunnisteiksi (Morgan Fingerprint), ja ne mahdollistavat yhdisteiden kuvaamisen halutun mittaisina bittijnoina.
+Bittijonojen etuna on se, että ne vievät vähän muistia lyhyillä bittijonoilla, mutta lyhyjen bittijonojen ongelmana on, että ne saattavat menettää oleellista tietoa yhdisteestä bittitörmäysten takia.
+Tavallinen koko, joilla yhdisteitä kuvataan, on n. 4096 bittiä.
+
 
 \section{Ominaisuusvektorit}
 
@@ -424,27 +432,20 @@ Retrosynteesissä yhdiste pilkotaan rekursiivisesti pienempiin lähtöaineisiin 
 
 Tavallisesti yhdisteen retrosyntetisointi on vaatinut suorittavalta kemistiltä usean vuoden kokemusta ja tietoa saatavilla olevista lähtöaineista ja eri reaktioista.
 Tätä on pyritty automatisoimaan eri CASP -menetelmien avulla (Computer-Aided Synthesis Planning).
-CASP on jo 1960 -luvulla kehitetty idea, ja ensimmäisiä yrityksiä toteuttaa retrosyntetisointia tekoälyn avulla oli E.J Coreyn LHASA -projekti.
+CASP on jo 1960 -luvulla kehitetty idea, ja ensimmäisiä yrityksiä toteuttaa retrosyntetisointia tekoälyn avulla oli E.J Coreyn LHASA -projekti~\cite{ColeyConnorW2018MLiC}.
 LHASA perustui heuristisiin algoritmeihin, joissa kemistit käsin koodasivat, miten eri lähtöaineet reagoivat keskenään ja mikä on reaktion lopputuote~\cite{LHASA}.
 Tämä on kuitenkin osoittautunut toivottomaksi yritykseksi massiivisen data määrän takia.
 
 Kehitys koneoppimismenetelmissä on kuitenkin tarjonnut uuden lähestymistavan CASP -menetelmien kehitykseen.
 Sen sijaan, että kemistit kehittäisivät heuristisia malleja, uudet koneoppimismallit koulutetaan saatavilla olevan datan avulla.
-Tämä on todettu merkittävästi toteutettavammaksi lähestymistavaksi.
+Tämä on todettu merkittävästi toteutettavammaksi lähestymistavaksi~\cite{ColeyConnorW2018MLiC}.
 
 Koneoppimismallien käyttö ja koulutus ei ole kuitenkaan täysin ongelmaton lähestymistapa.
-Ongelmaan liittyvää dataa ei välttämättä ole saatavilla ja datan hankkiminen voi olla kallista.
-Tätä varten on kehitetty tietopankkeja, jotka sisältävät suuria määriä dataa tietystä aiheesta, esim. Reaxys kemiallisista reaktioista.
+Ongelmaan liittyvää dataa ei välttämättä ole saatavilla ja datan hankkiminen voi olla kallista~\cite{deAlmeidaA.Filipa2019Socd}.
+Ei ole kehitetty julkista, kaikille avointa tietopankkia, joka sisältäisi tietoa kemiallisista reaktioista, vaan ainoastaan kaupallisia tietopankkeja on kehitetty, niin kuin Reaxys ja SciFinder~\cite{deAlmeidaA.Filipa2019Socd}.
 
 \section{Lääkkeen retrosyntetisoinnin haastavuus}
 
-Retrosyntetisoinnin tekee hankalaksi se, että yhdiste voidaan muodostaa sadoilla tai tuhansilla eri tavoilla.
-Tämä ongelma toistuu rekursiivisesti, kun yhdiste pilkotaan yhdisteisiin, jotka keskenään reagoidessa muodostavat alkuperäisen yhdisteen.
-Pienille ja yksinkertaisille yhdisteille tämä vaihtoehtoavaruus on pienempi, mutta yhdisteen koon kasvaessa eri tapojen määrä muodostaa haluttu yhdiste kasvaa eksponentiaalisesti.
-
-Tästä johtuen prosessia yleistäville koneoppimismalleille on suuri.
-
-% Miksi lääkkeiden retrosyntetisointi on hankalaa~\cite{ButlerKeithT2018Mlfm,deAlmeidaA.Filipa2019Socd}?
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{retrosynthesis.jpg}
@@ -454,15 +455,28 @@ Tästä johtuen prosessia yleistäville koneoppimismalleille on suuri.
     {~\cite{ExpertKnowledgeRetorsynthesis}}
 \end{figure}
 
+Retrosyntetisoinnin tekee hankalaksi se, että tutkittaessa, kuinka haluttu yhdiste voidaan muodostaa, tulee käydä läpi satojatuhansia mahdollisia kemiallisia muunnoksia, joiden vaulla voidaan luoda haluttu yhdisteen~\cite{SeglerMarwinHS2018Pcsw}.
+Kemialliseslla muunnoksella tai myöhemmin käytetyllä termillä muunnossääntö tarkoitetaan yleisesti kaikkia mahdollisia reaktioita tai reaktiotyyppejä, joita kemiassa tunnetaan.
+Tämä ongelma toistuu rekursiivisesti, kun yhdiste pilkotaan yhdisteisiin, jotka keskenään reagoidessa muodostavat alkuperäisen yhdisteen.
+Pienille ja yksinkertaisille yhdisteille tämä muunnostenavaruus on pienempi, mutta yhdisteen koon kasvaessa eri tapojen määrä muodostaa haluttu yhdiste kasvaa eksponentiaalisesti.
+
+Tästä johtuen prosessia yleistäville koneoppimismalleille on suuri.
+
 \section{Kehitettyjä apuvälineitä}
 
-Seuraavissa kappaleissa avataan kahden kehitetyn koneoppimismallin toimintaa.
+Seuraavissa luvuissa avataan kahden kehitetyn koneoppimismallin toimintaa.
 Nämä mallit ovat toteutettu suorittaman retrosynteesiä, mutta niiden toimintaperiaate perustuu eri lähestymistapaan.
-3N-MCTS -mallin toimintaperiaate perustuu täysin oppimiseen datasta, kun taas ICHO -malli hyödyntää myös ammattikemistien luomia heuristisiasääntöjä.
+
+3N-MCTS -malli on kokonaisempi malli, koska se palauttaa retrosyntetisointipolun, joka kertoo, kuinka haluttu yhdiste voidaan syntetisoida laboratoriossa.
+Se suodattaa jokaisessa retrosyntetisointivaiheessa kaikista mahdollisista muunnoksissta vain ne, jotka ovat toteutettavissa ja Monte carlo -puuhakualgoritmi etsii näiden suodatettujen muunnosten avulla retrosyntetisoinitpolun.
+
+ICHO -malli taas puolestaan palauttaa parhaan muunnossäännön, jonka avulla haluttu yhdiste voidaan muodostaa.
+ICHO -mallin toiminta on verrattavissa 3N-MCTS -mallissa käytetettyihin koneoppimismalleihin, jotka yhdessä suodattavat mahdollisista muunnoksista vain parhaimmat, joiden avulla yhdiste voidaan muodostaa.
+ICHO -malli käyttää sekä samananlaista reaktiodataa kuin 3N-MCTS mutta se myös hyödyntää ammattikemistien luomia heuristisia sääntöjä.
 
 \subsection{3N-MCTS}
 
-3N-MCTS on koneoppimismalli, jonka on kehittänyt Marwin et al.
+3N-MCTS on koneoppimismalli, jonka on kehittänyt Marwin et al.\ tutkimusryhmä.
 Se etsii retrosynteesipolkuja yksinkertaisempiin ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}.
 Kun retrosynteesipolku on varmennettu ja todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
 
@@ -491,9 +505,9 @@ ADAM -optimoija hyödyntää AdaGrad:in ja RMSProp:in toiminnallisuutta~\cite{ki
 \end{figure}
 
 3N-MCTS -mallin IFN ja EPN on kehitetty toimimaan yhdessä.
-Tutkittaessa puun tilaa \(S_i\) (selitä Si vaihe) jokainen molekyyli syötetään EPN:älle ja se tulostaa, mitkä säännöt voivat muodostaa annetun yhdisteen ja näin ollen myös mitkä lähtöaineet voivat muodostaa annetun yhdisteen.
+Tutkittaessa puun tilaa \(S_i\) jokainen molekyyli syötetään EPN:älle ja se tulostaa, mitkä säännöt voivat muodostaa annetun yhdisteen ja näin ollen myös mitkä lähtöaineet voivat muodostaa annetun yhdisteen.
 Nämä säännöt syötetään IFN:älle, joka suodattaa valituista reaktioista toteutettavissa olevat vaihtoehdot.
-Tämän jälkeen algoritmissa iteroidaan neljää vaihetta, jotka muodostavat lopullisen puun.
+Tätä toiminnallisuutta iteroidaan mallissa seuraavassa järjestyksessä.
 
 (1) Ensimmäisessä vaiheessa algoritmi valitsee seuraavan lupaavimman tilan puusta kunnes puun lehti on saavutettu.
 Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia \(d\) askelta eteenpäin samalla muodostaen synteesipolkua (rollout).
@@ -526,8 +540,11 @@ Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisält
 
 EPN muodostuu täysin kytketystä tasosta ja viidestä highway -tasosta.
 Molemmissa tasoissa on käytetty aktivointifunktiona ELU -funktiota (\textbf{Exponential Linear Unit}).
-Täysin kytketyssä tasossa suoritetaan dropout, jonka jälkeen vain 0.3 ensimmäisen tason solmujen tuloksista otetaan huomioon seuraavalla tasolla.
-Tämän jälkeen jokaisen highway -tason jälkeen suoritetaan 0.1 dropout.
+Täysin kytketyssä tasossa suoritetaan dropout, jonka jälkeen vain 30 prosenttia ensimmäisen tason solmujen tuloksista otetaan huomioon seuraavalla tasolla.
+Dropout -toiminolla tarkoitetaan, että vain tietty osa kaikista edellisen tason palauttamista arvoista huomioidaan~\cite{hinton2012improving}.
+Dropout suoritetaan mallin koulutusvaiheessa ja pois jätettävät arvot valitaan sattumanvaraisesti.
+Dropout -toiminnolla pyritään välttämään ylitulkintaa (overfitting).
+Tämän jälkeen jokaisen highway -tason jälkeen suoritetaan dropout, jossa otetaan huomioon vain 10 prosenttia edellisen tason arvoista.
 EPN -verkon viimeinen taso on softmax, joka palauttaa todennäköisyysjakauman.
 Tämä jakauma kertoo kuinka todennäköisesti muunnossääntö \emph{a} muodostaa tuotteen \emph{m}.
 
@@ -548,6 +565,7 @@ Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
 
 RPN muodostuu yhdestä täysin kytketystä tasosta.
 Samalla tavalla kuin EPN, RPN käyttää myös ELU -funktiota aktivointifunktiona.
+RPN -tasossa suoritetaan dropout, jonka jälkeen vain 40 prosenttia kaikista ensimmäisen tason arvoista tulkitaan.
 RPN -verkon viimeinen taso on myös softmax, joka palauttaa todennäköisyysjakauman.
 
 RPN -verkon kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (reaktiokeskus) ja lähimmät vierekkäiset atomit.
@@ -571,7 +589,7 @@ IFN kertoo, onko sille annettu yhdiste mahdollista muodostaa annetulla muunnoss�
 IFN -neuroverkko muodostuu kahdesta haarasta.
 Toinen haara saa syötteenä muodostettavan yhdisteen tunnisteen ja toinen haara saa muunnossäännön tunnisteen.
 
-Haara, joka saa syöteenä yhdisteen tunnisteen, muodostuu yhdestä täysin kytketystä tasosta jonka jälkeen suoritetaan 0.3 dropout.
+Haara, joka saa syöteenä yhdisteen tunnisteen, muodostuu yhdestä täysin kytketystä tasosta jonka jälkeen suoritetaan 30 prosentin dropout.
 Tämän jälkeen data kulkee viiden highway -tason läpi.
 Sekä täysin kytketty että highway -tasot käyttävät ELU -funktiota aktivointifunktiona.
 
@@ -583,7 +601,7 @@ Saatu tulos syötetään sitten sigmoid -funktiolle, jonka tulos kertoo, pystyyk
 
 IFN koulutetaan sekä onnistuneiden että epäonnistuiden sääntöjen avulla.
 Koska epäonnistuneita sääntöjä ei tallenneta tietokantaan, niin kyseinen data generoidaan.
-Data generoidaan siten, että jos reaktiossa \[A + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita D, E, F, jne.\@ ei muodostu (voisi selittää syvemmin).
+Data generoidaan siten, että jos reaktiossa \[A + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita D, E, F, jne.\@ ei muodostu.
 IFN kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiota ja 10 miljoonaa epäonnistunutta reaktiota luotiin testaamista varten.
 
 \subsubsection{3N-MCTS suorituskyky}
@@ -618,16 +636,19 @@ Kun aikaa kasvatettiin 60 sekunttiin per yhdiste, 3N-MCTS löysin 92 prosentille
 Testin tarkoituksena oli selvittää, suosivatko henkilöt ennemmin kirjallisuuteen perustuvaa retrosyntetisointipolkua vai 3N-MCTS:än antamaa polkua.
 Sokkotestissä 57 prosenttia henkilöistä valitsi 3N-MCTS muodostaman polun ja loput valitsivat kirjallisuuteen perustuvan polun.
 
-
-\subsection{Heurustiikka avusteiset neuroverkot}
+\subsection{ICHO}
 
 On myös yleistä, että retrosynteesipolkuja suunnitelevat mallit hyödyntävät heurustiikka~\cite{ExpertKnowledgeRetorsynthesis}.
-Badowski et al.\ ryhmä on kehittänyt koneoppimismallin, joka suunnittelee retrosynteesipolkuja hyödyntämällä neuroverkkoja ja ammattikemistien muodostamia heuristisia sääntöjä suunnitellessaan retrosynteesipolkua.
+Badowski et al.\ ryhmä on kehittänyt koneoppimismallin, joka ehdottaa tietylle yhdisteelle parasta mahdollista muunnossääntöä, jonka avulla yhdiste voidaan muodostaa.
+Kehitetty ICHIO -malli hyödyntää  neuroverkkoja ja ammattikemistien muodostamia heuristisia sääntöjä pisteyttäessään muunnossääntöjä.
+ICHO-malli on verrattavissa 3N-MCTS -mallin EPN ja IFN mallien toimintaan.
 
 ICHO:n (Instytut Chemii Organicznej) kouluttamiseen käyettiin dataa 1.4 miljoonasta reaktiosta ja niiden lopputuotteista.
 Data saadaan julkaistuista artikkeleista ja patenteista.
-Reaktiolta kuitenkin vaaditaan, että ainakin yksi reaktio per lopputuote löytyy myös Chematican (taustatietoa) expert-coded säännöstöstä.
+Reaktiolta kuitenkin vaaditaan, että ainakin yksi reaktio per lopputuote löytyy myös Chematican expert-coded säännöstöstä.
 Lisäksi datasta suodatettiin pois suojaryhmien säännöt.
+Chematica on retrosyntetisointia suunnitteleva ohjelmisto ja tietokanta, joka sisältää dataa kemiallisista reaktioista.
+Chematican omistaa nykyään Merck KGaA inc.\ ja sen nimi nykyään on Synthia.
 
 ICHO:sta kehitettiin myös malli, jonka kouluttamisessa käytettiin lisäksi vektoreita, jotka sisälsivät dataa kemiallisesti intuitiivisistä reaktiopiirteistä, joita on käytetty aikaisemmissa tutkimuksissa.
 Tätä mallia kutsutaan ICHO+ malliksi, ja sitä käytetään vertailemaan ICHO mallin suoriutumista.
@@ -643,7 +664,7 @@ Jos suhde taas on pieni, niin reaktio luokitellaan `vaikeaksi toteuttaa'.
 
 (2) Toiseksi se kykenee antamaan suuremman kuin nollatodennäköisyyden reaktiolle, joka ei ilmaantunut koulutusvaiheessa.
 Tämä sen takia, että mallille koulutetaan jatkuva funktio, joka antaa todennäköisyyden jokaiselle reaktiotyypille perustuen, kuinka reaktio muuttaa lopputuotteen lähtötuotteiksi.
-Eli jos jokin reaktion sormenjälki (Lisää tietoa, koska useassa mallissa käytetään) tai heuristinen kuvaus on samankaltainen toisen reaktion kanssa, joka ilmenee koulutusdatassa, niin reaktiolle voidaan antaa todennäköisyys sen käytölle.
+Eli jos jokin reaktion sormenjälki tai heuristinen kuvaus on samankaltainen toisen reaktion kanssa, joka ilmenee koulutusdatassa, niin reaktiolle voidaan antaa todennäköisyys sen käytölle.
 
 \begin{figure}[ht]
     \centering
@@ -661,7 +682,7 @@ ICHO mallia vertailtiin aikasiemmin mainitun 3N-MCTS -mallin kanssa, jota kustsu
 Kyseisestä SW mallista kehitettiin myös heuristista dataa hyödyntävä malli SW+.
 Lisäksi luotiin SW malli, joka ei käy läpi kaikkia mahdollisia reaktioita, vaan valitsee säännöt niistä reaktioista, jotka eivät aiheuta konfliktia (selitys) ja jotka johtavat vain tiettyyn lopputuotteeseen.
 Tätä mallia kutsutaan SW2 -malliksi ja tästä luodusta heuristisesta mallista käytetään nimeä SW2+.
-Lisäksi vertailumalliksi luodaan täysin heuristinen malli, joka arvioi reaktioita sen mukaan, kuinka paljon ne rakenteellisesti yksinkertaistavat lopputuotetta.
+Lisäksi vertailumalliksi luodaan täysin heuristinen malli \(SMALLER\), joka arvioi reaktioita sen mukaan, kuinka paljon ne rakenteellisesti yksinkertaistavat lopputuotetta.
 Tämä malli suosii reaktioita, jotka pilkkovat molekyylin keskeltä, eli puolittavat sen.
 Tämä on haluttu lähestymistapa retrosynteesiin, koska se minimoi syntetisointivaiheiden määrän.
 
@@ -702,8 +723,6 @@ Kuvaaja e myös näyttää, että ICHO+ j SW2+ -mallien MRR -pisteet kasvavat ko
     }
     {~\cite{ExpertKnowledgeRetorsynthesis}}
 \end{figure}
-
-Miten koneoppimista hyödynnetään tällä hetkellä lääkkeiden syntetisoinnissa~\cite{SeglerMarwinHS2018Pcsw,ShaharHarelAndKiraRadinsky,ShinBonggun}?
 
 \chapter{Lääkkeiden kehitys tulevaisuudessa}
 
