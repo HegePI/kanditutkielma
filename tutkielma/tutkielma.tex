@@ -213,6 +213,8 @@ Tähän tarkoitukseen kehitetyt koneoppimismallit kykenevät etsimään lääkke
 Kehitetyt mallit ovatkin näyttäneet, että koneoppimismallit ovat tehokkaita työkaluja, joita voidaan hyödyntää kaikissa lääketutkimuksen eri vaiheissa.
 
 Tässä tekstissä paneudutaan syvemmin koneoppimismalleihin, joita käytetään uusien lääkkeiden tunnistamiseen ja näiden tunnistettujen lääkkeiden syntetisoinnin suunnitteluun.
+Tekstin tarkoituksena on tutustuttaa lukija sekä koneoppimisen käsitteistöön ja erilaisiin malleihin että ongelmiin, jotka liittyvät lääkkeiden löytämiseen ja löydettyjen lääkkeiden syntetisoinnin suunnitteluun.
+Käsiteltävät koneoppimismenetelmät toimivat esimerkkeinä, kuinka koneoppimista voidaan käyttää käsiteltävissä konteksteissa.
 
 Ensimmäisessä kappaleessa tutustutaan eri datatyyppeihin, joita käytetään koneoppimismallien kouluttamisessa.
 Tämä on lyhyt kappale, jossa käydään vain ne datatyypit läpi, joita myöhemmin selitettävät koneoppimismallit käyttävät.
@@ -223,10 +225,10 @@ Kappaleessa kerrotaan virtualisesta seulonnasta (Virtual screening), mitä sill�
 Lisäksi toisessa kappaleessa käydään läpi yhden koneoopimismallin toimintaa, joka on koulutettu löytämään uusia yhdisteitä.
 Tämä malli mahdollistaa uusien lääkkeiden löytämisen nopeasti, joita näin ollen päästään jatkotutkimaan nopeasti.
 
-Kolmannessa kappaleessa käsitellään yhdisteiden syntetisointia.
-Kappaleessa kerrotaan, mikä tekee yhdisteiden syntetisoinnista hankalaa ja mitä ratkaisuja tähän on kehitetty.
-Kappale myös kertoo retrosyntetisoinnista ja CASP -menetelmistä (\textbf{Computer Aided Synthesis Planning}) ja kuinka nämä liittyvät toisiinsa.
-Lisäksi kappaleessa käydään läpi kahden eri koneoppimismallin toimintaa, jotka on kehitetty auttamaan eri yhdisteiden syntetisoinnissa.
+Kolmas kappale paneutuu yhdisteiden syntetisointiin ja kuinka sitä voidaan toteuttaa hyödyntämällä koneoppimismalleja.
+Kappaleessa käsitellään, kuinka syntetisointia voidaan suunnitella retrosynteesianalyysin avulla, mikä tekee yhdisteiden retrosyntetisointianalyysista hankalaa ja mitä ratkaisuja tähän on kehitetty.
+Kappale kertoo CASP -menetelmistä (\textbf{Computer Aided Synthesis Planning}) ja kuinka täma liittyy retrosyntetisointianalyysiin.
+Lisäksi kappaleessa käydään läpi kahden eri koneoppimismallin toimintaa, jotka on kehitetty auttamaan eri yhdisteiden syntetisoinnin suunnittelussa.
 
 Neljäs kappale käsittelee, kuinka koneoppimista tullaan käyttämään tulevaisuuden lääkekehityksessä ja tutkimisessa.
 Kappale kertoo, kuinka koneoppiminen tulee enenemissä määrin muuttamaan lääkekehityksen prosessia.
@@ -238,7 +240,7 @@ Kappaleessa keskitytään datatyyppeihin, joita käytetään malleissa, joiden t
 Mallit, joiden toimintaa avataan, käyttävät datatyyppejä, joilla kuvataan pienyhdisteitä.
 Tämän takia kappaleessa keskitytään vain pieniäyhdisteitä kuvaaviin datatyyppeihin.
 Kappaleessa käydään läpi SMILES ja SMARTS datatyypit, mihin niitä käytetään ja kuinka ne eroavat toisistaan.
-Kappaleessa myös kerrotaan ECFP -tunnisteista ja ominaisuusvektoreista ja mitä tietoa ne sisältävät yhdisteistä.
+Kappaleessa myös kerrotaan, mitä ovat yhdisteiden ECFP -tunnisteet ja mitä ovat ominaisuusvektoreista ja mitä tietoa ne sisältävät yhdisteistä.
 
 \section{Yhdisteiden kuvaaminen merkkijonoilla}
 
@@ -261,11 +263,13 @@ SMARTS ja SMILES standardit mahdollistavat myös kemiallisten reaktioiden kuvaam
 
 \section{Yhdisteiden kuvaaminen bitteinä, ECFP}
 
-Toinen tavallinen tapa kuvata yhdisteitä muodossa, jossa koneoppimismallit ymmärtävät ne, on muuttaa ne ECFP (Extended Connectivity FingerPrint) -bitttijonoiksi.
-ECFP -tunnisteita kutsutaan myös Morgan -tunnisteiksi (Morgan Fingerprint), ja ne mahdollistavat yhdisteiden kuvaamisen halutun mittaisina bittijnoina.
+Toinen tavallinen tapa kuvata yhdisteitä on muuttaa ne ECFP (Extended Connectivity FingerPrint) -bitttijonoiksi.
+ECFP -tunniste lasketaan käyttämällä Morganin algoritmia, joka laskee jokaiselle yhdisteen atomille numeerisen arvon käyttämällä hajautusfunktiota ja iteroimalla ja laskemalla näitä arvoja yhteen se saa laskettua yhdisteen eri osille niitä kuvaavat numeeriset arvot.
+Nämä numeeriset arvot voidaan muuttaa sitten halutun mittaisiksi bittiesityksiksi.
+ECFP -tunnisteita kutsutaan myös Morgan -tunnisteiksi (Morgan Fingerprint).
+ECFP on yksi monista tavoista kuvata yhdisteitä numeerisessa muodossa, mutta se on yksi käytetyimmistä menetelmistä sen nopean ja helpon laskemisen takia.
 Bittijonojen etuna on se, että ne vievät vähän muistia lyhyillä bittijonoilla, mutta lyhyjen bittijonojen ongelmana on, että ne saattavat menettää oleellista tietoa yhdisteestä bittitörmäysten takia.
 Tavallinen koko, joilla yhdisteitä kuvataan, on n. 4096 bittiä.
-
 
 \section{Ominaisuusvektorit}
 
