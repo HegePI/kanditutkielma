@@ -326,7 +326,7 @@ Käydään seuraavaksi läpi erään toteutetun koneoppimismallin toimintaperiaa
 Kyseinen malli etsii uusia lääkkeitä käyttämällä hyödyksi sille annettua prototyyppiyhdistettä, prototyypin kemiallisia ominaisuuksia ja uudelta lääkkeeltä haluttuja kemiallisia ominaisuuksia.
 Kemialliset ominaisuudet on koodattu ominaisuusvektoreihin.
 
-\subsection{CMG}
+\subsection{CMG -malli}
 
 CMG (Controlled molecule generator) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet~\cite{ShinBonggun}.
 CMG -mallin toimintaperiaatteen idea on muokata prototyyppiyhdistettä siten, että se maksimoi halutut ominaisuudet, jotka on määritelty sen syötteenä saamassa ominaisuusvektorissa.
@@ -370,7 +370,7 @@ Nämä kuvaavat eri ominaisuuksia, joita malli pyrkii optimoimaan halutulla tava
     {~\cite{ShinBonggun}}
 \end{figure}
 
-\subsubsection{MTN}
+\subsubsection{MTN -verkko}
 
 MTN -verkko perustuu aikaisemmin kehitettyyn Transformer -malliin~\cite{TheTransformer}.
 Transformer -malli eroaa aikaisemmin yleisistä NLP -malleista siten, että se perustuu täysin attention -perusteiseen lähestymistapaan.
@@ -382,7 +382,7 @@ MTN eroaa Transformer -mallista kahdella tavalla.
 Toisin kuin Transformer -malli, joka käsittelee sanoja ja niistä muodostettuja lauseita, MTN -verkko käsittelee yksittäisiä merkkejä ja niistä muodostettuja molekyylejä.
 Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallisista ominaisuuksista.
 
-\subsubsection{PPN}
+\subsubsection{PPN -verkko}
 
 \begin{figure}[ht]
     \centering
@@ -402,7 +402,7 @@ Verkko antaa tuloksena kyseisen yhdisteen ominaisuuksien ennusteen.
 PPN koulutetaan käyttäen 257 565 eri molekyyliä.
 nämä molekyylit jaetaan satunnanvaraisella valinnalla koulutus -ja testiryhmiin suhteella 8:2.
 
-\subsubsection{SPN}
+\subsubsection{SPN -verkko}
 
 \begin{figure}[!h]
     \centering
@@ -479,7 +479,7 @@ ICHO -malli taas puolestaan palauttaa parhaan muunnossäännön, jonka avulla ha
 ICHO -mallin toiminta on verrattavissa 3N-MCTS -mallissa käytetettyihin koneoppimismalleihin, jotka yhdessä suodattavat mahdollisista muunnoksista vain parhaimmat, joiden avulla yhdiste voidaan muodostaa.
 ICHO -malli käyttää sekä samananlaista reaktiodataa kuin 3N-MCTS mutta se myös hyödyntää ammattikemistien luomia heuristisia sääntöjä.
 
-\subsection{3N-MCTS}
+\subsection{3N-MCTS -malli}
 
 3N-MCTS on koneoppimismalli, jonka on kehittänyt Marwin et al.\ tutkimusryhmä.
 Se etsii retrosynteesipolkuja yksinkertaisempiin ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}.
@@ -536,7 +536,7 @@ Saattaa kuitenkin olla, että synteesipolkua ei voida luoda.
 Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
 
 
-\subsubsection{Expansion policy netwrok}
+\subsubsection{EPN -verkko}
 
 \begin{figure}[ht]
     \centering
@@ -559,7 +559,7 @@ EPN -verkon kouluttamiseen valittiin datasta vain reaktiokeskus.
 Datasta suodatettiin pois sellaiset säännöt, jotka ilmenivät datassa alle kolme kertaa ennen vuotta 2015.
 Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
 
-\subsubsection{Rollout policy network}
+\subsubsection{RPN -verkko}
 
 \begin{figure}[ht]
     \centering
@@ -579,7 +579,7 @@ RPN -verkon kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit j
 Datasta suodatettiin pois sellaiset säännöt, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
 Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
 
-\subsubsection{In-scope filter network}
+\subsubsection{IFN -verkko}
 
 \begin{figure}[ht]
     \centering
@@ -643,12 +643,12 @@ Kun aikaa kasvatettiin 60 sekunttiin per yhdiste, 3N-MCTS löysin 92 prosentille
 Testin tarkoituksena oli selvittää, suosivatko henkilöt ennemmin kirjallisuuteen perustuvaa retrosyntetisointipolkua vai 3N-MCTS:än antamaa polkua.
 Sokkotestissä 57 prosenttia henkilöistä valitsi 3N-MCTS muodostaman polun ja loput valitsivat kirjallisuuteen perustuvan polun.
 
-\subsection{ICHO}
+\subsection{ICHO -verkko}
 
 On myös yleistä, että retrosynteesipolkuja suunnitelevat mallit hyödyntävät heurustiikka~\cite{ExpertKnowledgeRetorsynthesis}.
 Badowski et al.\ ryhmä on kehittänyt koneoppimismallin, joka ehdottaa tietylle yhdisteelle parasta mahdollista muunnossääntöä, jonka avulla yhdiste voidaan muodostaa.
 Kehitetty ICHIO -malli hyödyntää  neuroverkkoja ja ammattikemistien muodostamia heuristisia sääntöjä pisteyttäessään muunnossääntöjä.
-ICHO-malli on verrattavissa 3N-MCTS -mallin EPN ja IFN mallien toimintaan.
+ICHO-malli on verrattavissa 3N-MCTS -mallin EPN ja IFN verkkojen toimintaan.
 
 ICHO:n (Instytut Chemii Organicznej) kouluttamiseen käyettiin dataa 1.4 miljoonasta reaktiosta ja niiden lopputuotteista.
 Data saadaan julkaistuista artikkeleista ja patenteista.
