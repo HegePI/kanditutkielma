@@ -263,13 +263,12 @@ SMARTS ja SMILES standardit mahdollistavat myös kemiallisten reaktioiden kuvaam
 
 \section{Yhdisteiden kuvaaminen bitteinä, ECFP}
 
-Toinen tavallinen tapa kuvata yhdisteitä on muuttaa ne ECFP (Extended Connectivity FingerPrint) -bitttijonoiksi.
+Toinen tavallinen tapa kuvata yhdisteitä on muuttaa ne ECFP (Extended Connectivity FingerPrint) -bitttijonoiksi~\cite{RogersDavid2010EF}.
 ECFP -tunniste lasketaan käyttämällä Morganin algoritmia, joka laskee jokaiselle yhdisteen atomille numeerisen arvon käyttämällä hajautusfunktiota ja iteroimalla ja laskemalla näitä arvoja yhteen se saa laskettua yhdisteen eri osille niitä kuvaavat numeeriset arvot.
-Nämä numeeriset arvot voidaan muuttaa sitten halutun mittaisiksi bittiesityksiksi.
 ECFP -tunnisteita kutsutaan myös Morgan -tunnisteiksi (Morgan Fingerprint).
+Nämä numeeriset arvot voidaan muuttaa sitten halutun mittaisiksi bittiesityksiksi~\cite{RogersDavid2010EF}.
 ECFP on yksi monista tavoista kuvata yhdisteitä numeerisessa muodossa, mutta se on yksi käytetyimmistä menetelmistä sen nopean ja helpon laskemisen takia.
 Bittijonojen etuna on se, että ne vievät vähän muistia lyhyillä bittijonoilla, mutta lyhyjen bittijonojen ongelmana on, että ne saattavat menettää oleellista tietoa yhdisteestä bittitörmäysten takia.
-Tavallinen koko, joilla yhdisteitä kuvataan, on n. 4096 bittiä.
 
 \section{Ominaisuusvektorit}
 
@@ -281,8 +280,6 @@ PlogP (Penalized logP) kuvaa aineen rasvaliukoisuutta, QED kuvaa tietyn yhdistee
 Nämä ovat oleellisia tietoja tutkittaessa uusia mahdollisia lääkeyhdisteitä~\cite{ShinBonggun}.
 
 \chapter{Uusien lääkkeiden löytäminen}
-
-% Miksi uusien lääkkeiden löytäminen on vaikeaa?~\cite{EkinsSean2019Emlf}
 
 Tässä kappaleessa kerrotaan, mitä asioita liittyy lääkkeiden löytämiseen.
 Lisäksi kappaleessa kerrotaan, mitä on virtuaalinen seulonta ja kuinka sitä hyödynnetään lääkkeiden etsinnässä.
@@ -340,6 +337,9 @@ Tanimoto -indeksin arvot ovat välillä \([0,1]\).
 CMG -malli eroaa aikaisemmin kehitetyistä malleista siten, että se pystyy optimoimaan annetun molekyylin useampaa ominaisuutta samanaikaisesti.
 Aikaisemmin kehitetyt mallit ovat pystyneet optimoimaan vain yhtä molekyylin ominaisuutta.
 
+CMG -malli muodostuu kolmesta verkosta, joista kaksi toimivat rajoiteverkkoina.
+Ensimmäinen verkko on MTN (\textbf{Molecule Translation Network}) ja rajoiteverkot ovat PPN (\textbf{Property Prediction Network}) ja SPN (\textbf{Similarity Prediction Network}).
+
 CMG:n kehittäjät lähestyvät molekyylin ominaisuuksien optimointiongelmaa merkkijonojen käännös -ja luontiongelmana.
 CMG:lle opetetaan, kuinka syötteenä annettu yhdistemerkkijono käännetään yhdistemerkkijonoksi, jolla on lähimpänä haluttuja ominaisuuksia olevat ominaisuudet.
 CMG tulkitsee ensin annetut merkkijonot hyödyntäen DN:ää (deep network) jonka jälkeen se luo uusia molekyyliyhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
@@ -347,8 +347,9 @@ Koska ominaisuudet annetaan vektorina, niin CMG pystyy optimoimaan useampaa omin
 CMG lisäksi hyödyntää ennalta koulutettuja rajoiteverkkoja (constraint network, CN), jolloin vältytään luomasta mahdottomia yhdisteitä.
 CMG -malli käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam Search -algoritmia.
 
-CMG -malli muodostuu kolmesta verkosta, joista kaksi toimivat rajoiteverkkoina.
-Ensimmäinen verkko on MTN (\textbf{Molecule Translation Network}) ja rajoiteverkot ovat PPN (\textbf{Property Prediction Network}) ja SPN (\textbf{Similarity Prediction Network}).
+Beam Searh -algoritmi saa syötteenä kaikki CMG -mallin kehittämät yhdisteet, pisteyttää ne ja palauttaa yhdisteen, joka sai parhaimman pisteytyksen.
+Algoritmi käyttää PPN -verkkoa ennustaessaan kehitetyn molekyylin ominaisuuksia ja SPN -verkkoa laskiessaan, kuinka samankaltainen kehitetty yhdiste on CMG -mallin syötteenä saadun yhdisteen kanssa.
+Näiden tietojen avulla algoritmi laskee kehitetyille yhdisteille numeeriset arvot ja palauttaa yhdisteen, joka saa parahaimman arvon.
 
 Data, jolla mallit koulutetaan, on peräisin ZINC -tietokannasta ja DRD2 dataseteistä.
 ZINC on ilmainen tietokanta, joka sisältää tietoa lääkeyhdsteistä, ja jota voidaan käyttää virtuaalisessa seulonnassa~\cite{ZINC}.
@@ -497,6 +498,8 @@ Tietokanta sisältää yli 12.4 miljoonaa sääntöä.
 Mallien kouluttamiseen käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain yhdestä kolmeen lähtötuotetta.
 Eri mallien kouluttamiseen käytetään eri kriteerein suodatettua dataa tietokannasta.
 Kaikki koneoppimismallit koulutetaan käyttämällä ADAM -optimoijaa.
+ADAM -optimoija on algoritmi, jota käytetään neuroverkon kaarien painojen optimoinnissa neuroverkon koulutusvaiheessa.
+ADAM -optimoija perustuu stokastiseen gradientiin, mutta koska algoritmi on helppo toteuttaa ja se on laskennallisesti tehokas, niin se soveltuu neuroverkkojen optimointiin, jotka sisältävät paljon kaaria.
 ADAM -optimoija hyödyntää AdaGrad:in ja RMSProp:in toiminnallisuutta~\cite{kingma2017adam}.
 
 \subsubsection{3N-MCTS toimintamalli}
