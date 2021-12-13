@@ -221,7 +221,7 @@ Tämä on lyhyt kappale, jossa käydään vain ne datatyypit läpi, joita myöhe
 Näiden ymmärtäminen auttaa hahmottamaan myöhemmin tekstissä selitettävien eri mallien toimintaperiaatteita.
 
 Toisessa kappaleessa käydään läpi, kuinka uusia lääkkeitä etsitään ja löydetään.
-Kappaleessa käydään pintapuolisesti läpi virtuaalista seulontaa (\textbf{Virtual screening}), mitä sillä tarkoitetaan ja kuinka sitä hyödynnetään.
+Kappaleessa käydään pintapuolisesti läpi virtuaalista seulontaa (\textbf{Virtual Screening}), mitä sillä tarkoitetaan ja kuinka sitä hyödynnetään.
 Tässä kappaleessa käydään myös läpi yhden koneoopimismallin toimintaa, joka on koulutettu löytämään uusia yhdisteitä.
 Tämä malli mahdollistaa uusien lääkeyhdisteiden nopean löytämisen, joita päästään jatkotutkimaan nopeasti.
 
@@ -258,7 +258,7 @@ Se kuvaa yhdisteen yhdellä rivillä käyttäen ASCII -merkistöä.
 Kuvassa~\ref{fig:melatonin} on esitetty melatoniini yhdiste ja kuinka se kuvataan SMILES muodossa.
 Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
 
-SMARTS (\textbf{SMILES arbitrary target specification}) on SMILES -standardista jatkokehitetty tapa kuvata yhdisteitä.
+SMARTS (\textbf{SMILES Arbitrary Target Specification}) on SMILES -standardista jatkokehitetty tapa kuvata yhdisteitä.
 Se mahdollistaa yhdisteiden sisäisten rakenteiden määrittämisen.
 SMARTS -on yläluokka SMILES -standardista, jonka takia kaikki SMILES -merkkijonoiksi kelpaavat merkkijonot ovat myös kelpoja SMARTS -merkkijonoja.
 SMARTS -ja SMILES -standardit mahdollistavat myös kemiallisten reaktioiden kuvaamisen ASCII -merkistöllä yhdellä rivillä.
@@ -329,7 +329,7 @@ Kemialliset ominaisuudet on koodattu ominaisuusvektoreihin.
 
 \subsection{CMG -malli}
 
-CMG (\textbf{Controlled molecule generator}) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet~\cite{ShinBonggun}.
+CMG (\textbf{Controlled Molecule Generator}) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet~\cite{ShinBonggun}.
 CMG -mallin toimintaperiaatteen ajatuksena on muokata prototyyppiyhdistettä siten, että se maksimoi halutut ominaisuudet, jotka on määritelty sen syötteenä saamassa ominaisuusvektorissa.
 CMG -mallin toimintaa rajoittaa kuitenkin prototyyppiyhdiste ja syötteenä annettu samanlaisuusluku, jonka alle uuden luodun yhdisteen ja prototyyppiyhdisteen välinen tanimoto -indeksi ei saa mennä.
 Tanimoto -indeksi kuvaa, kuinka paljon molekyylit muistuttavat toisiaan rakenteellisesti~\cite{MaggioraGerald2014Msim}.
@@ -344,9 +344,9 @@ Kuvassa~\ref{fig:cmg-model-whole} näkyy CMG -mallin rakenne ja toimintaperiaate
 
 CMG:n kehittäjät lähestyvät molekyylin ominaisuuksien optimointiongelmaa merkkijonojen käännös -ja luontiongelmana.
 CMG:lle opetetaan, kuinka syötteenä annettu yhdistemerkkijono käännetään sellaiseksi yhdistemerkkijonoksi, jolla on lähimpänä haluttuja ominaisuuksia olevat ominaisuudet.
-CMG tulkitsee ensin annetut merkkijonot hyödyntäen DN:ää (\textbf{deep network}) jonka jälkeen se luo uusia molekyyliyhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
+CMG tulkitsee ensin annetut merkkijonot hyödyntäen DN:ää (\textbf{Deep Network}) jonka jälkeen se luo uusia molekyyliyhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
 Koska ominaisuudet annetaan vektorina, niin CMG pystyy optimoimaan useampaa ominaisuutta samanaikaisesti.
-CMG hyödyntää myös etukäteen koulutettuja rajoiteverkkoja (\textbf{constraint network}), jolloin vältytään luomasta mahdottomia yhdisteitä.
+CMG hyödyntää myös etukäteen koulutettuja rajoiteverkkoja (\textbf{Constraint Network}), jolloin vältytään luomasta mahdottomia yhdisteitä.
 CMG -malli käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam Search -algoritmia.
 
 Beam Searh -algoritmi saa syötteenä kaikki CMG -mallin kehittämät yhdisteet, pisteyttää ne ja palauttaa yhdisteen, joka sai parhaimman pisteytyksen.
@@ -397,7 +397,7 @@ Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallisista ominai
 
 PPN -verkon rakenne ja toiminta periaate näkyvät kuvassa~\ref{fig:cmg-model-ppn}.
 PPN -verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)).
-Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi hyödyntäen Bidirectional Long short-term memory (\textbf{biLSTM}) -kerrosta.
+Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi hyödyntäen Bidirectional Long short-term memory (\textbf{BiLSTM}) -kerrosta.
 BiLSTM on rakenteeltaan samanlainen kuin LSTM taso, mutta koska se käsittelee syötteen sekä alku-loppu suunnassa että loppu-alku suunnassa se oppii tietyn merkin kontekstin molemmissa suunnissa.
 BiLSTM -kerros muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnissa.
 Näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
@@ -499,11 +499,11 @@ Kun retrosynteesipolku on varmennettu ja todettu toimivaksi, niin syötteenä an
 3N-MCTS -malli muodostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhakualgoritmista (\textbf{Monte Carlo Tree Search, MCTS}).
 Neuroverkot on koulutettu avustamaan puuhakualgoritmia etenemään järkevimpään suuntaan, kun hakualgoritmi etsii syntetisointipolkuja ja tarkistamaan, onko ehdotettu reaktio mahdollinen kyseiselle molekyylille.
 
-Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (\textbf{Expansion policy network, EPN}), MCTS:än rollout toimintoa tukeva Rollout -verkko (\textbf{Rollout policy network, RPN}) ja verkko, joka tarkistaa, onko syntetisointipolku toteutettavissa (\textbf{In-scope filter network, IFN}).
+Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (\textbf{Expansion Policy Network, EPN}), MCTS:än rollout toimintoa tukeva Rollout -verkko (\textbf{Rollout Policy Network, RPN}) ja verkko, joka tarkistaa, onko syntetisointipolku toteutettavissa (\textbf{In-scope Filter Network, IFN}).
 
 Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta.
 Reaxyksen omistaa Elsevier kustantamo.
-Reaxys -tietokannan sisältämä data koostuu muunnossäännöistä (\textbf{transformation rule}), jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion lopputuote.
+Reaxys -tietokannan sisältämä data koostuu muunnossäännöistä (\textbf{Transformation Rule}), jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion lopputuote.
 Näitä sääntöjä käytetään mallien kouluttamisessa.
 Tietokanta sisältää yli 12.4 miljoonaa sääntöä.
 Mallien kouluttamisessa käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain yhdestä kolmeen lähtötuotetta.
@@ -531,8 +531,8 @@ Nämä säännöt syötetään IFN:älle, joka suodattaa valituista reaktioista 
 Tätä toiminnallisuutta iteroidaan mallissa seuraavassa järjestyksessä.
 
 (1) Ensimmäisessä vaiheessa algoritmi valitsee seuraavan lupaavimman tilan puusta kunnes puun lehti on saavutettu.
-Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia \(d\) askelta eteenpäin samalla muodostaen synteesipolkua (\textbf{rollout}).
-Jos lehdessä käydään useamman kuin yhden kerran valintavaiheen aikana, niin mahdolliset säännöt, jotka muodostavat lehden, tutkitaan ja lisätään lehden lapsiksi (\textbf{expansion}).
+Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia \(d\) askelta eteenpäin samalla muodostaen synteesipolkua (\textbf{Rollout}).
+Jos lehdessä käydään useamman kuin yhden kerran valintavaiheen aikana, niin mahdolliset säännöt, jotka muodostavat lehden, tutkitaan ja lisätään lehden lapsiksi (\textbf{Expansion}).
 
 (2) Toisessa vaiheessa lupaavien tilojen lapset tutkitaan.
 Tällöin etsitään lupaavimmat säännöt, jotka muodostavat kyseisessä tilassa olevan yhdisteen.
@@ -565,7 +565,7 @@ Molemmissa tasoissa on käytetty aktivointifunktiona ELU -funktiota (\textbf{Exp
 Täysin kytketyssä tasossa suoritetaan dropout -toiminto, jonka jälkeen vain 30 prosenttia ensimmäisen tason solmujen tuloksista otetaan huomioon seuraavalla tasolla.
 Dropout -toiminolla tarkoitetaan, että vain tietty osa kaikista edellisen tason palauttamista arvoista huomioidaan~\cite{hinton2012improving}.
 Dropout -toimintos uoritetaan mallin koulutusvaiheessa ja pois jätettävät arvot valitaan sattumanvaraisesti.
-Dropout -toiminnolla pyritään välttämään ylitulkintaa (\textbf{overfitting}).
+Dropout -toiminnolla pyritään välttämään ylitulkintaa (\textbf{Overfitting}).
 Tämän jälkeen jokaisen highway -tason jälkeen suoritetaan dropout -toiminto, jossa otetaan huomioon vain 10 prosenttia edellisen tason arvoista.
 EPN -verkon viimeinen taso on softmax -taso, joka palauttaa todennäköisyysjakauman.
 Tämä jakauma kertoo kuinka todennäköisesti muunnossääntö \emph{a} muodostaa tuotteen \emph{m}.
@@ -591,7 +591,7 @@ Samalla tavalla kuin EPN, RPN käyttää myös ELU -funktiota aktivointifunktion
 RPN -tasossa suoritetaan dropout -toiminto, jonka jälkeen vain 40 prosenttia kaikista ensimmäisen tason arvoista tulkitaan.
 RPN -verkon viimeinen taso on myös softmax -taso, joka palauttaa todennäköisyysjakauman.
 
-RPN -verkon kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (\textbf{reaktiokeskus}) ja lähimmät vierekkäiset atomit.
+RPN -verkon kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (\textbf{Reaktiokeskus}) ja lähimmät vierekkäiset atomit.
 Datasta suodatettiin pois sellaiset säännöt, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
 Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
 
