@@ -79,11 +79,11 @@
 % Set supervisors and examiners, use the titles according to the thesis language
 % Prof.
 % Dr. or in Finnish toht. or tri or FT, TkT, Ph.D. or in Swedish...
-\supervisors{Prof.~D.U.~Mind, Dr.~O.~Why}
-\examiners{Prof.~D.U.~Mind, Dr.~O.~Why}
+\supervisors{Leinonen, Matti}
+\examiners{Toht. Ruotsalainen, Laura}
 
 
-\keywords{ulkoasu, tiivistelmä, lähdeluettelo}
+\keywords{Koneoppiminen, Lääkekehitys}
 \additionalinformation{\translate{\track}}
 
 %% For seminar reports:
@@ -95,8 +95,8 @@
 %% about three levels in the path; each path requires a new line.
 
 \classification{\protect{\ \ \
-\  General and reference \(\rightarrow \) Document types  \(\rightarrow \) Surveys and overviews\  \\
-\  Applied computing  \(\rightarrow \) Document management and text processing  \(\rightarrow \) Document management \(\rightarrow \) Text editing
+\  Computing Methodologies \(\rightarrow \) Machine Learning  \(\rightarrow \) Machine Learning Approaches \(\rightarrow \) Neural Networks, \\
+\  Applied computing \(\rightarrow \) Life and medical sciences \(\rightarrow \) Health informatics
 }}
 
 %% if you want to quote someone special. You can comment this line out and there will be nothing on the document.
@@ -143,14 +143,14 @@
 
 \begin{abstract}
 
-    Tämä dokumentti on tarkoitettu Helsingin yliopiston tietojenkäsittelytieteen osaston opin\-näyt\-teiden ja harjoitustöiden ulkoasun ohjeeksi ja mallipohjaksi. Ohje soveltuu kanditutkielmiin, ohjelmistotuotantoprojekteihin, seminaareihin ja maisterintutkielmiin. Tämän ohjeen lisäksi on seurattava niitä ohjeita, jotka opastavat valitsemaan kuhunkin osioon tieteellisesti kiinnostavaa, syvällisesti pohdittua sisältöä.
+    Tässä tekstissä käydään käydään läpi, kuinka koneoppimista voidaan käyttää lääkekehityksessä ja minkälaista dataa voidaan käyttää koneoppimismallien kouluttamisessa.
+    Tekstin alussa käydään nopeasti lääkekehityksen eri vaiheita ja miksi koneoppimista halutaan käyttää lääkekehityksessä.
+    Seuraavissa kappaleissa keskitytään ainoastaan lääkkeiden löytämiseen ja lääkkeiden syntetisoinnin suunnitteluun ja kuinka koneoppimista voidaan hyödyntää näissä vaiheissa.
+    Kappaleissa käydään myös läpi kolmen eri koneoppimismallin toimintaa, joista yksi keskittyy uusien lääkkeiden löytämiseen ja kaksi keskittyvät yhdisteiden syntetisoinnin suunnitteluun.
+    Tekstin alussa kerrotaan myös eri datatyypeistä, joita käytetään kyseisissä koneoppimismalleissa.
 
+    Koneoppimismallien tarkoituksena on antaa lukijalle ajatus siitä, miten koneoppimista voidaan hyödyntää kyseisissä lääkekehityksen vaiheissa, minkälaisia ongelmia koneoppimismalleilla pyritään ratkomaan ja minkälaisia koneoppimismalleja ja tekniikoita ongelmien ratkomisessa on käytetty.
 
-    Työn aihe luokitellaan
-    ACM Computing Classification System (CCS) mukaisesti,
-    ks.\ \url{https://www.acm.org/about-acm/class},
-    käyttäen komentoa \verb+\classification{}+.
-    Käytä muutamaa termipolkua (1--3), jotka alkavat juuritermistä ja joissa polun tarkentuvat luokat erotetaan toisistaan oikealle osoittavalla nuolella.
 
 \end{abstract}
 
@@ -244,7 +244,7 @@ Kappaleessa myös kerrotaan, mitä ovat yhdisteiden ECFP -tunnisteet, mitä omin
 
 \section{Yhdisteiden kuvaaminen merkkijonoilla}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=8cm, height=8cm]{melatonin-smiles.png}
     \caption{Melatoniini yhdiste, kuinka se kuvataan graaffina ja SMILES -merkijonona.
@@ -365,7 +365,7 @@ Näitä \((X,Y)\) pareja muodostetaan kaiken kaikkiaan 10 827 615 kappaletta.
 Lisäksi kaikille molekyyleille lasketaan niiden eri kemiallisten ominaisuuksien arvot, jotka ovat PlogP, QED ja DRD2.
 Nämä kuvaavat eri ominaisuuksia, joita malli pyrkii optimoimaan halutulla tavalla.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=\textwidth]{CMG-fig.png}
     \caption{CMG:n toimintaperiaate kuvattuna}
@@ -387,7 +387,7 @@ Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallisista ominai
 
 \subsubsection{PPN -verkko}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=10cm, height=8cm]{cmg-property-prediction-network.png}
     \caption{CMG -mallin PPN -neuroverkon rakenne}
@@ -410,7 +410,7 @@ Nämä molekyylit jaetaan sattumanvaraisella valinnalla koulutus -ja testiryhmii
 
 \subsubsection{SPN -verkko}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=10cm, height=8cm]{cmg-similarity-network.png}
     \caption{CMG -mallin SPN -neuroverkon rakenne}
@@ -459,7 +459,7 @@ Ei ole julkista, kaikille avointa tietopankkia, joka sisältäisi tietoa kemiall
 
 \section{Lääkkeen retrosyntetisoinnin haastavuus}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=\textwidth]{retrosynthesis.jpg}
     \caption{(a) esimerkki reaktiosäännöstä, (b) esimerkki mahdollisista reaktioista, kuinka voidaan luoda haluttu yhdiste (keskellä).
@@ -515,7 +515,7 @@ ADAM -optimoija hyödyntää AdaGrad:in ja RMSProp:in toiminnallisuutta~\cite{ki
 
 \subsubsection{3N-MCTS toimintamalli}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=\textwidth]{3N-MCTS-fig.jpg}
     \caption{3N-MCTS:än toimintaperiaate kuvattuna}
@@ -552,7 +552,7 @@ Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisält
 
 \subsubsection{EPN -verkko}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[]{expansion-policy.jpg}
     \caption{Kuvassa expansion policy -neuroverkon rakenne.}
@@ -576,7 +576,7 @@ Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
 
 \subsubsection{RPN -verkko}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[]{rollout-policy.jpg}
     \caption{Kuvassa Rollout policy -neuroverkon rakenne.}
@@ -597,7 +597,7 @@ Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
 
 \subsubsection{IFN -verkko}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[]{in-scope-filter.jpg}
     \caption{Kuvassa In scope filter -neuroverkon rakenne.}
@@ -630,7 +630,7 @@ IFN -verkon kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiot
 
 \subsubsection{3N-MCTS -mallin suorituskyky}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=8cm, height=6cm]{3N-MCTS-performance-fig.jpg}
     \caption{
@@ -691,7 +691,7 @@ Jos suhde taas on pieni, niin reaktio luokitellaan `vaikeaksi toteuttaa'.
 Tämä sen takia, että mallille koulutetaan jatkuva funktio, joka antaa todennäköisyyden jokaiselle reaktiotyypille perustuen, kuinka reaktio muuttaa lopputuotteen lähtötuotteiksi.
 Eli jos jokin reaktion sormenjälki tai heuristinen kuvaus on samankaltainen toisen reaktion kanssa, joka ilmenee koulutusdatassa, niin reaktiolle voidaan antaa todennäköisyys sen käytölle.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=8cm, height=8cm]{icho-neuralnetwork.png}
     \caption{ICHO -mallin rakenne.}
@@ -737,7 +737,7 @@ Kuvaaja e myös näyttää, että ICHO+ ja SW2+ -mallien MRR (Mean Reciprocal Ra
 MRR -pisteytyksellä tarkoitetaan kaikkien yhdisteiden sijoitusten käänteislukujen keskiarvoa.
 Tällöin kuvaajan arvo lähestyy arvoa yksi, jos malli sijoittaa kaikki tutkittavat muunnossäännöt korkeille sijoille.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=10cm, height=10cm]{icho-performance-fig.jpg}
     \caption{
@@ -753,38 +753,39 @@ Tällöin kuvaajan arvo lähestyy arvoa yksi, jos malli sijoittaa kaikki tutkitt
     \label{fig:icho-performance}
 \end{figure}
 
-\chapter{Lääkkeiden kehitys tulevaisuudessa}
-
-Vaikka koneoppimisen käyttökohteet ovat yleistyneet lääkekehityksessä, niin koneoppimisen lähestymistavoilla on edelleen potenttiaalia kehittyä~\cite{ButlerKeithT2018Mlfm}.
-
-Yksi kehityksen kohteista on tehokkaampi datan tulkinta pienestä aineistomäärästä.
-Paikoin kemian ja lääkekehityksen alalla on muihin koneoppimismallien käyttökohteisiin verrattaen vähän dataa saatavilla ja sitä on kallista tuottaa.
-Tämä vaatii tutkijoilta enemmän työtä, jotta tieteellisistä julkaisuista saatava data saadaan koneiden hyödyntämään muotoon.
-Toinen ratkaisu tähän on meta-oppimis (selitys) lähestymistapa.
-Uudet lähestymistavat kuten Neuro Turing kone ja matkija oppiminen mahdollistavatkin oppimisen vähästä määrästä dataa ja Bayes luokittelija on suoriutunut lähes ihmistasoisesti käyttämällä One-shot oppismallia.
-
-Toinen merkittävä edistysaskel on kemiallisten yhdisteiden ja reaktioiden tehokkaampi esitysmalli.
-Tähän asti kemiaa on esitetty ihmisten ymmärtämässä muodossa, mutta tämä ei aina ole koneelle paras esitysmalli.
-Koneoppimismallit käyttävät tietoa molekyyleistä ja atomeista ja koneoppimismallit ovat niin hyviä kuin nämä kuvaukset.
-Hyvältä kuvaukselta vaaditaan, että sen avulla on yksinkertaista hankkia kohteen ominaisuudet ja sen tulee olla mahdollisimman pieni ulotteinen.
-Uusia kuvausmalleja on kehitetty ja koska uudet mallit ovat näyttäneet, että ne ovat tehokkaita, niin uusien kuvauksien kehittäminen jatkuu edelleen.
-
-Kemiallista koneoppimista edistävä asia on myös kvanttilaskennan hyödyntäminen.
-Kvanttikoneiden suuri laskuteho pystyy vähentämään uusien mallien koulutusaikaa merkittävästi.
-
-Koenoppimista voidaan mahdollisesti käyttää tulevaisuudessa uusien tieteellisten lakien löytämisessä.
-Mutta vaikka eri koneoppimisesta kehitetyt mallit ovat ennalta arvattavia, niin ne eivät kuitenkaan ole aina tulkittavia.
-Neuroverkko voi esimerkiksi oppia ideaalin kaasulain \((pV=nRT)\), mutta neuroverkon kaarien painojen muuttaminen ymmärrettäväksi säännöksi ei ole yksinkertainen tehtävä.
-Voi olla, että koneoppimismalli pystyy huomaamaan datasta säännön, joka toistuu, mutta jos tutkijat eivät tiedä tai tunne kyseistä sääntöä, niin mallin tulkitseminen on lähes mahdotonta.
-
 \chapter{Yhteenveto}
 
-Tässä tekstissä käytiin läpi yleisiä asioita, mitä liittyy uusien lääkkeiden löytämiseen.
-Lisäksi tekstissä käytiin läpi kolmen eri koneoppimismallin toimintaperiaatteet.
-Nämä koneoppimismallit kertovat, kuinka koneoppimista voidaan hyödyntää uusien lääkkeiden löytämisessä ja syntetisoinnin suunnittelussa.
-Koneoppimismalleista myös huomattiin, kuinka eri tavoilla koneoppimista voidaan hyödyntää ja kuinka monia eri tekniikoita voidaan käyttää lääkkeiden löytämisessä.
+% - data -> nopeakuvakulma minkälaista dataa käytetään, miten käytetään
+% - ei käyty kaikkia mahdollisia datatyyppejä
+% - miksi käytiin?
 
-Vaikka tekstissä käytiin läpi koneoppimisen tekniikoita vain lääkkeiden löytämisen -ja syntetisoinnin kuvakulmasta, niin koneoppimista voidaan käyttää tehostamaan kaikkia lääkekehityksen prosessin vaiheita.
+% - lääkkeiden löytäminen
+% - Keskityttiin lääkkeiden löytämiseen tietokoneiden avulla, klassinen labralöytäminen jätettiin pois
+% - miksi käytiin?
+
+% - yhdisteiden syntetisoinnin sunnittelu ja sen taustaa
+% - kaksi koneoppimismallia
+% - miksi käytiin?
+
+Tässä tekstissä käytiin läpi yleisiä asioita, mitä liittyy uusien lääkkeiden löytämiseen ja syntetisoinnin suunnitteluun ja kuinka koneoppimista voidaan hyödyntää näissä vaiheissa.
+Lisäksi tekstissä käytiin läpi kolmen eri koneoppimismallin toimintaperiaatteet.
+
+Johdannossa kerrottiin, mitä vaiheita kuuluu lääkekehitykseen ja miksi koneoppimista halutaan käyttää osana lääkekehityksen prosessia.
+Tämä asettaa ongelman, miksi koneoppimista halutaan käyttää lääkekehityksen prosesseissa.
+Vaikkakin käyttökohteita koneoppimiselle on jokaisessa lääkekehityksen vaiheessa, niin tekstissä keskityttiin vain ainostaan lääkkeiden löytämiseen koneoppimismenetelmillä ja lääkkeiden syntetisoinnin suunnitteluun koneoppimismenetelmillä.
+Nämä käytiin sen takia, että ne ovat kliinisten testien jälkeen ne vaiheet, joihin kuluu eniten resursseja, ja joiden nopeuttamien voi nopeuttaa myös kliinisiä testejä.
+Nämä käytiin myös sen takia, koska ongelmat ja konseptit, joita lääkkeiden löytämisessä ja syntetisoinninsuunnittelussa käytiin läpi, on suhteellisen helppoja ymmärtää ilman syvällisempää kemiaan tai lääkkeisiin liittyvää tietoa, jolloin teksti pystyi keskittymään enemmän kehitettyihin koneoppimismalleihin.
+
+Johdannon jälkeen käytiin myös, mitä eri datatyyppejä käytetään tekstissä käytävien koneoppimismallien kouluttamisessa.
+Tämän kappaleen sisällön käyminen auttaa ymmärtämään, miten koneoppimismallit toimivat ja mitä ongelmaa ne ratkovat.
+
+Myöhemmissä kappaleissa käytiin, mitä asioita ja taustaa liittyy lääkkeiden löytämiseen ja syntetisoinnin suunnitteluun.
+kappaleissa myös kerrottiin, mitä ongelmia näihin vaiheisiin kuuluu ja miten koneoppimisella voidaan ratkoa näitä ongelmia.
+
+Kappaleissa käytiin läpi myös kolmen koneoppimismallin toimintaperiaatteet, kuinka ne toimivat ja kuinka ne ratkovat aikaisemmin esitettyjä ongelmia.
+Vaikkain kirjallisuudesta löytyy useita eri koneoppimislleja ratkomaan kappaleissa kerrottuja ongelmia, niin nämä mallit valittiin sen takia, koska ne on toteutettu eri tavalla kuin aikaisemmat mallit hyödyntäen uusimpia koneppimitekniikoita.
+Yhdisteiden syntetisointiin keskittyviä koneoppimismalleja käytiin kaksi kappaletta, koska haluttiin nostaa esiin, kuinka syntetisoinninsuunnittelua voidaan suorittaa usealla eri tavalla.
+
 
 
 \cleardoublepage{}                          %fixes the position of bibliography in bookmarks
