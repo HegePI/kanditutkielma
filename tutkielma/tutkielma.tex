@@ -244,7 +244,7 @@ Kappaleessa myös kerrotaan, mitä ovat yhdisteiden ECFP-tunnisteet, mitä omina
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=8cm, height=8cm]{melatonin-smiles.png}
-    \caption{Melatoniini yhdiste, kuinka se kuvataan graaffina ja SMILES-merkijonona.
+    \caption{Melatoniiniyhdiste, kuinka se kuvataan graaffina ja SMILES-merkijonona.
         Kuva on tuotettu hyödyntämällä RDKit-kirjastoa.}
     \label{fig:melatonin}
 \end{figure}
@@ -252,7 +252,7 @@ Kappaleessa myös kerrotaan, mitä ovat yhdisteiden ECFP-tunnisteet, mitä omina
 Tavallinen tapa kuvata yhdisteitä on kuvata ne yhdellä rivillä merkkijonona.
 SMILES (Simplified Molecular Input Line Entry System) on David Weiningerin vuonna 1988 kehittämä tapa kuvata molekyylejä ja yksinkertaisia yhdisteitä~\cite{WeiningerSMILES}.
 Se kuvaa yhdisteen yhdellä rivillä käyttäen ASCII-merkistöä.
-Kuvassa~\ref{fig:melatonin} on esitetty melatoniini yhdiste ja kuinka se kuvataan SMILES muodossa.
+Kuvassa~\ref{fig:melatonin} on esitetty melatoniiniyhdiste ja kuinka se kuvataan SMILES muodossa.
 Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
 
 SMARTS (SMILES Arbitrary Target Specification) on SMILES-standardista jatkokehitetty tapa kuvata yhdisteitä.
@@ -315,8 +315,7 @@ Yleisimpiä koneoppimismenetelmiä ovat tällä hetkellä SVM (Support Vector Ma
 Neuroverkko ja Ensemble-koneoppimismallit ovat myös yleistyneet viimevuosina~\cite{ShinBonggun,PopovaMariya2018Drlf}.
 Ensemble-mallin ideana on yhdistää useita eri koneoppimismalleja yhdeksi malliksi~\cite{RokachLior2009Ec}.
 Ensemble-mallit ovat tavallisesti parempia ja monipuolisempia toiminnalisuuksissaan kuin yksittäiset koneoppimismallit ja ne myös tuottavat tarkempia tuloksia.
-
-koneoppimismallien avulla löydettyjä yhdisteitä voidaan jatkotutkia ja kehittää edelleen lääkkeiksi.
+Koneoppimismallien avulla löydettyjä yhdisteitä voidaan jatkotutkia ja kehittää edelleen lääkkeiksi.
 
 \section{Kehitettyjä koneoppimismalleja}
 
@@ -394,7 +393,7 @@ Lisäksi MTN-mallin piilotettuun kerrokseen on lisätty tietoa kemiallisista omi
 
 PPN-verkon rakenne ja toiminta periaate näkyvät kuvassa~\ref{fig:cmg-model-ppn}.
 PPN-verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)).
-Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi hyödyntäen Bidirectional Long short-term memory (BiLSTM) -kerrosta.
+Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi hyödyntäen Bidirectional Long Short-Term Memory (BiLSTM) -kerrosta.
 BiLSTM on rakenteeltaan samanlainen kuin LSTM taso, mutta koska se käsittelee syötteen sekä alku-loppu suunnassa että loppu-alku suunnassa se oppii tietyn merkin kontekstin molemmissa suunnissa.
 BiLSTM-kerros muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnissa.
 Näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
@@ -471,7 +470,6 @@ Kemiallisella muunnoksella tai myöhemmin käytetyllä termillä muunnossäänt�
 Tämä ongelma toistuu rekursiivisesti, kun yhdiste pilkotaan yhdisteisiin, jotka keskenään reagoidessaan muodostavat alkuperäisen yhdisteen.
 Kuvassa~\ref{fig:retrosynthesis-example} näkyy, kuinka monella tavalla yksinkertainen yhdiste voidaan muodostaa.
 Pienille ja yksinkertaisille yhdisteille tämä muunnostenavaruus on pienempi, mutta yhdisteen koon kasvaessa eri tapojen määrä muodostaa haluttu yhdiste kasvaa eksponentiaalisesti.
-
 Tästä johtuen tarve prosessia yleistäville koneoppimismalleille on iso.
 
 \section{Kehitettyjä apuvälineitä}
@@ -481,7 +479,7 @@ Nämä mallit on toteutettu suorittaman retrosynteesianalyysiä, mutta niiden to
 
 3N-MCTS-malli on kokonaisempi malli, koska se palauttaa retrosyntetisointipolun, joka kertoo, kuinka haluttu yhdiste voidaan syntetisoida laboratoriossa.
 Se suodattaa jokaisessa retrosyntetisointivaiheessa kaikista mahdollisista muunnoksissta vain ne, jotka ovat toteutettavissa.
-Monte Carlo -puuhakualgoritmi etsii näiden suodatettujen muunnosten avulla retrosyntetisoinitpolun.
+Monte Carlo -puuhakualgoritmi etsii näiden suodatettujen muunnosten avulla retrosyntetisointipolun.
 
 ICHO-malli palauttaa parhaan muunnossäännön, jonka avulla haluttu yhdiste voidaan muodostaa.
 ICHO-mallin toiminta on verrattavissa 3N-MCTS-mallissa käytetettyihin koneoppimismalleihin, jotka yhdessä suodattavat mahdollisista muunnoksista vain parhaimmat, joiden avulla yhdiste voidaan muodostaa.
@@ -498,7 +496,7 @@ Neuroverkot on koulutettu avustamaan puuhakualgoritmia etenemään järkevimpä�
 
 Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (Expansion Policy Network, EPN), MCTS-algoritmin rollout toimintoa tukeva Rollout -verkko (Rollout Policy Network, RPN) ja verkko, joka tarkistaa, onko syntetisointipolku toteutettavissa (In-scope Filter Network, IFN).
 
-Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta.
+Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta~\cite{reaxys}.
 Reaxyksen omistaa Elsevier kustantamo.
 Reaxys -tietokannan sisältämä data koostuu muunnossäännöistä (Transformation Rule), jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion lopputuote.
 Näitä sääntöjä käytetään mallien kouluttamisessa.
@@ -506,7 +504,7 @@ Tietokanta sisältää yli 12.4 miljoonaa sääntöä.
 Mallien kouluttamisessa käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain yhdestä kolmeen lähtötuotetta.
 Eri mallien kouluttamiseen käytetään tietokannasta eri kriteerein suodatettua dataa.
 Kaikki koneoppimismallit koulutetaan käyttämällä ADAM-optimoijaa.
-ADAM-optimoija on algoritmi, jota käytetään neuroverkon kaarien painojen optimoinnissa neuroverkon koulutusvaiheessa.
+Se on algoritmi, jota käytetään neuroverkon kaarien painojen optimoinnissa neuroverkon koulutusvaiheessa.
 ADAM-optimoija perustuu stokastiseen gradientiin, mutta koska algoritmi on helppo toteuttaa ja se on laskennallisesti tehokas, niin se soveltuu neuroverkkojen optimointiin, jotka sisältävät paljon kaaria.
 ADAM-optimoija hyödyntää AdaGrad -ja RMSProp-optimoijien toiminnallisuuksia~\cite{kingma2017adam}.
 
@@ -667,7 +665,7 @@ ICHO-mallin (Instytut Chemii Organicznej) kouluttamisessa käytettiin dataa 1.4 
 Data saadaan julkaistuista artikkeleista ja patenteista.
 Reaktiolta kuitenkin vaaditaan, että ainakin yksi reaktio per lopputuote löytyy myös Chematican Expert-Coded säännöstöstä.
 Datasta suodatettiin myös pois suojaryhmien säännöt.
-Chematica on retrosyntetisointia suunnitteleva ohjelmisto ja tietokanta, joka sisältää dataa kemiallisista reaktioista.
+Chematica on retrosyntetisointia suunnitteleva ohjelmisto ja tietokanta, joka sisältää dataa kemiallisista reaktioista~\cite{synthia}.
 Chematican omistaa Merck KGaA inc.\ ja sen nimi nykyään on Synthia.
 
 ICHO-mallista kehitettiin myös malli, jonka kouluttamisessa käytettiin lisäksi vektoreita, jotka sisälsivät dataa kemiallisesti intuitiivisistä reaktiopiirteistä, joita on käytetty aikaisemmissa tutkimuksissa.
@@ -720,12 +718,12 @@ Lisäksi kuvaajaan on piirretty \emph{SMALLER}-malli vertailuksi.
 
 Nähdään, että ICHO+ -malli pisteyttää kirjallisuuteen perustuvat muunnossäännöt paremmin kuin muut mallit, vaikkakin eroavaisuudet ovat vähäiset.
 
-Kuvaajan~\ref{fig:icho-performance} kuvaajista b ja c nähdään, että pienelläkin koulutusaineistolla ICHO+ -malli sijoittaa kirjallisuuden muunnossäännöt korkeammalle kuin muut mallit ja mitä enemmän koulutuaineistoa käytetään mallin kouluttamiseen sitä suurempi osa korkeimmin sijoitetuista muunnossäännöistä perustuvat kirjallisuuteen.
+Kuvaajan~\ref{fig:icho-performance} kuvaajista b) ja c) nähdään, että pienelläkin koulutusaineistolla ICHO+ -malli sijoittaa kirjallisuuden muunnossäännöt korkeammalle kuin muut mallit ja mitä enemmän koulutuaineistoa käytetään mallin kouluttamiseen sitä suurempi osa korkeimmin sijoitetuista muunnossäännöistä perustuvat kirjallisuuteen.
 Mielenkiintoinen huomio, mikä kuvaajasta nähdään on, että \emph{SMALLER}-malli sijoittaa kirjallisuuteen perustuvat säännöt pienemmällä koulutusaineistolla korkeammalle kuin suuremmalla aineistomäärällä.
 SW2+ -malli taas toimii päinvastaisesti.
 Mitä enemmän koulutusaineistoa se saa, sitä korkeammalle se sijoittaa kirjallisuuteen perustuvat säännöt.
 
-Kuvaajat d ja e eivät ole ristiriidassa kuvaajien a, b ja c kanssa.
+Kuvaajat d ja e eivät ole ristiriidassa kuvaajien a), b) ja c) kanssa.
 Kuvaajasta d nähdään, että nopeasti koulutusaineiston kasvaessa tutkittvat muunnossäännöt siirtyvät nopeasti korkeille sijoille SW2+ -mallissa ja ICHO+ -malli sijoittaa ne korkealle jo pienellä datamäärällä.
 \emph{SMALLER}-malli sen sijaan sijoittaa tutkittavat muunnossäännöt koulutusaineiston kasvaessa huonommalle sijalle.
 Kuvaaja e myös näyttää, että ICHO+ -ja SW2+ -mallien MRR (Mean Reciprocal Rank) -pisteet kasvavat koulutusaineiston kasvaessa, kun taas \emph{SMALLER}-mallin pisteytys laskee.
