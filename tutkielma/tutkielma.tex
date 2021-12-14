@@ -241,19 +241,19 @@ Kappaleessa myös kerrotaan, mitä ovat yhdisteiden ECFP-tunnisteet, mitä omina
 
 \section{Yhdisteiden kuvaaminen merkkijonoilla}
 
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=8cm, height=8cm]{melatonin-smiles.png}
-    \caption{Melatoniiniyhdiste, kuinka se kuvataan graaffina ja SMILES-merkijonona.
-        Kuva on tuotettu hyödyntämällä RDKit-kirjastoa.}
-    \label{fig:melatonin}
-\end{figure}
-
 Tavallinen tapa kuvata yhdisteitä on kuvata ne yhdellä rivillä merkkijonona.
 SMILES (Simplified Molecular Input Line Entry System) on David Weiningerin vuonna 1988 kehittämä tapa kuvata molekyylejä ja yksinkertaisia yhdisteitä~\cite{WeiningerSMILES}.
 Se kuvaa yhdisteen yhdellä rivillä käyttäen ASCII-merkistöä.
 Kuvassa~\ref{fig:melatonin} on esitetty melatoniiniyhdiste ja kuinka se kuvataan SMILES muodossa.
 Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=6cm, height=6cm]{melatonin-smiles.png}
+    \caption{Melatoniiniyhdiste, kuinka se kuvataan graaffina ja SMILES-merkijonona.
+        Kuva on tuotettu hyödyntämällä RDKit-kirjastoa.}
+    \label{fig:melatonin}
+\end{figure}
 
 SMARTS (SMILES Arbitrary Target Specification) on SMILES-standardista jatkokehitetty tapa kuvata yhdisteitä.
 Se mahdollistaa yhdisteiden sisäisten rakenteiden määrittämisen.
@@ -383,14 +383,6 @@ Lisäksi MTN-mallin piilotettuun kerrokseen on lisätty tietoa kemiallisista omi
 
 \subsubsection{PPN -verkko}
 
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=10cm, height=8cm]{cmg-property-prediction-network.png}
-    \caption{CMG-mallin PPN-neuroverkon rakenne}
-    {~\cite{ShinBonggun}}
-    \label{fig:cmg-model-ppn}
-\end{figure}
-
 PPN-verkon rakenne ja toiminta periaate näkyvät kuvassa~\ref{fig:cmg-model-ppn}.
 PPN-verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)).
 Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi hyödyntäen Bidirectional Long Short-Term Memory (BiLSTM) -kerrosta.
@@ -404,15 +396,15 @@ Verkko antaa tuloksena kyseisen yhdisteen ominaisuuksien ennusteen.
 PPN koulutetaan käyttäen 257 565 eri molekyyliä.
 Nämä molekyylit jaetaan sattumanvaraisella valinnalla koulutus -ja testiryhmiin suhteessa 8:2.
 
-\subsubsection{SPN -verkko}
-
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=10cm, height=8cm]{cmg-similarity-network.png}
-    \caption{CMG-mallin SPN-neuroverkon rakenne}
+    \includegraphics[width=10cm, height=8cm]{cmg-property-prediction-network.png}
+    \caption{CMG-mallin PPN-neuroverkon rakenne}
     {~\cite{ShinBonggun}}
-    \label{fig:cmg-model-spn}
+    \label{fig:cmg-model-ppn}
 \end{figure}
+
+\subsubsection{SPN -verkko}
 
 SPN-verkon rakenne ja toimintaperiaate on kuvattu kuvassa~\ref{fig:cmg-model-spn}
 SPN ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)) ja alkuperäisen molekyylin merkkijonon (\(x_i\)).
@@ -424,6 +416,14 @@ Tämä verkko toimii binääriluokittelijana ja palauttaa tiedon, onko kaksi sy�
 SPN-verkon kouluttamiseen käytetään osajoukkoa 10 827 615 eri parista.
 Tästä määrästä valitaan kymmenen prosentin osajoukko, joka on 997 773 molekyylin suuruinen.
 Tämä joukko jaetaan samalla tavalla koulutus -ja testiryhmiin kuin PPN-verkossa.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=10cm, height=8cm]{cmg-similarity-network.png}
+    \caption{CMG-mallin SPN-neuroverkon rakenne}
+    {~\cite{ShinBonggun}}
+    \label{fig:cmg-model-spn}
+\end{figure}
 
 \chapter{Uusien lääkkeiden syntetisointi}
 
@@ -455,6 +455,13 @@ Ei ole vielä julkista, kaikille avointa tietopankkia, joka sisältäisi tietoa 
 
 \section{Lääkkeen retrosyntetisoinnin haastavuus}
 
+Retrosyntetisoinnin tekee hankalaksi se, että tutkittaessa kuinka haluttu yhdiste voidaan muodostaa, tulee käydä läpi satojatuhansia mahdollisia kemiallisia muunnoksia, joiden avulla voidaan luoda haluttu yhdiste~\cite{SeglerMarwinHS2018Pcsw}.
+Kemiallisella muunnoksella tai myöhemmin käytetyllä termillä muunnossääntö tarkoitetaan yleisesti kaikkia mahdollisia reaktioita tai reaktiotyyppejä, joita kemiassa tunnetaan.
+Tämä ongelma toistuu rekursiivisesti, kun yhdiste pilkotaan yhdisteisiin, jotka keskenään reagoidessaan muodostavat alkuperäisen yhdisteen.
+Kuvassa~\ref{fig:retrosynthesis-example} näkyy, kuinka monella tavalla yksinkertainen yhdiste voidaan muodostaa.
+Pienille ja yksinkertaisille yhdisteille tämä muunnostenavaruus on pienempi, mutta yhdisteen koon kasvaessa eri tapojen määrä muodostaa haluttu yhdiste kasvaa eksponentiaalisesti.
+Tästä johtuen tarve prosessia yleistäville koneoppimismalleille on iso.
+
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\textwidth]{retrosynthesis.jpg}
@@ -465,12 +472,6 @@ Ei ole vielä julkista, kaikille avointa tietopankkia, joka sisältäisi tietoa 
     \label{fig:retrosynthesis-example}
 \end{figure}
 
-Retrosyntetisoinnin tekee hankalaksi se, että tutkittaessa kuinka haluttu yhdiste voidaan muodostaa, tulee käydä läpi satojatuhansia mahdollisia kemiallisia muunnoksia, joiden avulla voidaan luoda haluttu yhdiste~\cite{SeglerMarwinHS2018Pcsw}.
-Kemiallisella muunnoksella tai myöhemmin käytetyllä termillä muunnossääntö tarkoitetaan yleisesti kaikkia mahdollisia reaktioita tai reaktiotyyppejä, joita kemiassa tunnetaan.
-Tämä ongelma toistuu rekursiivisesti, kun yhdiste pilkotaan yhdisteisiin, jotka keskenään reagoidessaan muodostavat alkuperäisen yhdisteen.
-Kuvassa~\ref{fig:retrosynthesis-example} näkyy, kuinka monella tavalla yksinkertainen yhdiste voidaan muodostaa.
-Pienille ja yksinkertaisille yhdisteille tämä muunnostenavaruus on pienempi, mutta yhdisteen koon kasvaessa eri tapojen määrä muodostaa haluttu yhdiste kasvaa eksponentiaalisesti.
-Tästä johtuen tarve prosessia yleistäville koneoppimismalleille on iso.
 
 \section{Kehitettyjä apuvälineitä}
 
@@ -510,14 +511,6 @@ ADAM-optimoija hyödyntää AdaGrad -ja RMSProp-optimoijien toiminnallisuuksia~\
 
 \subsubsection{3N-MCTS toimintamalli}
 
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=\textwidth]{3N-MCTS-fig.jpg}
-    \caption{3N-MCTS-mallin toimintaperiaate kuvattuna}
-    {~\cite{SeglerMarwinHS2018Pcsw}}
-    \label{fig:3n-mcts-model}
-\end{figure}
-
 3N-MCTS-mallin IFN ja EPN on kehitetty toimimaan yhdessä.
 Tutkittaessa puun tilaa \(S_i\) jokainen molekyyli syötetään EPN-verkolle ja se tulostaa, mitkä säännöt voivat muodostaa annetun yhdisteen.
 Tästä säännöstä saadaan selville, mitkä lähtöaineet voivat muodostaa annetun yhdisteen.
@@ -541,19 +534,19 @@ Jos lähtöaineet löydetään rolloutin aikana, niin lehti saa palkonnoksi arvo
 Jos kaikkia lähtöaineita ei löydetty, annetaan lehdelle osittainen palkinto.
 Lehti saa arvon -1, jos yhtään lähtöainetta ei löytynyt.
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{3N-MCTS-fig.jpg}
+    \caption{3N-MCTS-mallin toimintaperiaate kuvattuna}
+    {~\cite{SeglerMarwinHS2018Pcsw}}
+    \label{fig:3n-mcts-model}
+\end{figure}
+
 Saattaa kuitenkin olla, että synteesipolkua ei voida luoda.
 Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
 
 
 \subsubsection{EPN -verkko}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[]{expansion-policy.jpg}
-    \caption{Kuvassa EPN-verkon rakenne.}
-    {~\cite{SeglerMarwinHS2018Pcsw}}
-    \label{fig:3n-mcts-epn}
-\end{figure}
 
 EPN muodostuu täysin kytketystä tasosta ja viidestä highway-tasosta.
 Molemmissa tasoissa on käytetty aktivointifunktiona ELU-funktiota (Exponential Linear Unit).
@@ -565,11 +558,24 @@ Tämän jälkeen jokaisen highway -tason jälkeen suoritetaan dropout-toiminto, 
 EPN-verkon viimeinen taso on softmax-taso, joka palauttaa todennäköisyysjakauman.
 Tämä jakauma kertoo kuinka todennäköisesti muunnossääntö \emph{a} muodostaa tuotteen \emph{m}.
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[]{expansion-policy.jpg}
+    \caption{Kuvassa EPN-verkon rakenne.}
+    {~\cite{SeglerMarwinHS2018Pcsw}}
+    \label{fig:3n-mcts-epn}
+\end{figure}
+
 EPN-verkon kouluttamiseen valittiin datasta vain reaktiokeskus.
 Datasta suodatettiin pois sellaiset säännöt, jotka ilmenivät datassa alle kolme kertaa ennen vuotta 2015.
 Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
 
 \subsubsection{RPN -verkko}
+
+RPN muodostuu yhdestä täysin kytketystä tasosta.
+Samalla tavalla kuin EPN, RPN käyttää myös ELU-funktiota aktivointifunktiona.
+RPN-verkon ensimmäisen tason jälkeen suoritetaan dropout -toiminto, jonka jälkeen vain 40 prosenttia kaikista ensimmäisen tason arvoista tulkitaan.
+RPN-verkon viimeinen taso on myös softmax-taso, joka palauttaa todennäköisyysjakauman.
 
 \begin{figure}[!ht]
     \centering
@@ -579,26 +585,11 @@ Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
     \label{fig:3n-mcts-rpn}
 \end{figure}
 
-% RPN on neuroverkko, jossa on yksi piilotettu kerros. RPN koulutettiin samalla tavalla kuin EPN.\@
-
-RPN muodostuu yhdestä täysin kytketystä tasosta.
-Samalla tavalla kuin EPN, RPN käyttää myös ELU-funktiota aktivointifunktiona.
-RPN-verkon ensimmäisen tason jälkeen suoritetaan dropout -toiminto, jonka jälkeen vain 40 prosenttia kaikista ensimmäisen tason arvoista tulkitaan.
-RPN-verkon viimeinen taso on myös softmax-taso, joka palauttaa todennäköisyysjakauman.
-
 RPN-verkon kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (Reaktiokeskus) ja lähimmät vierekkäiset atomit.
 Datasta suodatettiin pois sellaiset säännöt, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
 Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
 
 \subsubsection{IFN -verkko}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[]{in-scope-filter.jpg}
-    \caption{Kuvassa In scope filter -neuroverkon rakenne.}
-    {~\cite{SeglerMarwinHS2018Pcsw}}
-    \label{fig:3n-mcts-ifn}
-\end{figure}
 
 3N-MCTS-mallissa IFN-verkko toimii binääriluokittelijana.
 IFN-verkko kertoo, onko sille annettu yhdiste mahdollista muodostaa annetulla muunnossäännöllä.
@@ -616,24 +607,20 @@ Tämä taso käyttää myös ELU-aktivointifuktiota.
 Näiden haarojen jälkeen saaduista tuloksista lasketaan niiden kosinisamankaltaisuus.
 Saatu tulos syötetään sitten sigmoid-funktiolle, jonka tulos kertoo, pystyykö kyseinen muunnosssäntö muodostamaan halutun yhdisteen.
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[]{in-scope-filter.jpg}
+    \caption{Kuvassa In scope filter -neuroverkon rakenne.}
+    {~\cite{SeglerMarwinHS2018Pcsw}}
+    \label{fig:3n-mcts-ifn}
+\end{figure}
+
 IFN-verkko koulutetaan sekä onnistuneiden että epäonnistuiden sääntöjen avulla.
 Koska epäonnistuneita sääntöjä ei tallenneta tietokantaan, niin kyseinen data generoidaan.
 Data generoidaan niin, että jos reaktiossa \[A + B \rightarrow C\] lähtöaineet A ja B muodostavat reaktiossa lopputuotteen C, niin lopputuotteita D, E, F, jne.\ ei muodostu näistä.
 IFN-verkon kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiota ja 10 miljoonaa epäonnistunutta reaktiota luotiin testaamista varten.
 
 \subsubsection{3N-MCTS-mallin suorituskyky}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=8cm, height=6cm]{3N-MCTS-performance-fig.jpg}
-    \caption{
-        3N-MCTS-mallin suorituskyky verrattuna \(SMILES^{3/2}\) -menetelmään hyödyntävään BFS-menetelmään ja 3N-MCTS-mallin neuroverkkoja hyödyntävään BFS-menetelmään.
-        Kuvaaja kertoo, kuinka monelle prosentille annetuista yhdisteistä menetelmä kykenee löytämään retrosyntetisointipolun annaetusssa ajassa.
-        Annetulla ajalla tarkoitetaan aikaa, jonka menetelmä voi korkeintaan käyttää yhden yhdisteen retrosyntetisointipolun löytämiseen.
-    }
-    {~\cite{SeglerMarwinHS2018Pcsw}}
-    \label{fig:3n-mcts-performance}
-\end{figure}
 
 3N-MCTS-mallin suorituskykyä verrattiin BFS-menetelmään (Best-First Search -Method), joka käyttää heuristista käsinkoodattua \(SMILES^{3/2}\)-kustannefunktiota~\ref{fig:3n-mcts-performance}.
 Tämä funktio antaa parhaimman tuloksen muunnossäännölle, joka jakaa halutun yhdisteen mahdollisimman hyvin yhtä suuriin lähtötuotteisiin.
@@ -653,6 +640,18 @@ Kun aikaa kasvatettiin 60 sekunttiin per yhdiste, 3N-MCTS-malli löysin 92 prose
 3N-MCTS-mallia testattiin myös sokkotestillä 45 yliopistotason kemistille.
 Testin tarkoituksena oli selvittää, suosivatko henkilöt ennemmin kirjallisuuteen perustuvaa retrosyntetisointipolkua vai 3N-MCTS-mallin antamaa polkua.
 Sokkotestissä 57 prosenttia henkilöistä valitsi 3N-MCTS-mallin muodostaman polun ja loput valitsivat kirjallisuuteen perustuvan polun.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=8cm, height=6cm]{3N-MCTS-performance-fig.jpg}
+    \caption{
+        3N-MCTS-mallin suorituskyky verrattuna \(SMILES^{3/2}\) -menetelmään hyödyntävään BFS-menetelmään ja 3N-MCTS-mallin neuroverkkoja hyödyntävään BFS-menetelmään.
+        Kuvaaja kertoo, kuinka monelle prosentille annetuista yhdisteistä menetelmä kykenee löytämään retrosyntetisointipolun annaetusssa ajassa.
+        Annetulla ajalla tarkoitetaan aikaa, jonka menetelmä voi korkeintaan käyttää yhden yhdisteen retrosyntetisointipolun löytämiseen.
+    }
+    {~\cite{SeglerMarwinHS2018Pcsw}}
+    \label{fig:3n-mcts-performance}
+\end{figure}
 
 \subsection{ICHO-malli}
 
