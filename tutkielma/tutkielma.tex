@@ -143,11 +143,11 @@
 
 \begin{abstract}
 
-    Tässä tekstissä käydään läpi, kuinka koneoppimista voidaan käyttää lääkekehityksessä ja minkälaista dataa voidaan käyttää koneoppimismallien kouluttamisessa.
-    Tekstin alussa käydään nopeasti lääkekehityksen eri vaiheita ja miksi koneoppimista halutaan käyttää lääkekehityksessä.
+    Tässä tutkielmassa käydään läpi, kuinka koneoppimista voidaan käyttää lääkekehityksessä ja minkälaista dataa voidaan käyttää koneoppimismallien kouluttamisessa.
+    Tutkielman alussa käydään nopeasti lääkekehityksen eri vaiheita ja miksi koneoppimista halutaan käyttää lääkekehityksessä.
     Seuraavissa kappaleissa keskitytään ainoastaan lääkkeiden löytämiseen ja lääkkeiden syntetisoinnin suunnitteluun ja kuinka koneoppimista voidaan hyödyntää näissä vaiheissa.
     Kappaleissa käydään myös läpi kolmen eri koneoppimismallin toimintaa, joista yksi keskittyy uusien lääkkeiden löytämiseen ja kaksi keskittyvät yhdisteiden syntetisoinnin suunnitteluun.
-    Tekstin alussa kerrotaan myös eri datatyypeistä, joita käytetään kyseisissä koneoppimismalleissa.
+    Tutkielman alussa kerrotaan myös eri datatyypeistä, joita käytetään kyseisissä koneoppimismalleissa.
 
     Koneoppimismallien tarkoituksena on antaa lukijalle ajatus siitä, miten koneoppimista voidaan hyödyntää kyseisissä lääkekehityksen vaiheissa, minkälaisia ongelmia koneoppimismalleilla pyritään ratkomaan ja minkälaisia koneoppimismalleja ja tekniikoita ongelmien ratkomisessa on käytetty.
 
@@ -212,13 +212,13 @@ Koneoppimismalleja voidaan myös hyödyntää aivan uusien lääkkeeksi sopivien
 Tähän tarkoitukseen kehitetyt koneoppimismallit kykenevät etsimään lääkkeitä, joilla on halutut lääkkeelliset ja fysikaaliset ominaisuudet~\cite{VamathevanJessica2019Aoml}.
 Kehitetyt mallit ovat näyttäneet, että koneoppimismallit ovat tehokkaita työkaluja, joita voidaan hyödyntää kaikissa lääketutkimuksen eri vaiheissa.
 
-Tässä tekstissä paneudutaan muutamiin koneoppimismalleihin, joita käytetään uusien lääkkeiden tunnistamisessa ja näiden tunnistettujen lääkkeiden syntetisoinnin suunnittelussa.
-Tekstin tarkoituksena on tutustuttaa lukija koneoppimisen käsitteistöön ja erilaisiin malleihin ja ongelmiin, jotka liittyvät lääkkeiden löytämiseen ja löydettyjen lääkkeiden syntetisoinnin suunnitteluun.
+Tässä tutkielmassa paneudutaan muutamiin koneoppimismalleihin, joita käytetään uusien lääkkeiden tunnistamisessa ja näiden tunnistettujen lääkkeiden syntetisoinnin suunnittelussa.
+Tutkielman tarkoituksena on tutustuttaa lukija koneoppimisen käsitteistöön ja erilaisiin malleihin ja ongelmiin, jotka liittyvät lääkkeiden löytämiseen ja löydettyjen lääkkeiden syntetisoinnin suunnitteluun.
 Käsiteltävät koneoppimismenetelmät toimivat esimerkkeinä, kuinka koneoppimista voidaan käyttää käsiteltävissä konteksteissa.
 
 Ensimmäisessä kappaleessa tutustutaan eri datatyyppeihin, joita käytetään koneoppimismallien kouluttamisessa.
 Tämä on lyhyt kappale, jossa käydään läpi ne datatyypit, joita myöhemmin selitettävät koneoppimismallit käyttävät.
-Datatyyppien ymmärtäminen auttaa hahmottamaan myöhemmin tekstissä selitettävien eri mallien toimintaperiaatteita.
+Datatyyppien ymmärtäminen auttaa hahmottamaan myöhemmin tutkielmassa selitettävien eri mallien toimintaperiaatteita.
 
 Toisessa kappaleessa käydään läpi, kuinka uusia lääkkeitä etsitään ja löydetään.
 Kappaleessa käydään pintapuolisesti läpi virtuaalista seulontaa (Virtual Screening), mitä sillä tarkoitetaan ja kuinka sitä hyödynnetään.
@@ -233,7 +233,7 @@ Kappaleessa käydään myös läpi kahden eri koneoppimismallin toimintaa, jotka
 \chapter{Kemiallinen data}
 
 Tässä kappaleessa käydään pintapuolisesti läpi, minkälaista dataa käytetään koneppimismallien kouluttamisessa.
-Kappaleessa keskitytään datatyyppeihin, joita käytetään koneoppimismalleissa, joiden toimintaa tullaan avaamaan tämän tekstin muissa osissa.
+Kappaleessa keskitytään datatyyppeihin, joita käytetään koneoppimismalleissa, joiden toimintaa tullaan avaamaan tämän tutkielman muissa osissa.
 Koneoppimismallit, joiden toimintaa avataan, käyttävät datatyyppejä, joilla kuvataan pienyhdisteitä.
 Tämän takia kappaleessa keskitytään vain pienyhdisteitä kuvaaviin datatyyppeihin.
 Kappaleessa käydään läpi SMILES- ja SMARTS-datatyypit, mihin niitä käytetään ja kuinka ne eroavat toisistaan.
@@ -273,7 +273,7 @@ Tämän takia tavallisesti käytetään 4096-bitin mittaisia bittijonoja.
 
 \section{Ominaisuusvektorit}
 
-Yksi tässä tekstissä käsiteltävistä koneoppimismalleista käyttää ominaisuusvektoreita hyödykseen.
+Yksi tässä tutkielmassa käsiteltävistä koneoppimismalleista käyttää ominaisuusvektoreita hyödykseen.
 Ominaisuusvektorit sisältävät tietoa yhdisteen tai molekyylin lääkkeellisistä ominaisuuksista.
 Ominaisuusvektorit voivat kuvata mitä tahansa yhdisteen tai molekyylin ominaisuutta ja ne voidaan valita tilanteen mukaan.
 Kyseisessä mallissa ominaisuusvektorit kuvaavat molekyylin PlogP, QED ja DRD2 arvoja~\cite{ShinBonggun}.
@@ -627,7 +627,7 @@ IFN-verkon kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiota
 
 \subsubsection{3N-MCTS-mallin suorituskyky}
 
-3N-MCTS-mallin suorituskykyä verrattiin BFS-menetelmään (Best-First Search -Method), joka käyttää heuristista käsin koodattua \(SMILES^{3/2}\)-kustannefunktiota~\ref{fig:3n-mcts-performance}.
+3N-MCTS-mallin suorituskykyä verrattiin BFS-menetelmään (Best-First Search -Method), joka käyttää heuristista käsin koodattua \(SMILES^{3/2}\)-kustannefunktiota.
 Tämä funktio antaa parhaimman tuloksen muunnossäännölle, joka jakaa halutun yhdisteen mahdollisimman hyvin yhtä suuriin lähtötuotteisiin.
 Tästä menetelmästä luotiin myös versio, joka käyttää muokattua \(SMILES^{3/2}\)-kustannefunktiota.
 Muokattu funktio käyttää 3N-MCTS-mallin EPN- ja IFN-verkkoja parhaimman muunnossäänön selvittämiseksi.
@@ -637,6 +637,7 @@ Mallit koulutettiin muunnossäännöillä, jotka ilmenivät ennen vuotta 2015, j
 
 Mallien tehtäväksi annettiin löytää halutulle yhdisteelle retrosyntetisointipolku annetussa ajassa.
 Testaamiseen käytettiin 497 eri yhdistettä.
+Mittaukset on kuvattu kuvaajassa~\ref{fig:3n-mcts-performance}.
 
 3N-MCTS-malli suoriutui kahta muuta menetelmää paremmin jokaisessa eri aikakategoriassa.
 3N-MCTS-malli löysi viidessä sekunnissa 80 prosentille yhdisteistä retrosyntetisointipolun, kun taas muokattu \(SMILES^{3/2}\)-menetelmä löysi retrosyntetisointipolun vain 40 prosenttille yhdisteistä ja alkuperäinen ei löytänyt polkuja lainkaan.
@@ -698,7 +699,8 @@ Kehitetyssä ICHO-mallissa on kaksi tärkeää asiaa.
     {\label{fig:icho-neuralnetwork}}
 \end{figure}
 
-ICHO-malli muodostuu neljästä tasosta, joista kolme tasoa ovat täysin kytkettyjä neuroverkkoja ja viimeinen taso on sigmoid-taso~\ref{fig:icho-neuralnetwork}.
+ICHO-malli muodostuu neljästä tasosta, joista kolme tasoa ovat täysin kytkettyjä neuroverkkoja ja viimeinen taso on sigmoid-taso
+Malli kuvattu kuvassa~\ref{fig:icho-neuralnetwork}.
 Samalla tavalla kuin 3N-MCTS-mallissa, ICHO-malli käyttää myös ELU-aktivointifunktiota.
 ICHO-malli käyttää Batch normaliztion -algoritmia koulutusvaiheessa.
 Batch Normalization -algoritmin idea on standardoida koulutusvaiheessa tasolle tuleva syöte, jolla verkon painoja muutetaan.
@@ -754,16 +756,16 @@ Tällöin kuvaajan arvo lähestyy arvoa yksi, jos malli sijoittaa kaikki tutkitt
 
 \chapter{Yhteenveto}
 
-Tässä tekstissä käytiin läpi yleisiä asioita, mitä liittyy uusien lääkkeiden löytämiseen ja syntetisoinnin suunnitteluun ja kuinka koneoppimista voidaan hyödyntää näissä vaiheissa.
-Lisäksi tekstissä käytiin läpi kolmen eri koneoppimismallin toimintaperiaatteet.
+Tässä tutkielmassa käytiin läpi yleisiä asioita, mitä liittyy uusien lääkkeiden löytämiseen ja syntetisoinnin suunnitteluun ja kuinka koneoppimista voidaan hyödyntää näissä vaiheissa.
+Lisäksi tutkielmassa käytiin läpi kolmen eri koneoppimismallin toimintaperiaatteet.
 
 Johdannossa kerrottiin, mitä vaiheita kuuluu lääkekehitykseen ja miksi koneoppimista halutaan käyttää osana lääkekehityksen prosessia.
 Tämä asettaa ongelman, miksi koneoppimista halutaan käyttää lääkekehityksen prosesseissa.
-Vaikkakin käyttökohteita koneoppimiselle on jokaisessa lääkekehityksen vaiheessa, niin tekstissä keskityttiin vain ainostaan lääkkeiden löytämiseen koneoppimismenetelmillä ja lääkkeiden syntetisoinnin suunnitteluun koneoppimismenetelmillä.
+Vaikkakin käyttökohteita koneoppimiselle on jokaisessa lääkekehityksen vaiheessa, niin tutkielmassa keskityttiin vain ainostaan lääkkeiden löytämiseen koneoppimismenetelmillä ja lääkkeiden syntetisoinnin suunnitteluun koneoppimismenetelmillä.
 Nämä käytiin sen takia, että ne ovat kliinisten testien jälkeen ne vaiheet, joihin kuluu eniten resursseja, ja joiden nopeuttamien voi nopeuttaa myös kliinisiä testejä.
-Nämä käytiin myös sen takia, koska ongelmat ja konseptit, joita lääkkeiden löytämisessä ja syntetisoinninsuunnittelussa käytiin läpi, on suhteellisen helppoja ymmärtää ilman syvällisempää kemiaan tai lääkkeisiin liittyvää tietoa, jolloin teksti pystyi keskittymään enemmän kehitettyihin koneoppimismalleihin.
+Nämä käytiin myös sen takia, koska ongelmat ja konseptit, joita lääkkeiden löytämisessä ja syntetisoinninsuunnittelussa käytiin läpi, on suhteellisen helppoja ymmärtää ilman syvällisempää kemiaan tai lääkkeisiin liittyvää tietoa, jolloin tutkielma pystyi keskittymään enemmän kehitettyihin koneoppimismalleihin.
 
-Johdannon jälkeen käytiin myös, mitä eri datatyyppejä käytetään tekstissä käytävien koneoppimismallien kouluttamisessa.
+Johdannon jälkeen käytiin myös, mitä eri datatyyppejä käytetään tutkielmassa käytävien koneoppimismallien kouluttamisessa.
 Tämän kappaleen sisällön käyminen auttaa ymmärtämään, miten koneoppimismallit toimivat ja mitä ongelmaa ne ratkovat.
 
 Myöhemmissä kappaleissa käytiin, mitä asioita ja taustaa liittyy lääkkeiden löytämiseen ja syntetisoinnin suunnitteluun.
@@ -772,7 +774,7 @@ kappaleissa myös kerrottiin, mitä ongelmia näihin vaiheisiin kuuluu ja miten 
 Kappaleissa käytiin läpi myös kolmen koneoppimismallin toimintaperiaatteet, kuinka ne toimivat ja kuinka ne ratkovat aikaisemmin esitettyjä ongelmia.
 Vaikkain kirjallisuudesta löytyy useita eri koneoppimismalleja ratkomaan kappaleissa kerrottuja ongelmia, niin nämä mallit valittiin sen takia, koska ne on toteutettu eri tavalla kuin aikaisemmat mallit hyödyntäen uusimpia koneppimitekniikoita.
 Yhdisteiden syntetisointiin keskittyviä koneoppimismalleja käytiin kaksi kappaletta, koska haluttiin nostaa esiin, kuinka syntetisoinninsuunnittelua voidaan suorittaa usealla eri tavalla.
-lisäksi haluttin nostaa esiin, kuinka hyvin läpi käydyt koneoppimismallit suoriutuvat tehtävistään verrattaen muihin malleihin.
+Lisäksi haluttiin nostaa esiin, kuinka hyvin läpi käydyt koneoppimismallit suoriutuvat tehtävistään verrattaen muihin malleihin.
 
 \cleardoublepage{}                          %fixes the position of bibliography in bookmarks
 \phantomsection{}
