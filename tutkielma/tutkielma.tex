@@ -283,8 +283,8 @@ Nämä ovat oleellisia tietoja tutkittaessa uusia mahdollisia lääkeyhdisteitä
 \chapter{Uusien lääkkeiden löytäminen}
 
 Tässä kappaleessa kerrotaan, mitä asioita liittyy lääkkeiden löytämiseen.
-Kappaleessa käydään myös läpi, mitä on virtuaalinen seulonta ja kuinka sitä hyödynnetään lääkkeiden etsinnässä.
-Kappaleessa myös käydään läpi yhden koneoppimismallin toimintaperiaate.
+Kappaleessa käydään läpi, mitä on virtuaalinen seulonta ja kuinka sitä hyödynnetään lääkkeiden etsinnässä.
+Kappaleessa käydään myös läpi yhden koneoppimismallin toimintaperiaate.
 Kyseinen koneoppimismalli luo uusia lääkkeitä kuvaavia SMARTS-merkkijonoja, joilla on mahdollisimman lähellä haluttuja ominaisuuksia olevat ominaisuudet.
 
 \section{Lääkkeiden löytäminen}
@@ -313,7 +313,7 @@ Yhdisteiden karsimisessa käytetään ohjelmistoja, joissa toteutetut algoritmit
 Koneoppimismenetelmiä voidaan myös käyttää virtuaalisessa seulonnassa~\cite{SotrifferChristoph2011VSPC}.
 Yleisimpiä koneoppimismenetelmiä ovat tällä hetkellä SVM (Support Vector Machine) ja Random forest -mallit~\cite{SotrifferChristoph2011VSPC}.
 Neuroverkko ja Ensemble-koneoppimismallit ovat myös yleistyneet viimevuosina~\cite{ShinBonggun,PopovaMariya2018Drlf}.
-Ensemble-mallin ideana on yhdistää useita eri koneoppimismalleja yhdeksi malliksi~\cite{RokachLior2009Ec}.
+Ensemble-mallien ideana on yhdistää useita eri koneoppimismalleja yhdeksi malliksi~\cite{RokachLior2009Ec}.
 Ensemble-mallit ovat tavallisesti parempia ja monipuolisempia toiminnalisuuksissaan kuin yksittäiset koneoppimismallit ja ne myös tuottavat tarkempia tuloksia.
 Koneoppimismallien avulla löydettyjä yhdisteitä voidaan jatkotutkia ja kehittää edelleen lääkkeiksi.
 
@@ -326,7 +326,7 @@ Kemialliset ominaisuudet on koodattu ominaisuusvektoreihin.
 \subsection{CMG-malli}
 
 CMG (Controlled Molecule Generator) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet~\cite{ShinBonggun}.
-CMG-mallin toimintaperiaatteen ajatuksena on muokata prototyyppiyhdistettä siten, että se maksimoi halutut ominaisuudet, jotka on määritelty sen syötteenä saamassa ominaisuusvektorissa.
+CMG-mallin toimintaperiaatteena on muokata prototyyppiyhdistettä siten, että se maksimoi halutut ominaisuudet, jotka on määritelty sen syötteenä saamassa ominaisuusvektorissa.
 CMG-mallin toimintaa rajoittaa kuitenkin prototyyppiyhdiste ja syötteenä annettu samanlaisuusluku, jonka alle uuden luodun yhdisteen ja prototyyppiyhdisteen välinen tanimoto-indeksi ei saa mennä.
 Tanimoto-indeksi kuvaa, kuinka paljon molekyylit muistuttavat toisiaan rakenteellisesti~\cite{MaggioraGerald2014Msim}.
 Tanimoto-indeksin arvot ovat välillä \([0,1]\).
@@ -341,13 +341,13 @@ Kuvassa~\ref{fig:cmg-model-whole} näkyy CMG-mallin rakenne ja toimintaperiaate.
 CMG-mallin kehittäjät lähestyvät molekyylin ominaisuuksien optimointiongelmaa merkkijonojen käännös- ja luontiongelmana.
 CMG-mallille opetetaan, kuinka syötteenä annettu yhdistemerkkijono käännetään sellaiseksi yhdistemerkkijonoksi, jolla on lähimpänä haluttuja ominaisuuksia olevat ominaisuudet.
 CMG-malli tulkitsee ensin annetut merkkijonot hyödyntäen DN-verkkoa (Deep Network) jonka jälkeen se luo uusia molekyyliyhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
-Koska ominaisuudet annetaan vektorina, niin CMG pystyy optimoimaan useampaa ominaisuutta samanaikaisesti.
+Koska ominaisuudet annetaan vektorina, niin CMG-malli pystyy optimoimaan useampaa ominaisuutta samanaikaisesti.
 CMG-malli hyödyntää myös etukäteen koulutettuja rajoiteverkkoja (Constraint Network), jolloin vältytään luomasta mahdottomia yhdisteitä.
 CMG-malli käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam Search -algoritmia.
 
 Beam Searh -algoritmi saa syötteenä kaikki CMG-mallin kehittämät yhdisteet, pisteyttää ne ja palauttaa yhdisteen, joka sai parhaimman pisteytyksen.
 Algoritmi käyttää PPN-verkkoa ennustaessaan kehitetyn molekyylin ominaisuuksia ja SPN-verkkoa laskiessaan, kuinka samankaltainen kehitetty yhdiste on CMG-mallin syötteenä saadun yhdisteen kanssa.
-Näiden tietojen avulla algoritmi laskee kehitetyille yhdisteille numeeriset arvot ja palauttaa yhdisteen, joka saa parahaimman arvon.
+Näiden tietojen avulla algoritmi laskee kehitetyille yhdisteille numeeriset arvot ja palauttaa yhdisteen, joka saa parhaimman arvon.
 
 Data, jolla mallit koulutetaan, on peräisin ZINC-tietokannasta ja DRD2-dataseteistä.
 ZINC on ilmainen tietokanta, joka sisältää tietoa lääkeyhdsteistä, ja jota voidaan käyttää virtuaalisessa seulonnassa~\cite{ZINC}.
