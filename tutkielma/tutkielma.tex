@@ -323,7 +323,7 @@ Seuraavaksi käydään läpi erään toteutetun koneoppimismallin toimintaperiaa
 Kyseinen malli etsii uusia lääkkeitä käyttämällä hyödyksi sille annettua prototyyppiyhdistettä, prototyypin kemiallisia ominaisuuksia ja uudelta lääkkeeltä haluttuja kemiallisia ominaisuuksia.
 Kemialliset ominaisuudet on koodattu ominaisuusvektoreihin.
 
-\subsection{CMG -malli}
+\subsection{CMG-malli}
 
 CMG (Controlled Molecule Generator) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet~\cite{ShinBonggun}.
 CMG-mallin toimintaperiaatteen ajatuksena on muokata prototyyppiyhdistettä siten, että se maksimoi halutut ominaisuudet, jotka on määritelty sen syötteenä saamassa ominaisuusvektorissa.
@@ -369,7 +369,7 @@ Nämä kuvaavat eri ominaisuuksia, joita malli pyrkii optimoimaan halutulla tava
     \label{fig:cmg-model-whole}
 \end{figure}
 
-\subsubsection{MTN -verkko}
+\subsubsection{MTN-verkko}
 
 MTN-verkko perustuu aikaisemmin kehitettyyn The Transformer -malliin~\cite{TheTransformer}.
 The Transformer -malli eroaa aikaisemmin yleisistä NLP-malleista siten, että se perustuu täysin attention-perusteiseen lähestymistapaan.
@@ -381,7 +381,7 @@ MTN eroaa The Transformer -mallista kahdella tavalla.
 Toisin kuin The Transformer -malli, joka käsittelee sanoja ja niistä muodostettuja lauseita, MTN-verkko käsittelee yksittäisiä merkkejä ja niistä muodostettuja molekyylejä.
 Lisäksi MTN-mallin piilotettuun kerrokseen on lisätty tietoa kemiallisista ominaisuuksista.
 
-\subsubsection{PPN -verkko}
+\subsubsection{PPN-verkko}
 
 PPN-verkon rakenne ja toiminta periaate näkyvät kuvassa~\ref{fig:cmg-model-ppn}.
 PPN-verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)).
@@ -404,7 +404,7 @@ Nämä molekyylit jaetaan sattumanvaraisella valinnalla koulutus -ja testiryhmii
     \label{fig:cmg-model-ppn}
 \end{figure}
 
-\subsubsection{SPN -verkko}
+\subsubsection{SPN-verkko}
 
 SPN-verkon rakenne ja toimintaperiaate on kuvattu kuvassa~\ref{fig:cmg-model-spn}
 SPN ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)) ja alkuperäisen molekyylin merkkijonon (\(x_i\)).
@@ -486,7 +486,7 @@ ICHO-malli palauttaa parhaan muunnossäännön, jonka avulla haluttu yhdiste voi
 ICHO-mallin toiminta on verrattavissa 3N-MCTS-mallissa käytetettyihin koneoppimismalleihin, jotka yhdessä suodattavat mahdollisista muunnoksista vain parhaimmat, joiden avulla yhdiste voidaan muodostaa.
 ICHO-malli käyttää sekä samananlaista reaktiodataa kuin 3N-MCTS, mutta se myös hyödyntää ammattikemistien luomia heuristisia sääntöjä.
 
-\subsection{3N-MCTS -malli}
+\subsection{3N-MCTS-malli}
 
 3N-MCTS on koneoppimismalli, jonka on kehittänyt Marwin et al.\ tutkimusryhmä.
 Se etsii retrosynteesipolkuja yksinkertaisempiin ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}.
@@ -546,7 +546,7 @@ Saattaa kuitenkin olla, että synteesipolkua ei voida luoda.
 Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
 
 
-\subsubsection{EPN -verkko}
+\subsubsection{EPN-verkko}
 
 EPN muodostuu täysin kytketystä tasosta ja viidestä highway-tasosta.
 Molemmissa tasoissa on käytetty aktivointifunktiona ELU-funktiota (Exponential Linear Unit).
@@ -570,7 +570,7 @@ EPN-verkon kouluttamiseen valittiin datasta vain reaktiokeskus.
 Datasta suodatettiin pois sellaiset säännöt, jotka ilmenivät datassa alle kolme kertaa ennen vuotta 2015.
 Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
 
-\subsubsection{RPN -verkko}
+\subsubsection{RPN-verkko}
 
 RPN muodostuu yhdestä täysin kytketystä tasosta.
 Samalla tavalla kuin EPN, RPN käyttää myös ELU-funktiota aktivointifunktiona.
@@ -589,7 +589,7 @@ RPN-verkon kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja
 Datasta suodatettiin pois sellaiset säännöt, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
 Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
 
-\subsubsection{IFN -verkko}
+\subsubsection{IFN-verkko}
 
 3N-MCTS-mallissa IFN-verkko toimii binääriluokittelijana.
 IFN-verkko kertoo, onko sille annettu yhdiste mahdollista muodostaa annetulla muunnossäännöllä.
@@ -704,7 +704,7 @@ Lisäksi vertailumalliksi luodaan täysin heuristinen \(SMALLER\)-malli, joka ar
 Tämä malli suosii reaktioita, jotka pilkkovat molekyylin keskeltä eli puolittavat sen.
 Tämä on haluttu lähestymistapa retrosynteesiin, koska se minimoi syntetisointivaiheiden määrän.
 
-\subsubsection{ICHO -mallin suorituskyky}
+\subsubsection{ICHO-mallin suorituskyky}
 
 ICHO-mallia testataan eri tavalla kuin 3N-MCTS-mallia, jossa mitataan, kuinka monelle yhdisteelle malli kykenee löytämään toimivan retrosyntetisointipolun tietyssä ajassa.
 ICHO-mallia testataan siten, että jokaiselle mallille annetaan yhdiste, ja malli antaa tulosteena listan muunnossäännöistä, jotka on asetettu paremmuusjärjestykseen niille annetun pisteytyksen mukaan.
