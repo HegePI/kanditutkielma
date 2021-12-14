@@ -245,7 +245,7 @@ Tavallinen tapa kuvata yhdisteitä on kuvata ne yhdellä rivillä merkkijonona.
 SMILES (Simplified Molecular Input Line Entry System) on David Weiningerin vuonna 1988 kehittämä tapa kuvata molekyylejä ja yksinkertaisia yhdisteitä~\cite{WeiningerSMILES}.
 Se kuvaa yhdisteen yhdellä rivillä käyttäen ASCII-merkistöä.
 Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
-Kuvassa~\ref{fig:melatonin} on esitetty melatoniiniyhdiste ja kuinka se kuvataan SMILES muodossa.
+Kuvassa~\ref{fig:melatonin} on esitetty melatoniiniyhdiste ja kuinka se kuvataan SMILES-standardin mukaisesti.
 
 \begin{figure}[!ht]
     \centering
@@ -268,7 +268,7 @@ Algoritmi laskee jokaiselle yhdisteen atomille numeerisen arvon käyttämällä 
 ECFP-tunnisteita kutsutaan myös Morgan-tunnisteiksi (Morgan Fingerprint).
 Nämä numeeriset arvot voidaan muuttaa sitten halutun mittaisiksi bittiesityksiksi~\cite{RogersDavid2010EF}.
 ECFP on yksi monista tavoista kuvata yhdisteitä numeerisessa muodossa, mutta se on yksi käytetyimmistä menetelmistä sen nopean ja helpon laskemisen takia.
-Bittijonojen etuna on se, että lyhyet bittijonot vievät vähän muistia, mutta lyhyiden bittijonojen ongelmana, että ne saattavat menettää oleellista tietoa yhdisteestä bittitörmäysten takia.
+Bittijonojen etuna on se, että lyhyet bittijonot vievät vähän muistia, mutta lyhyiden bittijonojen ongelmana on, että ne saattavat menettää oleellista tietoa yhdisteestä bittitörmäysten takia.
 Tämän takia tavallisesti käytetään 4096-bitin mittaisia bittijonoja.
 
 \section{Ominaisuusvektorit}
@@ -483,7 +483,7 @@ Nämä mallit on toteutettu suorittaman retrosynteesianalyysiä, mutta niiden to
 
 3N-MCTS-malli on kokonaisempi malli, koska se palauttaa retrosyntetisointipolun, joka kertoo, kuinka haluttu yhdiste voidaan syntetisoida laboratoriossa.
 Se suodattaa jokaisessa retrosyntetisointivaiheessa kaikista mahdollisista muunnoksissta vain ne, jotka ovat toteutettavissa.
-Monte Carlo -puuhaku algoritmi etsii näiden suodatettujen muunnosten avulla retrosyntetisointipolun.
+Monte Carlo -puuhakualgoritmi etsii näiden suodatettujen muunnosten avulla retrosyntetisointipolun.
 
 ICHO-malli palauttaa parhaan muunnossäännön, jonka avulla haluttu yhdiste voidaan muodostaa.
 ICHO-mallin toiminta on verrattavissa 3N-MCTS-mallissa käytetettyihin koneoppimismalleihin, jotka yhdessä suodattavat mahdollisista muunnoksista vain parhaimmat, joiden avulla yhdiste voidaan muodostaa.
@@ -495,8 +495,8 @@ ICHO-malli käyttää sekä samananlaista reaktiodataa kuin 3N-MCTS, mutta se my
 Se etsii retrosynteesipolkuja yksinkertaisempiin ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}.
 Kun retrosynteesipolku on varmennettu ja todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
 
-3N-MCTS-malli muodostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhaku algoritmista (Monte Carlo Tree Search, MCTS).
-Neuroverkot on koulutettu avustamaan puuhaku algoritmia etenemään järkevimpään suuntaan, kun hakualgoritmi etsii syntetisointipolkuja ja tarkistamaan, onko ehdotettu reaktio mahdollinen kyseiselle molekyylille.
+3N-MCTS-malli muodostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhakual-goritmista (Monte Carlo Tree Search, MCTS).
+Neuroverkot on koulutettu avustamaan puuhakualgoritmia etenemään järkevimpään suuntaan, kun hakualgoritmi etsii syntetisointipolkuja ja tarkistamaan, onko ehdotettu reaktio mahdollinen kyseiselle molekyylille.
 
 Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (Expansion Policy Network, EPN), MCTS-algoritmin rollout toimintoa tukeva Rollout -verkko (Rollout Policy Network, RPN) ja verkko, joka tarkistaa, onko syntetisointipolku toteutettavissa (In-scope Filter Network, IFN).
 
@@ -555,11 +555,11 @@ Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisält
 
 EPN-verkko muodostuu täysin kytketystä tasosta ja viidestä highway-tasosta.
 Molemmissa tasoissa on käytetty aktivointifunktiona ELU-funktiota (Exponential Linear Unit).
-Täysin kytketyssä tasossa suoritetaan Dropout-toiminto, jonka jälkeen vain 30 prosenttia ensimmäisen tason solmujen tuloksista otetaan huomioon seuraavalla tasolla.
+Täysin kytketyssä tasossa suoritetaan dropout-toiminto, jonka jälkeen vain 30 prosenttia ensimmäisen tason solmujen tuloksista otetaan huomioon seuraavalla tasolla.
 Dropout-toiminolla tarkoitetaan, että vain tietty osa kaikista edellisen tason palauttamista arvoista huomioidaan~\cite{hinton2012improving}.
 Dropout-toiminto suoritetaan mallin koulutusvaiheessa ja pois jätettävät arvot valitaan sattumanvaraisesti.
 Dropout-toiminnolla pyritään välttämään ylitulkintaa (Overfitting).
-Tämän jälkeen jokaisen highway-tason jälkeen suoritetaan Dropout-toiminto, jossa otetaan huomioon vain 10 prosenttia edellisen tason arvoista.
+Tämän jälkeen jokaisen highway-tason jälkeen suoritetaan dropout-toiminto, jossa otetaan huomioon vain 10 prosenttia edellisen tason arvoista.
 EPN-verkon viimeinen taso on softmax-taso, joka palauttaa todennäköisyysjakauman.
 Tämä jakauma kertoo, kuinka todennäköisesti muunnossääntö \emph{a} muodostaa tuotteen \emph{m}.
 
@@ -579,7 +579,7 @@ Lopullinen reaktiomäärä, jolla EPN-verkko koulutettiin, oli 301 671 reaktiota
 
 RPN-verkko muodostuu yhdestä täysin kytketystä tasosta.
 Samalla tavalla kuin EPN-verkko, RPN-verkko käyttää myös ELU-funktiota aktivointifunktiona.
-RPN-verkon ensimmäisen tason jälkeen suoritetaan Dropout-toiminto, jonka jälkeen vain 40 prosenttia kaikista ensimmäisen tason arvoista tulkitaan.
+RPN-verkon ensimmäisen tason jälkeen suoritetaan dropout-toiminto, jonka jälkeen vain 40 prosenttia kaikista ensimmäisen tason arvoista tulkitaan.
 RPN-verkon viimeinen taso on myös softmax-taso, joka palauttaa todennäköisyysjakauman.
 
 \begin{figure}[!ht]
@@ -602,7 +602,7 @@ IFN-verkko kertoo, onko sille annettu yhdiste mahdollista muodostaa annetulla mu
 IFN-neuroverkko muodostuu kahdesta haarasta.
 Toinen haara saa syötteenä muodostettavan yhdisteen tunnisteen ja toinen haara saa muunnossäännön tunnisteen.
 
-Haara, joka saa syötteenä yhdisteen tunnisteen, muodostuu yhdestä täysin kytketystä tasosta jonka jälkeen suoritetaan 30 prosentin Dropout-toiminto.
+Haara, joka saa syötteenä yhdisteen tunnisteen, muodostuu yhdestä täysin kytketystä tasosta jonka jälkeen suoritetaan 30 prosentin dropout-toiminto.
 Tämän jälkeen data kulkee viiden highway-tason läpi.
 Sekä täysin kytketty että highway-tasot käyttävät ELU-funktiota aktivointifunktiona.
 
@@ -627,7 +627,7 @@ IFN-verkon kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiota
 
 \subsubsection{3N-MCTS-mallin suorituskyky}
 
-3N-MCTS-mallin suorituskykyä verrattiin BFS-menetelmään (Best-First Search -Method), joka käyttää heuristista käsinkoodattua \(SMILES^{3/2}\)-kustannefunktiota~\ref{fig:3n-mcts-performance}.
+3N-MCTS-mallin suorituskykyä verrattiin BFS-menetelmään (Best-First Search -Method), joka käyttää heuristista käsin koodattua \(SMILES^{3/2}\)-kustannefunktiota~\ref{fig:3n-mcts-performance}.
 Tämä funktio antaa parhaimman tuloksen muunnossäännölle, joka jakaa halutun yhdisteen mahdollisimman hyvin yhtä suuriin lähtötuotteisiin.
 Tästä menetelmästä luotiin myös versio, joka käyttää muokattua \(SMILES^{3/2}\)-kustannefunktiota.
 Muokattu funktio käyttää 3N-MCTS-mallin EPN- ja IFN-verkkoja parhaimman muunnossäänön selvittämiseksi.
@@ -651,7 +651,7 @@ Sokkotestissä 57 prosenttia henkilöistä valitsi 3N-MCTS-mallin muodostaman po
     \includegraphics[width=8cm, height=6cm]{3N-MCTS-performance-fig.jpg}
     \caption{
         3N-MCTS-mallin suorituskyky verrattuna \(SMILES^{3/2}\)-menetelmään hyödyntävään BFS-menetelmään ja 3N-MCTS-mallin neuroverkkoja hyödyntävään BFS-menetelmään.
-        Kuvaaja kertoo, kuinka monelle prosentille annetuista yhdisteistä menetelmä kykenee löytämään retrosyntetisointipolun annaetusssa ajassa.
+        Kuvaaja kertoo, kuinka monelle prosentille annetuista yhdisteistä menetelmä kykenee löytämään retrosyntetisointipolun annetusssa ajassa.
         Annetulla ajalla tarkoitetaan aikaa, jonka menetelmä voi korkeintaan käyttää yhden yhdisteen retrosyntetisointipolun löytämiseen.
     }
     {\cite{SeglerMarwinHS2018Pcsw}}
@@ -660,7 +660,7 @@ Sokkotestissä 57 prosenttia henkilöistä valitsi 3N-MCTS-mallin muodostaman po
 
 \subsection{ICHO-malli}
 
-On myös yleistä, että retrosynteesipolkuja suunnitelevat mallit hyödyntävät heurustiikka~\cite{ExpertKnowledgeRetorsynthesis}.
+On myös yleistä, että retrosynteesipolkuja suunnitelevat mallit hyödyntävät heurustiikkaa~\cite{ExpertKnowledgeRetorsynthesis}.
 Badowski et al.\ ryhmä on kehittänyt koneoppimismallin, joka ehdottaa tietylle yhdisteelle parasta mahdollista muunnossääntöä, jonka avulla yhdiste voidaan muodostaa.
 Kehitetty ICHO-malli hyödyntää  neuroverkkoja ja ammattikemistien muodostamia heuristisia sääntöjä pisteyttäessään muunnossääntöjä.
 ICHO-malli on verrattavissa 3N-MCTS-mallin EPN- ja IFN-verkkojen toimintaan.
@@ -668,7 +668,7 @@ ICHO-malli on verrattavissa 3N-MCTS-mallin EPN- ja IFN-verkkojen toimintaan.
 ICHO-mallin (Instytut Chemii Organicznej) kouluttamisessa käytettiin dataa 1.4 miljoonasta reaktiosta ja niiden lopputuotteista.
 Data saadaan julkaistuista artikkeleista ja patenteista.
 Reaktiolta kuitenkin vaaditaan, että ainakin yksi reaktio per lopputuote löytyy myös Chematican Expert-Coded säännöstöstä.
-Datasta suodatettiin myös pois suojaryhmien säännöt.
+Datasta suodatettiin pois myös suojaryhmien säännöt.
 Chematica on retrosyntetisointia suunnitteleva ohjelmisto ja tietokanta, joka sisältää dataa kemiallisista reaktioista~\cite{synthia}.
 Chematican omistaa Merck KGaA inc.\ ja sen nimi nykyään on Synthia.
 
@@ -716,7 +716,7 @@ Tämä on haluttu lähestymistapa retrosynteesiin, koska se minimoi syntetisoint
 ICHO-mallia testataan eri tavalla kuin 3N-MCTS-mallia, jossa mitataan, kuinka monelle yhdisteelle malli kykenee löytämään toimivan retrosyntetisointipolun tietyssä ajassa.
 ICHO-mallia testataan siten, että jokaiselle mallille annetaan yhdiste, ja malli antaa tulosteena listan muunnossäännöistä, jotka on asetettu paremmuusjärjestykseen niille annetun pisteytyksen mukaan.
 Muunnossäänön pisteytys kertoo, kuinka paljon malli suosittelee käytettävän kyseistä muunnossääntöä.
-Näistä muunnossäännöistä laskettiin, kuinka suuri osa niistä pohjautuu johonkin aikaisempaan muunnossääntöön, joka on esiintynyt kirjallisuudessa.
+Näistä muunnossäännöistä lasketaan, kuinka suuri osa niistä pohjautuu johonkin aikaisempaan muunnossääntöön, joka on esiintynyt kirjallisuudessa.
 Mitä suurempi osa ehdotetuista muunnossäänöistä löytyy kirjallisuudesta, sitä paremmin malli toimii.
 
 Kuvaajaan~\ref{fig:icho-performance} on piirretty vain eri mallien heuristiikkaa hyödyntävät versiot, koska ne pärjäsivät testeissä ei-heuristisia versioita paremmin.
@@ -732,7 +732,7 @@ Mitä enemmän koulutusaineistoa se saa, sitä korkeammalle se sijoittaa kirjall
 Kuvaajat d) ja e) eivät ole ristiriidassa kuvaajien a), b) ja c) kanssa.
 Kuvaajasta d nähdään, että nopeasti koulutusaineiston kasvaessa tutkittvat muunnossäännöt siirtyvät nopeasti korkeille sijoille SW2+ -mallissa ja ICHO+ -malli sijoittaa ne korkealle jo pienellä datamäärällä.
 \emph{SMALLER}-malli sen sijaan sijoittaa tutkittavat muunnossäännöt koulutusaineiston kasvaessa huonommalle sijalle.
-Kuvaaja e myös näyttää, että ICHO+ -ja SW2+ -mallien MRR-pisteet (Mean Reciprocal Rank) kasvavat koulutusaineiston kasvaessa, kun taas \emph{SMALLER}-mallin pisteytys laskee.
+Kuvaaja e) myös näyttää, että ICHO+ -ja SW2+ -mallien MRR-pisteet (Mean Reciprocal Rank) kasvavat koulutusaineiston kasvaessa, kun taas \emph{SMALLER}-mallin pisteytys laskee.
 MRR-pisteytyksellä tarkoitetaan kaikkien yhdisteiden sijoitusten käänteislukujen keskiarvoa.
 Tällöin kuvaajan arvo lähestyy arvoa yksi, jos malli sijoittaa kaikki tutkittavat muunnossäännöt korkeille sijoille.
 
@@ -770,7 +770,7 @@ Myöhemmissä kappaleissa käytiin, mitä asioita ja taustaa liittyy lääkkeide
 kappaleissa myös kerrottiin, mitä ongelmia näihin vaiheisiin kuuluu ja miten koneoppimisella voidaan ratkoa näitä ongelmia.
 
 Kappaleissa käytiin läpi myös kolmen koneoppimismallin toimintaperiaatteet, kuinka ne toimivat ja kuinka ne ratkovat aikaisemmin esitettyjä ongelmia.
-Vaikkain kirjallisuudesta löytyy useita eri koneoppimislleja ratkomaan kappaleissa kerrottuja ongelmia, niin nämä mallit valittiin sen takia, koska ne on toteutettu eri tavalla kuin aikaisemmat mallit hyödyntäen uusimpia koneppimitekniikoita.
+Vaikkain kirjallisuudesta löytyy useita eri koneoppimismalleja ratkomaan kappaleissa kerrottuja ongelmia, niin nämä mallit valittiin sen takia, koska ne on toteutettu eri tavalla kuin aikaisemmat mallit hyödyntäen uusimpia koneppimitekniikoita.
 Yhdisteiden syntetisointiin keskittyviä koneoppimismalleja käytiin kaksi kappaletta, koska haluttiin nostaa esiin, kuinka syntetisoinninsuunnittelua voidaan suorittaa usealla eri tavalla.
 lisäksi haluttin nostaa esiin, kuinka hyvin läpi käydyt koneoppimismallit suoriutuvat tehtävistään verrattaen muihin malleihin.
 
