@@ -377,31 +377,31 @@ The Transformer -malli noudattaa encoder-decoder arkkitehtuuria.
 Encoder-osio muuntaa ensin saamansa syötteen jokaisen sanan todennäköisyysjakaumaksi ja nämä todennäköisyysjakaumat syötetään decoder-osiolle.
 Tämän todennäköisyysjakauman ja aikaisemman sanan avulla se määrittää seuraavan sanan tulosteeseen.
 
-MTN eroaa The Transformer -mallista kahdella tavalla.
+MTN-verkko eroaa The Transformer -mallista kahdella tavalla.
 Toisin kuin The Transformer -malli, joka käsittelee sanoja ja niistä muodostettuja lauseita, MTN-verkko käsittelee yksittäisiä merkkejä ja niistä muodostettuja molekyylejä.
-Lisäksi MTN-mallin piilotettuun kerrokseen on lisätty tietoa kemiallisista ominaisuuksista.
+Lisäksi MTN-verkon piilotettuun tasoon on lisätty tietoa kemiallisista ominaisuuksista.
 
 \subsubsection{PPN-verkko}
 
 PPN-verkon rakenne ja toiminta periaate näkyvät kuvassa~\ref{fig:cmg-model-ppn}.
 PPN-verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)).
-Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi hyödyntäen Bidirectional Long Short-Term Memory (BiLSTM) -kerrosta.
-BiLSTM on rakenteeltaan samanlainen kuin LSTM taso, mutta koska se käsittelee syötteen sekä alku-loppu suunnassa että loppu-alku suunnassa se oppii tietyn merkin kontekstin molemmissa suunnissa.
-BiLSTM-kerros muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnissa.
+Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi hyödyntäen Bidirectional Long Short-Term Memory (BiLSTM) -tasoa.
+BiLSTM-taso on rakenteeltaan samanlainen kuin LSTM-taso, mutta koska se käsittelee syötteen sekä alku-loppu suunnassa että loppu-alku suunnassa se oppii tietyn merkin kontekstin molemmissa suunnissa.
+BiLSTM-taso muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnissa.
 Näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
 Nämä vektorit yhdistetään ja yhdistevektori syötetään täysin yhdistetylle neuroverkolle.
 Tämä verkko sisältää kaksi piilotettua tasoa.
 Verkko antaa tuloksena kyseisen yhdisteen ominaisuuksien ennusteen.
 
-PPN koulutetaan käyttäen 257 565 eri molekyyliä.
+PPN-verkko koulutetaan käyttäen 257 565 eri molekyyliä.
 Nämä molekyylit jaetaan sattumanvaraisella valinnalla koulutus- ja testiryhmiin suhteessa 8:2.
 
 \subsubsection{SPN-verkko}
 
 SPN-verkon rakenne ja toimintaperiaate on kuvattu kuvassa~\ref{fig:cmg-model-spn}.
-SPN ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)) ja alkuperäisen molekyylin merkkijonon (\(x_i\)).
+SPN-verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)) ja alkuperäisen molekyylin merkkijonon (\(x_i\)).
 Nämä merkkijonot syötetään kahdelle eri biLSTM-tasolle, toinen käsittelee alkuperäisen molekyylin merkkijonot ja toinen ennustetun molekyylin merkkijonot.
-Nämä biLSTM-kerrokset tomivat samalla periaatteella kuin PPN-mallissa ja palauttavat näin ollen neljä eri vektoria, kaksi ennustetulta merkkijonolta ja kaksi alkuperäiseltä merkkijonolta.
+Nämä biLSTM-tasot tomivat samalla periaatteella kuin PPN-verkossa ja palauttavat näin ollen neljä eri vektoria, kaksi ennustetulta merkkijonolta ja kaksi alkuperäiseltä merkkijonolta.
 Nämä vektorit yhdistetään ja tämä yhdistevektori annetaan täysin yhdistetylle verkolle, joka sisältää kaksi piilotettua tasoa.
 Tämä verkko toimii binääriluokittelijana ja palauttaa tiedon, onko kaksi syötemolekyyliä samanlaisia määritellyn samanlaisuusrajan mukaan.
 
@@ -414,7 +414,7 @@ Tämä joukko jaetaan samalla tavalla koulutus- ja testiryhmiin kuin PPN-verkoss
     \begin{minipage}[b]{0.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cmg-property-prediction-network.png}
-        \caption{PPN-neuroverkon rakenne}
+        \caption{PPN-verkon rakenne}
         {\cite{ShinBonggun}}
         {\label{fig:cmg-model-ppn}}
     \end{minipage}
@@ -422,7 +422,7 @@ Tämä joukko jaetaan samalla tavalla koulutus- ja testiryhmiin kuin PPN-verkoss
     \begin{minipage}[b]{0.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cmg-similarity-network.png}
-        \caption{SPN-neuroverkko rakenne}
+        \caption{SPN-verkon rakenne}
         {\cite{ShinBonggun}}
         {\label{fig:cmg-model-spn}}
     \end{minipage}
@@ -431,7 +431,7 @@ Tämä joukko jaetaan samalla tavalla koulutus- ja testiryhmiin kuin PPN-verkoss
 \chapter{Uusien lääkkeiden syntetisointi}
 
 Tässä kappaleessa käydään läpi, miten lääkkeiden syntetisoinnin suunnittelua voidaan tehostaa koneoppimismallien avulla.
-Kappaleessa keskitytään syntetisoinnin suunnitteluun käytämällä retrosyntetisointimenetelmää.
+Kappaleessa keskitytään syntetisoinnin suunnitteluun käyttämällä retrosyntetisointimenetelmää.
 Kappaleessa kerrotaan, mikä tekee yhdisteen retrosyntetisoinnista vaikeaa ja kuinka sitä voidaan tehostaa hyödyntämällä eri koneoppimismalleja.
 Kappaleessa käydään läpi kahden koneoppimismallin toimintaa, jotka suorittavat halutun yhdisteen retrosyntetisointia.
 
@@ -454,7 +454,7 @@ Tämä on todettu merkittävästi paremmaksi lähestymistavaksi toteuttaa~\cite{
 
 Koneoppimismallien käyttö ja koulutus ei ole kuitenkaan täysin ongelmaton lähestymistapa.
 Ongelmaan liittyvää dataa ei välttämättä ole saatavilla ja datan hankkiminen voi olla kallista~\cite{deAlmeidaA.Filipa2019Socd}.
-Ei ole vielä julkista, kaikille avointa tietopankkia, joka sisältäisi tietoa kemiallisista reaktioista, vaan ainoastaan kaupallisia tietopankkeja on kehitetty, kuten Reaxys ja SciFinder~\cite{deAlmeidaA.Filipa2019Socd}.
+Ei ole vielä julkista ja kaikille avointa tietopankkia, joka sisältäisi tietoa kemiallisista reaktioista, vaan ainoastaan kaupallisia tietopankkeja on kehitetty, kuten Reaxys ja SciFinder~\cite{deAlmeidaA.Filipa2019Socd}.
 
 \section{Lääkkeen retrosyntetisoinnin haastavuus}
 
@@ -502,9 +502,9 @@ Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (Expansion Policy
 
 Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta~\cite{reaxys}.
 Reaxyksen omistaa Elsevier kustantamo.
-Reaxys -tietokannan sisältämä data koostuu muunnossäännöistä (Transformation Rule), jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion lopputuote.
+Reaxys-tietokannan sisältämä data koostuu muunnossäännöistä (Transformation Rule), jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion lopputuote.
 Näitä sääntöjä käytetään mallien kouluttamisessa.
-Tietokanta sisältää yli 12.4 miljoonaa sääntöä.
+Reaxys sisältää yli 12.4 miljoonaa sääntöä.
 Mallien kouluttamisessa käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain yhdestä kolmeen lähtötuotetta.
 Eri mallien kouluttamiseen käytetään tietokannasta eri kriteerein suodatettua dataa.
 Kaikki koneoppimismallit koulutetaan käyttämällä ADAM-optimoijaa.
@@ -514,10 +514,10 @@ ADAM-optimoija hyödyntää AdaGrad- ja RMSProp-optimoijien toiminnallisuuksia~\
 
 \subsubsection{3N-MCTS toimintamalli}
 
-3N-MCTS-mallin IFN ja EPN on kehitetty toimimaan yhdessä.
+3N-MCTS-mallin IFN- ja EPN-verkot on kehitetty toimimaan yhdessä.
 Tutkittaessa puun tilaa \(S_i\) jokainen molekyyli syötetään EPN-verkolle ja se tulostaa, mitkä säännöt voivat muodostaa annetun yhdisteen.
 Tästä säännöstä saadaan selville, mitkä lähtöaineet voivat muodostaa annetun yhdisteen.
-Nämä säännöt syötetään IFN-verkolle, joka suodattaa valituista reaktioista toteutettavissa olevat vaihtoehdot.
+Nämä säännöt syötetään IFN-verkolle, joka suodattaa annetuista säännöistä toteutettavissa olevat vaihtoehdot.
 3N-MCTS-mallin suoritusjärjestys on kuvattu kuvassa~\ref{fig:3n-mcts-model}.
 Tätä toiminnallisuutta iteroidaan mallissa seuraavassa järjestyksessä.
 
@@ -553,15 +553,15 @@ Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisält
 
 \subsubsection{EPN-verkko}
 
-EPN muodostuu täysin kytketystä tasosta ja viidestä highway-tasosta.
+EPN-verkko muodostuu täysin kytketystä tasosta ja viidestä highway-tasosta.
 Molemmissa tasoissa on käytetty aktivointifunktiona ELU-funktiota (Exponential Linear Unit).
 Täysin kytketyssä tasossa suoritetaan dropout-toiminto, jonka jälkeen vain 30 prosenttia ensimmäisen tason solmujen tuloksista otetaan huomioon seuraavalla tasolla.
 Dropout-toiminolla tarkoitetaan, että vain tietty osa kaikista edellisen tason palauttamista arvoista huomioidaan~\cite{hinton2012improving}.
-Dropout-toimintos uoritetaan mallin koulutusvaiheessa ja pois jätettävät arvot valitaan sattumanvaraisesti.
+Dropout-toiminto suoritetaan mallin koulutusvaiheessa ja pois jätettävät arvot valitaan sattumanvaraisesti.
 Dropout-toiminnolla pyritään välttämään ylitulkintaa (Overfitting).
 Tämän jälkeen jokaisen highway-tason jälkeen suoritetaan dropout-toiminto, jossa otetaan huomioon vain 10 prosenttia edellisen tason arvoista.
 EPN-verkon viimeinen taso on softmax-taso, joka palauttaa todennäköisyysjakauman.
-Tämä jakauma kertoo kuinka todennäköisesti muunnossääntö \emph{a} muodostaa tuotteen \emph{m}.
+Tämä jakauma kertoo, kuinka todennäköisesti muunnossääntö \emph{a} muodostaa tuotteen \emph{m}.
 
 \begin{figure}[!ht]
     \centering
@@ -573,12 +573,12 @@ Tämä jakauma kertoo kuinka todennäköisesti muunnossääntö \emph{a} muodost
 
 EPN-verkon kouluttamiseen valittiin datasta vain reaktiokeskus.
 Datasta suodatettiin pois sellaiset säännöt, jotka ilmenivät datassa alle kolme kertaa ennen vuotta 2015.
-Lopullinen reaktiomäärä, jolla EPN koulutettiin, oli 301 671 reaktiota.
+Lopullinen reaktiomäärä, jolla EPN-verkko koulutettiin, oli 301 671 reaktiota.
 
 \subsubsection{RPN-verkko}
 
-RPN muodostuu yhdestä täysin kytketystä tasosta.
-Samalla tavalla kuin EPN, RPN käyttää myös ELU-funktiota aktivointifunktiona.
+RPN-verkko muodostuu yhdestä täysin kytketystä tasosta.
+Samalla tavalla kuin EPN-verkko, RPN-verkko käyttää myös ELU-funktiota aktivointifunktiona.
 RPN-verkon ensimmäisen tason jälkeen suoritetaan dropout-toiminto, jonka jälkeen vain 40 prosenttia kaikista ensimmäisen tason arvoista tulkitaan.
 RPN-verkon viimeinen taso on myös softmax-taso, joka palauttaa todennäköisyysjakauman.
 
@@ -592,7 +592,7 @@ RPN-verkon viimeinen taso on myös softmax-taso, joka palauttaa todennäköisyys
 
 RPN-verkon kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (Reaktiokeskus) ja lähimmät vierekkäiset atomit.
 Datasta suodatettiin pois sellaiset säännöt, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
-Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
+Lopullinen reaktiomäärä, jolla RPN-verkko koulutettiin, oli 17 134 reaktiota.
 
 \subsubsection{IFN-verkko}
 
@@ -630,7 +630,7 @@ IFN-verkon kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiota
 3N-MCTS-mallin suorituskykyä verrattiin BFS-menetelmään (Best-First Search -Method), joka käyttää heuristista käsinkoodattua \(SMILES^{3/2}\)-kustannefunktiota~\ref{fig:3n-mcts-performance}.
 Tämä funktio antaa parhaimman tuloksen muunnossäännölle, joka jakaa halutun yhdisteen mahdollisimman hyvin yhtä suuriin lähtötuotteisiin.
 Tästä menetelmästä luotiin myös versio, joka käyttää muokattua \(SMILES^{3/2}\)-kustannefunktiota.
-Muokattu funktio käyttää 3N-MCTS-mallin EPN- ja IFN-neuroverkkoja parhaimman muunnossäänön selvittämiseksi.
+Muokattu funktio käyttää 3N-MCTS-mallin EPN- ja IFN-verkkoja parhaimman muunnossäänön selvittämiseksi.
 
 Mallit koulutettiin samoilla muunnossäännöillä ja testeissä käytettiin samaa aikaan perustuvaa jakoa.
 Mallit koulutettiin muunnossäännöillä, jotka ilmenivät ennen vuotta 2015, ja malleja testatiin vuoden 2015 jälkeen ilmenneillä muunnossäänöillä.
@@ -638,7 +638,7 @@ Mallit koulutettiin muunnossäännöillä, jotka ilmenivät ennen vuotta 2015, j
 Mallien tehtäväksi annettiin löytää halutulle yhdisteelle retrosyntetisointipolku annetussa ajassa.
 Testaamiseen käytettiin 497 eri yhdistettä.
 
-3N-MCTS-malli suoriutui kahta muuta algoritmia paremmin jokaisessa eri aikakategoriassa.
+3N-MCTS-malli suoriutui kahta muuta menetelmää paremmin jokaisessa eri aikakategoriassa.
 3N-MCTS-malli löysi viidessä sekunnissa 80 prosentille yhdisteistä retrosyntetisointipolun, kun taas muokattu \(SMILES^{3/2}\)-menetelmä löysi retrosyntetisointipolun vain 40 prosenttille yhdisteistä ja alkuperäinen ei löytänyt polkuja lainkaan.
 Kun aikaa kasvatettiin 60 sekunttiin per yhdiste, 3N-MCTS-malli löysin 92 prosentille yhdisteistä polun, muokattu \(SMILES^{3/2}\) löysi 71 prosentille yhdisteistä ja alkuperäinen versio vain 4 prosentille yhdisteistä polun.
 
@@ -698,10 +698,10 @@ Kehitetyssä ICHO-mallissa on kaksi tärkeää asiaa.
     {\label{fig:icho-neuralnetwork}}
 \end{figure}
 
-ICHO-malli muodostuu neljästä kerroksesta, joista kolme kerrosta ovat täysin kytkettyjä neuroverkkoja ja viimeinen taso on sigmoid-taso~\ref{fig:icho-neuralnetwork}.
+ICHO-malli muodostuu neljästä tasosta, joista kolme tasoa ovat täysin kytkettyjä neuroverkkoja ja viimeinen taso on sigmoid-taso~\ref{fig:icho-neuralnetwork}.
 Samalla tavalla kuin 3N-MCTS-mallissa, ICHO-malli käyttää myös ELU-aktivointifunktiota.
 ICHO-malli käyttää Batch normaliztion -algoritmia koulutusvaiheessa.
-Batch Normalization -algoritmin idea on standardoida koulutusvaiheessa kerrokselle tuleva syöte, jolla verkon painoja muutetaan.
+Batch Normalization -algoritmin idea on standardoida koulutusvaiheessa tasolle tuleva syöte, jolla verkon painoja muutetaan.
 
 ICHO-mallia vertailtiin aikasiemmin mainitun 3N-MCTS-mallin kanssa, jota kutsutaan artikkelissa SW-mallina.
 Kyseisestä SW-mallista kehitettiin myös heuristista dataa hyödyntävä malli SW+.
