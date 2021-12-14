@@ -252,7 +252,7 @@ Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
     \includegraphics[width=6cm, height=6cm]{melatonin-smiles.png}
     \caption{Melatoniiniyhdiste, kuinka se kuvataan graaffina ja SMILES-merkijonona.
         Kuva on tuotettu hyödyntämällä RDKit-kirjastoa.}
-    \label{fig:melatonin}
+    {\label{fig:melatonin}}
 \end{figure}
 
 SMARTS (SMILES Arbitrary Target Specification) on SMILES-standardista jatkokehitetty tapa kuvata yhdisteitä.
@@ -365,8 +365,8 @@ Nämä kuvaavat eri ominaisuuksia, joita malli pyrkii optimoimaan halutulla tava
     \centering
     \includegraphics[width=\textwidth]{CMG-fig.png}
     \caption{CMG-mallin toimintaperiaate kuvattuna}
-    {~\cite{ShinBonggun}}
-    \label{fig:cmg-model-whole}
+    {\cite{ShinBonggun}}
+    {\label{fig:cmg-model-whole}}
 \end{figure}
 
 \subsubsection{MTN-verkko}
@@ -471,8 +471,8 @@ Tästä johtuen tarve prosessia yleistäville koneoppimismalleille on iso.
     \caption{(a) esimerkki reaktiosäännöstä, (b) esimerkki mahdollisista reaktioista, kuinka voidaan luoda haluttu yhdiste (keskellä).
         Kuvaa on yksinkertaistettu ja se sisältää vain yksitoista mahdollista reaktiota, jotka tuottavat halutun yhdisteen.
         Värikoodaukset tarkoittavat: keltainen --- haluttu yhdiste, punainen --- saatavilla oleva yhdiste, vihreä --- kirjallisuudesta tunnettu yhdiste, liila --- tuntematon yhdiste}
-    {~\cite{ExpertKnowledgeRetorsynthesis}}
-    \label{fig:retrosynthesis-example}
+    {\cite{ExpertKnowledgeRetorsynthesis}}
+    {\label{fig:retrosynthesis-example}}
 \end{figure}
 
 
@@ -521,28 +521,30 @@ Nämä säännöt syötetään IFN-verkolle, joka suodattaa valituista reaktiois
 3N-MCTS-mallin suoritusjärjestys on kuvattu kuvassa~\ref{fig:3n-mcts-model}.
 Tätä toiminnallisuutta iteroidaan mallissa seuraavassa järjestyksessä.
 
-(1) Ensimmäisessä vaiheessa algoritmi valitsee seuraavan lupaavimman tilan puusta kunnes puun lehti on saavutettu.
-Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia \(d\) askelta eteenpäin samalla muodostaen synteesipolkua (Rollout).
-Jos lehdessä käydään useamman kuin yhden kerran valintavaiheen aikana, niin mahdolliset säännöt, jotka muodostavat lehden, tutkitaan ja lisätään lehden lapsiksi (Expansion).
+\begin{enumerate}
+    \item Ensimmäisessä vaiheessa algoritmi valitsee seuraavan lupaavimman tilan puusta kunnes puun lehti on saavutettu.
+          Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia \(d\) askelta eteenpäin samalla muodostaen synteesipolkua (Rollout).
+          Jos lehdessä käydään useamman kuin yhden kerran valintavaiheen aikana, niin mahdolliset säännöt, jotka muodostavat lehden, tutkitaan ja lisätään lehden lapsiksi (Expansion).
 
-(2) Toisessa vaiheessa lupaavien tilojen lapset tutkitaan.
-Tällöin etsitään lupaavimmat säännöt, jotka muodostavat kyseisessä tilassa olevan yhdisteen.
+    \item Toisessa vaiheessa lupaavien tilojen lapset tutkitaan.
+          Tällöin etsitään lupaavimmat säännöt, jotka muodostavat kyseisessä tilassa olevan yhdisteen.
 
-(3) Kolmannessa vaiheessa tarkistetaan lehden tila.
-Jos lehti on `todistetusti toimiva', niin algoritmi palauttaa luvun, mikä on suurempi kuin yksi, jolloin lehteä suositellaan käytettävän synteesipolussa.
-Muussa tapauksessa lehdelle suoritetaan rollout, jolloin RPN antaa rekursiivisesti uusia sääntöjä niin kauan, kunnes lehti on pilkottu lähtöaineisiin tai kunnes suurin sallittu syvyys \(d\) on saavutettu.
+    \item Kolmannessa vaiheessa tarkistetaan lehden tila.
+          Jos lehti on `todistetusti toimiva', niin algoritmi palauttaa luvun, mikä on suurempi kuin yksi, jolloin lehteä suositellaan käytettävän synteesipolussa.
+          Muussa tapauksessa lehdelle suoritetaan rollout, jolloin RPN antaa rekursiivisesti uusia sääntöjä niin kauan, kunnes lehti on pilkottu lähtöaineisiin tai kunnes suurin sallittu syvyys \(d\) on saavutettu.
 
-(4) Viimeisessä vaiheessa lehtien arvot päivitetään.
-Jos lähtöaineet löydetään rolloutin aikana, niin lehti saa palkonnoksi arvon 1.
-Jos kaikkia lähtöaineita ei löydetty, annetaan lehdelle osittainen palkinto.
-Lehti saa arvon -1, jos yhtään lähtöainetta ei löytynyt.
+    \item Viimeisessä vaiheessa lehtien arvot päivitetään.
+          Jos lähtöaineet löydetään rolloutin aikana, niin lehti saa palkonnoksi arvon 1.
+          Jos kaikkia lähtöaineita ei löydetty, annetaan lehdelle osittainen palkinto.
+          Lehti saa arvon -1, jos yhtään lähtöainetta ei löytynyt.
+\end{enumerate}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\textwidth]{3N-MCTS-fig.jpg}
     \caption{3N-MCTS-mallin toimintaperiaate kuvattuna}
-    {~\cite{SeglerMarwinHS2018Pcsw}}
-    \label{fig:3n-mcts-model}
+    {\cite{SeglerMarwinHS2018Pcsw}}
+    {\label{fig:3n-mcts-model}}
 \end{figure}
 
 Saattaa kuitenkin olla, että synteesipolkua ei voida luoda.
@@ -565,8 +567,8 @@ Tämä jakauma kertoo kuinka todennäköisesti muunnossääntö \emph{a} muodost
     \centering
     \includegraphics[]{expansion-policy.jpg}
     \caption{Kuvassa EPN-verkon rakenne.}
-    {~\cite{SeglerMarwinHS2018Pcsw}}
-    \label{fig:3n-mcts-epn}
+    {\cite{SeglerMarwinHS2018Pcsw}}
+    {\label{fig:3n-mcts-epn}}
 \end{figure}
 
 EPN-verkon kouluttamiseen valittiin datasta vain reaktiokeskus.
@@ -584,8 +586,8 @@ RPN-verkon viimeinen taso on myös softmax-taso, joka palauttaa todennäköisyys
     \centering
     \includegraphics[]{rollout-policy.jpg}
     \caption{Kuvassa RPN-verkon rakenne.}
-    {~\cite{SeglerMarwinHS2018Pcsw}}
-    \label{fig:3n-mcts-rpn}
+    {\cite{SeglerMarwinHS2018Pcsw}}
+    {\label{fig:3n-mcts-rpn}}
 \end{figure}
 
 RPN-verkon kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (Reaktiokeskus) ja lähimmät vierekkäiset atomit.
@@ -614,8 +616,8 @@ Saatu tulos syötetään sitten sigmoid-funktiolle, jonka tulos kertoo, pystyyk�
     \centering
     \includegraphics[]{in-scope-filter.jpg}
     \caption{Kuvassa In scope filter -neuroverkon rakenne.}
-    {~\cite{SeglerMarwinHS2018Pcsw}}
-    \label{fig:3n-mcts-ifn}
+    {\cite{SeglerMarwinHS2018Pcsw}}
+    {\label{fig:3n-mcts-ifn}}
 \end{figure}
 
 IFN-verkko koulutetaan sekä onnistuneiden että epäonnistuiden sääntöjen avulla.
@@ -652,8 +654,8 @@ Sokkotestissä 57 prosenttia henkilöistä valitsi 3N-MCTS-mallin muodostaman po
         Kuvaaja kertoo, kuinka monelle prosentille annetuista yhdisteistä menetelmä kykenee löytämään retrosyntetisointipolun annaetusssa ajassa.
         Annetulla ajalla tarkoitetaan aikaa, jonka menetelmä voi korkeintaan käyttää yhden yhdisteen retrosyntetisointipolun löytämiseen.
     }
-    {~\cite{SeglerMarwinHS2018Pcsw}}
-    \label{fig:3n-mcts-performance}
+    {\cite{SeglerMarwinHS2018Pcsw}}
+    {\label{fig:3n-mcts-performance}}
 \end{figure}
 
 \subsection{ICHO-malli}
@@ -675,23 +677,25 @@ Tätä mallia kutsutaan ICHO+ -malliksi, ja sitä käytetään vertailemaan ICHO
 
 Kehitetyssä ICHO-mallissa on kaksi tärkeää asiaa.
 
-(1) Se laskee reaktioiden ilmaantumistodennäköisyyttä uudelleen perustaen kuinka usein ne ilmaantuvat ammattilaisten käyttämissä reaktioissa.
-Tämä laskenta tapahtuu mallin koulutusvaiheessa.
-Käytännössä tämä tarkoittaa, että koulutusvaiheessa mallilla on tieto, kuinka monta kertaa tietty reaktiosääntö ilmeni datassa ja kuinka monta kertaa kyseistä reaktiota käytettiin luomaan jokin lopputuote.
-Malli laskee näiden välisen suhteen, jolloin se pystyy määrittämään, kuinka usein kyseistä reaktiota kannattaa käyttää.
-Jos esimerkiksi reaktio on mainittu datassa kymmenen kertaa ja samassa datassa kyseistä reaktiota käytetään kymmenen kertaa luomaan jokin lopputuote, niin malli käyttää tätä reaktiota, koska se luokitellaan `Helpoksi ja varmaksi toteuttaa'.
-Jos suhde taas on pieni, niin reaktio luokitellaan `vaikeaksi toteuttaa'.
+\begin{enumerate}
+    \item Se laskee reaktioiden ilmaantumistodennäköisyyttä uudelleen perustaen kuinka usein ne ilmaantuvat ammattilaisten käyttämissä reaktioissa.
+          Tämä laskenta tapahtuu mallin koulutusvaiheessa.
+          Käytännössä tämä tarkoittaa, että koulutusvaiheessa mallilla on tieto, kuinka monta kertaa tietty reaktiosääntö ilmeni datassa ja kuinka monta kertaa kyseistä reaktiota käytettiin luomaan jokin lopputuote.
+          Malli laskee näiden välisen suhteen, jolloin se pystyy määrittämään, kuinka usein kyseistä reaktiota kannattaa käyttää.
+          Jos esimerkiksi reaktio on mainittu datassa kymmenen kertaa ja samassa datassa kyseistä reaktiota käytetään kymmenen kertaa luomaan jokin lopputuote, niin malli käyttää tätä reaktiota, koska se luokitellaan `Helpoksi ja varmaksi toteuttaa'.
+          Jos suhde taas on pieni, niin reaktio luokitellaan `vaikeaksi toteuttaa'.
 
-(2) Toiseksi se kykenee antamaan suuremman kuin nollatodennäköisyyden reaktiolle, joka ei ilmaantunut koulutusvaiheessa.
-Tämä sen takia, että mallille koulutetaan jatkuva funktio, joka antaa todennäköisyyden jokaiselle reaktiotyypille perustuen, kuinka reaktio muuttaa lopputuotteen lähtötuotteiksi.
-Eli jos jokin reaktion sormenjälki tai heuristinen kuvaus on samankaltainen toisen reaktion kanssa, joka ilmenee koulutusdatassa, niin reaktiolle voidaan antaa todennäköisyys sen käytölle.
+    \item Se kykenee antamaan suuremman kuin nollatodennäköisyyden reaktiolle, joka ei ilmaantunut koulutusvaiheessa.
+          Tämä sen takia, että mallille koulutetaan jatkuva funktio, joka antaa todennäköisyyden jokaiselle reaktiotyypille perustuen, kuinka reaktio muuttaa lopputuotteen lähtötuotteiksi.
+          Eli jos jokin reaktion sormenjälki tai heuristinen kuvaus on samankaltainen toisen reaktion kanssa, joka ilmenee koulutusdatassa, niin reaktiolle voidaan antaa todennäköisyys sen käytölle.
+\end{enumerate}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=8cm, height=8cm]{icho-neuralnetwork.png}
     \caption{ICHO-mallin rakenne.}
-    {~\cite{ExpertKnowledgeRetorsynthesis}}
-    \label{fig:icho-neuralnetwork}
+    {\cite{ExpertKnowledgeRetorsynthesis}}
+    {\label{fig:icho-neuralnetwork}}
 \end{figure}
 
 ICHO-malli muodostuu neljästä kerroksesta, joista kolme kerrosta ovat täysin kytkettyjä neuroverkkoja ja viimeinen taso on sigmoid-taso~\ref{fig:icho-neuralnetwork}.
@@ -725,7 +729,7 @@ Mielenkiintoinen huomio, mikä kuvaajasta nähdään on, että \emph{SMALLER}-ma
 SW2+ -malli taas toimii päinvastaisesti.
 Mitä enemmän koulutusaineistoa se saa, sitä korkeammalle se sijoittaa kirjallisuuteen perustuvat säännöt.
 
-Kuvaajat d ja e eivät ole ristiriidassa kuvaajien a), b) ja c) kanssa.
+Kuvaajat d) ja e) eivät ole ristiriidassa kuvaajien a), b) ja c) kanssa.
 Kuvaajasta d nähdään, että nopeasti koulutusaineiston kasvaessa tutkittvat muunnossäännöt siirtyvät nopeasti korkeille sijoille SW2+ -mallissa ja ICHO+ -malli sijoittaa ne korkealle jo pienellä datamäärällä.
 \emph{SMALLER}-malli sen sijaan sijoittaa tutkittavat muunnossäännöt koulutusaineiston kasvaessa huonommalle sijalle.
 Kuvaaja e myös näyttää, että ICHO+ -ja SW2+ -mallien MRR (Mean Reciprocal Rank) -pisteet kasvavat koulutusaineiston kasvaessa, kun taas \emph{SMALLER}-mallin pisteytys laskee.
@@ -744,23 +748,11 @@ Tällöin kuvaajan arvo lähestyy arvoa yksi, jos malli sijoittaa kaikki tutkitt
         Kuvaaja e kertoo keskiarvon kirjallisuuteen perustuvien muunnossääntöjen käänteisestä sijoituksesta.
         Tämä tarkoittaa, että jos malli sijoittaa kaikkien kirjallisuuteen perustuvat muunnossäännöt ensimmäiseksi, niin MRR saa arvon yksi.
     }
-    {~\cite{ExpertKnowledgeRetorsynthesis}}
-    \label{fig:icho-performance}
+    {\cite{ExpertKnowledgeRetorsynthesis}}
+    {\label{fig:icho-performance}}
 \end{figure}
 
 \chapter{Yhteenveto}
-
-% - data -> nopeakuvakulma minkälaista dataa käytetään, miten käytetään
-% - ei käyty kaikkia mahdollisia datatyyppejä
-% - miksi käytiin?
-
-% - lääkkeiden löytäminen
-% - Keskityttiin lääkkeiden löytämiseen tietokoneiden avulla, klassinen labralöytäminen jätettiin pois
-% - miksi käytiin?
-
-% - yhdisteiden syntetisoinnin sunnittelu ja sen taustaa
-% - kaksi koneoppimismallia
-% - miksi käytiin?
 
 Tässä tekstissä käytiin läpi yleisiä asioita, mitä liittyy uusien lääkkeiden löytämiseen ja syntetisoinnin suunnitteluun ja kuinka koneoppimista voidaan hyödyntää näissä vaiheissa.
 Lisäksi tekstissä käytiin läpi kolmen eri koneoppimismallin toimintaperiaatteet.
