@@ -80,7 +80,7 @@
 % Prof.
 % Dr. or in Finnish toht. or tri or FT, TkT, Ph.D. or in Swedish...
 \supervisors{Leinonen, Matti}
-\examiners{Toht. Ruotsalainen, Laura}
+\examiners{Prof.\ Ruotsalainen, Laura}
 
 
 \keywords{Koneoppiminen, Lääkekehitys}
@@ -221,13 +221,13 @@ Tämä on lyhyt kappale, jossa käydään vain ne datatyypit läpi, joita myöhe
 Näiden ymmärtäminen auttaa hahmottamaan myöhemmin tekstissä selitettävien eri mallien toimintaperiaatteita.
 
 Toisessa kappaleessa käydään läpi, kuinka uusia lääkkeitä etsitään ja löydetään.
-Kappaleessa käydään pintapuolisesti läpi virtuaalista seulontaa (\textbf{Virtual Screening}), mitä sillä tarkoitetaan ja kuinka sitä hyödynnetään.
+Kappaleessa käydään pintapuolisesti läpi virtuaalista seulontaa (Virtual Screening), mitä sillä tarkoitetaan ja kuinka sitä hyödynnetään.
 Tässä kappaleessa käydään myös läpi yhden koneoopimismallin toimintaa, joka on koulutettu löytämään uusia yhdisteitä.
 Tämä malli mahdollistaa uusien lääkeyhdisteiden nopean löytämisen, joita päästään jatkotutkimaan nopeasti.
 
 Kolmas kappale paneutuu yhdisteiden syntetisointiin ja kuinka sitä voidaan toteuttaa hyödyntämällä koneoppimismalleja.
 Kappaleessa käsitellään, kuinka syntetisointia voidaan suunnitella retrosynteesianalyysin avulla, mikä tekee yhdisteiden retrosyntetisointianalyysista hankalaa ja mitä ratkaisuja tähän on kehitetty.
-Kappale kertoo CASP -menetelmistä (\textbf{Computer Aided Synthesis Planning}) ja kuinka tämä liittyy retrosyntetisointianalyysiin.
+Kappale kertoo CASP -menetelmistä (Computer Aided Synthesis Planning) ja kuinka tämä liittyy retrosyntetisointianalyysiin.
 Kappaleessa käydään myös läpi kahden eri koneoppimismallin toimintaa, jotka on kehitetty auttamaan eri yhdisteiden syntetisoinnin suunnittelussa.
 
 \chapter{Kemiallinen data}
@@ -250,22 +250,22 @@ Kappaleessa myös kerrotaan, mitä ovat yhdisteiden ECFP -tunnisteet, mitä omin
 \end{figure}
 
 Tavallinen tapa kuvata yhdisteitä on kuvata ne yhdellä rivillä merkkijonoina.
-SMILES (\textbf{Simplified Molecular Input Line Entry System}) on David Weiningerin vuonna 1988 kehittämä tapa kuvata molekyylejä ja yksinkertaisia yhdisteitä~\cite{WeiningerSMILES}.
+SMILES (Simplified Molecular Input Line Entry System) on David Weiningerin vuonna 1988 kehittämä tapa kuvata molekyylejä ja yksinkertaisia yhdisteitä~\cite{WeiningerSMILES}.
 Se kuvaa yhdisteen yhdellä rivillä käyttäen ASCII -merkistöä.
 Kuvassa~\ref{fig:melatonin} on esitetty melatoniini yhdiste ja kuinka se kuvataan SMILES muodossa.
 Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
 
-SMARTS (\textbf{SMILES Arbitrary Target Specification}) on SMILES -standardista jatkokehitetty tapa kuvata yhdisteitä.
+SMARTS (SMILES Arbitrary Target Specification) on SMILES -standardista jatkokehitetty tapa kuvata yhdisteitä.
 Se mahdollistaa yhdisteiden sisäisten rakenteiden määrittämisen.
 SMARTS -on yläluokka SMILES -standardista, jonka takia kaikki SMILES -merkkijonoiksi kelpaavat merkkijonot ovat myös kelpoja SMARTS -merkkijonoja.
 SMARTS -ja SMILES -standardit mahdollistavat myös kemiallisten reaktioiden kuvaamisen ASCII -merkistöllä yhdellä rivillä.
 
 \section{Yhdisteiden kuvaaminen bitteinä, ECFP}
 
-Toinen tavallinen tapa kuvata yhdisteitä on muuttaa ne ECFP (\textbf{Extended Connectivity FingerPrint}) -bitttijonoiksi~\cite{RogersDavid2010EF}.
+Toinen tavallinen tapa kuvata yhdisteitä on muuttaa ne ECFP (Extended Connectivity FingerPrint) -bitttijonoiksi~\cite{RogersDavid2010EF}.
 ECFP -tunniste lasketaan käyttämällä Morganin algoritmia.
 Algoritmi laskee jokaiselle yhdisteen atomille numeerisen arvon käyttämällä hajautusfunktiota ja iteroimalla ja laskemalla näitä arvoja yhteen se saa laskettua yhdisteen eri osille niitä kuvaavat numeeriset arvot.
-ECFP -tunnisteita kutsutaan myös Morgan -tunnisteiksi (\textbf{Morgan Fingerprint}).
+ECFP -tunnisteita kutsutaan myös Morgan -tunnisteiksi (Morgan Fingerprint).
 Nämä numeeriset arvot voidaan muuttaa sitten halutun mittaisiksi bittiesityksiksi~\cite{RogersDavid2010EF}.
 ECFP on yksi monista tavoista kuvata yhdisteitä numeerisessa muodossa, mutta se on yksi käytetyimmistä menetelmistä sen nopean ja helpon laskemisen takia.
 Bittijonojen etuna on se, että lyhyet bittijonot vievät vähän muistia, mutta lyhyjen niiden ongelma on, että ne saattavat menettää oleellista tietoa yhdisteestä bittitörmäysten takia.
@@ -277,7 +277,7 @@ Yksi tässä tekstissä käsiteltävistä koneoppimismalleista käyttää ominai
 Ominaisuusvektorit sisältävät tietoa yhdisteen tai molekyylin lääkkeellisistä ominaisuuksista.
 Ominaisuusvektorit voivat kuvata mitä tahansa yhdisteen tai molekyylin ominaisuutta ja ne voidaan valita tilanteen mukaan.
 Kyseisessä mallissa ominaisuusvektorit kuvaavat molekyylin PlogP, QED ja DRD2 arvoja~\cite{ShinBonggun}.
-PlogP (\textbf{Penalized LogP}) kuvaa aineen rasvaliukoisuutta, QED (\textbf{Quantitative Estimate of Drug-likeness}) kuvaa tietyn yhdisteen lääkkeenkaltaisuutta ja DRD2 kuvaa, kuinka paljon molekyyli reagoi dopamiini 2 receptoria vastaan~\cite{BickertonGRichard2012Qtcb}.
+PlogP (Penalized LogP) kuvaa aineen rasvaliukoisuutta, QED (Quantitative Estimate of Drug-likeness) kuvaa tietyn yhdisteen lääkkeenkaltaisuutta ja DRD2 kuvaa, kuinka paljon molekyyli reagoi dopamiini 2 receptoria vastaan~\cite{BickertonGRichard2012Qtcb}.
 Nämä ovat oleellisia tietoja tutkittaessa uusia mahdollisia lääkeyhdisteitä~\cite{ShinBonggun}.
 
 \chapter{Uusien lääkkeiden löytäminen}
@@ -297,7 +297,7 @@ Koneoppimista on alettu hyödyntämään tässä vaiheessa prosessiin kuluvan aj
 Viimeisen kymmenen vuoden aikana saatavilla olevan datan määrä koskien lääkkeitä ja lääkeyhdisteitä on kasvannut merkittävästi kehitettyjen tietopankkien ansiosta~\cite{EkinsSean2019Emlf}.
 Tietopankkeja ovat esimerkiksi PubChem ja ChEMBL~\cite{NationalCenterForBiotechnologyInformation,chembl}.
 Molemmat näistä keskittyvät lääkeyhdisteiden tietojen tallentamiseen.
-PubChem on Yhdysvaltojen terveysviraston (\textbf{National Institute of Health}) ylläpitämä ja ChEMBL on Euroopan bioinformatiikka instituution (\textbf{European Bioinformatics Institute, EBI}) ylläpitämä.
+PubChem on Yhdysvaltojen terveysviraston (National Institute of Health) ylläpitämä ja ChEMBL on Euroopan bioinformatiikka instituution (European Bioinformatics Institute, EBI) ylläpitämä.
 
 \section{Virtuaalinen seulonta}
 
@@ -306,12 +306,12 @@ On arvioitu, että erilaisia kemiallisia yhdisteitä, jotka voivat esiintyä huo
 Yhdisteet, jotka täyttävät lääkkeeltä vaaditut kriteerit, on puolestaan arvioitu olevan noin \(10^{60}\)~\cite{SotrifferChristoph2011VSPC}.
 Erillaisten yhdisteiden suuri lukumäärä itsessään esittää tarpeen tehokkaille algoritmeille ja menetelmille, jotka auttavat karsimaan tästä suuresta määrästä kemiallisia yhdisteitä vain lupaavimmat.
 
-Virtuaalinen seulonta (\textbf{Virtual Screening}) on suosittu lähestymistapa uusien lääkkeiden tai lääkkeeksi kelpaavien yhdisteiden löytämiseksi.
+Virtuaalinen seulonta (Virtual Screening) on suosittu lähestymistapa uusien lääkkeiden tai lääkkeeksi kelpaavien yhdisteiden löytämiseksi.
 Virtuaalinen seulonta käsittää joukon menetelmiä, joissa tietokoneita hyväksi käyttäen karsitaan yhdisteiden avaruudesta vain tietyt kriteerit täyttävät yhdisteet~\cite{SotrifferChristoph2011VSPC}.
 Yhdisteiden karsimisessa käytetään ohjelmistoja, joissa toteutetut algoritmit suorittavat seulontaa annettujen parametrien avulla.
 
 Koneoppimismenetelmiä voidaan myös käyttää virtuaalisessa seulonnassa~\cite{SotrifferChristoph2011VSPC}.
-Yleisimpiä koneoppimismenetelmiä ovat tällä hetkellä SVM (\textbf{Support Vector Machine}) ja Random forest -mallit~\cite{SotrifferChristoph2011VSPC}.
+Yleisimpiä koneoppimismenetelmiä ovat tällä hetkellä SVM (Support Vector Machine) ja Random forest -mallit~\cite{SotrifferChristoph2011VSPC}.
 Neuroverkko ja ensemble -koneoopimismallit ovat myös yleistyneet viimevuosina~\cite{ShinBonggun,PopovaMariya2018Drlf}.
 Ensemble -mallin ideana on yhdistää useita eri koneoppimismalleja yhdeksi malliksi~\cite{RokachLior2009Ec}.
 Ensemble -mallit ovat tavallisesti parempia ja monipuolisempia toiminnalisuuksissaan kuin yksittäiset koneoppimismallit ja ne myös tuottavat tarkempia tuloksia.
@@ -326,7 +326,7 @@ Kemialliset ominaisuudet on koodattu ominaisuusvektoreihin.
 
 \subsection{CMG -malli}
 
-CMG (\textbf{Controlled Molecule Generator}) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet~\cite{ShinBonggun}.
+CMG (Controlled Molecule Generator) on koneoppimismalli, joka etsii uusia molekyylejä, jotka perustuvat syötteenä annettuun molekyyliin ja joilla on ennalta määritellyt halutut ominaisuudet~\cite{ShinBonggun}.
 CMG -mallin toimintaperiaatteen ajatuksena on muokata prototyyppiyhdistettä siten, että se maksimoi halutut ominaisuudet, jotka on määritelty sen syötteenä saamassa ominaisuusvektorissa.
 CMG -mallin toimintaa rajoittaa kuitenkin prototyyppiyhdiste ja syötteenä annettu samanlaisuusluku, jonka alle uuden luodun yhdisteen ja prototyyppiyhdisteen välinen tanimoto -indeksi ei saa mennä.
 Tanimoto -indeksi kuvaa, kuinka paljon molekyylit muistuttavat toisiaan rakenteellisesti~\cite{MaggioraGerald2014Msim}.
@@ -336,14 +336,14 @@ CMG -malli eroaa aikaisemmin kehitetyistä malleista siten, että se pystyy opti
 Aikaisemmin kehitetyt mallit ovat pystyneet optimoimaan vain yhtä molekyylin ominaisuutta.
 
 CMG -malli muodostuu kolmesta verkosta, joista kaksi verkkoa toimivat rajoiteverkkoina.
-Ensimmäinen verkko on MTN (\textbf{Molecule Translation Network}) ja rajoiteverkot ovat PPN (\textbf{Property Prediction Network}) ja SPN (\textbf{Similarity Prediction Network}).
+Ensimmäinen verkko on MTN (Molecule Translation Network) ja rajoiteverkot ovat PPN (Property Prediction Network) ja SPN (Similarity Prediction Network).
 Kuvassa~\ref{fig:cmg-model-whole} näkyy CMG -mallin rakenne ja toimintaperiaate.
 
 CMG:n kehittäjät lähestyvät molekyylin ominaisuuksien optimointiongelmaa merkkijonojen käännös -ja luontiongelmana.
 CMG:lle opetetaan, kuinka syötteenä annettu yhdistemerkkijono käännetään sellaiseksi yhdistemerkkijonoksi, jolla on lähimpänä haluttuja ominaisuuksia olevat ominaisuudet.
-CMG tulkitsee ensin annetut merkkijonot hyödyntäen DN:ää (\textbf{Deep Network}) jonka jälkeen se luo uusia molekyyliyhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
+CMG tulkitsee ensin annetut merkkijonot hyödyntäen DN:ää (Deep Network) jonka jälkeen se luo uusia molekyyliyhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
 Koska ominaisuudet annetaan vektorina, niin CMG pystyy optimoimaan useampaa ominaisuutta samanaikaisesti.
-CMG hyödyntää myös etukäteen koulutettuja rajoiteverkkoja (\textbf{Constraint Network}), jolloin vältytään luomasta mahdottomia yhdisteitä.
+CMG hyödyntää myös etukäteen koulutettuja rajoiteverkkoja (Constraint Network), jolloin vältytään luomasta mahdottomia yhdisteitä.
 CMG -malli käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam Search -algoritmia.
 
 Beam Searh -algoritmi saa syötteenä kaikki CMG -mallin kehittämät yhdisteet, pisteyttää ne ja palauttaa yhdisteen, joka sai parhaimman pisteytyksen.
@@ -394,7 +394,7 @@ Lisäksi MTN:än piilotettuun kerrokseen on lisätty tietoa kemiallisista ominai
 
 PPN -verkon rakenne ja toiminta periaate näkyvät kuvassa~\ref{fig:cmg-model-ppn}.
 PPN -verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)).
-Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi hyödyntäen Bidirectional Long short-term memory (\textbf{BiLSTM}) -kerrosta.
+Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi hyödyntäen Bidirectional Long short-term memory (BiLSTM) -kerrosta.
 BiLSTM on rakenteeltaan samanlainen kuin LSTM taso, mutta koska se käsittelee syötteen sekä alku-loppu suunnassa että loppu-alku suunnassa se oppii tietyn merkin kontekstin molemmissa suunnissa.
 BiLSTM -kerros muodostaa vektoreita oikealta vasemmalle ja vasemmalta oikealle suunnissa.
 Näistä vektoreista valitaan molempien suuntien viimeiset vektorit.
@@ -441,7 +441,7 @@ Retrosynteesianalyysi toimii siis toiseen suuntaan kuin syntetisointi.
 Retrosynteesissä yhdiste pilkotaan rekursiivisesti pienempiin lähtöaineisiin kunnes jäljellä on vain saatavilla olevia lähtöaineita~\cite{ECoreyRetrosynthesis}.
 
 Tavallisesti yhdisteen retrosyntetisointi on vaatinut suorittavalta kemistiltä usean vuoden kokemusta ja tietoa saatavilla olevista lähtöaineista ja eri reaktioista.
-Retrosyntetisointia on pyritty automatisoimaan eri CASP -menetelmien avulla (\textbf{Computer-Aided Synthesis Planning}).
+Retrosyntetisointia on pyritty automatisoimaan eri CASP -menetelmien avulla (Computer-Aided Synthesis Planning).
 CASP on jo 1960 -luvulla kehitetty ajatus, ja ensimmäisiä yrityksiä toteuttaa retrosyntetisointia tekoälyn avulla oli E.J Coreyn LHASA -projekti~\cite{ColeyConnorW2018MLiC}.
 LHASA perustui heuristisiin algoritmeihin, joissa kemistit käsin koodasivat, miten eri lähtöaineet reagoivat keskenään ja mikä on reaktion lopputuote~\cite{LHASA}.
 Tämä on kuitenkin osoittautunut toivottomaksi yritykseksi valtavan datamäärän takia.
@@ -493,14 +493,14 @@ ICHO -malli käyttää sekä samananlaista reaktiodataa kuin 3N-MCTS, mutta se m
 Se etsii retrosynteesipolkuja yksinkertaisempiin ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}.
 Kun retrosynteesipolku on varmennettu ja todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
 
-3N-MCTS -malli muodostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhakualgoritmista (\textbf{Monte Carlo Tree Search, MCTS}).
+3N-MCTS -malli muodostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhakualgoritmista (Monte Carlo Tree Search, MCTS).
 Neuroverkot on koulutettu avustamaan puuhakualgoritmia etenemään järkevimpään suuntaan, kun hakualgoritmi etsii syntetisointipolkuja ja tarkistamaan, onko ehdotettu reaktio mahdollinen kyseiselle molekyylille.
 
-Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (\textbf{Expansion Policy Network, EPN}), MCTS:än rollout toimintoa tukeva Rollout -verkko (\textbf{Rollout Policy Network, RPN}) ja verkko, joka tarkistaa, onko syntetisointipolku toteutettavissa (\textbf{In-scope Filter Network, IFN}).
+Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (Expansion Policy Network, EPN), MCTS:än rollout toimintoa tukeva Rollout -verkko (Rollout Policy Network, RPN) ja verkko, joka tarkistaa, onko syntetisointipolku toteutettavissa (In-scope Filter Network, IFN).
 
 Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta.
 Reaxyksen omistaa Elsevier kustantamo.
-Reaxys -tietokannan sisältämä data koostuu muunnossäännöistä (\textbf{Transformation Rule}), jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion lopputuote.
+Reaxys -tietokannan sisältämä data koostuu muunnossäännöistä (Transformation Rule), jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion lopputuote.
 Näitä sääntöjä käytetään mallien kouluttamisessa.
 Tietokanta sisältää yli 12.4 miljoonaa sääntöä.
 Mallien kouluttamisessa käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain yhdestä kolmeen lähtötuotetta.
@@ -528,8 +528,8 @@ Nämä säännöt syötetään IFN:älle, joka suodattaa valituista reaktioista 
 Tätä toiminnallisuutta iteroidaan mallissa seuraavassa järjestyksessä.
 
 (1) Ensimmäisessä vaiheessa algoritmi valitsee seuraavan lupaavimman tilan puusta kunnes puun lehti on saavutettu.
-Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia \(d\) askelta eteenpäin samalla muodostaen synteesipolkua (\textbf{Rollout}).
-Jos lehdessä käydään useamman kuin yhden kerran valintavaiheen aikana, niin mahdolliset säännöt, jotka muodostavat lehden, tutkitaan ja lisätään lehden lapsiksi (\textbf{Expansion}).
+Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia \(d\) askelta eteenpäin samalla muodostaen synteesipolkua (Rollout).
+Jos lehdessä käydään useamman kuin yhden kerran valintavaiheen aikana, niin mahdolliset säännöt, jotka muodostavat lehden, tutkitaan ja lisätään lehden lapsiksi (Expansion).
 
 (2) Toisessa vaiheessa lupaavien tilojen lapset tutkitaan.
 Tällöin etsitään lupaavimmat säännöt, jotka muodostavat kyseisessä tilassa olevan yhdisteen.
@@ -558,11 +558,11 @@ Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisält
 \end{figure}
 
 EPN muodostuu täysin kytketystä tasosta ja viidestä highway -tasosta.
-Molemmissa tasoissa on käytetty aktivointifunktiona ELU -funktiota (\textbf{Exponential Linear Unit}).
+Molemmissa tasoissa on käytetty aktivointifunktiona ELU -funktiota (Exponential Linear Unit).
 Täysin kytketyssä tasossa suoritetaan dropout -toiminto, jonka jälkeen vain 30 prosenttia ensimmäisen tason solmujen tuloksista otetaan huomioon seuraavalla tasolla.
 Dropout -toiminolla tarkoitetaan, että vain tietty osa kaikista edellisen tason palauttamista arvoista huomioidaan~\cite{hinton2012improving}.
 Dropout -toimintos uoritetaan mallin koulutusvaiheessa ja pois jätettävät arvot valitaan sattumanvaraisesti.
-Dropout -toiminnolla pyritään välttämään ylitulkintaa (\textbf{Overfitting}).
+Dropout -toiminnolla pyritään välttämään ylitulkintaa (Overfitting).
 Tämän jälkeen jokaisen highway -tason jälkeen suoritetaan dropout -toiminto, jossa otetaan huomioon vain 10 prosenttia edellisen tason arvoista.
 EPN -verkon viimeinen taso on softmax -taso, joka palauttaa todennäköisyysjakauman.
 Tämä jakauma kertoo kuinka todennäköisesti muunnossääntö \emph{a} muodostaa tuotteen \emph{m}.
@@ -588,7 +588,7 @@ Samalla tavalla kuin EPN, RPN käyttää myös ELU -funktiota aktivointifunktion
 RPN -tasossa suoritetaan dropout -toiminto, jonka jälkeen vain 40 prosenttia kaikista ensimmäisen tason arvoista tulkitaan.
 RPN -verkon viimeinen taso on myös softmax -taso, joka palauttaa todennäköisyysjakauman.
 
-RPN -verkon kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (\textbf{Reaktiokeskus}) ja lähimmät vierekkäiset atomit.
+RPN -verkon kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (Reaktiokeskus) ja lähimmät vierekkäiset atomit.
 Datasta suodatettiin pois sellaiset säännöt, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
 Lopullinen reaktiomäärä, jolla RPN koulutettiin, oli 17 134 reaktiota.
 
@@ -639,7 +639,7 @@ IFN -verkon kouluttamista varten luotiin 100 miljoonaa epäonnistunutta reaktiot
     \label{fig:3n-mcts-performance}
 \end{figure}
 
-3N-MCTS -mallin suorituskykyä verrattiin BFS -menetelmään (\textbf{Best-First Search -Method}), joka käyttää heuristista käsinkoodattua \(SMILES^{3/2}\) -kustannefunktiota~\ref{fig:3n-mcts-performance}.
+3N-MCTS -mallin suorituskykyä verrattiin BFS -menetelmään (Best-First Search -Method), joka käyttää heuristista käsinkoodattua \(SMILES^{3/2}\) -kustannefunktiota~\ref{fig:3n-mcts-performance}.
 Tämä funktio antaa parhaimman tuloksen muunnossäännölle, joka jakaa halutun yhdisteen mahdollisimman hyvin yhtä suuriin lähtötuotteisiin.
 Tästä menetelmästä luotiin myös versio, joka käyttää muokattua \(SMILES^{3/2}\) -kustannefunktiota.
 Muokattu funktio käyttää 3N-MCTS -mallin EPN -ja IFN -neuroverkkoja parhaimman muunnossäänön selvittämiseksi.
@@ -665,7 +665,7 @@ Badowski et al.\ ryhmä on kehittänyt koneoppimismallin, joka ehdottaa tietylle
 Kehitetty ICHO -malli hyödyntää  neuroverkkoja ja ammattikemistien muodostamia heuristisia sääntöjä pisteyttäessään muunnossääntöjä.
 ICHO-malli on verrattavissa 3N-MCTS -mallin EPN -ja IFN -verkkojen toimintaan.
 
-ICHO -verkon (\textbf{Instytut Chemii Organicznej}) kouluttamisessa käytettiin dataa 1.4 miljoonasta reaktiosta ja niiden lopputuotteista.
+ICHO -verkon (Instytut Chemii Organicznej) kouluttamisessa käytettiin dataa 1.4 miljoonasta reaktiosta ja niiden lopputuotteista.
 Data saadaan julkaistuista artikkeleista ja patenteista.
 Reaktiolta kuitenkin vaaditaan, että ainakin yksi reaktio per lopputuote löytyy myös Chematican Expert-Coded säännöstöstä.
 Datasta suodatettiin myös pois suojaryhmien säännöt.
@@ -730,7 +730,7 @@ Mitä enemmän koulutusaineistoa se saa, sitä korkeammalle se sijoittaa kirjall
 Kuvaajat d ja e eivät ole ristiriidassa kuvaajien a, b ja c kanssa.
 Kuvaajasta d nähdään, että nopeasti koulutusaineiston kasvaessa tutkittvat muunnossäännöt siirtyvät nopeasti korkeille sijoille SW2+ -mallissa ja ICHO+ -malli sijoittaa ne korkeallre jo pienellä datamäärällä.
 \emph{SMALLER} -malli sen sijaan sijoittaa tutkittavat muunnossäännöt koulutusaineiston kasvaessa huonommalle sijalle.
-Kuvaaja e myös näyttää, että ICHO+ ja SW2+ -mallien MRR (\textbf{Mean Reciprocal Rank}) -pisteet kasvavat koulutusaineiston kasvaessa, kun taas \emph{SMALLER} -mallin pisteytys laskee.
+Kuvaaja e myös näyttää, että ICHO+ ja SW2+ -mallien MRR (Mean Reciprocal Rank) -pisteet kasvavat koulutusaineiston kasvaessa, kun taas \emph{SMALLER} -mallin pisteytys laskee.
 MRR -pisteytyksellä tarkoitetaan kaikkien yhdisteiden sijoitusten käänteislukujen keskiarvoa.
 Tällöin kuvaajan arvo lähestyy arvoa yksi, jos malli sijoittaa kaikki tutkittavat muunnossäännöt korkeille sijoille.
 
