@@ -396,17 +396,9 @@ Verkko antaa tuloksena kyseisen yhdisteen ominaisuuksien ennusteen.
 PPN koulutetaan käyttäen 257 565 eri molekyyliä.
 Nämä molekyylit jaetaan sattumanvaraisella valinnalla koulutus -ja testiryhmiin suhteessa 8:2.
 
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=10cm, height=8cm]{cmg-property-prediction-network.png}
-    \caption{CMG-mallin PPN-neuroverkon rakenne}
-    {~\cite{ShinBonggun}}
-    \label{fig:cmg-model-ppn}
-\end{figure}
-
 \subsubsection{SPN-verkko}
 
-SPN-verkon rakenne ja toimintaperiaate on kuvattu kuvassa~\ref{fig:cmg-model-spn}
+SPN-verkon rakenne ja toimintaperiaate on kuvattu kuvassa~\ref{fig:cmg-model-spn}.
 SPN ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)) ja alkuperäisen molekyylin merkkijonon (\(x_i\)).
 Nämä merkkijonot syötetään kahdelle eri biLSTM-tasolle, toinen käsittelee alkuperäisen molekyylin merkkijonot ja toinen ennustetun molekyylin merkkijonot.
 Nämä biLSTM-kerrokset tomivat samalla periaatteella kuin PPN-mallissa ja palauttavat näin ollen neljä eri vektoria, kaksi ennustetulta merkkijonolta ja kaksi alkuperäiseltä merkkijonolta.
@@ -419,10 +411,21 @@ Tämä joukko jaetaan samalla tavalla koulutus -ja testiryhmiin kuin PPN-verkoss
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=10cm, height=8cm]{cmg-similarity-network.png}
-    \caption{CMG-mallin SPN-neuroverkon rakenne}
-    {~\cite{ShinBonggun}}
-    \label{fig:cmg-model-spn}
+    \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{cmg-property-prediction-network.png}
+        \caption{PPN-neuroverkon rakenne}
+        {\cite{ShinBonggun}}
+        {\label{fig:cmg-model-ppn}}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{cmg-similarity-network.png}
+        \caption{SPN-neuroverkko rakenne}
+        {\cite{ShinBonggun}}
+        {\label{fig:cmg-model-spn}}
+    \end{minipage}
 \end{figure}
 
 \chapter{Uusien lääkkeiden syntetisointi}
