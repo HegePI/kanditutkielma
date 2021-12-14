@@ -244,8 +244,8 @@ Kappaleessa myös kerrotaan, mitä ovat yhdisteiden ECFP-tunnisteet, mitä omina
 Tavallinen tapa kuvata yhdisteitä on kuvata ne yhdellä rivillä merkkijonona.
 SMILES (Simplified Molecular Input Line Entry System) on David Weiningerin vuonna 1988 kehittämä tapa kuvata molekyylejä ja yksinkertaisia yhdisteitä~\cite{WeiningerSMILES}.
 Se kuvaa yhdisteen yhdellä rivillä käyttäen ASCII-merkistöä.
-Kuvassa~\ref{fig:melatonin} on esitetty melatoniiniyhdiste ja kuinka se kuvataan SMILES muodossa.
 Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
+Kuvassa~\ref{fig:melatonin} on esitetty melatoniiniyhdiste ja kuinka se kuvataan SMILES muodossa.
 
 \begin{figure}[!ht]
     \centering
@@ -257,18 +257,18 @@ Tämän takia se on tietokoneen nopea lukea ja kemistin helppo ymmärtää.
 
 SMARTS (SMILES Arbitrary Target Specification) on SMILES-standardista jatkokehitetty tapa kuvata yhdisteitä.
 Se mahdollistaa yhdisteiden sisäisten rakenteiden määrittämisen.
-SMARTS on yläluokka SMILES standardista, jonka takia kaikki SMILES-merkkijonoiksi kelpaavat merkkijonot ovat myös kelpoja SMARTS-merkkijonoja.
+SMARTS on yläluokka SMILES-standardista, jonka takia kaikki SMILES-merkkijonoiksi kelpaavat merkkijonot ovat myös kelpoja SMARTS-merkkijonoja.
 SMARTS -ja SMILES-standardit mahdollistavat myös kemiallisten reaktioiden kuvaamisen ASCII-merkistöllä yhdellä rivillä.
 
 \section{Yhdisteiden kuvaaminen bitteinä, ECFP}
 
-Toinen tavallinen tapa kuvata yhdisteitä on muuttaa ne ECFP (Extended Connectivity Fingerprint) bitttijonoiksi~\cite{RogersDavid2010EF}.
+Toinen tavallinen tapa kuvata yhdisteitä on muuttaa ne ECFP (Extended Connectivity Fingerprint) bittijonoiksi~\cite{RogersDavid2010EF}.
 ECFP-tunniste lasketaan käyttämällä Morganin algoritmia.
 Algoritmi laskee jokaiselle yhdisteen atomille numeerisen arvon käyttämällä hajautusfunktiota ja iteroimalla ja laskemalla näitä arvoja yhteen se saa laskettua yhdisteen eri osille niitä kuvaavat numeeriset arvot.
 ECFP-tunnisteita kutsutaan myös Morgan-tunnisteiksi (Morgan Fingerprint).
 Nämä numeeriset arvot voidaan muuttaa sitten halutun mittaisiksi bittiesityksiksi~\cite{RogersDavid2010EF}.
 ECFP on yksi monista tavoista kuvata yhdisteitä numeerisessa muodossa, mutta se on yksi käytetyimmistä menetelmistä sen nopean ja helpon laskemisen takia.
-Bittijonojen etuna on se, että lyhyet bittijonot vievät vähän muistia, mutta lyhyjen niiden ongelma on, että ne saattavat menettää oleellista tietoa yhdisteestä bittitörmäysten takia.
+Bittijonojen etuna on se, että lyhyet bittijonot vievät vähän muistia, mutta lyhyiden bittijonojen ongelmana, että ne saattavat menettää oleellista tietoa yhdisteestä bittitörmäysten takia.
 Tämän takia tavallisesti käytetään 4096-bitin mittaisia bittijonoja.
 
 \section{Ominaisuusvektorit}
@@ -277,7 +277,7 @@ Yksi tässä tekstissä käsiteltävistä koneoppimismalleista käyttää ominai
 Ominaisuusvektorit sisältävät tietoa yhdisteen tai molekyylin lääkkeellisistä ominaisuuksista.
 Ominaisuusvektorit voivat kuvata mitä tahansa yhdisteen tai molekyylin ominaisuutta ja ne voidaan valita tilanteen mukaan.
 Kyseisessä mallissa ominaisuusvektorit kuvaavat molekyylin PlogP, QED ja DRD2 arvoja~\cite{ShinBonggun}.
-PlogP (Penalized LogP) kuvaa aineen rasvaliukoisuutta, QED (Quantitative Estimate of Drug-likeness) kuvaa tietyn yhdisteen lääkkeenkaltaisuutta ja DRD2 kuvaa, kuinka paljon molekyyli reagoi dopamiini 2 receptoria vastaan~\cite{BickertonGRichard2012Qtcb}.
+PlogP (Penalized LogP) kuvaa aineen rasvaliukoisuutta, QED (Quantitative Estimate of Drug-likeness) kuvaa tietyn yhdisteen lääkkeenkaltaisuutta ja DRD2 kuvaa, kuinka paljon molekyyli reagoi dopamiini 2 reseptoria vastaan~\cite{BickertonGRichard2012Qtcb}.
 Nämä ovat oleellisia tietoja tutkittaessa uusia mahdollisia lääkeyhdisteitä~\cite{ShinBonggun}.
 
 \chapter{Uusien lääkkeiden löytäminen}
@@ -352,7 +352,7 @@ Näiden tietojen avulla algoritmi laskee kehitetyille yhdisteille numeeriset arv
 Data, jolla mallit koulutetaan, on peräisin ZINC-tietokannasta ja DRD2-dataseteistä.
 ZINC on ilmainen tietokanta, joka sisältää tietoa lääkeyhdsteistä, ja jota voidaan käyttää virtuaalisessa seulonnassa~\cite{ZINC}.
 ZINC tietokantaa ylläpitää Irwin ja Shoichet laboratoriot Kalifornian yliopistossa.
-DRD2-datasetti sisältää tietoa yhdisteistä ja kuinka nämä yhdisteet reagoivat dopamiini 2 receptorin kanssa.
+DRD2-datasetti sisältää tietoa yhdisteistä ja kuinka nämä yhdisteet reagoivat dopamiini 2 reseptorin kanssa.
 DRD2-datasetti luotiin Olivecrona et al.\ tutkimuksen yhteydessä ja sitä käytetään samalla tavalla CMG-mallissa~\cite{ShinBonggun}.
 
 Data sisältää kaiken kaikkiaan 257 565 molekyyliä, joista luodaan pareja.
