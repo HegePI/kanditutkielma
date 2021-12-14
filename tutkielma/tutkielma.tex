@@ -450,11 +450,11 @@ Tämä on kuitenkin osoittautunut toivottomaksi yritykseksi valtavan datamäär�
 
 Kehitys koneoppimismenetelmissä on kuitenkin tarjonnut uuden lähestymistavan CASP-menetelmien kehityksessä.
 Sen sijaan, että kemistit kehittäisivät heuristisia malleja, uudet koneoppimismallit koulutetaan saatavilla olevan datan avulla.
-Tämä on todettu merkittävästi paremmaksi lähestymistavaksi toteuttaa~\cite{ColeyConnorW2018MLiC}.
+Tämä on todettu merkittävästi paremmaksi lähestymistavaksi~\cite{ColeyConnorW2018MLiC}.
 
 Koneoppimismallien käyttö ja koulutus ei ole kuitenkaan täysin ongelmaton lähestymistapa.
 Ongelmaan liittyvää dataa ei välttämättä ole saatavilla ja datan hankkiminen voi olla kallista~\cite{deAlmeidaA.Filipa2019Socd}.
-Ei ole vielä julkista ja kaikille avointa tietopankkia, joka sisältäisi tietoa kemiallisista reaktioista, vaan ainoastaan kaupallisia tietopankkeja on kehitetty, kuten Reaxys ja SciFinder~\cite{deAlmeidaA.Filipa2019Socd}.
+Vielä ei ole kehitetty julkista ja kaikille avointa tietopankkia, joka sisältäisi tietoa kemiallisista reaktioista, vaan ainoastaan kaupallisia tietopankkeja on kehitetty, kuten Reaxys ja SciFinder~\cite{deAlmeidaA.Filipa2019Socd}.
 
 \section{Lääkkeen retrosyntetisoinnin haastavuus}
 
@@ -483,7 +483,7 @@ Nämä mallit on toteutettu suorittaman retrosynteesianalyysiä, mutta niiden to
 
 3N-MCTS-malli on kokonaisempi malli, koska se palauttaa retrosyntetisointipolun, joka kertoo, kuinka haluttu yhdiste voidaan syntetisoida laboratoriossa.
 Se suodattaa jokaisessa retrosyntetisointivaiheessa kaikista mahdollisista muunnoksissta vain ne, jotka ovat toteutettavissa.
-Monte Carlo -puuhakualgoritmi etsii näiden suodatettujen muunnosten avulla retrosyntetisointipolun.
+Monte Carlo -puuhaku algoritmi etsii näiden suodatettujen muunnosten avulla retrosyntetisointipolun.
 
 ICHO-malli palauttaa parhaan muunnossäännön, jonka avulla haluttu yhdiste voidaan muodostaa.
 ICHO-mallin toiminta on verrattavissa 3N-MCTS-mallissa käytetettyihin koneoppimismalleihin, jotka yhdessä suodattavat mahdollisista muunnoksista vain parhaimmat, joiden avulla yhdiste voidaan muodostaa.
@@ -495,8 +495,8 @@ ICHO-malli käyttää sekä samananlaista reaktiodataa kuin 3N-MCTS, mutta se my
 Se etsii retrosynteesipolkuja yksinkertaisempiin ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}.
 Kun retrosynteesipolku on varmennettu ja todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
 
-3N-MCTS-malli muodostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhakualgoritmista (Monte Carlo Tree Search, MCTS).
-Neuroverkot on koulutettu avustamaan puuhakualgoritmia etenemään järkevimpään suuntaan, kun hakualgoritmi etsii syntetisointipolkuja ja tarkistamaan, onko ehdotettu reaktio mahdollinen kyseiselle molekyylille.
+3N-MCTS-malli muodostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhaku algoritmista (Monte Carlo Tree Search, MCTS).
+Neuroverkot on koulutettu avustamaan puuhaku algoritmia etenemään järkevimpään suuntaan, kun hakualgoritmi etsii syntetisointipolkuja ja tarkistamaan, onko ehdotettu reaktio mahdollinen kyseiselle molekyylille.
 
 Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (Expansion Policy Network, EPN), MCTS-algoritmin rollout toimintoa tukeva Rollout -verkko (Rollout Policy Network, RPN) ja verkko, joka tarkistaa, onko syntetisointipolku toteutettavissa (In-scope Filter Network, IFN).
 
@@ -505,7 +505,7 @@ Reaxyksen omistaa Elsevier kustantamo.
 Reaxys-tietokannan sisältämä data koostuu muunnossäännöistä (Transformation Rule), jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion lopputuote.
 Näitä sääntöjä käytetään mallien kouluttamisessa.
 Reaxys sisältää yli 12.4 miljoonaa sääntöä.
-Mallien kouluttamisessa käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktiossa on mukana vain yhdestä kolmeen lähtötuotetta.
+Mallien kouluttamisessa käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktioissa on mukana vain yhdestä kolmeen lähtötuotetta.
 Eri mallien kouluttamiseen käytetään tietokannasta eri kriteerein suodatettua dataa.
 Kaikki koneoppimismallit koulutetaan käyttämällä ADAM-optimoijaa.
 Se on algoritmi, jota käytetään neuroverkon kaarien painojen optimoinnissa neuroverkon koulutusvaiheessa.
@@ -534,7 +534,7 @@ Tätä toiminnallisuutta iteroidaan mallissa seuraavassa järjestyksessä.
           Muussa tapauksessa lehdelle suoritetaan rollout, jolloin RPN antaa rekursiivisesti uusia sääntöjä niin kauan, kunnes lehti on pilkottu lähtöaineisiin tai kunnes suurin sallittu syvyys \(d\) on saavutettu.
 
     \item Viimeisessä vaiheessa lehtien arvot päivitetään.
-          Jos lähtöaineet löydetään rolloutin aikana, niin lehti saa palkonnoksi arvon 1.
+          Jos lähtöaineet löydetään rolloutin aikana, niin lehti saa palkinnoksi arvon 1.
           Jos kaikkia lähtöaineita ei löydetty, annetaan lehdelle osittainen palkinto.
           Lehti saa arvon -1, jos yhtään lähtöainetta ei löytynyt.
 \end{enumerate}
@@ -555,11 +555,11 @@ Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisält
 
 EPN-verkko muodostuu täysin kytketystä tasosta ja viidestä highway-tasosta.
 Molemmissa tasoissa on käytetty aktivointifunktiona ELU-funktiota (Exponential Linear Unit).
-Täysin kytketyssä tasossa suoritetaan dropout-toiminto, jonka jälkeen vain 30 prosenttia ensimmäisen tason solmujen tuloksista otetaan huomioon seuraavalla tasolla.
+Täysin kytketyssä tasossa suoritetaan Dropout-toiminto, jonka jälkeen vain 30 prosenttia ensimmäisen tason solmujen tuloksista otetaan huomioon seuraavalla tasolla.
 Dropout-toiminolla tarkoitetaan, että vain tietty osa kaikista edellisen tason palauttamista arvoista huomioidaan~\cite{hinton2012improving}.
 Dropout-toiminto suoritetaan mallin koulutusvaiheessa ja pois jätettävät arvot valitaan sattumanvaraisesti.
 Dropout-toiminnolla pyritään välttämään ylitulkintaa (Overfitting).
-Tämän jälkeen jokaisen highway-tason jälkeen suoritetaan dropout-toiminto, jossa otetaan huomioon vain 10 prosenttia edellisen tason arvoista.
+Tämän jälkeen jokaisen highway-tason jälkeen suoritetaan Dropout-toiminto, jossa otetaan huomioon vain 10 prosenttia edellisen tason arvoista.
 EPN-verkon viimeinen taso on softmax-taso, joka palauttaa todennäköisyysjakauman.
 Tämä jakauma kertoo, kuinka todennäköisesti muunnossääntö \emph{a} muodostaa tuotteen \emph{m}.
 
@@ -579,7 +579,7 @@ Lopullinen reaktiomäärä, jolla EPN-verkko koulutettiin, oli 301 671 reaktiota
 
 RPN-verkko muodostuu yhdestä täysin kytketystä tasosta.
 Samalla tavalla kuin EPN-verkko, RPN-verkko käyttää myös ELU-funktiota aktivointifunktiona.
-RPN-verkon ensimmäisen tason jälkeen suoritetaan dropout-toiminto, jonka jälkeen vain 40 prosenttia kaikista ensimmäisen tason arvoista tulkitaan.
+RPN-verkon ensimmäisen tason jälkeen suoritetaan Dropout-toiminto, jonka jälkeen vain 40 prosenttia kaikista ensimmäisen tason arvoista tulkitaan.
 RPN-verkon viimeinen taso on myös softmax-taso, joka palauttaa todennäköisyysjakauman.
 
 \begin{figure}[!ht]
@@ -592,7 +592,7 @@ RPN-verkon viimeinen taso on myös softmax-taso, joka palauttaa todennäköisyys
 
 RPN-verkon kouluttamiseen valittiin datasta vain reaktiossa muuttuneet atomit ja liitokset (Reaktiokeskus) ja lähimmät vierekkäiset atomit.
 Datasta suodatettiin pois sellaiset säännöt, jotka ilmaantuivat alle 50 kertaa ennen vuotta 2015.
-Lopullinen reaktiomäärä, jolla RPN-verkko koulutettiin, oli 17 134 reaktiota.
+Lopullinen reaktiomäärä, jolla RPN-verkko koulutetaan, on 17 134 reaktiota.
 
 \subsubsection{IFN-verkko}
 
@@ -602,7 +602,7 @@ IFN-verkko kertoo, onko sille annettu yhdiste mahdollista muodostaa annetulla mu
 IFN-neuroverkko muodostuu kahdesta haarasta.
 Toinen haara saa syötteenä muodostettavan yhdisteen tunnisteen ja toinen haara saa muunnossäännön tunnisteen.
 
-Haara, joka saa syötteenä yhdisteen tunnisteen, muodostuu yhdestä täysin kytketystä tasosta jonka jälkeen suoritetaan 30 prosentin dropout-toiminto.
+Haara, joka saa syötteenä yhdisteen tunnisteen, muodostuu yhdestä täysin kytketystä tasosta jonka jälkeen suoritetaan 30 prosentin Dropout-toiminto.
 Tämän jälkeen data kulkee viiden highway-tason läpi.
 Sekä täysin kytketty että highway-tasot käyttävät ELU-funktiota aktivointifunktiona.
 
@@ -610,7 +610,7 @@ Haara, joka saa syötteenä muunnossäännön tunnisteen, muodostuu vain yhdest�
 Tämä taso käyttää myös ELU-aktivointifuktiota.
 
 Näiden haarojen jälkeen saaduista tuloksista lasketaan niiden kosinisamankaltaisuus.
-Saatu tulos syötetään sitten sigmoid-funktiolle, jonka tulos kertoo, pystyykö kyseinen muunnosssäntö muodostamaan halutun yhdisteen.
+Saatu tulos syötetään sigmoid-funktiolle, jonka tulos kertoo, pystyykö kyseinen muunnossäntö muodostamaan halutun yhdisteen.
 
 \begin{figure}[!ht]
     \centering
