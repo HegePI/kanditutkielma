@@ -214,14 +214,14 @@ Kehitetyt mallit ovat näyttäneet, että koneoppimismallit ovat tehokkaita työ
 
 Tässä tutkielmassa paneudutaan muutamiin koneoppimismalleihin, joita käytetään uusien lääkkeiden tunnistamisessa ja näiden tunnistettujen lääkkeiden syntetisointisuunnittelussa.
 Tutkielman tarkoituksena on tutustuttaa lukija koneoppimisen käsitteistöön ja erilaisiin malleihin ja ongelmiin, jotka liittyvät lääkkeiden löytämiseen ja löydettyjen lääkkeiden syntetisointisuunnitteluun.
-Käsiteltävät koneoppimismenetelmät toimivat esimerkkeinä, kuinka koneoppimista voidaan käyttää käsiteltävissä konteksteissa.
+Esiteltävät koneoppimismenetelmät toimivat esimerkkeinä, kuinka koneoppimista voidaan käyttää käsiteltävissä konteksteissa.
 
 Ensimmäisessä kappaleessa tutustutaan eri datatyyppeihin, joita käytetään koneoppimismallien kouluttamisessa.
 Tämä on lyhyt kappale, jossa käydään läpi ne datatyypit, joita myöhemmin selitettävät koneoppimismallit käyttävät.
 Datatyyppien ymmärtäminen auttaa hahmottamaan myöhemmin tutkielmassa selitettävien eri mallien toimintaperiaatteita.
 
 Toisessa kappaleessa käydään läpi, kuinka uusia lääkkeitä etsitään ja löydetään.
-Kappaleessa avataan pintapuolisesti läpi virtuaalista seulontaa (Virtual Screening), mitä sillä tarkoitetaan ja kuinka sitä hyödynnetään.
+Kappaleessa avataan pintapuolisesti virtuaalista seulontaa (Virtual Screening), mitä sillä tarkoitetaan ja kuinka sitä hyödynnetään.
 Tässä kappaleessa käydään läpi myös yhden koneoopimismallin toimintaa, joka on koulutettu löytämään uusia yhdisteitä.
 Tämä malli mahdollistaa uusien lääkeyhdisteiden nopean löytämisen, joita päästään jatkotutkimaan nopeasti.
 
@@ -264,7 +264,7 @@ SMARTS- ja SMILES-standardit mahdollistavat myös kemiallisten reaktioiden kuvaa
 
 Toinen tavallinen tapa kuvata yhdisteitä on muuttaa ne ECFP (Extended Connectivity Fingerprint) bittijonoiksi~\cite{RogersDavid2010EF}.
 ECFP-tunniste lasketaan käyttämällä Morganin algoritmia.
-Algoritmi laskee jokaiselle yhdisteen atomille numeerisen arvon käyttämällä hajautusfunktiota ja iteroimalla ja laskemalla näitä arvoja yhteen se saa laskettua yhdisteen eri osille niitä kuvaavat numeeriset arvot.
+Algoritmi laskee jokaiselle yhdisteen atomille numeerisen arvon käyttämällä hajautusfunktiota ja iterointia sekä laskemalla nämä arvot yhteen se saa laskettua yhdisteen eri osille niitä kuvaavat numeeriset arvot.
 ECFP-tunnisteita kutsutaan myös Morgan-tunnisteiksi (Morgan Fingerprint).
 Nämä numeeriset arvot voidaan muuttaa sitten halutun mittaisiksi bittiesityksiksi~\cite{RogersDavid2010EF}.
 ECFP on yksi monista tavoista kuvata yhdisteitä numeerisessa muodossa, mutta se on yksi käytetyimmistä menetelmistä sen nopean ja helpon laskemisen takia.
@@ -304,7 +304,7 @@ PubChem on Yhdysvaltojen terveysviraston (National Institute of Health) ylläpit
 Kemiallisten yhdisteiden avaruudella tarkoitetaan kaikkien uniikkien yhdisteiden lukumäärää.
 On arvioitu, että erilaisia kemiallisia yhdisteitä, jotka voivat esiintyä huoneenlämmössä nesteessä, voi olla välillä \(10^{18} - 10^{180}\)~\cite{SotrifferChristoph2011VSPC}.
 Yhdisteet, jotka täyttävät lääkkeeltä vaaditut kriteerit, on puolestaan arvioitu olevan noin \(10^{60}\)~\cite{SotrifferChristoph2011VSPC}.
-Erillaisten yhdisteiden suuri lukumäärä itsessään esittää tarpeen tehokkaille algoritmeille ja menetelmille, jotka auttavat karsimaan tästä suuresta määrästä kemiallisia yhdisteitä vain lupaavimmat.
+Erillaisten yhdisteiden suuri lukumäärä esittää tarpeen tehokkaille algoritmeille ja menetelmille, jotka auttavat karsimaan tästä suuresta määrästä kemiallisia yhdisteitä vain lupaavimmat.
 
 Virtuaalinen seulonta (Virtual Screening) on suosittu lähestymistapa uusien lääkkeiden tai lääkkeeksi kelpaavien yhdisteiden löytämiseksi.
 Virtuaalinen seulonta käsittää joukon menetelmiä, joissa tietokoneita hyväksi käyttäen karsitaan yhdisteiden avaruudesta vain tietyt kriteerit täyttävät yhdisteet~\cite{SotrifferChristoph2011VSPC}.
@@ -319,8 +319,8 @@ Koneoppimismallien avulla löydettyjä yhdisteitä voidaan jatkotutkia ja kehitt
 
 \section{Kehitettyjä koneoppimismalleja}
 
-Seuraavaksi avataan erään toteutetun koneoppimismallin toimintaperiaatetta.
-Kyseinen malli etsii uusia lääkkeitä käyttämällä hyödyksi sille annettua prototyyppiyhdistettä, prototyypin kemiallisia ominaisuuksia ja uudelta lääkkeeltä haluttuja kemiallisia ominaisuuksia.
+Seuraavaksi avataan CMG-mallin toimintaperiaatetta.
+CMG-malli etsii uusia lääkkeitä käyttämällä hyödyksi sille annettua prototyyppiyhdistettä, prototyypin kemiallisia ominaisuuksia ja uudelta lääkkeeltä haluttuja kemiallisia ominaisuuksia.
 Kemialliset ominaisuudet on koodattu ominaisuusvektoreihin.
 
 \subsection{CMG-malli}
@@ -398,7 +398,7 @@ Nämä molekyylit jaetaan sattumanvaraisella valinnalla koulutus- ja testiryhmii
 
 \subsubsection{SPN-verkko}
 
-SPN-verkon rakenne ja toimintaperiaate on kuvattu kuvassa~\ref{fig:cmg-model-spn}.
+SPN-verkon rakenne ja toimintaperiaate on esitetty kuvassa~\ref{fig:cmg-model-spn}.
 SPN-verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)) ja alkuperäisen molekyylin merkkijonon (\(x_i\)).
 Nämä merkkijonot syötetään kahdelle eri biLSTM-tasolle, toinen käsittelee alkuperäisen molekyylin merkkijonot ja toinen ennustetun molekyylin merkkijonot.
 Nämä biLSTM-tasot tomivat samalla periaatteella kuin PPN-verkossa ja palauttavat näin ollen neljä eri vektoria, kaksi ennustetulta merkkijonolta ja kaksi alkuperäiseltä merkkijonolta.
@@ -518,7 +518,7 @@ ADAM-optimoija hyödyntää AdaGrad- ja RMSProp-optimoijien toiminnallisuuksia~\
 Tutkittaessa puun tilaa \(S_i\) jokainen molekyyli syötetään EPN-verkolle ja se tulostaa, mitkä säännöt voivat muodostaa annetun yhdisteen.
 Tästä säännöstä saadaan selville, mitkä lähtöaineet voivat muodostaa annetun yhdisteen.
 Nämä säännöt syötetään IFN-verkolle, joka suodattaa annetuista säännöistä toteutettavissa olevat vaihtoehdot.
-3N-MCTS-mallin suoritusjärjestys on kuvattu kuvassa~\ref{fig:3n-mcts-model}.
+3N-MCTS-mallin suoritusjärjestys on esitetty kuvassa~\ref{fig:3n-mcts-model}.
 Tätä toiminnallisuutta iteroidaan mallissa seuraavassa järjestyksessä.
 
 \begin{enumerate}
@@ -637,7 +637,7 @@ Mallit koulutettiin muunnossäännöillä, jotka ilmenivät ennen vuotta 2015, j
 
 Mallien tehtäväksi annettiin löytää halutulle yhdisteelle retrosyntetisointipolku annetussa ajassa.
 Testaamiseen käytettiin 497 eri yhdistettä.
-Mittaukset on kuvattu kuvaajassa~\ref{fig:3n-mcts-performance}.
+Mittaukset on esitetty kuvaajassa~\ref{fig:3n-mcts-performance}.
 
 3N-MCTS-malli suoriutui kahta muuta menetelmää paremmin jokaisessa eri aikakategoriassa.
 3N-MCTS-malli löysi viidessä sekunnissa 80 prosentille yhdisteistä retrosyntetisointipolun, kun taas muokattu \(SMILES^{3/2}\)-menetelmä löysi retrosyntetisointipolun vain 40 prosenttille yhdisteistä ja alkuperäinen ei löytänyt polkuja lainkaan.
@@ -700,7 +700,7 @@ Kehitetyssä ICHO-mallissa on kaksi tärkeää asiaa.
 \end{figure}
 
 ICHO-malli muodostuu neljästä tasosta, joista kolme tasoa ovat täysin kytkettyjä neuroverkkoja ja viimeinen taso on sigmoid-taso
-Malli kuvattu kuvassa~\ref{fig:icho-neuralnetwork}.
+Malli on esitetty kuvassa~\ref{fig:icho-neuralnetwork}.
 Samalla tavalla kuin 3N-MCTS-mallissa, ICHO-malli käyttää myös ELU-aktivointifunktiota.
 ICHO-malli käyttää Batch normaliztion -algoritmia koulutusvaiheessa.
 Batch Normalization -algoritmin idea on standardoida koulutusvaiheessa tasolle tuleva syöte, jolla verkon painoja muutetaan.
@@ -760,10 +760,11 @@ Tässä tutkielmassa avattiin yleisiä asioita, mitkä liittyvät uusien lääkk
 Lisäksi tutkielmassa käytiin läpi kolmen eri koneoppimismallin toimintaa ja niihin liittyviä asioita.
 
 Johdannossa kerrottiin, mitä vaiheita kuuluu lääkekehitykseen ja miksi koneoppimista halutaan käyttää osana lääkekehityksen prosessia.
+Johdannossa kerrottin, että lääkkeiden kehitys vie paljon resursseja ja aikaa.
 Tämä asettaa ongelman, miksi koneoppimista halutaan käyttää lääkekehityksen prosesseissa.
 Vaikka käyttökohteita koneoppimiselle on jokaisessa lääkekehityksen vaiheessa, niin tutkielmassa keskityttiin vain lääkkeiden löytämiseen ja lääkkeiden syntetisointisuunnitteluun koneoppimismenetelmillä.
 Nämä käytiin läpi sen takia, koska ne ovat kliinisten testien jälkeen vaiheet, joihin kuluu eniten resursseja.
-Nämä käytiin läpi myös sen takia, koska ongelmat ja konseptit, joita lääkkeiden löytämisessä ja syntetisoinninsuunnittelussa käytiin läpi, on suhteellisen helppoja ymmärtää ilman syvällisempää kemiaan tai lääkkeisiin liittyvää tietoa.
+Nämä käytiin läpi myös sen takia, koska ongelmat ja konseptit, joita lääkkeiden löytämisessä ja syntetisoinninsuunnittelussa esitettiin, on suhteellisen helppoja ymmärtää ilman syvällisempää kemiaan tai lääkkeisiin liittyvää tietoa.
 Tämän takia tutkielma pystyi keskittymään enemmän kehitettyihin koneoppimismalleihin ja niiden taustoihin.
 
 Johdannon jälkeen kerrottiin, mitä eri datatyyppejä käytetään tutkielmassa käytävien koneoppimismallien kouluttamisessa.
