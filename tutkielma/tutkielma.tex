@@ -143,10 +143,10 @@
 
 \begin{abstract}
 
-    Tässä tutkielmassa käydään läpi, kuinka koneoppimista voidaan käyttää lääkekehityksessä ja minkälaista dataa voidaan käyttää koneoppimismallien kouluttamisessa.
-    Tutkielman alussa käydään nopeasti lääkekehityksen eri vaiheita ja miksi koneoppimista halutaan käyttää lääkekehityksessä.
+    Tässä tutkielmassa kerrotaan, kuinka koneoppimista voidaan käyttää lääkekehityksessä ja minkälaista dataa voidaan käyttää koneoppimismallien kouluttamisessa.
+    Tutkielman alussa avataan nopeasti lääkekehityksen eri vaiheita ja miksi koneoppimista halutaan käyttää lääkekehityksessä.
     Seuraavissa kappaleissa keskitytään ainoastaan lääkkeiden löytämiseen ja lääkkeiden syntetisointisuunnitteluun ja kuinka koneoppimista voidaan hyödyntää näissä vaiheissa.
-    Kappaleissa käydään myös läpi kolmen eri koneoppimismallin toimintaa, joista yksi keskittyy uusien lääkkeiden löytämiseen ja kaksi keskittyvät yhdisteiden syntetisointisuunnitteluun.
+    Kappaleissa käydään läpi myös kolmen eri koneoppimismallin toimintaa, joista yksi keskittyy uusien lääkkeiden löytämiseen ja kaksi keskittyvät yhdisteiden syntetisointisuunnitteluun.
     Tutkielman alussa kerrotaan myös eri datatyypeistä, joita käytetään kyseisissä koneoppimismalleissa.
 
     Koneoppimismallien tarkoituksena on antaa lukijalle ajatus siitä, miten koneoppimista voidaan hyödyntää kyseisissä lääkekehityksen vaiheissa, minkälaisia ongelmia koneoppimismalleilla pyritään ratkomaan ja minkälaisia koneoppimismalleja ja tekniikoita ongelmien ratkomisessa on käytetty.
@@ -221,18 +221,18 @@ Tämä on lyhyt kappale, jossa käydään läpi ne datatyypit, joita myöhemmin 
 Datatyyppien ymmärtäminen auttaa hahmottamaan myöhemmin tutkielmassa selitettävien eri mallien toimintaperiaatteita.
 
 Toisessa kappaleessa käydään läpi, kuinka uusia lääkkeitä etsitään ja löydetään.
-Kappaleessa käydään pintapuolisesti läpi virtuaalista seulontaa (Virtual Screening), mitä sillä tarkoitetaan ja kuinka sitä hyödynnetään.
-Tässä kappaleessa käydään myös läpi yhden koneoopimismallin toimintaa, joka on koulutettu löytämään uusia yhdisteitä.
+Kappaleessa avataan pintapuolisesti läpi virtuaalista seulontaa (Virtual Screening), mitä sillä tarkoitetaan ja kuinka sitä hyödynnetään.
+Tässä kappaleessa käydään läpi myös yhden koneoopimismallin toimintaa, joka on koulutettu löytämään uusia yhdisteitä.
 Tämä malli mahdollistaa uusien lääkeyhdisteiden nopean löytämisen, joita päästään jatkotutkimaan nopeasti.
 
 Kolmas kappale paneutuu yhdisteiden syntetisointiin ja kuinka sitä voidaan toteuttaa hyödyntämällä koneoppimismalleja.
 Kappaleessa käsitellään, kuinka syntetisointia voidaan suunnitella retrosynteesianalyysin avulla, mikä tekee yhdisteiden retrosyntetisointianalyysista hankalaa ja mitä ratkaisuja tähän on kehitetty.
 Kappale kertoo CASP-menetelmistä (Computer Aided Synthesis Planning) ja kuinka tämä liittyy retrosyntetisointianalyysiin.
-Kappaleessa käydään myös läpi kahden eri koneoppimismallin toimintaa, jotka on kehitetty auttamaan eri yhdisteiden syntetisointisuunnittelussa.
+Kappaleessa avataan myös kahden eri koneoppimismallin toimintaa, jotka on kehitetty auttamaan eri yhdisteiden syntetisointisuunnittelussa.
 
 \chapter{Kemiallinen data}
 
-Tässä kappaleessa käydään pintapuolisesti läpi, minkälaista dataa käytetään koneppimismallien kouluttamisessa.
+Tässä kappaleessa kerrotaan pintapuolisesti, minkälaista dataa käytetään koneppimismallien kouluttamisessa.
 Kappaleessa keskitytään datatyyppeihin, joita käytetään koneoppimismalleissa, joiden toimintaa tullaan avaamaan tämän tutkielman muissa osissa.
 Koneoppimismallit, joiden toimintaa avataan, käyttävät datatyyppejä, joilla kuvataan pienyhdisteitä.
 Tämän takia kappaleessa keskitytään vain pienyhdisteitä kuvaaviin datatyyppeihin.
@@ -283,8 +283,8 @@ Nämä ovat oleellisia tietoja tutkittaessa uusia mahdollisia lääkeyhdisteitä
 \chapter{Uusien lääkkeiden löytäminen}
 
 Tässä kappaleessa kerrotaan, mitä asioita liittyy lääkkeiden löytämiseen.
-Kappaleessa käydään läpi, mitä on virtuaalinen seulonta ja kuinka sitä hyödynnetään lääkkeiden etsinnässä.
-Kappaleessa käydään myös läpi yhden koneoppimismallin toimintaperiaate.
+Kappaleessa avataan, mitä on virtuaalinen seulonta ja kuinka sitä hyödynnetään lääkkeiden etsinnässä.
+Kappaleessa avataan myös yhden koneoppimismallin toimintaperiaate.
 Kyseinen koneoppimismalli luo uusia lääkkeitä kuvaavia SMARTS-merkkijonoja, joilla on mahdollisimman lähellä haluttuja ominaisuuksia olevat ominaisuudet.
 
 \section{Lääkkeiden löytäminen}
@@ -319,7 +319,7 @@ Koneoppimismallien avulla löydettyjä yhdisteitä voidaan jatkotutkia ja kehitt
 
 \section{Kehitettyjä koneoppimismalleja}
 
-Seuraavaksi käydään läpi erään toteutetun koneoppimismallin toimintaperiaate.
+Seuraavaksi avataan erään toteutetun koneoppimismallin toimintaperiaatetta.
 Kyseinen malli etsii uusia lääkkeitä käyttämällä hyödyksi sille annettua prototyyppiyhdistettä, prototyypin kemiallisia ominaisuuksia ja uudelta lääkkeeltä haluttuja kemiallisia ominaisuuksia.
 Kemialliset ominaisuudet on koodattu ominaisuusvektoreihin.
 
@@ -343,7 +343,7 @@ CMG-mallille opetetaan, kuinka syötteenä annettu yhdistemerkkijono käännetä
 CMG-malli tulkitsee ensin annetut merkkijonot hyödyntäen DN-verkkoa (Deep Network) jonka jälkeen se luo uusia molekyyliyhdisteitä hyödyntäen tätä tulkintaa ja haluttua ominaisuusvektoria.
 Koska ominaisuudet annetaan vektorina, niin CMG-malli pystyy optimoimaan useampaa ominaisuutta samanaikaisesti.
 CMG-malli hyödyntää myös etukäteen koulutettuja rajoiteverkkoja (Constraint Network), jolloin vältytään luomasta mahdottomia yhdisteitä.
-CMG-malli käyttää näitä verkkoja hyödyksi käyttämällä muokattua Beam Search -algoritmia.
+CMG-malli käyttää näitä verkkoja hyödyksi muokattussa Beam Search -algoritmissa.
 
 Beam Searh -algoritmi saa syötteenä kaikki CMG-mallin kehittämät yhdisteet, pisteyttää ne ja palauttaa yhdisteen, joka sai parhaimman pisteytyksen.
 Algoritmi käyttää PPN-verkkoa ennustaessaan kehitetyn molekyylin ominaisuuksia ja SPN-verkkoa laskiessaan, kuinka samankaltainen kehitetty yhdiste on CMG-mallin syötteenä saadun yhdisteen kanssa.
@@ -430,10 +430,10 @@ Tämä joukko jaetaan samalla tavalla koulutus- ja testiryhmiin kuin PPN-verkoss
 
 \chapter{Uusien lääkkeiden syntetisointi}
 
-Tässä kappaleessa käydään läpi, miten lääkkeiden syntetisointisuunnittelua voidaan tehostaa koneoppimismallien avulla.
-Kappaleessa keskitytään syntetisointisuunnitteluun käyttämällä retrosyntetisointimenetelmää.
+Tässä kappaleessa kerrotaan, miten lääkkeiden syntetisointisuunnittelua voidaan tehostaa koneoppimismallien avulla.
+Kappaleessa keskitytään syntetisointisuunnitteluun retrosyntetisointimenetelmää hyödyntämällä.
 Kappaleessa kerrotaan, mikä tekee yhdisteen retrosyntetisoinnista vaikeaa ja kuinka sitä voidaan tehostaa hyödyntämällä eri koneoppimismalleja.
-Kappaleessa käydään läpi kahden koneoppimismallin toimintaa, jotka suorittavat halutun yhdisteen retrosyntetisointia.
+Kappaleessa avataan kahden koneoppimismallin toimintaa, jotka suorittavat halutun yhdisteen retrosyntetisointia.
 
 \section{Yhdisteiden syntetisointi}
 
@@ -507,7 +507,7 @@ Näitä sääntöjä käytetään mallien kouluttamisessa.
 Reaxys sisältää yli 12.4 miljoonaa sääntöä.
 Mallien kouluttamisessa käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktioissa on mukana vain yhdestä kolmeen lähtötuotetta.
 Eri mallien kouluttamiseen käytetään tietokannasta eri kriteerein suodatettua dataa.
-Kaikki koneoppimismallit koulutetaan käyttämällä ADAM-optimoijaa.
+Kaikki koneoppimismallit koulutetaan hyödyntämällä ADAM-optimoijaa.
 Se on algoritmi, jota käytetään neuroverkon kaarien painojen optimoinnissa neuroverkon koulutusvaiheessa.
 ADAM-optimoija perustuu stokastiseen gradientiin, mutta koska algoritmi on helppo toteuttaa ja se on laskennallisesti tehokas, niin se soveltuu neuroverkkojen optimointiin, jotka sisältävät paljon kaaria.
 ADAM-optimoija hyödyntää AdaGrad- ja RMSProp-optimoijien toiminnallisuuksia~\cite{kingma2017adam}.
@@ -756,42 +756,41 @@ Tällöin kuvaajan arvo lähestyy arvoa yksi, jos malli sijoittaa kaikki tutkitt
 
 \chapter{Yhteenveto}
 
-Tässä tutkielmassa avattiin yleisiä asioita, mitä liittyy uusien lääkkeiden löytämiseen ja syntetisointisuunnitteluun ja kuinka koneoppimista voidaan hyödyntää näissä vaiheissa.
-Lisäksi tutkielmassa käytiin läpi kolmen eri koneoppimismallin toimintaperiaatteet.
+Tässä tutkielmassa avattiin yleisiä asioita, mitkä liittyvät uusien lääkkeiden löytämiseen, syntetisointisuunnitteluun ja kuinka koneoppimista voidaan hyödyntää näissä vaiheissa.
+Lisäksi tutkielmassa käytiin läpi kolmen eri koneoppimismallin toimintaa ja niihin liittyviä asioita.
 
 Johdannossa kerrottiin, mitä vaiheita kuuluu lääkekehitykseen ja miksi koneoppimista halutaan käyttää osana lääkekehityksen prosessia.
 Tämä asettaa ongelman, miksi koneoppimista halutaan käyttää lääkekehityksen prosesseissa.
 Vaikka käyttökohteita koneoppimiselle on jokaisessa lääkekehityksen vaiheessa, niin tutkielmassa keskityttiin vain lääkkeiden löytämiseen ja lääkkeiden syntetisointisuunnitteluun koneoppimismenetelmillä.
-Nämä käytiin sen takia, koska ne ovat kliinisten testien jälkeen ne vaiheet, joihin kuluu eniten resursseja.
-Nämä käytiin myös sen takia, koska ongelmat ja konseptit, joita lääkkeiden löytämisessä ja syntetisoinninsuunnittelussa käytiin läpi, on suhteellisen helppoja ymmärtää ilman syvällisempää kemiaan tai lääkkeisiin liittyvää tietoa.
+Nämä käytiin läpi sen takia, koska ne ovat kliinisten testien jälkeen vaiheet, joihin kuluu eniten resursseja.
+Nämä käytiin läpi myös sen takia, koska ongelmat ja konseptit, joita lääkkeiden löytämisessä ja syntetisoinninsuunnittelussa käytiin läpi, on suhteellisen helppoja ymmärtää ilman syvällisempää kemiaan tai lääkkeisiin liittyvää tietoa.
 Tämän takia tutkielma pystyi keskittymään enemmän kehitettyihin koneoppimismalleihin ja niiden taustoihin.
 
-Johdannon jälkeen käytiin myös, mitä eri datatyyppejä käytetään tutkielmassa käytävien koneoppimismallien kouluttamisessa.
-Tämän kappaleen sisällön käyminen auttaa ymmärtämään, miten koneoppimismallit toimivat ja mitä ongelmia ne ratkovat.
+Johdannon jälkeen kerrottiin, mitä eri datatyyppejä käytetään tutkielmassa käytävien koneoppimismallien kouluttamisessa.
+Tämän kappaleen sisällön avaaminen auttaa ymmärtämään koneoppimismallien toimintaa ja mitä ongelmia ne ratkovat.
 
 Kappaleessa kolme keskityttiin lääkkeiden löytämiseen ja sen taustoihin.
-Tämä aihe käytiin tutkielmassa, koska sen nopeuttaminen ja tehostaminen mahdollistaa halutut ominaisuudet omaavien lääkkeiden nopean löytämisen.
+Tätä aihetta avattiin tutkielmassa, koska sen nopeuttaminen ja tehostaminen mahdollistaa haluttujen ominaisuksien omaavien lääkkeiden nopean löytämisen.
 Jos koneoppimismallit pystyvät luomaan sellaisia yhdisteitä kuvaavia merkkijonoja, joilla on tarkkaan määritellyt ominaisuudet, niin tarve ja tarvittava aika lääkeyhdisteiden ominaisuuksien jatkotutkimukselle vähenee.
 Kappaleessa avattiin yhden toteutetun koneoppimismallin toimintaa, joka luo uusia yhdistemerkkijonoja haluttujen ominaisuuksien perusteella.
 Tämä antoi hieman ajatusta, millä tavalla uusia yhdisteitä voidaan etsiä ja mitä asioita liittyy lääkkeiden etsimiseen.
 
-Kappaleessa neljä käytiin, mitä asioita liittyy yhdisteiden syntetisointisuunnitteluun.
-Tämä käytiin tutkielmassa sen takia, koska syntetisointisuunnittelu on osa lääkkeiden löytämis- ja kehitysvaihetta, ja tämän aiheen tutkiminen voi luoda uusia ja tehokkaampia tapoja, kuinka syntetisointia voidaan toteutaa käytännössä.
+Kappaleessa neljä käytiin läpi, mitä asioita liittyy yhdisteiden syntetisointisuunnitteluun.
+Tätä aihetta avattiin tutkielmassa sen takia, koska syntetisointisuunnittelu on osa lääkkeiden löytämis- ja kehitysvaihetta, ja tämän aiheen tutkiminen voi luoda uusia ja tehokkaampia tapoja, kuinka syntetisointia voidaan toteutaa käytännössä.
 Vaikka tutkielmassa keskityttiin syntetisointisuunnitteluun lääkkekehityksen näkökulmasta, niin syntetisointisuunnittelua voidaan tehostaa koneoppimismenetelmillä kaikessa materiaalitieteissä niin kauan, kun aiheeseen liittyvää dataa on saatavilla.
 
 Kappaleessa neljä avattiin myös kahden eri koneoppimismallin toimintaa.
 Ensimmäinen malli, 3N-MCTS, on kokonaisempi malli, joka palauttaa yhdisteen syntetisointipolun.
-Tämän antaa ajatusta, kuinka puuhaku- tai reitinhakualgoritmeja voidaan käyttää syntetisointipolkujen etsimisessä ja kuinka neuroverkot toimivat niiden tukena.
-Se myös näyttää, kuinka raakaa reaktiodataa voidaan käyttää syntetisoinninsuunnittelussa.
+Tämän mallin avaaminen antaa ajatusta, kuinka puuhaku- tai reitinhakualgoritmeja voidaan käyttää syntetisointipolkujen etsimisessä ja kuinka neuroverkot toimivat niiden tukena.
+Mallin toimintaperiaatteen avaaminen myös näyttää, kuinka raakaa reaktiodataa voidaan käyttää syntetisoinninsuunnittelussa.
 Toinen malli, ICHO, taas puolestaan palauttaa parhaimman muunnossäännön, jonka avulla yhdiste voidaan luoda.
-Se ei etsi syntetisointireittejä, mutta se käyttää heuristiikka apunaan ja se näytti, että mahdollisia muunnossääntöjä voidaan etsiä niiden avulla.
+Se ei etsi syntetisointireittejä, mutta se käyttää heuristiikka apunaan muunnossääntöjen etsimisessä.
 Näiden mallien avaaamisen tarkoituksena on näyttää, että syntetisointisuunnittelua voidaan suorittaa usealla tavalla ja kuinka eri tapojen suorituskykyä voidaan verrata toisiinsa.
 
 Lääkekehitys on pitkä ja kallis prosessi, ja koneoppimismenetelmillä on mahdollisuus vähentää siihen kuluvaa aikaa ja rahaa.
-Tutkielmassa avatuilla malleilla on mahdollisuus tehostaa niitä prosesseja, joihin ne on luotu ja useilla muilla malleilla on mahdollisuus nopeuttaa muita lääkekehityksen vaiheita.
-Tutkimusta suoritetaan tällä tutkimusalueella paljon ja uusia malleja kehitetään jatkuvasti.
-Tulevaisuudessa koneoppiminen tulee olemaan merkittävä osa lääkekehitystä.
-
+Tutkielmassa avatuilla koneoppimismalleilla ja useilla muilla kehitetyillä malleilla voidaan tehostaa lääkekehityksen vaiheita.
+Tutkimusta tehdään tällä tutkimusalueella paljon ja uusia malleja kehitetään jatkuvasti.
+Tutkimuksen ja kehitettyjen koneoppimismallien määrä näyttääkin viittaavaan, että tulevaisuudessa koneoppiminen tulee olemaan merkittävä osa lääkekehitystä.
 
 \cleardoublepage{}                          %fixes the position of bibliography in bookmarks
 \phantomsection{}
