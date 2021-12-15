@@ -227,12 +227,12 @@ Tämä malli mahdollistaa uusien lääkeyhdisteiden nopean löytämisen, joita p
 
 Kolmas kappale paneutuu yhdisteiden syntetisointiin ja kuinka sitä voidaan toteuttaa hyödyntämällä koneoppimismalleja.
 Kappaleessa käsitellään, kuinka syntetisointia voidaan suunnitella retrosynteesianalyysin avulla, mikä tekee yhdisteiden retrosyntetisointianalyysista hankalaa ja mitä ratkaisuja tähän on kehitetty.
-Kappale kertoo CASP-menetelmistä (Computer Aided Synthesis Planning) ja kuinka tämä liittyy retrosyntetisointianalyysiin.
+Kappale kertoo CASP-menetelmistä (Computer Aided Synthesis Planning) ja kuinka nämä liittyvät retrosyntetisointianalyysiin.
 Kappaleessa avataan myös kahden eri koneoppimismallin toimintaa, jotka on kehitetty auttamaan eri yhdisteiden syntetisointisuunnittelussa.
 
 \chapter{Kemiallinen data}
 
-Tässä kappaleessa kerrotaan pintapuolisesti, minkälaista dataa käytetään koneppimismallien kouluttamisessa.
+Tässä kappaleessa kerrotaan lyhyesti, minkälaista dataa käytetään koneppimismallien kouluttamisessa.
 Kappaleessa keskitytään datatyyppeihin, joita käytetään koneoppimismalleissa, joiden toimintaa tullaan avaamaan tämän tutkielman muissa osissa.
 Koneoppimismallit, joiden toimintaa avataan, käyttävät datatyyppejä, joilla kuvataan pienyhdisteitä.
 Tämän takia kappaleessa keskitytään vain pienyhdisteitä kuvaaviin datatyyppeihin.
@@ -249,7 +249,7 @@ Kuvassa~\ref{fig:melatonin} on esitetty melatoniiniyhdiste ja kuinka se kuvataan
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=6cm, height=6cm]{melatonin-smiles.png}
+    \includegraphics[width=6.5cm, height=6.5cm]{melatonin-smiles.png}
     \caption{Melatoniiniyhdiste, kuinka se kuvataan graaffina ja SMILES-merkijonona.
         Kuva on tuotettu hyödyntämällä RDKit-kirjastoa.}
     {\label{fig:melatonin}}
@@ -304,7 +304,7 @@ PubChem on Yhdysvaltojen terveysviraston (National Institute of Health) ylläpit
 Kemiallisten yhdisteiden avaruudella tarkoitetaan kaikkien uniikkien yhdisteiden lukumäärää.
 On arvioitu, että erilaisia kemiallisia yhdisteitä, jotka voivat esiintyä huoneenlämmössä nesteessä, voi olla välillä \(10^{18} - 10^{180}\)~\cite{SotrifferChristoph2011VSPC}.
 Yhdisteet, jotka täyttävät lääkkeeltä vaaditut kriteerit, on puolestaan arvioitu olevan noin \(10^{60}\)~\cite{SotrifferChristoph2011VSPC}.
-Erillaisten yhdisteiden suuri lukumäärä esittää tarpeen tehokkaille algoritmeille ja menetelmille, jotka auttavat karsimaan tästä suuresta määrästä kemiallisia yhdisteitä vain lupaavimmat.
+Erilaisten yhdisteiden suuri lukumäärä esittää tarpeen tehokkaille algoritmeille ja menetelmille, jotka auttavat karsimaan tästä suuresta määrästä kemiallisia yhdisteitä vain lupaavimmat.
 
 Virtuaalinen seulonta (Virtual Screening) on suosittu lähestymistapa uusien lääkkeiden tai lääkkeeksi kelpaavien yhdisteiden löytämiseksi.
 Virtuaalinen seulonta käsittää joukon menetelmiä, joissa tietokoneita hyväksi käyttäen karsitaan yhdisteiden avaruudesta vain tietyt kriteerit täyttävät yhdisteet~\cite{SotrifferChristoph2011VSPC}.
@@ -350,13 +350,13 @@ Algoritmi käyttää PPN-verkkoa ennustaessaan kehitetyn molekyylin ominaisuuksi
 Näiden tietojen avulla algoritmi laskee kehitetyille yhdisteille numeeriset arvot ja palauttaa yhdisteen, joka saa parhaimman arvon.
 
 Data, jolla mallit koulutetaan, on peräisin ZINC-tietokannasta ja DRD2-dataseteistä.
-ZINC on ilmainen tietokanta, joka sisältää tietoa lääkeyhdsteistä, ja jota voidaan käyttää virtuaalisessa seulonnassa~\cite{ZINC}.
-ZINC tietokantaa ylläpitää Irwin ja Shoichet laboratoriot Kalifornian yliopistossa.
+ZINC on ilmainen tietokanta, joka sisältää tietoa lääkeyhdisteistä, ja jota voidaan käyttää virtuaalisessa seulonnassa~\cite{ZINC}.
+ZINC-tietokantaa ylläpitää Irwin ja Shoichet laboratoriot Kalifornian yliopistossa.
 DRD2-datasetti sisältää tietoa yhdisteistä ja kuinka nämä yhdisteet reagoivat dopamiini 2 reseptorin kanssa.
 DRD2-datasetti luotiin Olivecrona et al.\ tutkimuksen yhteydessä ja sitä käytetään samalla tavalla CMG-mallissa~\cite{ShinBonggun}.
 
 Data sisältää kaiken kaikkiaan 257 565 molekyyliä, joista luodaan pareja.
-Parit muodostetaan siten, että kahden molekyylin välinen tanimoto-indeksi on yli 0.4.
+Parit muodostetaan siten, että kahden molekyylin välinen tanimoto-indeksi on yli 0,4.
 Näitä \((X,Y)\) pareja muodostetaan kaiken kaikkiaan 10 827 615 kappaletta.
 Lisäksi kaikille molekyyleille lasketaan niiden eri kemiallisten ominaisuuksien arvot, jotka ovat PlogP, QED ja DRD2.
 Nämä kuvaavat eri ominaisuuksia, joita malli pyrkii optimoimaan halutulla tavalla.
@@ -383,7 +383,7 @@ Lisäksi MTN-verkon piilotettuun tasoon on lisätty tietoa kemiallisista ominais
 
 \subsubsection{PPN-verkko}
 
-PPN-verkon rakenne ja toiminta periaate näkyvät kuvassa~\ref{fig:cmg-model-ppn}.
+PPN-verkon rakenne ja toimintaperiaate näkyvät kuvassa~\ref{fig:cmg-model-ppn}.
 PPN-verkko ottaa syötteenä ennustetun molekyylin merkkijonon (\(y_i\)).
 Tämä merkkijono muunnetaan piilotetuiksi vektoreiksi hyödyntäen Bidirectional Long Short-Term Memory (BiLSTM) -tasoa.
 BiLSTM-taso on rakenteeltaan samanlainen kuin LSTM-taso, mutta koska se käsittelee syötteen sekä alku-loppu suunnassa että loppu-alku suunnassa se oppii tietyn merkin kontekstin molemmissa suunnissa.
@@ -487,24 +487,24 @@ Monte Carlo -puuhakualgoritmi etsii näiden suodatettujen muunnosten avulla retr
 
 ICHO-malli palauttaa parhaan muunnossäännön, jonka avulla haluttu yhdiste voidaan muodostaa.
 ICHO-mallin toiminta on verrattavissa 3N-MCTS-mallissa käytetettyihin koneoppimismalleihin, jotka yhdessä suodattavat mahdollisista muunnoksista vain parhaimmat, joiden avulla yhdiste voidaan muodostaa.
-ICHO-malli käyttää sekä samananlaista reaktiodataa kuin 3N-MCTS, mutta se myös hyödyntää ammattikemistien luomia heuristisia sääntöjä.
+ICHO-malli käyttää sekä samananlaista reaktiodataa kuin 3N-MCTS-malli, mutta se myös hyödyntää ammattikemistien luomia heuristisia sääntöjä.
 
 \subsection{3N-MCTS-malli}
 
 3N-MCTS on koneoppimismalli, jonka on kehittänyt Marwin et al.\ tutkimusryhmä.
-Se etsii retrosynteesipolkuja yksinkertaisempiin ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}.
-Kun retrosynteesipolku on varmennettu ja todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
+Se etsii retrosyntetisointipolkuja yksinkertaisempiin ja saatavilla oleviin lähtöaineisiin~\cite{SeglerMarwinHS2018Pcsw}.
+Kun retrosyntetisointipolku on varmennettu ja todettu toimivaksi, niin syötteenä annettu yhdiste on mahdollista syntetisoida laboratoriossa.
 
 3N-MCTS-malli muodostuu kolmesta eri koneoppimismallista ja Monte Carlo -puuhakual-goritmista (Monte Carlo Tree Search, MCTS).
 Neuroverkot on koulutettu avustamaan puuhakualgoritmia etenemään järkevimpään suuntaan, kun hakualgoritmi etsii syntetisointipolkuja ja tarkistamaan, onko ehdotettu reaktio mahdollinen kyseiselle molekyylille.
 
-Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (Expansion Policy Network, EPN), MCTS-algoritmin rollout toimintoa tukeva Rollout -verkko (Rollout Policy Network, RPN) ja verkko, joka tarkistaa, onko syntetisointipolku toteutettavissa (In-scope Filter Network, IFN).
+Neuroverkot ovat hakupuun laajentumisen suuntaa ohjaava verkko (Expansion Policy Network, EPN), MCTS-algoritmin rollout-toimintoa tukeva Rollout -verkko (Rollout Policy Network, RPN) ja verkko, joka tarkistaa, onko syntetisointipolku toteutettavissa (In-scope Filter Network, IFN).
 
 Data, jolla neuroverkot koulutetaan, on peräisin Reaxys -tietokannasta~\cite{reaxys}.
 Reaxyksen omistaa Elsevier kustantamo.
 Reaxys-tietokannan sisältämä data koostuu muunnossäännöistä (Transformation Rule), jotka kertovat, mitkä lähtöaineet reagoivat keskenään, mikä reaktio on kysessä ja mikä on reaktion lopputuote.
 Näitä sääntöjä käytetään mallien kouluttamisessa.
-Reaxys sisältää yli 12.4 miljoonaa sääntöä.
+Reaxys sisältää yli 12,4 miljoonaa sääntöä.
 Mallien kouluttamisessa käytetyt säännöt sisältävät vain yksivaiheisia kemiallisia reaktioita ja reaktioissa on mukana vain yhdestä kolmeen lähtötuotetta.
 Eri mallien kouluttamiseen käytetään tietokannasta eri kriteerein suodatettua dataa.
 Kaikki koneoppimismallit koulutetaan hyödyntämällä ADAM-optimoijaa.
@@ -516,25 +516,25 @@ ADAM-optimoija hyödyntää AdaGrad- ja RMSProp-optimoijien toiminnallisuuksia~\
 
 3N-MCTS-mallin IFN- ja EPN-verkot on kehitetty toimimaan yhdessä.
 Tutkittaessa puun tilaa \(S_i\) jokainen molekyyli syötetään EPN-verkolle ja se tulostaa, mitkä säännöt voivat muodostaa annetun yhdisteen.
-Tästä säännöstä saadaan selville, mitkä lähtöaineet voivat muodostaa annetun yhdisteen.
+Näistä säännöistä saadaan selville, mitkä lähtöaineet voivat muodostaa annetun yhdisteen.
 Nämä säännöt syötetään IFN-verkolle, joka suodattaa annetuista säännöistä toteutettavissa olevat vaihtoehdot.
 3N-MCTS-mallin suoritusjärjestys on esitetty kuvassa~\ref{fig:3n-mcts-model}.
 Tätä toiminnallisuutta iteroidaan mallissa seuraavassa järjestyksessä.
 
 \begin{enumerate}
     \item Ensimmäisessä vaiheessa algoritmi valitsee seuraavan lupaavimman tilan puusta kunnes puun lehti on saavutettu.
-          Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia \(d\) askelta eteenpäin samalla muodostaen synteesipolkua (Rollout).
+          Jos lehdessä käydään ensimmäisen kerran valintavaiheen aikana, niin lehti arvostellaan simuloimalla hakualgoritmia \(d\) askelta eteenpäin samalla muodostaen syntetisointipolkua (Rollout).
           Jos lehdessä käydään useamman kuin yhden kerran valintavaiheen aikana, niin mahdolliset säännöt, jotka muodostavat lehden, tutkitaan ja lisätään lehden lapsiksi (Expansion).
 
     \item Toisessa vaiheessa lupaavien tilojen lapset tutkitaan.
           Tällöin etsitään lupaavimmat säännöt, jotka muodostavat kyseisessä tilassa olevan yhdisteen.
 
     \item Kolmannessa vaiheessa tarkistetaan lehden tila.
-          Jos lehti on `todistetusti toimiva', niin algoritmi palauttaa luvun, mikä on suurempi kuin yksi, jolloin lehteä suositellaan käytettävän synteesipolussa.
-          Muussa tapauksessa lehdelle suoritetaan rollout, jolloin RPN antaa rekursiivisesti uusia sääntöjä niin kauan, kunnes lehti on pilkottu lähtöaineisiin tai kunnes suurin sallittu syvyys \(d\) on saavutettu.
+          Jos lehti on `todistetusti toimiva', niin algoritmi palauttaa luvun, mikä on suurempi kuin yksi, jolloin lehteä suositellaan käytettävän syntetisointipolussa.
+          Muussa tapauksessa lehdelle suoritetaan rollout-toiminto, jolloin RPN antaa rekursiivisesti uusia sääntöjä niin kauan, kunnes lehti on pilkottu lähtöaineisiin tai kunnes suurin sallittu syvyys \(d\) on saavutettu.
 
     \item Viimeisessä vaiheessa lehtien arvot päivitetään.
-          Jos lähtöaineet löydetään rolloutin aikana, niin lehti saa palkinnoksi arvon 1.
+          Jos lähtöaineet löydetään rollout-toiminnon aikana, niin lehti saa palkinnoksi arvon 1.
           Jos kaikkia lähtöaineita ei löydetty, annetaan lehdelle osittainen palkinto.
           Lehti saa arvon -1, jos yhtään lähtöainetta ei löytynyt.
 \end{enumerate}
@@ -547,8 +547,8 @@ Tätä toiminnallisuutta iteroidaan mallissa seuraavassa järjestyksessä.
     {\label{fig:3n-mcts-model}}
 \end{figure}
 
-Saattaa kuitenkin olla, että synteesipolkua ei voida luoda.
-Joko synteesipolun tutkimiseen menee liian kauan aikaa tai synteesipolku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
+Saattaa kuitenkin olla, että syntetisointipolkua ei voida luoda.
+Joko syntetisointipolun tutkimiseen menee liian kauan aikaa tai syntetisointipolku sisältää liian monta vaihetta yhdisteen syntetisoimiseen.
 
 
 \subsubsection{EPN-verkko}
@@ -661,12 +661,12 @@ Sokkotestissä 57 prosenttia henkilöistä valitsi 3N-MCTS-mallin muodostaman po
 
 \subsection{ICHO-malli}
 
-On myös yleistä, että retrosynteesipolkuja suunnitelevat mallit hyödyntävät heurustiikkaa~\cite{ExpertKnowledgeRetorsynthesis}.
+On myös yleistä, että retrosyntetisointipolkuja suunnitelevat mallit hyödyntävät heurustiikkaa~\cite{ExpertKnowledgeRetorsynthesis}.
 Badowski et al.\ ryhmä on kehittänyt koneoppimismallin, joka ehdottaa tietylle yhdisteelle parasta mahdollista muunnossääntöä, jonka avulla yhdiste voidaan muodostaa.
 Kehitetty ICHO-malli hyödyntää  neuroverkkoja ja ammattikemistien muodostamia heuristisia sääntöjä pisteyttäessään muunnossääntöjä.
 ICHO-malli on verrattavissa 3N-MCTS-mallin EPN- ja IFN-verkkojen toimintaan.
 
-ICHO-mallin (Instytut Chemii Organicznej) kouluttamisessa käytettiin dataa 1.4 miljoonasta reaktiosta ja niiden lopputuotteista.
+ICHO-mallin (Instytut Chemii Organicznej) kouluttamisessa käytettiin dataa 1,4 miljoonasta reaktiosta ja niiden lopputuotteista.
 Data saadaan julkaistuista artikkeleista ja patenteista.
 Reaktiolta kuitenkin vaaditaan, että ainakin yksi reaktio per lopputuote löytyy myös Chematican Expert-Coded säännöstöstä.
 Datasta suodatettiin pois myös suojaryhmien säännöt.
@@ -679,11 +679,11 @@ Tätä mallia kutsutaan ICHO+ -malliksi, ja sitä käytetään vertailemaan ICHO
 Kehitetyssä ICHO-mallissa on kaksi tärkeää asiaa.
 
 \begin{enumerate}
-    \item Se laskee reaktioiden ilmaantumistodennäköisyyttä uudelleen perustaen kuinka usein ne ilmaantuvat ammattilaisten käyttämissä reaktioissa.
+    \item Se laskee reaktioiden ilmaantumistodennäköisyyttä uudelleen perustuen kuinka usein ne ilmaantuvat ammattilaisten käyttämissä reaktioissa.
           Tämä laskenta tapahtuu mallin koulutusvaiheessa.
           Käytännössä tämä tarkoittaa, että koulutusvaiheessa mallilla on tieto, kuinka monta kertaa tietty reaktiosääntö ilmeni datassa ja kuinka monta kertaa kyseistä reaktiota käytettiin luomaan jokin lopputuote.
           Malli laskee näiden välisen suhteen, jolloin se pystyy määrittämään, kuinka usein kyseistä reaktiota kannattaa käyttää.
-          Jos esimerkiksi reaktio on mainittu datassa kymmenen kertaa ja samassa datassa kyseistä reaktiota käytetään kymmenen kertaa luomaan jokin lopputuote, niin malli käyttää tätä reaktiota, koska se luokitellaan `Helpoksi ja varmaksi toteuttaa'.
+          Jos esimerkiksi reaktio on mainittu datassa kymmenen kertaa ja samassa datassa kyseistä reaktiota käytetään kymmenen kertaa luomaan jokin lopputuote, niin malli käyttää tätä reaktiota, koska se luokitellaan `helpoksi ja varmaksi toteuttaa'.
           Jos suhde taas on pieni, niin reaktio luokitellaan `vaikeaksi toteuttaa'.
 
     \item Se kykenee antamaan suuremman kuin nollatodennäköisyyden reaktiolle, joka ei ilmaantunut koulutusvaiheessa.
@@ -699,9 +699,9 @@ Kehitetyssä ICHO-mallissa on kaksi tärkeää asiaa.
     {\label{fig:icho-neuralnetwork}}
 \end{figure}
 
-ICHO-malli muodostuu neljästä tasosta, joista kolme tasoa ovat täysin kytkettyjä neuroverkkoja ja viimeinen taso on sigmoid-taso
-Malli on esitetty kuvassa~\ref{fig:icho-neuralnetwork}.
-Samalla tavalla kuin 3N-MCTS-mallissa, ICHO-malli käyttää myös ELU-aktivointifunktiota.
+ICHO-malli muodostuu neljästä tasosta, joista kolme tasoa ovat täysin kytkettyjä neuroverkkoja ja viimeinen taso on sigmoid-taso.
+ICHO-mallin rakenne on esitetty kuvassa~\ref{fig:icho-neuralnetwork}.
+Samalla tavalla kuin 3N-MCTS-mallissa, ICHO-mallissa käytetään myös ELU-aktivointifunktiota.
 ICHO-malli käyttää Batch normaliztion -algoritmia koulutusvaiheessa.
 Batch Normalization -algoritmin idea on standardoida koulutusvaiheessa tasolle tuleva syöte, jolla verkon painoja muutetaan.
 
@@ -711,7 +711,7 @@ Lisäksi luotiin SW-malli, joka ei käy läpi kaikkia mahdollisia reaktioita, va
 Tätä mallia kutsutaan SW2-malliksi ja tästä luodusta heuristisesta mallista käytetään nimeä SW2+.
 Lisäksi vertailumalliksi luodaan täysin heuristinen \(SMALLER\)-malli, joka arvioi reaktioita sen mukaan, kuinka paljon ne rakenteellisesti yksinkertaistavat lopputuotetta.
 Tämä malli suosii reaktioita, jotka pilkkovat molekyylin keskeltä eli puolittavat sen.
-Tämä on haluttu lähestymistapa retrosynteesiin, koska se minimoi syntetisointivaiheiden määrän.
+Tämä on haluttu lähestymistapa retrosyntetisointiin, koska se minimoi syntetisointivaiheiden määrän.
 
 \subsubsection{ICHO-mallin suorituskyky}
 
@@ -724,7 +724,7 @@ Mitä suurempi osa ehdotetuista muunnossäänöistä löytyy kirjallisuudesta, s
 Kuvaajaan~\ref{fig:icho-performance} on piirretty vain eri mallien heuristiikkaa hyödyntävät versiot, koska ne pärjäsivät testeissä ei-heuristisia versioita paremmin.
 Lisäksi kuvaajaan on piirretty \emph{SMALLER}-malli vertailuksi.
 
-Nähdään, että ICHO+ -malli pisteyttää kirjallisuuteen perustuvat muunnossäännöt paremmin kuin muut mallit, vaikkakin eroavaisuudet ovat vähäiset.
+Kuvaajasta~\ref{fig:icho-performance} nähdään, että ICHO+ -malli pisteyttää kirjallisuuteen perustuvat muunnossäännöt paremmin kuin muut mallit, vaikkakin eroavaisuudet ovat vähäiset.
 
 Kuvaajan~\ref{fig:icho-performance} kuvaajista b) ja c) nähdään, että pienelläkin koulutusaineistolla ICHO+ -malli sijoittaa kirjallisuuden muunnossäännöt korkeammalle kuin muut mallit ja mitä enemmän koulutuaineistoa käytetään mallin kouluttamiseen sitä suurempi osa korkeimmin sijoitetuista muunnossäännöistä perustuvat kirjallisuuteen.
 Mielenkiintoinen huomio, mikä kuvaajasta nähdään on, että \emph{SMALLER}-malli sijoittaa kirjallisuuteen perustuvat säännöt pienemmällä koulutusaineistolla korkeammalle kuin suuremmalla aineistomäärällä.
@@ -777,21 +777,22 @@ Kappaleessa avattiin yhden toteutetun koneoppimismallin toimintaa, joka luo uusi
 Tämä antoi hieman ajatusta, millä tavalla uusia yhdisteitä voidaan etsiä ja mitä asioita liittyy lääkkeiden etsimiseen.
 
 Kappaleessa neljä käytiin läpi, mitä asioita liittyy yhdisteiden syntetisointisuunnitteluun.
-Tätä aihetta avattiin tutkielmassa sen takia, koska syntetisointisuunnittelu on osa lääkkeiden löytämis- ja kehitysvaihetta, ja tämän aiheen tutkiminen voi luoda uusia ja tehokkaampia tapoja, kuinka syntetisointia voidaan toteutaa käytännössä.
+Tätä aihetta avattiin tutkielmassa, koska syntetisointisuunnittelu on osa lääkkeiden löytämis- ja kehitysvaihetta.
+Tämän aiheen tutkiminen voi luoda uusia ja tehokkaampia tapoja, kuinka syntetisointia voidaan toteutaa käytännössä.
 Vaikka tutkielmassa keskityttiin syntetisointisuunnitteluun lääkkekehityksen näkökulmasta, niin syntetisointisuunnittelua voidaan tehostaa koneoppimismenetelmillä kaikessa materiaalitieteissä niin kauan, kun aiheeseen liittyvää dataa on saatavilla.
 
 Kappaleessa neljä avattiin myös kahden eri koneoppimismallin toimintaa.
-Ensimmäinen malli, 3N-MCTS, on kokonaisempi malli, joka palauttaa yhdisteen syntetisointipolun.
+3N-MCTS on kokonaisempi malli, joka palauttaa yhdisteen syntetisointipolun.
 Tämän mallin avaaminen antaa ajatusta, kuinka puuhaku- tai reitinhakualgoritmeja voidaan käyttää syntetisointipolkujen etsimisessä ja kuinka neuroverkot toimivat niiden tukena.
 Mallin toimintaperiaatteen avaaminen myös näyttää, kuinka raakaa reaktiodataa voidaan käyttää syntetisoinninsuunnittelussa.
-Toinen malli, ICHO, taas puolestaan palauttaa parhaimman muunnossäännön, jonka avulla yhdiste voidaan luoda.
-Se ei etsi syntetisointireittejä, mutta se käyttää heuristiikka apunaan muunnossääntöjen etsimisessä.
-Näiden mallien avaaamisen tarkoituksena on näyttää, että syntetisointisuunnittelua voidaan suorittaa usealla tavalla ja kuinka eri tapojen suorituskykyä voidaan verrata toisiinsa.
+ICHO-malli puolestaan palauttaa parhaimman muunnossäännön, jonka avulla yhdiste voidaan luoda.
+Se ei etsi syntetisointireittejä, mutta se käyttää heuristiikkaa apunaan muunnossääntöjen etsimisessä.
+Näiden mallien avaamisen tarkoituksena on näyttää, että syntetisointisuunnittelua voidaan suorittaa usealla tavalla ja kuinka eri tapojen suorituskykyä voidaan verrata toisiinsa.
 
 Lääkekehitys on pitkä ja kallis prosessi, ja koneoppimismenetelmillä on mahdollisuus vähentää siihen kuluvaa aikaa ja rahaa.
 Tutkielmassa avatuilla koneoppimismalleilla ja useilla muilla kehitetyillä malleilla voidaan tehostaa lääkekehityksen vaiheita.
 Tutkimusta tehdään tällä tutkimusalueella paljon ja uusia malleja kehitetään jatkuvasti.
-Tutkimuksen ja kehitettyjen koneoppimismallien määrä näyttääkin viittaavaan, että tulevaisuudessa koneoppiminen tulee olemaan merkittävä osa lääkekehitystä.
+Tutkimuksen ja kehitettyjen koneoppimismallien määrä näyttääkin viittaavan, että tulevaisuudessa koneoppiminen tulee olemaan merkittävä osa lääkekehitystä.
 
 \cleardoublepage{}                          %fixes the position of bibliography in bookmarks
 \phantomsection{}
